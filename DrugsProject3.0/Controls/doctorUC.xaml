@@ -55,7 +55,7 @@
               Width="150"
                ToolTip="Resource name: MaterialDesignRaisedAccentButton"
               materialDesign:RippleAssist.Feedback="#DD000000" Content="הוסף"/>
-            </StackPanel>
+            </StackPanel> 
             </GroupBox>
             <Button Content="חזור" Grid.Column="1" HorizontalAlignment="Left" Margin="291,408,0,0" VerticalAlignment="Top" Width="74"/>
         </Grid>
