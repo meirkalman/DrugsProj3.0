@@ -59,26 +59,30 @@
     ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="252,340,33,48" Content="סיום"/>
         <TextBox HorizontalAlignment="Left" IsEnabled="False" Height="319" Margin="10,91,0,0" TextWrapping="Wrap" Text="היסטוריה רפואית:" VerticalAlignment="Top" Width="376"/>
 
+      
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="161" Margin="10,91,0,0" TextWrapping="Wrap" Text="רשימת התרופות:&#xD;&#xA;" VerticalAlignment="Top" Width="188"/>
         <materialDesign:PopupBox
-  Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
+  Style="{StaticResource MaterialDesignMultiFloatingActionAccentPopupBox}"
   PlacementMode="BottomAndAlignCentres"
-  ToolTipService.Placement="Right"
-  ToolTip="PopupBox, Style MaterialDesignMultiFloatingActionPopupBox"
-  Opened="PopupBox_OnOpened"
-  Closed="PopupBox_OnClosed" Grid.Column="1" Margin="81,268,0,96">
+  ToggleCheckedContentCommandParameter="wowsers"
+  ToolTip="PopupBox, Style MaterialDesignMultiFloatingActionAccentPopupBox" Grid.Column="1" Margin="78,257,0,137">
+            <materialDesign:PopupBox.ToggleCheckedContent>
+                <materialDesign:PackIcon
+      Kind="Pencil"
+      Width="24"
+      Height="24" />
+            </materialDesign:PopupBox.ToggleCheckedContent>
             <StackPanel>
                 <Button
-      ToolTip="PDF צור מרשם ב  "
-      Opacity="0.5">
-                    1
+      ToolTip="הדפס מרשם">
+                    ✍
                 </Button>
+       
                 <Button
-      ToolTip="הדפס את המרשם">
-                    2
+      ToolTip=" PDF צור קובץ">
+                    +
                 </Button>
-
             </StackPanel>
         </materialDesign:PopupBox>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="161" Margin="10,91,0,0" TextWrapping="Wrap" Text="רשימת התרופות:&#xD;&#xA;" VerticalAlignment="Top" Width="188"/>
     </Grid>
 </UserControl>

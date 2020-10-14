@@ -1,12 +1,11 @@
-﻿<Window x:Class="DrugsProject3._0.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DrugsProject3._0"
+        xmlns:Controls="clr-namespace:DrugsProject3._0.Controls" x:Class="DrugsProject3._0.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="604.038" Width="980">
+    <Grid Margin="0,0,0,0"/>
 </Window>
