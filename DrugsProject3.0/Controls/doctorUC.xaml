@@ -50,12 +50,12 @@
                     <TextBox materialDesign:HintAssist.Hint="שם משפחה" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="10"  />
                     <TextBox materialDesign:HintAssist.Hint="תעודת זהות" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="10" />
                     <DatePicker  materialDesign:HintAssist.Hint="תאריך לידה" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="120,0,121,0" Width="158" />
-                    <Button
+                    <Button Command="{Binding AddPatientCommand}"
                 Margin="30"
                 Style="{StaticResource MaterialDesignRaisedAccentButton}"
               Width="150"
                ToolTip="Resource name: MaterialDesignRaisedAccentButton"
-              materialDesign:RippleAssist.Feedback="#DD000000" Content="הוסף"/>
+              materialDesign:RippleAssist.Feedback="#DD000000" Content="הוסף" />
             </StackPanel> 
             </GroupBox>
             <Button Content="חזור" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedAccentButton}" HorizontalAlignment="Left" Margin="291,408,0,0" VerticalAlignment="Top" Width="74"/>

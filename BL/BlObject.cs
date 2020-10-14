@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    public class BlObject
+    public class BlObject: IBL
     {
 
         public void AddMedicine(Medicine medicine)
