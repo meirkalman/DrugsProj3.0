@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <GroupBox
   Header="Doctor"
-        FontSize="24"
+        FontSize="20"
   Style="{DynamicResource MaterialDesignGroupBox}"
  
   materialDesign:ShadowAssist.ShadowDepth="Depth3"
@@ -22,13 +22,13 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-
-            <StackPanel Grid.Column="1" Margin="0,10,-14,0">
-                <TextBox Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" IsEnabled="False" Height="37" Margin="55" TextWrapping="Wrap" Text="  חיפוש מטופל קיים " Width="232"/>
-                <ComboBox
+            <GroupBox
+  Header=" חיפוש מטופל קיים " Grid.Column="1" Margin="10,49,10,47" >
+                <StackPanel Grid.Column="1">
+                    <ComboBox
                 Grid.Column="1"
                  Height="39"
-                Width="180"
+                Width="126"
                  HorizontalAlignment="Center"
   materialDesign:HintAssist.Hint="תעודת זהות"
   materialDesign:HintAssist.HintOpacity=".26"
@@ -41,21 +41,23 @@
 
                 <Button Content="הוספת מרשם" Width="120"  Style="{StaticResource MaterialDesignRaisedAccentButton}" />
             </StackPanel >
-
-            <StackPanel>
-                <TextBox Grid.Column="0" IsEnabled="False" HorizontalAlignment="Center" Height="39" Margin="55" TextWrapping="Wrap" Text="    הוספת מטופל  " VerticalAlignment="Top" Width="253"/>
-                <TextBox materialDesign:HintAssist.Hint="שם פרטי" HorizontalAlignment="Center" Height="39"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="184" Margin="104,0,103,0"/>
-                <TextBox materialDesign:HintAssist.Hint="שם משפחה" Height="39" TextWrapping="Wrap"  Margin="108,0"/>
-                <TextBox materialDesign:HintAssist.Hint="תעודת זהות" Height="39" TextWrapping="Wrap"  Margin="108,0"/>
-                <DatePicker  materialDesign:HintAssist.Hint="תאריך לידה" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="120,0,121,0" />
-                <Button
-                Margin="50"
+                </GroupBox>
+            <GroupBox
+  Header=" הוספת מטופל " Grid.Column="0" Margin="10,49,10,47" >
+                <StackPanel Margin="0,0,0,5">
+                    <TextBox materialDesign:HintAssist.Hint="שם פרטי" HorizontalAlignment="Center" Margin="10" Height="39"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="129" />
+                    <TextBox materialDesign:HintAssist.Hint="שם משפחה" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="10"  />
+                    <TextBox materialDesign:HintAssist.Hint="תעודת זהות" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="10" />
+                    <DatePicker  materialDesign:HintAssist.Hint="תאריך לידה" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="120,0,121,0" Width="158" />
+                    <Button
+                Margin="30"
                 Style="{StaticResource MaterialDesignRaisedAccentButton}"
               Width="150"
                ToolTip="Resource name: MaterialDesignRaisedAccentButton"
               materialDesign:RippleAssist.Feedback="#DD000000" Content="הוסף"/>
             </StackPanel>
-
+            </GroupBox>
+            <Button Content="חזור" Grid.Column="1" HorizontalAlignment="Left" Margin="291,408,0,0" VerticalAlignment="Top" Width="74"/>
         </Grid>
     </GroupBox>
 </UserControl>
