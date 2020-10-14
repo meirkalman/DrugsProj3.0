@@ -1,4 +1,5 @@
-﻿<UserControl x:Class="DrugsProject3._0.Controls.doctorUC"
+﻿<UserControl Name="uu"
+    x:Class="DrugsProject3._0.Controls.doctorUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -45,7 +46,7 @@
             <GroupBox
   Header=" הוספת מטופל " Grid.Column="0" Margin="10,49,10,47" >
                 <StackPanel Margin="0,0,0,5">
-                    <TextBox materialDesign:HintAssist.Hint="שם פרטי" HorizontalAlignment="Center" Margin="10" Height="39"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="129" />
+                    <TextBox materialDesign:HintAssist.Hint="שם פרטי" HorizontalAlignment="Center" Margin="10" Height="39"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="111" />
                     <TextBox materialDesign:HintAssist.Hint="שם משפחה" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="10"  />
                     <TextBox materialDesign:HintAssist.Hint="תעודת זהות" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="10" />
                     <DatePicker  materialDesign:HintAssist.Hint="תאריך לידה" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="120,0,121,0" Width="158" />
@@ -57,7 +58,7 @@
               materialDesign:RippleAssist.Feedback="#DD000000" Content="הוסף"/>
             </StackPanel> 
             </GroupBox>
-            <Button Content="חזור" Grid.Column="1" HorizontalAlignment="Left" Margin="291,408,0,0" VerticalAlignment="Top" Width="74"/>
+            <Button Content="חזור" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedAccentButton}" HorizontalAlignment="Left" Margin="291,408,0,0" VerticalAlignment="Top" Width="74"/>
         </Grid>
     </GroupBox>
 </UserControl>
