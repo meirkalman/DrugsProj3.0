@@ -7,5 +7,10 @@
         xmlns:Controls="clr-namespace:DrugsProject3._0.Controls" x:Class="DrugsProject3._0.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="604.038" Width="980">
-    <Grid Margin="0,0,0,0"/>
+    <Grid Margin="0,0,0,0">
+        <Viewbox>
+            <Controls:doctorUC HorizontalAlignment="Left" Height="554" Margin="10,10,0,0" VerticalAlignment="Top" Width="952"/>
+        </Viewbox>
+      
+    </Grid>
 </Window>
