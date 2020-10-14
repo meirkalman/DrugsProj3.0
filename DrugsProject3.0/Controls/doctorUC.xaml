@@ -48,6 +48,6 @@
                ToolTip="Resource name: MaterialDesignRaisedAccentButton"
               materialDesign:RippleAssist.Feedback="#DD000000" Content="הוסף"/>
         </StackPanel>
-        <TextBox HorizontalAlignment="Center" Height="38"   FontSize="24" TextWrapping="Wrap" Text="רופא" VerticalAlignment="Top" Width="64"  Grid.ColumnSpan="2" Margin="368,0"/>
+        <TextBox HorizontalAlignment="Center" Height="38"  FontSize="24" TextWrapping="Wrap" Text="רופא" VerticalAlignment="Top" Width="64"  Grid.ColumnSpan="2" Margin="368,0"/>
     </Grid>
 </UserControl>
