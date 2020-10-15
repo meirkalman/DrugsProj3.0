@@ -25,6 +25,19 @@ namespace DrugsProject3._0
         {
             InitializeComponent();
         }
-        
+
+
+        UserControl Uc = new doctorUC();
+
+        public void ShowControl(UserControl uc)
+        {
+            MainWindowGrid.Children.Clear();
+            MainWindowGrid.Children.Add(uc);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ShowControl(Uc);
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace DrugsProject3._0.Controls
             InitializeComponent();
             AddPatientVM VM = new AddPatientVM();
             DataContext = VM;
-    }
+        }
 
        
     }
