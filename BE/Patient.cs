@@ -16,10 +16,17 @@ namespace BE
         public string Address { get; set; }
         public List<DoctorVisit> MedicalRecord { get; set; }
 
+        public DateTime DateOfBirth { get; set; }
 
-        public Patient()
+        public Patient(int id, string fname, string lname, int phoneNumber, string address, DateTime dateOfBirth)
         {
-            Id = 3;
+            Id = id;
+            Fname = fname;
+            Lname = lname;
+            //  PhoneNumber = phoneNumber;
+            Address = address;
+            DateOfBirth = dateOfBirth;
+
         }
     }
 }

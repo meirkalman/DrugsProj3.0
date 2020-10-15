@@ -15,17 +15,18 @@ namespace DrugsProject3._0.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         public AddPatientCommand AddCommand { get; set; }
-        private Patient patientV { get; set; }
+        public Patient PatientV { get; set; }
        
-        public AddPatientModel addPatientModel { get; set; }
+        public AddPatientModel AddPatientM { get; set; }
 
         public AddPatientVM()
         {
-            AddCommand = new AddPatientCommand();
+            AddPatientM = new AddPatientModel();
+            AddCommand = new AddPatientCommand(this);
         }
         public void AddPatient()
         {
-            addPatientModel.AddPatient(patientV);
+            AddPatientM.AddPatient(PatientV);
         }
     }
 }

@@ -19,6 +19,10 @@ namespace DrugsProject3._0.Commands
 
         public AddPatientVM CurrentVM { get; set; }
 
+        public AddPatientCommand(AddPatientVM addVM)
+        {
+            CurrentVM = addVM;
+        }
         public bool CanExecute(object parameter)
         {
             return true;
@@ -26,8 +30,8 @@ namespace DrugsProject3._0.Commands
 
         public void Execute(object parameter)
         {
-            MessageBox.Show("yes");
-          //  CurrentVM.AddPatient();
+          //  MessageBox.Show("yes");
+            CurrentVM.AddPatient();
         }
     }
 }

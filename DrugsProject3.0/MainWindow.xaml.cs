@@ -1,4 +1,5 @@
 ﻿using DrugsProject3._0.Controls;
+using DrugsProject3._0.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,10 +25,12 @@ namespace DrugsProject3._0
         public MainWindow()
         {
             InitializeComponent();
+           
+
         }
 
 
-        UserControl Uc = new doctorUC();
+    UserControl Uc = new doctorUC();
 
         public void ShowControl(UserControl uc)
         {
