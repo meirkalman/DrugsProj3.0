@@ -46,14 +46,14 @@
   Header=" הוספת מטופל " Grid.Column="0" Margin="10,49,10,24" >
                 <Grid>
 
-                    <TextBox materialDesign:HintAssist.Hint="שם פרטי" Text="{Binding Patient.Fname}" HorizontalAlignment="Center" Margin="191,10,35,0" Height="39"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="127" />
-                    <TextBox materialDesign:HintAssist.Hint="שם משפחה" Text="{Binding Patient.Lname}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="29,10,198,244" Width="126"  />
-                    <TextBox materialDesign:HintAssist.Hint="תעודת זהות" Text="{Binding Patient.Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="31,89,198,166" Width="124" />
-                    <TextBox materialDesign:HintAssist.Hint="מספר טלפון" Text="{Binding Patient.Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="191,89,38,166" Width="124" />
-                    <TextBox materialDesign:HintAssist.Hint="כתובת" Text="{Binding Patient.Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="31,152,198,103" Width="124" />
+                    <TextBox materialDesign:HintAssist.Hint="שם פרטי" Text="{Binding Fname}" HorizontalAlignment="Center" Margin="198,27,41.4,0" Height="39"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="127" />
+                    <TextBox materialDesign:HintAssist.Hint="שם משפחה" Text="{Binding Lname}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="29,10,198,244" Width="126"  />
+                    <TextBox materialDesign:HintAssist.Hint="תעודת זהות" Text="{Binding Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="31,89,198,166" Width="124" />
+                    <TextBox materialDesign:HintAssist.Hint="מספר טלפון" Text="{Binding PhoneNum}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="191,89,38,166" Width="124" />
+                    <!--<TextBox materialDesign:HintAssist.Hint="כתובת" Text="{Binding Patient.Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="31,152,198,103" Width="124" />-->
                     <TextBox materialDesign:HintAssist.Hint="היסטוריה רפואית" IsEnabled="False" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="144,208,35,47" Width="174" />
 
-                    <DatePicker  materialDesign:HintAssist.Hint="תאריך לידה"  Text="{Binding Patient.DateOfBirth}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="194,152,38,103" Height="39" />
+                    <DatePicker  materialDesign:HintAssist.Hint="תאריך לידה"  Text="{Binding }" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="194,152,38,103" Height="39" />
                     <Button Command="{Binding AddCommand}"
                 Margin="107,289,109,10"
                 Style="{StaticResource MaterialDesignRaisedAccentButton}"
