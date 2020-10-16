@@ -14,9 +14,54 @@ namespace DrugsProject3._0.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private string fname;
+        public string Fname
+        {
+            get { return fname; }
+            set
+            {
+                fname = null;
+                fname = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fname"));
+            }
+        }
+
+        private string lname;
+        public string Lname
+        {
+            get { return lname; }
+            set
+            {
+                lname = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lname"));
+            }
+        }
+        private string id;
+        public string Id
+        {
+            get { return id; }
+            set
+            {
+                id = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Id"));
+            }
+        }
+        private DateTime dateOfBirth;
+        public DateTime DateOfBirth
+        {
+            get { return dateOfBirth; }
+            set
+            {
+                dateOfBirth = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DateOfBirth"));
+            }
+        }
+
+        public Patient PatientV = new Patient(Id, fname, lname, DateOfBirth); 
+
         public AddPatientCommand AddCommand { get; set; }
-        public Patient PatientV { get; set; }
        
+
         public AddPatientModel AddPatientM { get; set; }
 
         public AddPatientVM()
@@ -28,5 +73,7 @@ namespace DrugsProject3._0.ViewModels
         {
             AddPatientM.AddPatient(PatientV);
         }
+
+        
     }
 }
