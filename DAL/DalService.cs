@@ -108,7 +108,7 @@ namespace DAL
 
         public void DeletePatient(int id)
         {
-            List<Patient> v = (DataSourceTemp.PatientList.Where(t => id == t.Id)).ToList();
+            List<Patient> v = DataSourceTemp.PatientList.Where(t => id == t.Id).ToList();
             try
             {
                 if (!v.Any())

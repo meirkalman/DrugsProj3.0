@@ -36,8 +36,8 @@ namespace DrugsProject3._0.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lname"));
             }
         }
-        private string id;
-        public string Id
+        private int id;
+        public int Id
         {
             get { return id; }
             set
@@ -57,7 +57,7 @@ namespace DrugsProject3._0.ViewModels
             }
         }
 
-        public Patient PatientV = new Patient(Id, fname, lname, DateOfBirth); 
+        public Patient PatientV = new Patient(id, fname, lname, DateOfBirth); 
 
         public AddPatientCommand AddCommand { get; set; }
        

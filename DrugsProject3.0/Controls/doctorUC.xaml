@@ -6,8 +6,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DrugsProject3._0.Controls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d" Height="480" Width="827">
     <GroupBox
   Header="Doctor"
         FontSize="20"
@@ -15,7 +14,7 @@
  
   materialDesign:ShadowAssist.ShadowDepth="Depth3"
   BorderThickness="0">
-        <Grid Height="450" VerticalAlignment="Bottom">
+        <Grid Height="464" VerticalAlignment="Bottom" Margin="0,-44,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
@@ -24,7 +23,7 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <GroupBox
-  Header=" חיפוש מטופל קיים " Grid.Column="1" Margin="10,49,10,47" >
+  Header=" חיפוש מטופל קיים " Grid.Column="1" Margin="10,49,10,24" >
                 <StackPanel Grid.Column="1">
                     <ComboBox
                 Grid.Column="1"
@@ -34,31 +33,37 @@
   materialDesign:HintAssist.Hint="תעודת זהות"
   materialDesign:HintAssist.HintOpacity=".26"
   IsEditable="True" Margin="106,30,105,30">
-                    <ComboBoxItem Content="204108609"/>
-                    <ComboBoxItem Content="312246606"/>
-                    <ComboBoxItem Content="204145709"/>
+                        <ComboBoxItem Content="204108609"/>
+                        <ComboBoxItem Content="312246606"/>
+                        <ComboBoxItem Content="204145709"/>
 
-                </ComboBox>
+                    </ComboBox>
 
-                <Button Content="הוספת מרשם" Width="120"  Style="{StaticResource MaterialDesignRaisedAccentButton}" />
-            </StackPanel >
-                </GroupBox>
+                    <Button Content="הוספת מרשם" Width="120"  Style="{StaticResource MaterialDesignRaisedAccentButton}" />
+                </StackPanel >
+            </GroupBox>
             <GroupBox
-  Header=" הוספת מטופל " Grid.Column="0" Margin="10,49,10,47" >
-                <StackPanel Margin="0,0,0,5">
-                    <TextBox materialDesign:HintAssist.Hint="שם פרטי" Text="{Binding Patient.Fname}" HorizontalAlignment="Center" Margin="10" Height="39"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="111" />
-                    <TextBox materialDesign:HintAssist.Hint="שם משפחה" Text="{Binding Patient.Lname}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="10"  />
-                    <TextBox materialDesign:HintAssist.Hint="תעודת זהות" Text="{Binding Patient.Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="10" />
-                    <DatePicker  materialDesign:HintAssist.Hint="תאריך לידה"  Text="{Binding Patient.DateOfBirth}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="120,0,121,0" Width="158" />
+  Header=" הוספת מטופל " Grid.Column="0" Margin="10,49,10,24" >
+                <Grid>
+
+                    <TextBox materialDesign:HintAssist.Hint="שם פרטי" Text="{Binding Patient.Fname}" HorizontalAlignment="Center" Margin="191,10,35,0" Height="39"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="127" />
+                    <TextBox materialDesign:HintAssist.Hint="שם משפחה" Text="{Binding Patient.Lname}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="29,10,198,244" Width="126"  />
+                    <TextBox materialDesign:HintAssist.Hint="תעודת זהות" Text="{Binding Patient.Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="31,89,198,166" Width="124" />
+                    <TextBox materialDesign:HintAssist.Hint="מספר טלפון" Text="{Binding Patient.Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="191,89,38,166" Width="124" />
+                    <TextBox materialDesign:HintAssist.Hint="כתובת" Text="{Binding Patient.Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="31,152,198,103" Width="124" />
+                    <TextBox materialDesign:HintAssist.Hint="היסטוריה רפואית" IsEnabled="False" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="144,208,35,47" Width="174" />
+
+                    <DatePicker  materialDesign:HintAssist.Hint="תאריך לידה"  Text="{Binding Patient.DateOfBirth}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="194,152,38,103" Height="39" />
                     <Button Command="{Binding AddCommand}"
-                Margin="30"
+                Margin="107,289,109,10"
                 Style="{StaticResource MaterialDesignRaisedAccentButton}"
               Width="150"
                ToolTip="Resource name: MaterialDesignRaisedAccentButton"
               materialDesign:RippleAssist.Feedback="#DD000000" Content="הוסף" />
-            </StackPanel> 
+                    <Button Content="קובץ" HorizontalAlignment="Left" Margin="76,234,0,0" VerticalAlignment="Top" Width="74"/>
+                </Grid>
             </GroupBox>
-            <Button Content="חזור" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedAccentButton}" HorizontalAlignment="Left" Margin="291,408,0,0" VerticalAlignment="Top" Width="74"/>
+            <Button Content="חזור" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedAccentButton}" HorizontalAlignment="Left" Margin="297,393,0,0" VerticalAlignment="Top" Width="74"/>
         </Grid>
     </GroupBox>
 </UserControl>

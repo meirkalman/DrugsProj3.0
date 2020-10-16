@@ -8,7 +8,7 @@ namespace BE
 {
     public class Patient
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Fname { get; set; }
         public string Lname { get; set; }
        // public int PhoneNumber { get; set; }
@@ -18,7 +18,7 @@ namespace BE
 
         public DateTime DateOfBirth { get; set; }
 
-        public Patient(string id, string fname, string lname,/* int phoneNumber,*/ /*string address,*/ DateTime dateOfBirth)
+        public Patient(int id, string fname, string lname,/* int phoneNumber,*/ /*string address,*/ DateTime dateOfBirth)
         {
             Id = id;
             Fname = fname;
