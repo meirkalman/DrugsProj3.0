@@ -16,38 +16,27 @@
         <TextBox  HorizontalAlignment="Center" IsEnabled="False" Height="31"  TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Text="    היסטוריה רפואית " Margin="50"/>
         <TextBox Grid.Column="1" HorizontalAlignment="Center" IsEnabled="False"  Height="31" Margin="50" TextWrapping="Wrap" Text="      הוספת תרופה    " VerticalAlignment="Top" Width="123"/>
         <ComboBox
+            FlowDirection="RightToLeft"
   materialDesign:HintAssist.Hint="שם התרופה"
   materialDesign:HintAssist.HintOpacity=".26"
   IsEditable="True" Grid.Column="1" Margin="217,106,10,318" Height="26"/>
-        <ComboBox
-            
-            Grid.Column="1"
-  materialDesign:HintAssist.Hint="מספר ימים לנטילת התרופה"
-  materialDesign:HintAssist.FloatingScale="1.5"
-  materialDesign:HintAssist.FloatingOffset="0, -24"
-  MinWidth="72"
-  ItemsSource="{Binding LongListToTestComboVirtualization}"
-  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="217,137,10,275" Height="38">
-            <ComboBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <VirtualizingStackPanel />
-                </ItemsPanelTemplate>
-            </ComboBox.ItemsPanel>
-        </ComboBox>
-        <ComboBox
-  materialDesign:HintAssist.Hint="כמות פעמים ביום"
-  materialDesign:HintAssist.FloatingScale="1.5"
-  materialDesign:HintAssist.FloatingOffset="0, -24"
-  MinWidth="72"
-  ItemsSource="{Binding LongListToTestComboVirtualization}"
-  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="217,180,10,232" Grid.Column="1" Height="38">
-            <ComboBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <VirtualizingStackPanel />
-                </ItemsPanelTemplate>
-            </ComboBox.ItemsPanel>
-        </ComboBox>
-
+        <StackPanel
+  Orientation="Horizontal"
+  Margin="0 16 0 0"/>
+        <Slider
+               Grid.Column="1"
+    Minimum="0"
+    Maximum="10"
+    Style="{StaticResource MaterialDesignDiscreteSlider}"
+    ToolTip="MaterialDesignDiscreteSlider"
+    Value="50" Margin="217,224,168,199" />
+        <Slider
+               Grid.Column="1"
+    Minimum="0"
+    Maximum="30"
+    Style="{StaticResource MaterialDesignDiscreteSlider}"
+    ToolTip="MaterialDesignDiscreteSlider"
+    Value="50" Margin="217,159,168,264" />
         <Button
     Style="{StaticResource MaterialDesignRaisedAccentButton}"
     ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="252,371,33,47" >
@@ -56,15 +45,15 @@
         <Button
     Style="{StaticResource MaterialDesignRaisedAccentButton}"
     ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="252,408,33,10" Content="סיום" />
-        <TextBox HorizontalAlignment="Left" IsEnabled="False" Height="349" Margin="10,91,0,0" TextWrapping="Wrap" Text="היסטוריה רפואית:" VerticalAlignment="Top" Width="319"/>
+        <TextBox HorizontalAlignment="Left" FlowDirection="RightToLeft" IsEnabled="False" Height="349" Margin="10,91,0,0" TextWrapping="Wrap" Text="היסטוריה רפואית:" VerticalAlignment="Top" Width="319"/>
 
 
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" IsEnabled="False" Height="161" Margin="10,91,0,0" TextWrapping="Wrap" Text="רשימת התרופות:&#xD;&#xA;" VerticalAlignment="Top" Width="188"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" FlowDirection="RightToLeft" IsEnabled="False" Height="161" Margin="10,91,0,0" TextWrapping="Wrap" Text="רשימת התרופות:&#xD;&#xA;" VerticalAlignment="Top" Width="188"/>
         <materialDesign:PopupBox
   Style="{StaticResource MaterialDesignMultiFloatingActionAccentPopupBox}"
   PlacementMode="BottomAndAlignCentres"
   ToggleCheckedContentCommandParameter="wowsers"
-  ToolTip="PopupBox, Style MaterialDesignMultiFloatingActionAccentPopupBox" Grid.Column="1" Margin="217,254,0,140" >
+  ToolTip="PopupBox, Style MaterialDesignMultiFloatingActionAccentPopupBox" Grid.Column="1" Margin="217,289,0,138" >
             <materialDesign:PopupBox.ToggleCheckedContent>
                 <materialDesign:PackIcon
       Kind="Pencil"
@@ -73,16 +62,19 @@
             </materialDesign:PopupBox.ToggleCheckedContent>
             <StackPanel>
                 <Button
-      ToolTip="הדפס מרשם">
+      ToolTip="הדפס מרשם"  FontSize="25">
                     ✍
                 </Button>
 
                 <Button
-      ToolTip=" PDF צור קובץ">
+      ToolTip=" PDF צור קובץ" FontSize="25">
                     +
                 </Button>
             </StackPanel>
         </materialDesign:PopupBox>
-        <TextBox HorizontalAlignment="Left" Height="161" Margin="10,289,0,0" TextWrapping="Wrap" Text=":הערות" VerticalAlignment="Top" Width="188" Grid.Column="1"/>
+        <TextBox HorizontalAlignment="Left" FlowDirection="RightToLeft" Height="161" Margin="10,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" Grid.Column="1"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" FlowDirection="RightToLeft" Height="27" Margin="149,257,0,0" TextWrapping="Wrap" Text="הערות:" VerticalAlignment="Top" Width="49"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" IsEnabled="False" FlowDirection="RightToLeft" Height="28" Margin="336,249,0,0" TextWrapping="Wrap" Text="מספר פעמים ביום" VerticalAlignment="Top" Width="108"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left"  IsEnabled="False" Height="27" Margin="331,184,0,0" TextWrapping="Wrap" Text="מספר ימים לנטילת התרופה" VerticalAlignment="Top" Width="158"/>
     </Grid>
 </UserControl>

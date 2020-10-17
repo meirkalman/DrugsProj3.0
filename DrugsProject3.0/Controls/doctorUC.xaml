@@ -7,14 +7,16 @@
              xmlns:local="clr-namespace:DrugsProject3._0.Controls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" Height="480" Width="827">
+
     <GroupBox
+        
   Header="Doctor"
         FontSize="25"
   Style="{DynamicResource MaterialDesignGroupBox}"
  
   materialDesign:ShadowAssist.ShadowDepth="Depth3"
   BorderThickness="0">
-        <Grid Height="464" VerticalAlignment="Bottom" Margin="0,-44,0,0">
+        <Grid Height="464" VerticalAlignment="Bottom" >
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
@@ -23,9 +25,11 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <GroupBox FontSize="15"
+                      FlowDirection="RightToLeft"
   Header=" חיפוש מטופל קיים " Grid.Column="1" Margin="10,49,10,24" >
                 <StackPanel Grid.Column="1">
                     <ComboBox
+                        FlowDirection="RightToLeft"
                 Grid.Column="1"
                  Height="39"
                 Width="126"
@@ -43,15 +47,21 @@
                 </StackPanel >
             </GroupBox>
             <GroupBox FontSize="15"
+                      FlowDirection="RightToLeft"
   Header=" הוספת מטופל " Grid.Column="0" Margin="10,49,10,24" >
                 <Grid>
 
-                    <TextBox materialDesign:HintAssist.Hint="שם פרטי" Text="{Binding Patient.Fname}" HorizontalAlignment="Center" Margin="191,10,35,0" Height="39"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="127" />
-                    <TextBox materialDesign:HintAssist.Hint="שם משפחה" Text="{Binding Patient.Lname}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="36,10,204,282" Width="126"  />
-                    <TextBox materialDesign:HintAssist.Hint="תעודת זהות" Text="{Binding Patient.Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="38,82,204,210" Width="124" />
-                    <TextBox materialDesign:HintAssist.Hint="מספר טלפון" Text="{Binding Patient.Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="198,82,42,209" Width="126" />
-                    <TextBox materialDesign:HintAssist.Hint="כתובת" Text="{Binding Patient.Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="38,144,204,148" Width="124" />
-                    <TextBox materialDesign:HintAssist.Hint="היסטוריה רפואית" IsEnabled="False" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="144,208,35,47" Width="174" />
+                    <materialDesign:PackIcon Kind="Account" Height="36" Width="42" Margin="134,21,0,0" />
+                    <materialDesign:PackIcon Kind="Account" Height="36" Width="42" Margin="318,20,0,0" />
+                    <materialDesign:PackIcon Kind="CardAccountDetails" Height="52" Width="36" Margin="142,85,0,0" />
+                    <materialDesign:PackIcon Kind="Phone" Height="32" Width="37" Margin="323,92,0,0" />
+                    <materialDesign:PackIcon Kind="AvTimer" Height="34" Width="38" Margin="290,232,0,0" />
+                    <TextBox materialDesign:HintAssist.Hint="שם משפחה" FlowDirection="RightToLeft" Text="{Binding Patient.Fname}" HorizontalAlignment="Right" Margin="0,13,40,0" Height="39"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="128" />
+                    <TextBox materialDesign:HintAssist.Hint="שם פרטי"  FlowDirection="RightToLeft" Text="{Binding Patient.Lname}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="16,13,224,285" Width="126"  />
+                    <TextBox materialDesign:HintAssist.Hint="תעודת זהות" FlowDirection="RightToLeft" Text="{Binding Patient.Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="20,85,226,213" Width="124" />
+                    <TextBox materialDesign:HintAssist.Hint="מספר טלפון" FlowDirection="RightToLeft" Text="{Binding Patient.Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="192,86,48,212" Width="126" />
+                    <!--<TextBox materialDesign:HintAssist.Hint="כתובת"  Text="{Binding Patient.Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="38,144,204,148" Width="124" />-->
+                    <TextBox materialDesign:HintAssist.Hint="היסטוריה רפואית" FlowDirection="RightToLeft" IsEnabled="False" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="112,230,80,69" Width="174" />
 
                     <DatePicker  materialDesign:HintAssist.Hint="תאריך לידה"  Text="{Binding Patient.DateOfBirth}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="198,147,34,151" Height="45" />
                     <Button Command="{Binding AddCommand}"
@@ -60,7 +70,7 @@
               Width="150"
                ToolTip="Resource name: MaterialDesignRaisedAccentButton"
               materialDesign:RippleAssist.Feedback="#DD000000" Content="הוסף" />
-                    <Button Content="קובץ" HorizontalAlignment="Left" Margin="76,234,0,0" VerticalAlignment="Top" Width="74"/>
+                    <Button Content="קובץ" HorizontalAlignment="Left" Margin="34,234,0,0" VerticalAlignment="Top" Width="74"/>
                 </Grid>
             </GroupBox>
             <Button Content="חזור" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedAccentButton}" HorizontalAlignment="Left" Margin="297,393,0,0" VerticalAlignment="Top" Width="74"/>

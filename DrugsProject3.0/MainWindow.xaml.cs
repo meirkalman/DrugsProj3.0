@@ -31,7 +31,9 @@ namespace DrugsProject3._0
 
 
     UserControl Uc = new doctorUC();
-
+        UserControl Dv = new DoctorVisitUC();
+        UserControl Hp = new HomePage();
+        UserControl Ad = new AdministratorUC();
         public void ShowControl(UserControl uc)
         {
             MainWindowGrid.Children.Clear();
@@ -41,6 +43,21 @@ namespace DrugsProject3._0
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ShowControl(Uc);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ShowControl(Dv);
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            ShowControl(Hp);
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            ShowControl(Ad);
         }
     }
 }

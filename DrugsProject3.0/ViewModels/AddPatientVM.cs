@@ -51,7 +51,7 @@ namespace DrugsProject3._0.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Id"));
             }
         }
-        private DateTime dateOfBirth;
+        private DateTime dateOfBirth =DateTime.Now;
         public DateTime DateOfBirth
         {
             get { return dateOfBirth; }
