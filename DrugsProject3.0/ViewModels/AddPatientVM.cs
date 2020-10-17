@@ -14,6 +14,10 @@ namespace DrugsProject3._0.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public Patient PatientV;
+       
+
+       
         private string fname;
         public string Fname
         {
@@ -42,6 +46,7 @@ namespace DrugsProject3._0.ViewModels
             get { return id; }
             set
             {
+                
                 id = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Id"));
             }
@@ -56,21 +61,35 @@ namespace DrugsProject3._0.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DateOfBirth"));
             }
         }
+        private int phoneNum;
+        public int PhoneNum
+        {
+            get { return phoneNum; }
+            set
+            {
+                phoneNum = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PhoneNum"));
+            }
+        }
+        
+        public AddPatientVM()
+        {
+            AddPatientM = new AddPatientModel();
+            AddCommand = new AddPatientCommand(this);
+           
 
-        public Patient PatientV = new Patient(id, fname, lname, DateOfBirth); 
+        }
+        
 
         public AddPatientCommand AddCommand { get; set; }
        
 
         public AddPatientModel AddPatientM { get; set; }
 
-        public AddPatientVM()
-        {
-            AddPatientM = new AddPatientModel();
-            AddCommand = new AddPatientCommand(this);
-        }
+       
         public void AddPatient()
         {
+            PatientV = new Patient(Id, Fname, Lname, PhoneNum, DateOfBirth);
             AddPatientM.AddPatient(PatientV);
         }
 
