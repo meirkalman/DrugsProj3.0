@@ -19,12 +19,25 @@ namespace BE
 
         public Medicine()
         {
-            Id = 1;
-            CommercialName = "acamol";
-            GenericName = "acamol";
-            Producer = "teva";
-            PeriodOfUse = DateTime.Now;
+        }
+        //    public Medicine(int id,string CommercialName, string CommercialName, string GenericName, string Producer, DateTime PeriodOfUse, string CommercialName, )
+        //{
+        //    Id = 1;
+        //    CommercialName = "acamol";
+        //    GenericName = "acamol";
+        //    Producer = "teva";
+        //    PeriodOfUse = DateTime.Now;
 
+        //}
+        public Medicine(Medicine medicine)
+        {
+            this.Id = medicine.Id;
+            this.CommercialName = medicine.CommercialName;
+            this.GenericName = medicine.GenericName;
+            this.Producer = medicine.Producer;
+            this.PeriodOfUse = medicine.PeriodOfUse;
+            this.ActiveIngredients = medicine.ActiveIngredients;
+            this.ImageUri = medicine.ImageUri;
         }
     }
 }

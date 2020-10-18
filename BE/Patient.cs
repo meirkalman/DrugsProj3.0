@@ -12,9 +12,9 @@ namespace BE
         public string Fname { get; set; }
         public string Lname { get; set; }
         public int PhoneNumber { get; set; }
-        //    public List<Medicine> Medicines { get; set; }
+        public List<Medicine> Medicines { get; set; }
         //public Address PatientAddress { get; set; }
-        //  public List<DoctorVisit> MedicalRecord { get; set; }
+         public List<DoctorVisit> MedicalRecord { get; set; }
 
         public DateTime DateOfBirth { get; set; }
 
@@ -26,6 +26,8 @@ namespace BE
             PhoneNumber = phoneNumber;
             //PatientAddress =new Address(PatientAddress);
             DateOfBirth = dateOfBirth;
+            MedicalRecord = new List<DoctorVisit>();
+            Medicines = new List<Medicine>();
 
         }
 

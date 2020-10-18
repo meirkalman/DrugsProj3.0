@@ -51,12 +51,13 @@ namespace DrugsProject3._0.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Id"));
             }
         }
-        private DateTime dateOfBirth =DateTime.Now;
+        private DateTime dateOfBirth = DateTime.Now;
         public DateTime DateOfBirth
         {
             get { return dateOfBirth; }
             set
             {
+              //  dateOfBirth = DateTime.Now;
                 dateOfBirth = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DateOfBirth"));
             }

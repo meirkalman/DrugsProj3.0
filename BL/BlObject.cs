@@ -84,6 +84,12 @@ namespace BL
             return dalService.GetPatient(id);
         }
 
+        public void AddDoctorVisitToPatient(DoctorVisit doctorVisit, Patient patient)
+        {
+            patient.MedicalRecord.Add(doctorVisit);
+        }
+
+
         public void AddUser(User user)
         {
             DalService dalService = new DalService();
