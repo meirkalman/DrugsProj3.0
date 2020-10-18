@@ -21,14 +21,16 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <GroupBox FontSize="15"
+            <Grid Name="DoctorGrid" HorizontalAlignment="Left" Height="398" Margin="33,56,0,0" VerticalAlignment="Top" Width="740">
+                <GroupBox FontSize="15"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center"
                       FlowDirection="RightToLeft"
-  Header=" חיפוש מטופל קיים " Grid.Column="1" Margin="10,49,10,24" >
-                <StackPanel Grid.Column="1">
-                    <ComboBox
+  Header=" חיפוש מטופל קיים " Height="351" Margin="184,37,190,10"  >
+                    <StackPanel Grid.Column="1">
+                        <ComboBox
                         FlowDirection="RightToLeft"
                 Grid.Column="1"
                  Height="39"
@@ -37,43 +39,17 @@
   materialDesign:HintAssist.Hint="תעודת זהות"
   materialDesign:HintAssist.HintOpacity=".26"
   IsEditable="True" Margin="106,30,105,30">
-                        <ComboBoxItem Content="204108609"/>
-                        <ComboBoxItem Content="312246606"/>
-                        <ComboBoxItem Content="204145709"/>
+                            <ComboBoxItem Content="204108609"/>
+                            <ComboBoxItem Content="312246606"/>
+                            <ComboBoxItem Content="204145709"/>
 
-                    </ComboBox>
-
-                    <Button Content="פתיחת ביקור" Width="120"  Style="{StaticResource MaterialDesignRaisedAccentButton}" />
-                </StackPanel >
-            </GroupBox>
-            <GroupBox FontSize="15"
-                      FlowDirection="RightToLeft"
-  Header=" הוספת מטופל " Grid.Column="0" Margin="10,49,10,24" >
-                <Grid>
-
-                    <materialDesign:PackIcon Kind="Account" Height="36" Width="42" Margin="134,21,0,0" />
-                    <materialDesign:PackIcon Kind="Account" Height="36" Width="42" Margin="318,20,0,0" />
-                    <materialDesign:PackIcon Kind="CardAccountDetails" Height="52" Width="36" Margin="142,85,0,0" />
-                    <materialDesign:PackIcon Kind="Phone" Height="32" Width="37" Margin="323,92,0,0" />
-                    <materialDesign:PackIcon Kind="AvTimer" Height="34" Width="38" Margin="290,232,0,0" />
-                    <TextBox materialDesign:HintAssist.Hint="שם משפחה" FlowDirection="RightToLeft" Text="{Binding Fname}" HorizontalAlignment="Right" Margin="0,13,40,0" Height="39"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="128" />
-                    <TextBox materialDesign:HintAssist.Hint="שם פרטי"  FlowDirection="RightToLeft" Text="{Binding Lname}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="16,13,224,285" Width="126"  />
-                    <TextBox materialDesign:HintAssist.Hint="תעודת זהות" FlowDirection="RightToLeft" Text="{Binding Id, Mode=OneWayToSource}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="20,85,226,213" Width="124" />
-                    <TextBox materialDesign:HintAssist.Hint="מספר טלפון" FlowDirection="RightToLeft" Text="{Binding PhoneNum, Mode=OneWayToSource}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="192,86,48,212" Width="126" />
-                    <!--<TextBox materialDesign:HintAssist.Hint="כתובת"  Text="{Binding Patient.Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="38,144,204,148" Width="124" />-->
-                    <TextBox materialDesign:HintAssist.Hint="היסטוריה רפואית" FlowDirection="RightToLeft" IsEnabled="False" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="112,230,80,69" Width="174" />
-
-                    <DatePicker  materialDesign:HintAssist.Hint="תאריך לידה"  SelectedDate="{Binding DateOfBirth, Mode=TwoWay}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="198,147,34,151" Height="45" />
-                    <Button Command="{Binding AddCommand}"
-                Margin="107,289,109,10"
-                Style="{StaticResource MaterialDesignRaisedAccentButton}"
-              Width="150"
-               ToolTip="Resource name: MaterialDesignRaisedAccentButton"
-              materialDesign:RippleAssist.Feedback="#DD000000" Content="הוסף" />
-                    <Button Content="קובץ" HorizontalAlignment="Left" Margin="34,234,0,0" VerticalAlignment="Top" Width="74"/>
-                </Grid>
-            </GroupBox>
-            <Button Content="חזור" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedAccentButton}" HorizontalAlignment="Left" Margin="297,393,0,0" VerticalAlignment="Top" Width="74"/>
+                        </ComboBox>
+                        <Button Content="פתיחת ביקור" Width="120"  Style="{StaticResource MaterialDesignRaisedAccentButton}" />
+                        <Button Content="הוסף מטופל חדש" Width="145" Margin="70" VerticalAlignment="Bottom" Click="Button_Click"/>
+                    </StackPanel>
+                </GroupBox>
+                <Button Content="חזור" Style="{StaticResource MaterialDesignRaisedAccentButton}" HorizontalAlignment="Left" Margin="580,340,0,0" VerticalAlignment="Top" Width="74"/>
+            </Grid>
         </Grid>
     </GroupBox>
 </UserControl>
