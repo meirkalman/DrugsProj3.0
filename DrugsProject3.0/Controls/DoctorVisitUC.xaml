@@ -11,10 +11,10 @@
             <ColumnDefinition Width="339*"/>
             <ColumnDefinition Width="461*"/>
         </Grid.ColumnDefinitions>
-        <materialDesign:PackIcon Kind="Plus" HorizontalAlignment="Center" Height="36" Width="40"  Grid.Column="1" />
-        <materialDesign:PackIcon Kind="AccountClock"  HorizontalAlignment="Center" Height="36" Width="40"  />
-        <TextBox  HorizontalAlignment="Center" IsEnabled="False" Height="31"  TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Text="    היסטוריה רפואית " Margin="50"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Center" IsEnabled="False"  Height="31" Margin="50" TextWrapping="Wrap" Text="      הוספת תרופה    " VerticalAlignment="Top" Width="123"/>
+        <materialDesign:PackIcon Kind="Plus" HorizontalAlignment="Center" Height="36" Width="40"  Grid.Column="1" Margin="278,38,181,0" />
+        <materialDesign:PackIcon Kind="AccountClock"  HorizontalAlignment="Center" Height="36" Width="40" Margin="217,38,110,0"  />
+        <TextBox  HorizontalAlignment="Center" IsEnabled="False" Height="31"  TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Text="    היסטוריה רפואית " Margin="90,43,150,0"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Center" FontSize="" IsEnabled="False"  Height="36" Margin="167,38,226,0" TextWrapping="Wrap" Text="      הוספת תרופה    " VerticalAlignment="Top" Width="106"/>
         <ComboBox
             FlowDirection="RightToLeft"
   materialDesign:HintAssist.Hint="שם התרופה"
@@ -23,20 +23,6 @@
         <StackPanel
   Orientation="Horizontal"
   Margin="0 16 0 0"/>
-        <Slider
-               Grid.Column="1"
-    Minimum="0"
-    Maximum="10"
-    Style="{StaticResource MaterialDesignDiscreteSlider}"
-    ToolTip="MaterialDesignDiscreteSlider"
-    Value="50" Margin="217,224,168,199" />
-        <Slider
-               Grid.Column="1"
-    Minimum="0"
-    Maximum="30"
-    Style="{StaticResource MaterialDesignDiscreteSlider}"
-    ToolTip="MaterialDesignDiscreteSlider"
-    Value="50" Margin="217,159,168,264" />
         <Button
     Style="{StaticResource MaterialDesignRaisedAccentButton}"
     ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="252,371,33,47" >
@@ -74,7 +60,23 @@
         </materialDesign:PopupBox>
         <TextBox HorizontalAlignment="Left" FlowDirection="RightToLeft" Height="161" Margin="10,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" Grid.Column="1"/>
         <TextBox Grid.Column="1" HorizontalAlignment="Left" FlowDirection="RightToLeft" Height="27" Margin="149,257,0,0" TextWrapping="Wrap" Text="הערות:" VerticalAlignment="Top" Width="49"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" IsEnabled="False" FlowDirection="RightToLeft" Height="28" Margin="336,249,0,0" TextWrapping="Wrap" Text="מספר פעמים ביום" VerticalAlignment="Top" Width="108"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left"  IsEnabled="False" Height="27" Margin="331,184,0,0" TextWrapping="Wrap" Text="מספר ימים לנטילת התרופה" VerticalAlignment="Top" Width="158"/>
+        <Grid Grid.Column="1" HorizontalAlignment="Left" Height="65" Margin="212,159,0,0" VerticalAlignment="Top" Width="277">
+            <TextBox HorizontalAlignment="Left"  IsEnabled="False" Height="27" Margin="115,28,0,0" TextWrapping="Wrap" Text="מספר ימים לנטילת התרופה" VerticalAlignment="Top" Width="158"/>
+            <Slider
+    Minimum="0"
+    Maximum="30"
+    Style="{StaticResource MaterialDesignDiscreteSlider}"
+    ToolTip="MaterialDesignDiscreteSlider"
+    Value="50" Margin="2,0,161,5" />
+        </Grid>
+        <Grid Grid.Column="1" HorizontalAlignment="Left" Height="55" Margin="212,229,0,0" VerticalAlignment="Top" Width="277">
+            <TextBox HorizontalAlignment="Left" IsEnabled="False" FlowDirection="RightToLeft" Height="28" Margin="112,21,0,0" TextWrapping="Wrap" Text="מספר פעמים ביום" VerticalAlignment="Top" Width="108"/>
+            <Slider
+    Minimum="0"
+    Maximum="10"
+    Style="{StaticResource MaterialDesignDiscreteSlider}"
+    ToolTip="MaterialDesignDiscreteSlider"
+    Value="50" Margin="0,-5,163,0" />
+        </Grid>
     </Grid>
 </UserControl>
