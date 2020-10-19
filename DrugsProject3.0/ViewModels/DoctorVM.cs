@@ -1,5 +1,7 @@
 ﻿using BE;
+using DrugsProject3._0.Commands;
 using DrugsProject3._0.Models;
+using Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,17 +18,37 @@ namespace DrugsProject3._0.ViewModels
 
         public DoctorModel DoctorM;
 
-        public ObservableCollection<Patient> Patients
-        {
-            get { return Patients; }
-            set { Patients = value; }
-        }
-        public DoctorVM()
+        public ObservableCollection<int> PatientsId { get; set; }
+
+
+
+
+
+
+
+
+        private IEventAggregator eventAggreegator;
+        public DoctorVM(EventAggregator eventAggreegator)
         {
             DoctorM = new DoctorModel();
-            Patients = new ObservableCollection<Patient>(DoctorM.GetAllPatients());
+            this.eventAggreegator = eventAggreegator;
+            eventAggreegator.GetEvent<EventAggreegator> ().Publish();
+
+
+
+
+            AddDvCommand = new DoctorCommand(this);
+            PatientsId = new ObservableCollection<int>(from item in DoctorM.GetAllPatients() select item.Id);
+
         }
-       
+        
+
+
+
+
+
+
+        public DoctorCommand AddDvCommand { get; set; }
     }
 }
 
