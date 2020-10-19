@@ -30,7 +30,8 @@
                       FlowDirection="RightToLeft"
   Header=" חיפוש מטופל קיים " Height="351" Margin="184,37,190,10"  >
                     <StackPanel Grid.Column="1">
-                        <ComboBox Text="{Binding PatientsId}"
+                        <ComboBox x:Name="ComboBoxId" ItemsSource="{Binding PatientsId}"
+                                  SelectedValue="{Binding PatientSelected}"
                         FlowDirection="RightToLeft"
                 Grid.Column="1"
                  Height="39"
@@ -38,12 +39,9 @@
                  HorizontalAlignment="Center"
   materialDesign:HintAssist.Hint="תעודת זהות"
   materialDesign:HintAssist.HintOpacity=".26"
-  IsEditable="True" Margin="106,30,105,30">
-                        
-
-                        </ComboBox>
-                        <Button Content="פתיחת ביקור" Command="{Binding AddDvCommand}" Width="120"  Style="{StaticResource MaterialDesignRaisedAccentButton}"  />
-                        <Button Content="הוסף מטופל חדש" Width="145" Margin="70" VerticalAlignment="Bottom" />
+  IsEditable="True" Margin="106,30,105,30"/>
+                        <Button Content="פתיחת ביקור" Command="{Binding AddDvCommand}" Width="120"  Style="{StaticResource MaterialDesignRaisedAccentButton}"   />
+                        <Button Content="הוסף מטופל חדש" Width="145" Margin="70" VerticalAlignment="Bottom"  />
                     </StackPanel>
                 </GroupBox>
                 <Button Content="חזור" Style="{StaticResource MaterialDesignRaisedAccentButton}" HorizontalAlignment="Left" Margin="580,340,0,0" VerticalAlignment="Top" Width="74"/>

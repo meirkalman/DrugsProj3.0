@@ -27,12 +27,17 @@ namespace DrugsProject3._0
             InitializeComponent();
             MainVM VM = new MainVM();
             DataContext = VM;
-
         }
+        
         public void ShowControl(UserControl uc)
         {
             MainWindowGrid.Children.Clear();
             MainWindowGrid.Children.Add(uc);
         }
+
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    this.ShowControl(uc);
+        //}
     }
 }

@@ -11,6 +11,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace DrugsProject3._0.ViewModels
 {
@@ -19,22 +21,22 @@ namespace DrugsProject3._0.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         public DoctorModel DoctorM;
-        public Patient PatientV;
+        public int PatientSelected { get; set; }
+
         public ObservableCollection<int> PatientsId { get; set; }
 
         // private IEventAggregator eventAggreegator;
         public DoctorVM(/*IEventAggregator eventAggreegator*/)
         {
-            PatientV = new Patient();
             DoctorM = new DoctorModel();
-            //this.eventAggreegator = eventAggreegator;
-
+        //this.eventAggreegator = eventAggreegator;
+           
             AddDvCommand = new DoctorCommand(this);
 
             PatientsId = new ObservableCollection<int>(GetAllPatients());
-            //  PatientsId.CollectionChanged += PatientsId_CollectionChanged;
+            //PatientsId.CollectionChanged += PatientsId_CollectionChanged;
         }
-        
+       
         //private void PatientsId_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         //{
         //    if (e.Action == NotifyCollectionChangedAction.Add)
@@ -49,7 +51,11 @@ namespace DrugsProject3._0.ViewModels
         //}
 
         public DoctorCommand AddDvCommand { get; set; }
+       //public void tt()
+       // {
+       //     MessageBox.Show(PatientSelected.ToString());
 
+       // }
         public List<int> GetAllPatients()
         {
             List<int> ids = new List<int>();
@@ -62,3 +68,7 @@ namespace DrugsProject3._0.ViewModels
     }
 }
 
+//public Patient Subscribe(Patient patient)
+//{
+//    return patient;
+//}

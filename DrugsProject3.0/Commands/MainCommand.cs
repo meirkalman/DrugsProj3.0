@@ -18,7 +18,7 @@ namespace DrugsProject3._0.Commands
             remove { CommandManager.RequerySuggested -= value; }
         }
         public MainVM CurrentVM { get; set; }
-        public MainWindow mainWindow { get; set; }
+      
         public bool CanExecute(object parameter)
         {
             return true;
@@ -26,16 +26,17 @@ namespace DrugsProject3._0.Commands
 
         public MainCommand()
         {
-            mainWindow = new MainWindow();
+         
         }
         public MainCommand(MainVM VM)
         {
             this.CurrentVM = VM;
         }
-        UserControl UC = new doctorUC();
+        public UserControl UC = new doctorUC();
         public void Execute(object parameter)
         {
-            mainWindow.ShowControl(UC);
+            (App.Current as App).wnd.ShowControl(UC);
+           
         }
     }
 }

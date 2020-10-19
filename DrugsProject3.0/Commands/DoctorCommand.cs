@@ -36,7 +36,7 @@ namespace DrugsProject3._0.Commands
 
         public void Execute(object parameter)
         {
-        //    main.ShowControl(UC);
+            //CurrentVM.tt();
         }
     }
 }

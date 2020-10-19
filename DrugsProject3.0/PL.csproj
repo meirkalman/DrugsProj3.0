@@ -107,6 +107,7 @@
     </Compile>
     <Compile Include="Models\AddDoctorVisitModel.cs" />
     <Compile Include="Models\DoctorModel.cs" />
+    <Compile Include="Navigation\Navigation.cs" />
     <Compile Include="ViewModels\AddDoctorVisitVM.cs" />
     <Compile Include="ViewModels\AddPatientVM.cs" />
     <Compile Include="ViewModels\DoctorVM.cs" />

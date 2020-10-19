@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:DrugsProject3._0"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
@@ -21,4 +22,5 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
+    
 </Application>
