@@ -24,18 +24,9 @@ namespace DrugsProject3._0.Controls
         public doctorUC()
         {
             InitializeComponent();
-            AddPatientVM VM = new AddPatientVM();
+            DoctorVM VM = new DoctorVM();
             DataContext = VM;
-        }
-        UserControl Uc = new AddNewPatient();
-        public void ShowControl(UserControl uc)
-        {
-            DoctorGrid.Children.Clear();
-            DoctorGrid.Children.Add(uc);
-        }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ShowControl(Uc);
-        }
+
+        } 
     }
 }
