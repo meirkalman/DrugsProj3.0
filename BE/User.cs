@@ -13,7 +13,7 @@ namespace BE
         public string Lname { get; set; }
         public int PhoneNumber { get; set; }
         //public List<Patient> Patients { get; set; }
-        public string Address { get; set; }
+        //public string Address { get; set; }
 
         public UserType Type { get; set; }
 
@@ -21,7 +21,30 @@ namespace BE
 
         public User()
         {
-            Id = 1;
+
+        }
+        public User(User user)
+        {
+            Id = user.Id;
+            Fname = user.Fname;
+            Lname = user.Lname;
+            PhoneNumber = user.PhoneNumber;
+            this.Type = user.Type;
+        }
+
+        public User(int id, string fname, string lname, int phoneNumber,  UserType type)
+        {
+            Id = id;
+            Fname = fname;
+            Lname = lname;
+            PhoneNumber = phoneNumber;
+            
+            this.Type = type;
         }
     }
-}
+
+}   
+
+            
+
+            
