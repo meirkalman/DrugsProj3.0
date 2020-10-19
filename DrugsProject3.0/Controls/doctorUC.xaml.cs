@@ -1,4 +1,5 @@
 ﻿using DrugsProject3._0.ViewModels;
+using Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,12 @@ namespace DrugsProject3._0.Controls
     /// </summary>
     public partial class doctorUC : UserControl
     {
+       // private IEventAggregator eventAggregator;
         public doctorUC()
         {
+          
             InitializeComponent();
-            DoctorVM VM = new DoctorVM();
+            DoctorVM VM = new DoctorVM(/*eventAggregator*/);
             DataContext = VM;
 
         } 

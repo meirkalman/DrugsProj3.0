@@ -1,6 +1,8 @@
 ﻿using BE;
+using BE.EventAggregate;
 using DrugsProject3._0.Commands;
 using DrugsProject3._0.Models;
+using Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,6 +20,7 @@ namespace DrugsProject3._0.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         public DoctorVisit DoctorVisitV;
+        public Patient patient;
         public List< Medicine> MedicineV;
 
         private int id;
@@ -79,11 +82,14 @@ namespace DrugsProject3._0.ViewModels
 
         public AddDoctorVisitModel AddDoctorVisitM { get; set; }
 
-        public AddDoctorVisitVM()
-            {
-               AddDoctorVisitM = new AddDoctorVisitModel();
-                AddCommand = new AddDoctorVisitCommand(this);
-            Medicines = new ObservableCollection<Medicine>(AddDoctorVisitM.GetMedicineList(Patient.id));
+       // private IEventAggregator eventAggreegator;
+        public AddDoctorVisitVM(/*IEventAggregator eventAggreegator*/)
+        {
+            patient = new Patient();
+          //  this.eventAggreegator = eventAggreegator;
+            AddDoctorVisitM = new AddDoctorVisitModel();
+            AddCommand = new AddDoctorVisitCommand(this);
+            Medicines = new ObservableCollection<Medicine>(AddDoctorVisitM.GetMedicineList(patient.Id));
             Medicines.CollectionChanged += Medicines_CollectionChanged;
             MedicineV = new List<Medicine>();
         }
@@ -103,6 +109,7 @@ namespace DrugsProject3._0.ViewModels
 
             public void AddDoctorVisitToPatient()
             {
+           // this.eventAggreegator.GetEvent<PatientEvent>().Publish(patient);
             DoctorVisitV = new DoctorVisit(Id, DoctorName, Description,MedicineV, Date);
             AddDoctorVisitM.AddDoctorVisitToPatient(DoctorVisitV,patient);
             }

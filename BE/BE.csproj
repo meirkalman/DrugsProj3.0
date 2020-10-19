@@ -60,7 +60,7 @@
     <Compile Include="Address.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DoctorVisit.cs" />
-    <Compile Include="EventAggregator.cs" />
+    <Compile Include="EventAggregate\PatientEvent.cs" />
     <Compile Include="Medicine.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,5 +69,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
