@@ -14,7 +14,7 @@
         <materialDesign:PackIcon Kind="Plus" HorizontalAlignment="Center" Height="36" Width="40"  Grid.Column="1" Margin="278,38,181,0" />
         <materialDesign:PackIcon Kind="AccountClock"  HorizontalAlignment="Center" Height="36" Width="40" Margin="217,38,110,0"  />
         <TextBox  HorizontalAlignment="Center" IsEnabled="False" Height="31"  TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Text="    היסטוריה רפואית " Margin="90,43,150,0"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Center" FontSize="" IsEnabled="False"  Height="36" Margin="167,38,226,0" TextWrapping="Wrap" Text="      הוספת תרופה    " VerticalAlignment="Top" Width="106"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Center" FontSize="20" IsEnabled="False"  Height="36" Margin="167,38,226,0" TextWrapping="Wrap" Text="      הוספת תרופה    " VerticalAlignment="Top" Width="106"/>
         <ComboBox
             FlowDirection="RightToLeft"
   materialDesign:HintAssist.Hint="שם התרופה"

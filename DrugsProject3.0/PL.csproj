@@ -98,6 +98,7 @@
     <Compile Include="Commands\AddPatientCommand.cs" />
     <Compile Include="Commands\BaseCommand.cs" />
     <Compile Include="Commands\DoctorCommand.cs" />
+    <Compile Include="Commands\MainCommand.cs" />
     <Compile Include="Controls\AddNewPatient.xaml.cs">
       <DependentUpon>AddNewPatient.xaml</DependentUpon>
     </Compile>
@@ -109,6 +110,7 @@
     <Compile Include="ViewModels\AddDoctorVisitVM.cs" />
     <Compile Include="ViewModels\AddPatientVM.cs" />
     <Compile Include="ViewModels\DoctorVM.cs" />
+    <Compile Include="ViewModels\MainVM.cs" />
     <Page Include="Controls\AddNewPatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

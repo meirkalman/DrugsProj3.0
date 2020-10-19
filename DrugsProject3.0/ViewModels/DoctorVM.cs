@@ -20,20 +20,21 @@ namespace DrugsProject3._0.ViewModels
 
         public DoctorModel DoctorM;
         public Patient PatientV;
-        //public ObservableCollection<int> PatientsId { get; set; }
+        public ObservableCollection<int> PatientsId { get; set; }
 
-       // private IEventAggregator eventAggreegator;
+        // private IEventAggregator eventAggreegator;
         public DoctorVM(/*IEventAggregator eventAggreegator*/)
         {
             PatientV = new Patient();
             DoctorM = new DoctorModel();
             //this.eventAggreegator = eventAggreegator;
-            
-            AddDvCommand = new DoctorCommand(this);
-           // PatientsId = new ObservableCollection<int>(from item in DoctorM.GetAllPatients() select item.Id);
-          //  PatientsId.CollectionChanged += PatientsId_CollectionChanged;
-        }
 
+            AddDvCommand = new DoctorCommand(this);
+
+            PatientsId = new ObservableCollection<int>(GetAllPatients());
+            //  PatientsId.CollectionChanged += PatientsId_CollectionChanged;
+        }
+        
         //private void PatientsId_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         //{
         //    if (e.Action == NotifyCollectionChangedAction.Add)
@@ -46,8 +47,18 @@ namespace DrugsProject3._0.ViewModels
         //{
         //    this.eventAggreegator.GetEvent<PatientEvent>().Subscribe(PatientV);
         //}
-       
+
         public DoctorCommand AddDvCommand { get; set; }
+
+        public List<int> GetAllPatients()
+        {
+            List<int> ids = new List<int>();
+            foreach (var item in DoctorM.GetAllPatients())
+            {
+                ids.Add(item.Id);
+            }
+            return ids;
+        }
     }
 }
 
