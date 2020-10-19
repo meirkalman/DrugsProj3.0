@@ -32,11 +32,10 @@ namespace DrugsProject3._0.Commands
         {
             this.CurrentVM = VM;
         }
-        public UserControl UC = new doctorUC();
+        
         public void Execute(object parameter)
         {
-            (App.Current as App).wnd.ShowControl(UC);
-           
+            (App.Current as App).navigation.ShowControls("doctorUC");
         }
     }
 }

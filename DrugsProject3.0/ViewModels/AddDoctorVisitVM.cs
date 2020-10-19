@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DrugsProject3._0.ViewModels
 {
@@ -82,16 +83,28 @@ namespace DrugsProject3._0.ViewModels
 
         public AddDoctorVisitModel AddDoctorVisitM { get; set; }
 
-       // private IEventAggregator eventAggreegator;
-        public AddDoctorVisitVM(/*IEventAggregator eventAggreegator*/)
+        private IEventAggregator eventAggreegator;
+        public AddDoctorVisitVM(IEventAggregator eventAggreegator)
         {
             patient = new Patient();
-          //  this.eventAggreegator = eventAggreegator;
+            this.eventAggreegator = eventAggreegator;
             AddDoctorVisitM = new AddDoctorVisitModel();
             AddCommand = new AddDoctorVisitCommand(this);
+            this.eventAggreegator.GetEvent<PatientEvent>().Subscribe(EventSubscribe);
             Medicines = new ObservableCollection<Medicine>(AddDoctorVisitM.GetMedicineList(patient.Id));
             Medicines.CollectionChanged += Medicines_CollectionChanged;
             MedicineV = new List<Medicine>();
+            
+        }
+
+        public void EventSubscribe(Patient patient)
+        {
+            this.patient = patient;
+        }
+        public void tt()
+        {
+            MessageBox.Show(patient.Id.ToString());
+
         }
 
         private void Medicines_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -109,7 +122,7 @@ namespace DrugsProject3._0.ViewModels
 
             public void AddDoctorVisitToPatient()
             {
-           // this.eventAggreegator.GetEvent<PatientEvent>().Publish(patient);
+           
             DoctorVisitV = new DoctorVisit(Id, DoctorName, Description,MedicineV, Date);
             AddDoctorVisitM.AddDoctorVisitToPatient(DoctorVisitV,patient);
             }

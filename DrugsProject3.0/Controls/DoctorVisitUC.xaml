@@ -28,7 +28,7 @@
     ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="252,371,33,47" >
             הוסף תרופה
         </Button>
-        <Button
+        <Button Command="{Binding AddCommand}"
     Style="{StaticResource MaterialDesignRaisedAccentButton}"
     ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="252,408,33,10" Content="סיום" />
         <TextBox HorizontalAlignment="Left" FlowDirection="RightToLeft" IsEnabled="False" Height="349" Margin="10,91,0,0" TextWrapping="Wrap" Text="היסטוריה רפואית:" VerticalAlignment="Top" Width="319"/>

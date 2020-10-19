@@ -10,47 +10,36 @@ namespace DrugsProject3._0.Navigation
 {
     public class NavigationClass
     {
-        public MainWindow wnd = new MainWindow();
-        UserControl uc = new UserControl();
-
-        public void ShowControl(UserControl uc)
+        
+        public MainWindow MainWindows { get; set; }
+        public void ShowControls(string UserControl)
         {
-            wnd.MainWindowGrid.Children.Clear();
-            wnd.MainWindowGrid.Children.Add(uc);
-        }
-
-          
-        public void ShowControl(string UserControl)
-        {
+            UserControl uc = null;
             switch (UserControl)
             {
                 case "LoginUC":
                     uc = new LoginUC();
-                    ShowControl(uc);
                     break;
                 case "HomePage":
                     uc = new HomePage();
-                    ShowControl(uc);
                     break;
                 case "DoctorVisitUC":
                     uc = new DoctorVisitUC();
-                    ShowControl(uc);
                     break;
                 case "doctorUC":
                     uc = new doctorUC();
-                    ShowControl(uc);
                     break;
                 case "AdministratorUC":
                     uc = new AdministratorUC();
-                    ShowControl(uc);
                     break;
                 case "AddNewPatient":
                     uc = new AddNewPatient();
-                    ShowControl(uc);
                     break;
-               
+
             }
-           
+            MainWindows.ShowControl(uc);
         }
+
+       
     }
 }

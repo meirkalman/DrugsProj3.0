@@ -20,5 +20,9 @@ namespace DrugsProject3._0.Models
         {
             return Bl.GetAllPatients();
         }
+        public Patient GetPatient(int id)
+        {
+            return Bl.GetPatient(id);
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BE.EventAggregate
 {
-    public class PatientEvent : PubSubEvent<Patient>
+    public class PatientEvent :PubSubEvent<Patient>
     {
        
     }

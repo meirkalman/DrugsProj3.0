@@ -25,19 +25,25 @@ namespace DrugsProject3._0
         public MainWindow()
         {
             InitializeComponent();
+            (App.Current as App).navigation.MainWindows = this;
             MainVM VM = new MainVM();
             DataContext = VM;
         }
-        
+
         public void ShowControl(UserControl uc)
         {
             MainWindowGrid.Children.Clear();
             MainWindowGrid.Children.Add(uc);
         }
-
+       
         //private void Button_Click(object sender, RoutedEventArgs e)
         //{
         //    this.ShowControl(uc);
+        //}
+
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    this.ShowControl(uc);Command="{Binding MainCommand}"
         //}
     }
 }

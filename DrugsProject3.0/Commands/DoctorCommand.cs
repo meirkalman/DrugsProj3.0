@@ -17,15 +17,10 @@ namespace DrugsProject3._0.Commands
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
-
-  //      MainWindow main = new MainWindow();
-       
         public DoctorVM CurrentVM { get; set; }
-     //   UserControl UC = new DoctorVisitUC();
         public DoctorCommand(DoctorVM VM)
         {
             CurrentVM = VM;
-    
         }
        
 
@@ -36,7 +31,8 @@ namespace DrugsProject3._0.Commands
 
         public void Execute(object parameter)
         {
-            //CurrentVM.tt();
+            CurrentVM.EventMenage();
+            (App.Current as App).navigation.ShowControls("DoctorVisitUC");
         }
     }
 }
