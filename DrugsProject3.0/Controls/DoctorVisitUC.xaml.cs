@@ -26,10 +26,11 @@ namespace DrugsProject3._0.Controls
 
         public DoctorVisitUC()
         {
-           
-            InitializeComponent();
+            this.eventAggregator = new EventAggregator();
+            
             AddDoctorVisitVM VM = new AddDoctorVisitVM(eventAggregator);
             DataContext = VM;
+            InitializeComponent();
         }
     }
 }

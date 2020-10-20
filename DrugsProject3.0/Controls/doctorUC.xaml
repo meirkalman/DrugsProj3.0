@@ -40,8 +40,8 @@
   materialDesign:HintAssist.Hint="תעודת זהות"
   materialDesign:HintAssist.HintOpacity=".26"
   IsEditable="True" Margin="106,30,105,30"/>
-                        <Button Content="פתיחת ביקור" Command="{Binding AddDvCommand}" Width="120"  Style="{StaticResource MaterialDesignRaisedAccentButton}"   />
-                        <Button Content="הוסף מטופל חדש" Width="145" Margin="70" VerticalAlignment="Bottom"  />
+                        <Button Content="פתיחת ביקור" Command="{Binding Command}" CommandParameter ="1"  Width="120"  Style="{StaticResource MaterialDesignRaisedAccentButton}"   />
+                        <Button Content="הוסף מטופל חדש" Command="{Binding Command}" CommandParameter ="2"  Width="145" Margin="70" VerticalAlignment="Bottom"  />
                     </StackPanel>
                 </GroupBox>
                 <Button Content="חזור" Style="{StaticResource MaterialDesignRaisedAccentButton}" HorizontalAlignment="Left" Margin="580,340,0,0" VerticalAlignment="Top" Width="74"/>

@@ -15,9 +15,12 @@ namespace DrugsProject3._0.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         public Patient PatientV;
-       
+        public AddPatientCommand AddCommand { get; set; }
 
-       
+
+        public AddPatientModel AddPatientM { get; set; }
+
+
         private string fname;
         public string Fname
         {
@@ -77,17 +80,8 @@ namespace DrugsProject3._0.ViewModels
         {
             AddPatientM = new AddPatientModel();
             AddCommand = new AddPatientCommand(this);
-           
-
         }
         
-
-        public AddPatientCommand AddCommand { get; set; }
-       
-
-        public AddPatientModel AddPatientM { get; set; }
-
-       
         public void AddPatient()
         {
             PatientV = new Patient(Id, Fname, Lname, PhoneNum, DateOfBirth);

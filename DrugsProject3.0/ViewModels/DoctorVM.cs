@@ -30,33 +30,24 @@ namespace DrugsProject3._0.ViewModels
         {
             DoctorM = new DoctorModel();
             this.eventAggreegator = eventAggreegator;
-           
-            AddDvCommand = new DoctorCommand(this);
 
+            Command = new DoctorCommand(this);
+           // CommandAP = new DoctorCommand(this);
+
+           // CommandDV.Execute("OpenDoctorVisit");
+           // CommandAP.Execute("OpenAddPatient");
             PatientsId = new ObservableCollection<int>(GetAllPatients());
             //PatientsId.CollectionChanged += PatientsId_CollectionChanged;
         }
-
-        //private void PatientsId_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        //{
-        //    if (e.Action == NotifyCollectionChangedAction.Add)
-        //    {
-        //        PatientV = e.NewItems[0] as Patient;
-        //    }
-        //}
-
         public void EventMenage()
         {
             Patient patient = DoctorM.GetPatient(PatientSelected);
             this.eventAggreegator.GetEvent<PatientEvent>().Publish(patient);
         }
 
-        public DoctorCommand AddDvCommand { get; set; }
-        //public void tt()
-        //{
-        //    MessageBox.Show(PatientSelected.ToString());
+        public DoctorCommand Command { get; set; }
+      //  public DoctorCommand CommandAP { get; set; }
 
-        //}
         public List<int> GetAllPatients()
         {
             List<int> ids = new List<int>();
@@ -72,4 +63,17 @@ namespace DrugsProject3._0.ViewModels
 //public Patient Subscribe(Patient patient)
 //{
 //    return patient;
+//}
+
+//private void PatientsId_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+//{
+//    if (e.Action == NotifyCollectionChangedAction.Add)
+//    {
+//        PatientV = e.NewItems[0] as Patient;
+//    }
+//}
+//public void tt()
+//{
+//    MessageBox.Show(PatientSelected.ToString());
+
 //}

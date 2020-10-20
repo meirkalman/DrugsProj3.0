@@ -30,7 +30,7 @@ namespace DrugsProject3._0.Commands
         public void Execute(object parameter)
         {
             //  MessageBox.Show("yes");
-            CurrentVM.tt();
+                CurrentVM.tt();
         }
     }
 }

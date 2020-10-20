@@ -26,10 +26,11 @@ namespace DrugsProject3._0.Controls
         public doctorUC()
         {
 
-            InitializeComponent();
+            
+            this.eventAggregator = new EventAggregator();
             DoctorVM VM = new DoctorVM(eventAggregator);
             DataContext = VM;
-
+            InitializeComponent();
         }
       
     }

@@ -31,8 +31,17 @@ namespace DrugsProject3._0.Commands
 
         public void Execute(object parameter)
         {
-            CurrentVM.EventMenage();
-            (App.Current as App).navigation.ShowControls("DoctorVisitUC");
+            if (parameter.ToString() == "1")
+            {
+                CurrentVM.EventMenage();
+                (App.Current as App).navigation.ShowControls("DoctorVisitUC");
+            }
+            if (parameter.ToString() == "2")
+            {
+                // CurrentVM.EventMenage();
+                (App.Current as App).navigation.ShowControls("AddNewPatient");
+            }
+
         }
     }
 }
