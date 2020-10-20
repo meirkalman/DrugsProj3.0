@@ -22,7 +22,7 @@ namespace DrugsProject3._0
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow()//
         {
             InitializeComponent();
             (App.Current as App).navigation.MainWindows = this;

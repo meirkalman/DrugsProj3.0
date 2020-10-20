@@ -1,4 +1,5 @@
 ﻿using DrugsProject3._0.Navigation;
+using Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,9 +17,10 @@ namespace DrugsProject3._0
     {
 
         public NavigationClass navigation = new NavigationClass();
-       
-       
- 
+        public IEventAggregator eventAggreegator = new EventAggregator();
+
+
+
 
     }
 }

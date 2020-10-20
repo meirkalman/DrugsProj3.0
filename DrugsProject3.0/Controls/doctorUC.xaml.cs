@@ -22,13 +22,13 @@ namespace DrugsProject3._0.Controls
     /// </summary>
     public partial class doctorUC : UserControl
     {
-         private IEventAggregator eventAggregator;
+         //private IEventAggregator eventAggregator;
         public doctorUC()
         {
 
             
-            this.eventAggregator = new EventAggregator();
-            DoctorVM VM = new DoctorVM(eventAggregator);
+           //this.eventAggregator = new EventAggregator();
+            DoctorVM VM = new DoctorVM((App.Current as App).eventAggreegator);
             DataContext = VM;
             InitializeComponent();
         }

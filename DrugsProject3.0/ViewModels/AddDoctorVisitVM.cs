@@ -83,16 +83,16 @@ namespace DrugsProject3._0.ViewModels
 
         public AddDoctorVisitModel AddDoctorVisitM { get; set; }
 
-        private IEventAggregator eventAggreegator;
+       // private IEventAggregator eventAggreegator;
         public AddDoctorVisitVM(IEventAggregator eventAggreegator)
         {
             //patient = new Patient();
-            this.eventAggreegator = eventAggreegator;
+            //this.eventAggreegator = eventAggreegator;
             AddDoctorVisitM = new AddDoctorVisitModel();
             AddCommand = new AddDoctorVisitCommand(this);
 
 
-            this.eventAggreegator.GetEvent<PatientEvent>().Subscribe(EventSubscribe);
+            eventAggreegator.GetEvent<PatientEvent>().Subscribe(EventSubscribe);
            // Medicines = new ObservableCollection<Medicine>(AddDoctorVisitM.GetMedicineList(patient.Id));
             //Medicines.CollectionChanged += Medicines_CollectionChanged;
             MedicineV = new List<Medicine>();
