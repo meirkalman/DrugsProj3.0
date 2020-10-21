@@ -16,21 +16,6 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-        <materialDesign:ColorZone
-            
-  Mode="PrimaryLight"
-  Padding="16">
-            <StackPanel
-    Orientation="Horizontal">
-                <ToggleButton
-      Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
-                <TextBlock
-      VerticalAlignment="Center"
-      Margin="16 0 0 0">
-    Material Design In XAML Toolkit
-                </TextBlock>
-            </StackPanel>
-        </materialDesign:ColorZone>
         <GroupBox FontSize="15"
                       VerticalAlignment="Center"
                       HorizontalAlignment="Center"
@@ -51,7 +36,7 @@
                         <Button Content="הוסף מטופל חדש" Command="{Binding Command}" CommandParameter ="AddNewPatient"  Width="145" Margin="70" VerticalAlignment="Bottom"  />
                     </StackPanel>
                 </GroupBox>
-                <Button Content="חזור" Style="{StaticResource MaterialDesignRaisedAccentButton}" HorizontalAlignment="Left" Margin="614,422,0,0" VerticalAlignment="Top" Width="74"/>
+                <Button Content="חזור" Style="{StaticResource MaterialDesignRaisedAccentButton}" HorizontalAlignment="Left" Margin="104,407,0,0" VerticalAlignment="Top" Width="74"/>
             
         
     </Grid>

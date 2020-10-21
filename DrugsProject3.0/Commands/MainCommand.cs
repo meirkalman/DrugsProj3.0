@@ -43,7 +43,16 @@ namespace DrugsProject3._0.Commands
             {
                 (App.Current as App).navigation.ShowControls("HomePageUC");
             }
+            if (parameter.ToString() == "DoctorVisitUC")
+            {
+                (App.Current as App).navigation.ShowControls("DoctorVisitUC");
+            }
+            if (parameter.ToString() == "AdministratorUC")
+            {
+                (App.Current as App).navigation.ShowControls("AdministratorUC");
+            }
 
         }
+        
     }
 }

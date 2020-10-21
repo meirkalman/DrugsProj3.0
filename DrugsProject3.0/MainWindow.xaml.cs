@@ -30,8 +30,9 @@ namespace DrugsProject3._0
             DataContext = VM;
         }
 
-        public void ShowControl(UserControl uc)
+        public void ShowControl(UserControl uc,string t)
         {
+            title.Text = t;
             InternalGrid.Children.Clear();
             InternalGrid.Children.Add(uc);
         }
