@@ -8,23 +8,30 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" Height="480" Width="827">
 
-    <GroupBox
-        
-  Header="Doctor"
-        FontSize="25"
-  Style="{DynamicResource MaterialDesignGroupBox}"
- 
-  materialDesign:ShadowAssist.ShadowDepth="Depth3"
-  BorderThickness="0">
-        <Grid Height="464" VerticalAlignment="Bottom" >
+    <Grid FlowDirection="RightToLeft">
+       
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Grid Name="DoctorGrid" HorizontalAlignment="Left" Height="398" Margin="33,56,0,0" VerticalAlignment="Top" Width="740">
-                <GroupBox FontSize="15"
+        <materialDesign:ColorZone
+            
+  Mode="PrimaryLight"
+  Padding="16">
+            <StackPanel
+    Orientation="Horizontal">
+                <ToggleButton
+      Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
+                <TextBlock
+      VerticalAlignment="Center"
+      Margin="16 0 0 0">
+    Material Design In XAML Toolkit
+                </TextBlock>
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <GroupBox FontSize="15"
                       VerticalAlignment="Center"
                       HorizontalAlignment="Center"
                       FlowDirection="RightToLeft"
@@ -44,8 +51,8 @@
                         <Button Content="הוסף מטופל חדש" Command="{Binding Command}" CommandParameter ="AddNewPatient"  Width="145" Margin="70" VerticalAlignment="Bottom"  />
                     </StackPanel>
                 </GroupBox>
-                <Button Content="חזור" Style="{StaticResource MaterialDesignRaisedAccentButton}" HorizontalAlignment="Left" Margin="580,340,0,0" VerticalAlignment="Top" Width="74"/>
-            </Grid>
-        </Grid>
-    </GroupBox>
+                <Button Content="חזור" Style="{StaticResource MaterialDesignRaisedAccentButton}" HorizontalAlignment="Left" Margin="614,422,0,0" VerticalAlignment="Top" Width="74"/>
+            
+        
+    </Grid>
 </UserControl>

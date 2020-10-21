@@ -7,11 +7,14 @@
         xmlns:Controls="clr-namespace:DrugsProject3._0.Controls" x:Class="DrugsProject3._0.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="604.038" Width="980">
-    <Grid x:Name="MainWindowGrid" Margin="0,0,0,0">
-        <Button x:Name="button" Command="{Binding MainCommand}"  Content="doctor" HorizontalAlignment="Left" Margin="124,176,0,0" VerticalAlignment="Top" Width="173"  />
+    <Viewbox>
+        <Grid x:Name="MainWindowGrid" >
+       
+            <Button x:Name="button" Command="{Binding MainCommand}" CommandParameter ="doctorUC"   Content="doctor" HorizontalAlignment="Left" Margin="124,176,0,0" VerticalAlignment="Top" Width="173"  />
         <Button Content="doctor visit2" HorizontalAlignment="Left" Margin="124,281,0,0" VerticalAlignment="Top" Width="173" />
-        <Button Content="home page" HorizontalAlignment="Left" Margin="124,230,0,0" VerticalAlignment="Top" Width="173" />
+        <Button Content="home page" CommandParameter ="HomePageUC"   Command="{Binding MainCommand}" HorizontalAlignment="Left" Margin="124,230,0,0" VerticalAlignment="Top" Width="173" />
         <Button Content="admin" HorizontalAlignment="Left" Margin="124,330,0,0" VerticalAlignment="Top" Width="173" />
-
+    
     </Grid>
+    </Viewbox>
 </Window>
