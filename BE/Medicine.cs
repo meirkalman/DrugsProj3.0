@@ -39,5 +39,15 @@ namespace BE
             this.ActiveIngredients = medicine.ActiveIngredients;
             this.ImageUri = medicine.ImageUri;
         }
+        public Medicine(int id,string cName, string  gName, string producer, DateTime periodOfUse)
+        {
+           Id = id;
+           CommercialName =cName;
+           GenericName =gName;
+           Producer =producer;
+           PeriodOfUse =periodOfUse;
+           ActiveIngredients = new List<string>();
+           ImageUri = "aaa";
+        }
     }
 }

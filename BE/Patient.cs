@@ -27,9 +27,12 @@ namespace BE
             //PatientAddress =new Address(PatientAddress);
             DateOfBirth = dateOfBirth;
             MedicalRecord = new List<DoctorVisit>();
-            Medicines = new List<Medicine>();
 
+            List<Medicine> medicines = new List<Medicine>();
+            medicines.Add(new Medicine(123, "yitzchak", "ravitz", "hh", new DateTime(2 / 4 / 2004)));
+            Medicines = medicines;
         }
+       
         public Patient(int id, string fname, string lname, int phoneNumber, /*Address PatientAddress,*/ DateTime dateOfBirth, List<DoctorVisit> medicalRecord)
         {
             Id = id;
