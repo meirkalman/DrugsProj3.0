@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+//using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,29 +9,26 @@ namespace BE
 {
     public class DoctorVisit
     {
-
+        
         public int Id { get; set; }
-        public string DoctorName { get; set; }
+        public int DoctorId { get; set; }
+        public int PatientId { get; set; }
         //public string PatientName { get; set; }
         public string Description { get; set; }
-        public List<Medicine> Medicines { get; set; }
+       // public List<Medicine> Medicines { get; set; }
         public DateTime Date { get; set; }
 
-        public DoctorVisit(int id,string doctorName, string description, /*List<Medicine> medicines,*/ DateTime date)
+        public DoctorVisit(int id, int doctorId, int patientId, string description, DateTime date)
         {
             Id = id;
-            DoctorName = doctorName;
+            DoctorId = doctorId;
+            PatientId = patientId;
             Description = description;
-            Medicines = new List<Medicine>();
             Date = date;
         }
-        public DoctorVisit(int id, string doctorName, string description, List<Medicine> medicines, DateTime date)
+        public DoctorVisit()
         {
-            Id = id;
-            DoctorName = doctorName;
-            Description = description;
-            Medicines = medicines;
-            Date = date;
+
         }
     }
 }
