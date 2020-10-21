@@ -20,7 +20,7 @@ namespace BE
         public Medicine()
         {
         }
-        //    public Medicine(int id,string CommercialName, string CommercialName, string GenericName, string Producer, DateTime PeriodOfUse, string CommercialName, )
+        // /   public Medicine(int id,string CommercialName, string CommercialName, string GenericName, string Producer, DateTime PeriodOfUse, string CommercialName, )
         //{
         //    Id = 1;
         //    CommercialName = "acamol";
