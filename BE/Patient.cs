@@ -39,7 +39,7 @@ namespace BE
             Fname = fname;
             Lname = lname;
             PhoneNumber = phoneNumber;
-            //PatientAddress =new Address(PatientAddress);
+            //PatientAddress =new Address(PatientAddress);/
             DateOfBirth = dateOfBirth;
             MedicalRecord =medicalRecord;
             Medicines = new List<Medicine>();
