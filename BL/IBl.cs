@@ -24,7 +24,7 @@ namespace BL
         List<Medicine> GetSomeMedicines(Predicate<Medicine> func = null);
 
 
-        Medicine GetMedicine(int id);
+        Medicine GetMedicine(string commercialName );
 
 
 

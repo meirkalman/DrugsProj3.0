@@ -9,6 +9,16 @@ namespace DAL
 {
     public class DalService
     {
+        //    public void AddMedicine(Medicine medicine)
+        //    {
+        //        using (var db = new DBContext())
+        //        {
+        //            var medicines = db.Set<Medicine>();
+        //            medicines.Add(medicine);
+        //             db.SaveChanges();
+        //        }
+        //    }
+        
         public void AddMedicine(Medicine medicine)
         {
             try
@@ -91,20 +101,29 @@ namespace DAL
             return v.First();
         }
 
-
         public void AddPatient(Patient patient)
         {
-            try
+            //Patient patient2 = new Patient(456, "meir", "kalman", 054555555, new DateTime(4 / 9 / 1999));
+            using (var db = new DBContext())
             {
-                var v = from item in DataSourceTemp.PatientList
-                        where item.Id == patient.Id
-                        select item;
-                if (v.Any())
-                    throw new DuplicateWaitObjectException("הלקוח כבר קיימת");
+                var patients = db.Set<Patient>();
+                patients.Add(patient);
+                db.SaveChanges();
             }
-            catch (DuplicateWaitObjectException p) { throw p; }
-            DataSourceTemp.PatientList.Add(patient);
         }
+        //public void AddPatient(Patient patient)
+        //{
+        //    try
+        //    {
+        //        var v = from item in DataSourceTemp.PatientList
+        //                where item.Id == patient.Id
+        //                select item;
+        //        if (v.Any())
+        //            throw new DuplicateWaitObjectException("הלקוח כבר קיימת");
+        //    }
+        //    catch (DuplicateWaitObjectException p) { throw p; }
+        //    DataSourceTemp.PatientList.Add(patient);
+        //}
 
         public void DeletePatient(int id)
         {

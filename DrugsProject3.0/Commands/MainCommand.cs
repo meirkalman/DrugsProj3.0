@@ -35,7 +35,15 @@ namespace DrugsProject3._0.Commands
         
         public void Execute(object parameter)
         {
-            (App.Current as App).navigation.ShowControls("DoctorUC");
+            if (parameter.ToString() == "B1")
+            {
+                (App.Current as App).navigation.ShowControls("DoctorUC");
+            }
+            if (parameter.ToString() == "B2")
+            {
+                (App.Current as App).navigation.ShowControls("DoctorUC");
+            }
+          
         }
     }
 }
