@@ -20,8 +20,8 @@ namespace DrugsProject3._0.Navigation
                 case "LoginUC":
                     uc = new LoginUC();
                     break;
-                case "HomePage":
-                    uc = new HomePage();
+                case "HomePageUC":
+                    uc = new HomePageUC();
                     break;
                 case "DoctorVisitUC":
                     uc = new DoctorVisitUC();

@@ -1,4 +1,4 @@
-﻿<UserControl Name="uu"
+﻿<UserControl 
     x:Class="DrugsProject3._0.Controls.DoctorUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
