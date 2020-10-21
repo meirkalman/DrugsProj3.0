@@ -32,8 +32,8 @@ namespace DrugsProject3._0
 
         public void ShowControl(UserControl uc)
         {
-            MainWindowGrid.Children.Clear();
-            MainWindowGrid.Children.Add(uc);
+            InternalGrid.Children.Clear();
+            InternalGrid.Children.Add(uc);
         }
        
         //private void Button_Click(object sender, RoutedEventArgs e)

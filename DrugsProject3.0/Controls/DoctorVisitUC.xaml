@@ -34,7 +34,7 @@
         <TextBox HorizontalAlignment="Left" FlowDirection="RightToLeft" IsEnabled="False" Height="349" Margin="10,91,0,0" TextWrapping="Wrap" Text="היסטוריה רפואית:" VerticalAlignment="Top" Width="319"/>
 
 
-        <TextBox Grid.Column="1" Text="{Binding }" HorizontalAlignment="Left" FlowDirection="RightToLeft" IsEnabled="False" Height="161" Margin="10,91,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="188"/>
+        <TextBox Grid.Column="1"  HorizontalAlignment="Left" FlowDirection="RightToLeft" IsEnabled="False" Height="161" Margin="10,91,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="188"/>
         <materialDesign:PopupBox
   Style="{StaticResource MaterialDesignMultiFloatingActionAccentPopupBox}"
   PlacementMode="BottomAndAlignCentres"

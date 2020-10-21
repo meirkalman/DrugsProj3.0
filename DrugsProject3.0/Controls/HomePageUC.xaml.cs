@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace DrugsProject3._0.Controls
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Interaction logic for HomePageUC.xaml
     /// </summary>
-    public partial class HomePage : UserControl
+    public partial class HomePageUC : UserControl
     {
-        public HomePage()
+        public HomePageUC()
         {
             InitializeComponent();
         }
