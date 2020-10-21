@@ -77,10 +77,10 @@ namespace DAL
             return v;
         }
 
-        public Medicine GetMedicine(int id)
+        public Medicine GetMedicine(string commercialName)
         {
             var v = (from item in DataSourceTemp.MedicineList
-                     where item.Id == id
+                     where item.CommercialName == commercialName
                      select item).ToList();
             try
             {
@@ -168,12 +168,25 @@ namespace DAL
             try
             {
                 if (!v.Any())//If the list is empty
-                    throw new KeyNotFoundException("הלקוח לא נמצאת");
+                    throw new KeyNotFoundException("הלקוח לא נמצא");
             }
             catch (KeyNotFoundException p) { throw p; };
             return v.First();
         }
-
+        public void AddDoctorVisitToPatient(DoctorVisit doctorVisit, Patient patient)
+        {
+            var v = (from item in DataSourceTemp.PatientList
+                     where item.Id == patient.Id
+                     select item).ToList();
+            try
+            {
+                if (!v.Any())//If the list is empty
+                    throw new KeyNotFoundException("הלקוח לא נמצא");
+            }
+            catch (KeyNotFoundException p) { throw p; };
+            v.First().MedicalRecord.Add(doctorVisit);
+            UpdatePatient(patient); 
+        }
         public void AddUser(User user)
         {
             try

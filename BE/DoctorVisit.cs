@@ -16,7 +16,15 @@ namespace BE
         public List<Medicine> Medicines { get; set; }
         public DateTime Date { get; set; }
 
-        public DoctorVisit(int id,string doctorName, string description, List<Medicine> medicines, DateTime date)
+        public DoctorVisit(int id,string doctorName, string description, /*List<Medicine> medicines,*/ DateTime date)
+        {
+            Id = id;
+            DoctorName = doctorName;
+            Description = description;
+            Medicines = new List<Medicine>();
+            Date = date;
+        }
+        public DoctorVisit(int id, string doctorName, string description, List<Medicine> medicines, DateTime date)
         {
             Id = id;
             DoctorName = doctorName;
@@ -24,6 +32,5 @@ namespace BE
             Medicines = medicines;
             Date = date;
         }
-
     }
 }

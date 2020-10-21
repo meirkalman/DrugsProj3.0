@@ -20,9 +20,11 @@ namespace DrugsProject3._0.ViewModels
        
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public DoctorVisit DoctorVisitV;
+        public DoctorVisit doctorVisit;
         public Patient patient;
-        public List< Medicine> MedicineV;
+        public List< Medicine> medicineList;
+
+        public string MedicineSelected { get; set; }
 
         private int id;
         public int Id
@@ -60,13 +62,10 @@ namespace DrugsProject3._0.ViewModels
                 }
             }
 
-        private ObservableCollection<Medicine> medicines;
+       // private ObservableCollection<Medicine> medicines;
 
-        public ObservableCollection<Medicine> Medicines
-        {
-            get { return medicines; }
-            set { medicines = value; }
-        }
+        public ObservableCollection<string> MedicinesNames { get; set; }
+       
 
         private DateTime date = DateTime.Now;
             public DateTime Date
@@ -84,7 +83,7 @@ namespace DrugsProject3._0.ViewModels
         public AddDoctorVisitModel AddDoctorVisitM { get; set; }
 
        // private IEventAggregator eventAggreegator;
-        public AddDoctorVisitVM(IEventAggregator eventAggreegator)
+        public AddDoctorVisitVM(/*IEventAggregator eventAggreegator*/)
         {
             //patient = new Patient();
             //this.eventAggreegator = eventAggreegator;
@@ -92,43 +91,60 @@ namespace DrugsProject3._0.ViewModels
             AddCommand = new AddDoctorVisitCommand(this);
 
 
-            eventAggreegator.GetEvent<PatientEvent>().Subscribe(EventSubscribe);
-           // Medicines = new ObservableCollection<Medicine>(AddDoctorVisitM.GetMedicineList(patient.Id));
+            // eventAggreegator.GetEvent<PatientEvent>().Subscribe(EventSubscribe);
+            MedicinesNames = new ObservableCollection<string>(GetAllMedicines());
+         
             //Medicines.CollectionChanged += Medicines_CollectionChanged;
-            MedicineV = new List<Medicine>();
+            medicineList = new List<Medicine>();
             
         }
 
-        private void EventSubscribe(Patient patient)
-        {
-            this.patient = patient;
-            MessageBox.Show("dd");
-            MessageBox.Show(patient.Id.ToString());
-        }
-        public void tt()
-        {
-            MessageBox.Show(patient.Id.ToString());
+        //private void EventSubscribe(Patient patient)
+        //{
+        //    this.patient = patient;
+        //    MessageBox.Show("dd");
+        //    MessageBox.Show(patient.Id.ToString());
+        //}
+        //public void tt()
+        //{
+        //    MessageBox.Show(patient.Id.ToString());
 
-        }
+        //}
 
-        private void Medicines_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            if (e.Action == NotifyCollectionChangedAction.Add)
-            {
-                MedicineV.Add(e.NewItems[0] as Medicine);
-            }
-        }
+        //private void Medicines_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        //{
+        //    if (e.Action == NotifyCollectionChangedAction.Add)
+        //    {
+        //        MedicineV.Add(e.NewItems[0] as Medicine);
+        //    }
+        //}
 
         public AddDoctorVisitCommand AddCommand { get; set; }
 
 
-            
 
+        public List<string> GetAllMedicines()
+        {
+            List<string> names = new List<string>();
+            foreach (var item in AddDoctorVisitM.GetAllMedicines())
+            {
+                names.Add(item.CommercialName);
+            }
+            return names;
+        }
+        public void AddMedicine()
+        {
+            Medicine medicine;
+            medicine = AddDoctorVisitM.GetMedicine(MedicineSelected);
+            medicineList.Add(medicine);
+        }
+        
             public void AddDoctorVisitToPatient()
             {
            
-            DoctorVisitV = new DoctorVisit(Id, DoctorName, Description,MedicineV, Date);
-            AddDoctorVisitM.AddDoctorVisitToPatient(DoctorVisitV,patient);
+            doctorVisit = new DoctorVisit(Id, DoctorName, Description,medicineList, Date);
+
+            AddDoctorVisitM.AddDoctorVisitToPatient(doctorVisit,patient);
             }
 
 

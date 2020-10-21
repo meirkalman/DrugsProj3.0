@@ -120,7 +120,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\doctorUC.xaml">
+    <Page Include="Controls\DoctorUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,8 +147,8 @@
     <Compile Include="Controls\AdministratorUC.xaml.cs">
       <DependentUpon>AdministratorUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\doctorUC.xaml.cs">
-      <DependentUpon>doctorUC.xaml</DependentUpon>
+    <Compile Include="Controls\DoctorUC.xaml.cs">
+      <DependentUpon>DoctorUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\DoctorVisitUC.xaml.cs">
       <DependentUpon>DoctorVisitUC.xaml</DependentUpon>

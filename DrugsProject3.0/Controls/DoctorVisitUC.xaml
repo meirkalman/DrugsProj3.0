@@ -15,26 +15,26 @@
         <materialDesign:PackIcon Kind="AccountClock"  HorizontalAlignment="Center" Height="36" Width="40" Margin="217,38,110,0"  />
         <TextBox  HorizontalAlignment="Center" IsEnabled="False" Height="31"  TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Text="    היסטוריה רפואית " Margin="90,43,150,0"/>
         <TextBox Grid.Column="1" HorizontalAlignment="Center" FontSize="20" IsEnabled="False"  Height="36" Margin="167,38,226,0" TextWrapping="Wrap" Text="      הוספת תרופה    " VerticalAlignment="Top" Width="106"/>
-        <ComboBox
+        <ListBox ItemsSource="{Binding MedicinesNames}"  SelectedValue="{Binding MedicineSelected}"
             FlowDirection="RightToLeft"
   materialDesign:HintAssist.Hint="שם התרופה"
   materialDesign:HintAssist.HintOpacity=".26"
-  IsEditable="True" Grid.Column="1" Margin="217,106,10,318" Height="26"/>
+  Grid.Column="1" Margin="217,106,10,318" Height="26"/>
         <StackPanel
   Orientation="Horizontal"
   Margin="0 16 0 0"/>
-        <Button
+        <Button Command="{Binding AddCommand}" CommandParameter ="AddMedicineToDV "
     Style="{StaticResource MaterialDesignRaisedAccentButton}"
     ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="252,371,33,47" >
             הוסף תרופה
         </Button>
-        <Button Command="{Binding AddCommand}"
+        <Button Command="{Binding AddCommand}" CommandParameter ="DoctorUC"
     Style="{StaticResource MaterialDesignRaisedAccentButton}"
     ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="252,408,33,10" Content="סיום" />
         <TextBox HorizontalAlignment="Left" FlowDirection="RightToLeft" IsEnabled="False" Height="349" Margin="10,91,0,0" TextWrapping="Wrap" Text="היסטוריה רפואית:" VerticalAlignment="Top" Width="319"/>
 
 
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" FlowDirection="RightToLeft" IsEnabled="False" Height="161" Margin="10,91,0,0" TextWrapping="Wrap" Text="רשימת התרופות:&#xD;&#xA;" VerticalAlignment="Top" Width="188"/>
+        <TextBox Grid.Column="1" Text="{Binding }" HorizontalAlignment="Left" FlowDirection="RightToLeft" IsEnabled="False" Height="161" Margin="10,91,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="188"/>
         <materialDesign:PopupBox
   Style="{StaticResource MaterialDesignMultiFloatingActionAccentPopupBox}"
   PlacementMode="BottomAndAlignCentres"

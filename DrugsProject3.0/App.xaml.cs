@@ -17,7 +17,7 @@ namespace DrugsProject3._0
     {
 
         public NavigationClass navigation = new NavigationClass();
-        public IEventAggregator eventAggreegator = new EventAggregator();
+       // public IEventAggregator eventAggreegator = new EventAggregator();
 
 
 

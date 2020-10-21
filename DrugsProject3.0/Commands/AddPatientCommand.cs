@@ -30,8 +30,9 @@ namespace DrugsProject3._0.Commands
 
         public void Execute(object parameter)
         {
-          //  MessageBox.Show("yes");
+            //  MessageBox.Show("yes");
             CurrentVM.AddPatient();
+            (App.Current as App).navigation.ShowControls("DoctorUC");
         }
     }
 }

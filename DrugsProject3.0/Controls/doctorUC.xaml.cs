@@ -18,17 +18,17 @@ using System.Windows.Shapes;
 namespace DrugsProject3._0.Controls
 {
     /// <summary>
-    /// Interaction logic for doctorUC.xaml
+    /// Interaction logic for DoctorUC.xaml
     /// </summary>
-    public partial class doctorUC : UserControl
+    public partial class DoctorUC : UserControl
     {
          //private IEventAggregator eventAggregator;
-        public doctorUC()
+        public DoctorUC()
         {
 
             
            //this.eventAggregator = new EventAggregator();
-            DoctorVM VM = new DoctorVM((App.Current as App).eventAggreegator);
+            DoctorVM VM = new DoctorVM(/*App.Current as App).eventAggreegator*/);
             DataContext = VM;
             InitializeComponent();
         }

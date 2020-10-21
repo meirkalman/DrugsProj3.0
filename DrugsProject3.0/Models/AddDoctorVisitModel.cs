@@ -26,7 +26,15 @@ namespace DrugsProject3._0.Models
         {
            return Bl.GetPatient(id).Medicines;
         }
+        public List<Medicine> GetAllMedicines()
+        {
+            return Bl.GetAllMedicines();
+        }
 
+        internal Medicine GetMedicine(string commercialName)
+        {
+            return Bl.GetMedicine(commercialName);
+        }
     }
 }
 //public void AddMedicineToDoctorVisit(List<Medicine> medicines)

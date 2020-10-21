@@ -26,8 +26,8 @@ namespace DrugsProject3._0.Navigation
                 case "DoctorVisitUC":
                     uc = new DoctorVisitUC();
                     break;
-                case "doctorUC":
-                    uc = new doctorUC();
+                case "DoctorUC":
+                    uc = new DoctorUC();
                     break;
                 case "AdministratorUC":
                     uc = new AdministratorUC();

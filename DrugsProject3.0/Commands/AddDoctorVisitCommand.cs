@@ -28,9 +28,17 @@ namespace DrugsProject3._0.Commands
         }
 
         public void Execute(object parameter)
-        {
-            //  MessageBox.Show("yes");
-                CurrentVM.tt();
+        {    
+            if (parameter.ToString() == "AddMedicineToDV")
+            {
+                CurrentVM.AddMedicine();
+
+            }
+            if (parameter.ToString() == "DoctorUC")
+            {
+               
+                (App.Current as App).navigation.ShowControls("DoctorUC");
+            }   
         }
     }
 }

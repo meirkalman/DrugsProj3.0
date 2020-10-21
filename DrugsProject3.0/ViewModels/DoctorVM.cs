@@ -25,11 +25,11 @@ namespace DrugsProject3._0.ViewModels
 
         public ObservableCollection<int> PatientsId { get; set; }
 
-        private IEventAggregator eventAggreegator;
-        public DoctorVM(IEventAggregator eventAggreegator)
+        //private IEventAggregator eventAggreegator;
+        public DoctorVM(/*IEventAggregator eventAggreegator*/)
         {
             DoctorM = new DoctorModel();
-            this.eventAggreegator = eventAggreegator;
+            //this.eventAggreegator = eventAggreegator;
 
             Command = new DoctorCommand(this);
            // CommandAP = new DoctorCommand(this);
@@ -39,11 +39,11 @@ namespace DrugsProject3._0.ViewModels
             PatientsId = new ObservableCollection<int>(GetAllPatients());
             //PatientsId.CollectionChanged += PatientsId_CollectionChanged;
         }
-        public void EventMenage()
-        {
-            Patient patient = DoctorM.GetPatient(PatientSelected);
-            this.eventAggreegator.GetEvent<PatientEvent>().Publish(patient);
-        }
+        //public void EventMenage()
+        //{
+        //    Patient patient = DoctorM.GetPatient(PatientSelected);
+        //    this.eventAggreegator.GetEvent<PatientEvent>().Publish(patient);
+        //}
 
         public DoctorCommand Command { get; set; }
       //  public DoctorCommand CommandAP { get; set; }

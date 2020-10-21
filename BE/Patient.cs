@@ -30,7 +30,18 @@ namespace BE
             Medicines = new List<Medicine>();
 
         }
+        public Patient(int id, string fname, string lname, int phoneNumber, /*Address PatientAddress,*/ DateTime dateOfBirth, List<DoctorVisit> medicalRecord)
+        {
+            Id = id;
+            Fname = fname;
+            Lname = lname;
+            PhoneNumber = phoneNumber;
+            //PatientAddress =new Address(PatientAddress);
+            DateOfBirth = dateOfBirth;
+            MedicalRecord =medicalRecord;
+            Medicines = new List<Medicine>();
 
+        }
         public Patient()
         {
         }

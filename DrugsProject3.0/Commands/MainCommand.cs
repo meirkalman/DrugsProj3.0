@@ -35,7 +35,7 @@ namespace DrugsProject3._0.Commands
         
         public void Execute(object parameter)
         {
-            (App.Current as App).navigation.ShowControls("doctorUC");
+            (App.Current as App).navigation.ShowControls("DoctorUC");
         }
     }
 }

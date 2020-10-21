@@ -28,7 +28,7 @@ namespace DrugsProject3._0.Controls
         {
           //  this.eventAggregator = new EventAggregator();
             
-            AddDoctorVisitVM VM = new AddDoctorVisitVM((App.Current as App).eventAggreegator);
+            AddDoctorVisitVM VM = new AddDoctorVisitVM(/*App.Current as App).eventAggreegator*/);
             DataContext = VM;
             InitializeComponent();
         }

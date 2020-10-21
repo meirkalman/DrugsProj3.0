@@ -31,12 +31,12 @@ namespace DrugsProject3._0.Commands
 
         public void Execute(object parameter)
         {
-            if (parameter.ToString() == "1")
+            if (parameter.ToString() == "OpenDoctorVisit")
             {
-                CurrentVM.EventMenage();
+             //   CurrentVM.EventMenage();
                 (App.Current as App).navigation.ShowControls("DoctorVisitUC");
             }
-            if (parameter.ToString() == "2")
+            if (parameter.ToString() == "AddNewPatient")
             {
                 // CurrentVM.EventMenage();
                 (App.Current as App).navigation.ShowControls("AddNewPatient");

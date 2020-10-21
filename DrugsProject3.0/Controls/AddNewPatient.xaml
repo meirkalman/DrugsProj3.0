@@ -19,8 +19,8 @@
                ToolTip="Resource name: MaterialDesignRaisedAccentButton"
               materialDesign:RippleAssist.Feedback="#DD000000" Content="הוסף" Margin="91,242,91,10" />
             <DatePicker  materialDesign:HintAssist.Hint="תאריך לידה"  SelectedDate="{Binding DateOfBirth, Mode=TwoWay}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Height="44" Margin="103,185,104,55" />
-            <TextBox materialDesign:HintAssist.Hint="מספר טלפון" FlowDirection="RightToLeft" Text="{Binding PhoneNum, Mode=OneWayToSource}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Width="126" Margin="103,144,103,100"  />
-            <TextBox materialDesign:HintAssist.Hint="תעודת זהות" FlowDirection="RightToLeft" Text="{Binding Id, Mode=OneWayToSource}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Width="124" Margin="104,106,104,138"  />
+            <TextBox materialDesign:HintAssist.Hint="מספר טלפון" FlowDirection="RightToLeft" Text="{Binding PhoneNum}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Width="126" Margin="103,144,103,100"  />
+            <TextBox materialDesign:HintAssist.Hint="תעודת זהות" FlowDirection="RightToLeft" Text="{Binding Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Width="124" Margin="104,106,104,138"  />
             <TextBox materialDesign:HintAssist.Hint="שם משפחה" FlowDirection="RightToLeft" Text="{Binding Fname}"  Height="39"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="128" Margin="104,67,100,0" />
             <TextBox materialDesign:HintAssist.Hint="שם פרטי"  FlowDirection="RightToLeft" Text="{Binding Lname}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"   Width="122" Margin="107,106,103,210"  />
             <materialDesign:PackIcon Kind="Account" Height="36" Width="42" Margin="228,69,0,0" RenderTransformOrigin="0.476,0.5"/>

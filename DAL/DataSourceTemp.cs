@@ -26,31 +26,36 @@ namespace DAL
             medicine.ImageUri = "aaa";
             MedicineList.Add(medicine);
 
-            medicine.Id = 15416;
-            medicine.CommercialName = "ssss";
-            medicine.GenericName = "ffff";
-            medicine.Producer = "teva";
-            medicine.PeriodOfUse = new DateTime();
-            medicine.ActiveIngredients = new List<string>();
-            medicine.ImageUri = "aaa";
-            MedicineList.Add(medicine);
+            Medicine medicine2 = new Medicine();
+            medicine2.Id = 15416;
+            medicine2.CommercialName = "ssss";
+            medicine2.GenericName = "ffff";
+            medicine2.Producer = "teva";
+            medicine2.PeriodOfUse = new DateTime();
+            medicine2.ActiveIngredients = new List<string>();
+            medicine2.ImageUri = "aaa";
+            MedicineList.Add(medicine2);
 
-            medicine.Id = 1321;
-            medicine.CommercialName = "vvvv";
-            medicine.GenericName = "Acccc";
-            medicine.Producer = "teva";
-            medicine.PeriodOfUse = new DateTime();
-            medicine.ActiveIngredients = new List<string>();
-            medicine.ImageUri = "aaa";
-            MedicineList.Add(medicine);
+            Medicine medicine3 = new Medicine();
+            medicine3.Id = 1321;
+            medicine3.CommercialName = "vvvv";
+            medicine3.GenericName = "Acccc";
+            medicine3.Producer = "teva";
+            medicine3.PeriodOfUse = new DateTime();
+            medicine3.ActiveIngredients = new List<string>();
+            medicine3.ImageUri = "aaa";
+            MedicineList.Add(medicine3);
 
-       
-            PatientList.Add(new Patient(123, "yitzchak", "ravitz", 054999999, new DateTime(2 / 4 / 2004)));
+            List<DoctorVisit> yy = new List<DoctorVisit>();
+            yy.Add(new DoctorVisit(1, "ee", "ff", new DateTime(2 / 4 / 2004)));
+
+
+            PatientList.Add(new Patient(123, "yitzchak", "ravitz", 054999999, new DateTime(2 / 4 / 2004), yy));
             PatientList.Add(new Patient(456, "meir", "kalman", 054555555, new DateTime(4 / 9 / 1999)));
             PatientList.Add(new Patient(777, "moshe", "cohen", 054111111, new DateTime(6 / 1 / 1995)));
             PatientList.Add(new Patient(453, "david", "kkk", 054159753, new DateTime(1/3/1992)));
             PatientList.Add(new Patient(124, "moshe", "cohen", 054111111, new DateTime(2 / 6 / 2000)));
-
+         
             User user = new User();
             user.Type = UserType.ADMIN;
             user.Id = 453;
