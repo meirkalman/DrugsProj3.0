@@ -145,7 +145,7 @@ namespace DAL
             try
             {
                 if (index == -1)
-                    throw new KeyNotFoundException("הלקוח לא נמצאת");
+                    throw new KeyNotFoundException("הלקוח לא נמצא");
             }
             catch (KeyNotFoundException p) { throw p; }
             DataSourceTemp.PatientList[index] = a;
@@ -268,7 +268,7 @@ namespace DAL
             try
             {
                 if (!v.Any())//If the list is empty
-                    throw new ArgumentNullException("לא נמצאו משתמש");
+                    throw new ArgumentNullException("לא נמצאו משתמשים");
             }
             catch (ArgumentNullException p) { throw p; };
             return v;
@@ -282,10 +282,12 @@ namespace DAL
             try
             {
                 if (!v.Any())//If the list is empty
-                    throw new KeyNotFoundException("משתמש לא נמצאת");
+                    throw new KeyNotFoundException("משתמש לא נמצא");
             }
             catch (KeyNotFoundException p) { throw p; };
             return v.First();
         }
+
+        
     }
 }

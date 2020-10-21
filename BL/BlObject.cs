@@ -10,7 +10,16 @@ namespace BL
 {
     public class BlObject: IBL
     {
+        CheckInteraction CI = new CheckInteraction();
         DalService dalService = new DalService();
+
+        
+        public List<string> interactionDrugs(string drugName)
+        {
+            return CI.interactionDrugs(drugName);
+        }
+
+
         public void AddMedicine(Medicine medicine)
         {
             dalService.AddMedicine(medicine);
