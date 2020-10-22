@@ -30,6 +30,3 @@ namespace BE
         }
     }
 }
-// public List<Medicine> Medicines { get; set; }
-//public Address PatientAddress { get; set; }
-//public List<DoctorVisit> MedicalRecord { get; set; }

@@ -10,13 +10,13 @@ namespace DAL
 {
     public class DBContext: DbContext
     {
-        public DBContext() : base("DrugProject")
+        public DBContext() : base("DrugProj")
         {
             //this.Configuration.LazyLoadingEnabled = false;
 
         }
         public DbSet<Medicine> Medicines { get; set; }
-        public DbSet<Medicine> Recipes { get; set; }
+        public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<User> Users { get; set; }
 

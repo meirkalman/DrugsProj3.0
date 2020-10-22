@@ -30,6 +30,14 @@ namespace DAL
                 db.SaveChanges();
             }
         }
+        public void AddRecipe(Recipe recipe)
+        {
+            using (var db = new DBContext())
+            {
+                db.Recipes.Add(recipe);
+                db.SaveChanges();
+            }
+        }
         public void AddUser(User user)
         {
             using (var db = new DBContext())
@@ -49,8 +57,6 @@ namespace DAL
                 current.Fname = patient.Fname;
                 current.PhoneNumber = patient.PhoneNumber;
                 current.DateOfBirth = patient.DateOfBirth;
-                current.Medicines = patient.Medicines;
-                current.MedicalRecord = patient.MedicalRecord;
                 db.SaveChanges();
             }
         }
@@ -63,24 +69,37 @@ namespace DAL
                 current.CommercialName = medicine.CommercialName;
                 current.GenericName = medicine.GenericName;
                 current.Producer = medicine.Producer;
-                current.PeriodOfUse = medicine.PeriodOfUse;
-                current.Medicines = medicine.Medicines;
-                current.MedicalRecord = medicine.MedicalRecord;
+                current.ActiveIngredients = medicine.ActiveIngredients;
+                current.ImageUri = medicine.ImageUri;
                 db.SaveChanges();
             }
         }
-        public void UpdatePatient(Patient patient)
+        public void UpdateRecipe(Recipe recipe)
         {
             using (var db = new DBContext())
             {
-                var current = db.Patients.Find(patient.Id);
-                current.Id = patient.Id;
-                current.Lname = patient.Lname;
-                current.Fname = patient.Fname;
-                current.PhoneNumber = patient.PhoneNumber;
-                current.DateOfBirth = patient.DateOfBirth;
-                current.Medicines = patient.Medicines;
-                current.MedicalRecord = patient.MedicalRecord;
+                var current = db.Recipes.Find(recipe.RecipeId);
+                current.RecipeId = recipe.RecipeId;
+                current.DoctorId = recipe.DoctorId;
+                current.PatientId = recipe.PatientId;
+                current.MedicineId = recipe.MedicineId;
+                current.PeriodOfUse = recipe.PeriodOfUse;
+                current.Description = recipe.Description;
+                current.Date = recipe.Date;
+                db.SaveChanges();
+               
+            }
+        }
+        public void UpdateUser(User user)
+        {
+            using (var db = new DBContext())
+            {
+                var current = db.Users.Find(user.Id);
+                current.Id = user.Id;
+                current.Lname = user.Lname;
+                current.Fname = user.Fname;
+                current.PhoneNumber = user.PhoneNumber;
+                current.Type = user.Type;
                 db.SaveChanges();
             }
         }

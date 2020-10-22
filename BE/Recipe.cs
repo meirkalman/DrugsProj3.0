@@ -11,20 +11,28 @@ namespace BE
     {
         [Key]
         public int RecipeId { get; set; }
-        public string PatientId { get; set; }
-        public string MedicineId { get; set; }
+        public int PatientId { get; set; }
+        public int DoctorId { get; set; }
+        public int MedicineId { get; set; }
+        public int PeriodOfUse { get; set; }
+        public string Description { get; set; }
         public DateTime Date { get; set; }
+
+
 
         public Recipe()
         {
 
         }
-        public Recipe(int recipeId, string patientId, string medicineId, DateTime date)
+        public Recipe(int recipeId, int patientId, int doctorId, int medicineId, int periodOfUse, string description, DateTime date)
         {
             RecipeId = recipeId;
             PatientId = patientId;
+            DoctorId = doctorId;
             MedicineId = medicineId;
+            PeriodOfUse = periodOfUse;
+            Description = Description;
             Date = date;
-        }           
-
+        }
+    }
 }

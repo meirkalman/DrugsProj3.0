@@ -68,7 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs" />
-    <Compile Include="DoctorVisit.cs" />
     <Compile Include="EventAggregate\PatientEvent.cs" />
     <Compile Include="Medicine.cs" />
     <Compile Include="Patient.cs" />
