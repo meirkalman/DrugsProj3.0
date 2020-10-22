@@ -10,7 +10,7 @@ namespace DAL
 {
     public class DBContext: DbContext
     {
-        public DBContext() : base("DrugProject")
+        public DBContext() : base("DrugProj")
         {
             //this.Configuration.LazyLoadingEnabled = false;
 
