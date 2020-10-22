@@ -132,12 +132,29 @@ namespace BL
         }
         #endregion get 
 
+        #region statistics
+
+        public Dictionary<DateTime, int> drugStatistic(int drugID, DateTime start, DateTime finish)
+        {
+            Dictionary<DateTime, int> result = new Dictionary<DateTime, int>();
+            var prescriptionsOnTheAppropriateDate = (from item in IDalService.GetAllRecipes()
+                                                     where (drugID == item.MedicineId && start >= item.Date && finish <= item.Date)
+                                                     group item by item.Date);
+            foreach (var g in prescriptionsOnTheAppropriateDate)
+            {
+                result.Add(g.Key, g.Count());
+            }
+            return result;
+
+        }
+        #endregion
+
 
 
         //public void AddDoctorVisitToPatient(DoctorVisit doctorVisit, Patient patient)
         //{
         //    IDalService.AddDoctorVisitToPatient(doctorVisit, patient);
         //}
-       
+
     }
 }
