@@ -11,112 +11,133 @@ namespace BL
     public class BlObject: IBL
     {
         CheckInteraction CI = new CheckInteraction();
-        DalService dalService = new DalService();
+        public IDalService IDalService { get; set; }
 
-        
+        public BlObject()
+        {
+            IDalService = new DalService();
+        }
+
         public List<string> interactionDrugs(string drugName)
         {
             return CI.interactionDrugs(drugName);
         }
-
-
+        #region add
         public void AddMedicine(Medicine medicine)
         {
-            dalService.AddMedicine(medicine);
+            IDalService.AddMedicine(medicine);
         }
-
-        public void DeleteMedicine(int id)
-        {
-            dalService.DeleteMedicine(id);
-        }
-
-        public void UpdateMedicine(Medicine medicine)
-        {
-            dalService.UpdateMedicine(medicine);
-        }
-
-        public List<Medicine> GetAllMedicines()
-        {
-            return dalService.GetAllMedicines();
-        }
-
-        public List<Medicine> GetSomeMedicines(Predicate<Medicine> func = null)
-        {
-            return dalService.GetSomeMedicines();
-        }
-
-        public Medicine GetMedicine(string commercialName)
-        {
-            return dalService.GetMedicine(commercialName);
-        }
-
 
         public void AddPatient(Patient patient)
         {
-            dalService.AddPatient(patient);
+            IDalService.AddPatient(patient);
         }
 
-        public void DeletePatient(int id)
+        public void AddRecipe(Recipe recipe)
         {
-            dalService.DeletePatient(id);
+            IDalService.AddRecipe(recipe);
+        }
+
+        public void AddUser(User user)
+        {
+            IDalService.AddUser(user);
+        }
+        #endregion add
+
+        #region update
+        public void UpdateMedicine(Medicine medicine)
+        {
+            IDalService.UpdateMedicine(medicine);
         }
 
         public void UpdatePatient(Patient patient)
         {
-            dalService.UpdatePatient(patient);
+            IDalService.UpdatePatient(patient);
         }
 
-        public List<Patient> GetAllPatients()
+        public void UpdateRecipe(Recipe recipe)
         {
-            return dalService.GetAllPatients();
-        }
-
-        public List<Patient> GetSomePatients(Predicate<Patient> func = null)
-        {
-            return dalService.GetSomePatients();
-        }
-
-        public Patient GetPatient(int id)
-        {
-            return dalService.GetPatient(id);
-        }
-
-        public void AddDoctorVisitToPatient(DoctorVisit doctorVisit, Patient patient)
-        {
-            dalService.AddDoctorVisitToPatient(doctorVisit, patient);
-        }
-       
-
-
-        public void AddUser(User user)
-        {
-            DalService dalService = new DalService();
-            dalService.AddUser(user);
-        }
-
-        public void DeleteUser(int id)
-        {
-            dalService.DeleteUser(id);
+            IDalService.UpdateRecipe(recipe);
         }
 
         public void UpdateUser(User user)
         {
-            dalService.UpdateUser(user);
+            IDalService.UpdateUser(user);
+        }
+        #endregion update
+
+        #region delete
+        public void DeleteMedicine(Medicine medicine)
+        {
+            IDalService.DeleteMedicine(medicine);
         }
 
-        public List<User> GetAllUsers()
+        public void DeletePatient(Patient patient)
         {
-            return dalService.GetAllUsers();
+            IDalService.DeletePatient(patient);
         }
 
-        public List<User> GetSomeUsers(Predicate<User> func = null)
+        public void DeleteRecipe(Recipe recipe)
         {
-            return dalService.GetSomeUsers();
+            IDalService.DeleteRecipe(recipe);
+        }
+
+        public void DeleteUser(User user)
+        {
+            IDalService.DeleteUser(user);
+        }
+        #endregion delete
+
+        #region get all/some
+        public List<Medicine> GetAllMedicines(Func<Medicine, bool> predicate = null)
+        {
+            return IDalService.GetAllMedicines();
+        }
+
+        public List<Patient> GetAllPatients(Func<Patient, bool> predicate = null)
+        {
+            return IDalService.GetAllPatients();
+        }
+
+        public List<Recipe> GetAllRecipes(Func<Recipe, bool> predicate = null)
+        {
+            return IDalService.GetAllRecipes();
+        }
+
+        public List<User> GetAllUsers(Func<User, bool> predicate = null)
+        {
+            return IDalService.GetAllUsers();
+        }
+        #endregion get all/some
+
+        #region get 
+        public Medicine GetMedicine(int id)
+        {
+            return IDalService.GetMedicine(id);
+        }
+
+        public Patient GetPatient(int id)
+        {
+            return IDalService.GetPatient(id);
+        }
+
+        public Recipe GetRecipe(int recipeId)
+        {
+            return IDalService.GetRecipe(recipeId);
         }
 
         public User GetUser(int id)
         {
-            return dalService.GetUser(id);
+            return IDalService.GetUser(id);
         }
+        #endregion get 
+
+
+
+        //public void AddDoctorVisitToPatient(DoctorVisit doctorVisit, Patient patient)
+        //{
+        //    IDalService.AddDoctorVisitToPatient(doctorVisit, patient);
+        //}
+       
     }
 }

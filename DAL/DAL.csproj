@@ -72,7 +72,6 @@
   <ItemGroup>
     <Compile Include="CheckInteraction.cs" />
     <Compile Include="DalService.cs" />
-    <Compile Include="DataSourceTemp.cs" />
     <Compile Include="DBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IDalService.cs" />
