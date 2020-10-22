@@ -36,8 +36,8 @@
             </Grid>
             <TreeView
   MinWidth="220"  FlowDirection="LeftToRight" HorizontalAlignment="Left" FontSize="18" Grid.ColumnSpan="1" Margin="742,10,0,408" >
-                <TreeViewItem  
-                
+                <TreeViewItem 
+                 
     Header="דף הבית">
                     
                     <TreeViewItem

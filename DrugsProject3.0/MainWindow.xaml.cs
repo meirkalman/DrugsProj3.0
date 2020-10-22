@@ -36,7 +36,12 @@ namespace DrugsProject3._0
             InternalGrid.Children.Clear();
             InternalGrid.Children.Add(uc);
         }
-       
+
+        private void TreeViewItem_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
+
         //private void Button_Click(object sender, RoutedEventArgs e)
         //{
         //    this.ShowControl(uc);
