@@ -20,7 +20,7 @@ namespace DrugsProject3._0.ViewModels
        
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public DoctorVisit doctorVisit;
+       
         public Patient patient;
         public List< Medicine> medicineList;
 
@@ -134,17 +134,17 @@ namespace DrugsProject3._0.ViewModels
         }
         public void AddMedicine()
         {
-            Medicine medicine;
-            medicine = AddDoctorVisitM.GetMedicine(MedicineSelected);
-            medicineList.Add(medicine);
+            //Medicine medicine;
+            //medicine = AddDoctorVisitM.GetMedicine(MedicineSelected);
+            //medicineList.Add(medicine);
         }
         
             public void AddDoctorVisitToPatient()
             {
            
-            doctorVisit = new DoctorVisit(Id, DoctorName, Description,medicineList, Date);
+          //  doctorVisit = new DoctorVisit(Id, DoctorName, Description,medicineList, Date);
 
-            AddDoctorVisitM.AddDoctorVisitToPatient(doctorVisit,patient);
+           // AddDoctorVisitM.AddDoctorVisitToPatient(doctorVisit,patient);
             }
 
 
