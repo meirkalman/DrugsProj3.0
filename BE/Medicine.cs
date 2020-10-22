@@ -14,7 +14,6 @@ namespace BE
         public string CommercialName { get; set; }
         public string GenericName { get; set; }
         public string Producer { get; set; }
-        public DateTime PeriodOfUse { get; set; }
         public string ActiveIngredients { get; set; }
         public string ImageUri { get; set; }
 
@@ -23,13 +22,12 @@ namespace BE
         {
         }
 
-        public Medicine(int id,string cName, string  gName, string producer, DateTime periodOfUse, string activeIngredients, string imageUri)
+        public Medicine(int id,string cName, string  gName, string producer,  string activeIngredients, string imageUri)
         {
            Id = id;
            CommercialName =cName;
            GenericName =gName;
            Producer =producer;
-           PeriodOfUse =periodOfUse;
             ActiveIngredients = activeIngredients;
            ImageUri = imageUri;
         }

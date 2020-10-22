@@ -69,18 +69,18 @@ namespace DAL
                 db.SaveChanges();
             }
         }
-        public void UpdatePatient(Patient patient)
+        public void UpdateUser(User user)
         {
             using (var db = new DBContext())
             {
                 var current = db.Patients.Find(patient.Id);
-                current.Id = patient.Id;
-                current.Lname = patient.Lname;
-                current.Fname = patient.Fname;
-                current.PhoneNumber = patient.PhoneNumber;
-                current.DateOfBirth = patient.DateOfBirth;
-                current.Medicines = patient.Medicines;
-                current.MedicalRecord = patient.MedicalRecord;
+                current.Id = user.Id;
+                current.Lname = user.Lname;
+                current.Fname = user.Fname;
+                current.PhoneNumber = user.PhoneNumber;
+                current.DateOfBirth = user.DateOfBirth;
+                current.Medicines = user.Medicines;
+                current.MedicalRecord = user.MedicalRecord;
                 db.SaveChanges();
             }
         }

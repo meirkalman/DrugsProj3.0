@@ -16,7 +16,7 @@ namespace DAL
 
         }
         public DbSet<Medicine> Medicines { get; set; }
-        public DbSet<Medicine> Recipes { get; set; }
+        public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<User> Users { get; set; }
 

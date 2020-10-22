@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,13 +9,11 @@ namespace BE
 {
     public class User
     {
+        [Key]
         public int Id { get; set; }
         public string Fname { get; set; }
         public string Lname { get; set; }
         public int PhoneNumber { get; set; }
-        //public List<Patient> Patients { get; set; }
-        //public string Address { get; set; }
-
         public UserType Type { get; set; }
 
         public enum UserType { DOCTOR, ADMIN }
@@ -29,20 +28,18 @@ namespace BE
             Fname = user.Fname;
             Lname = user.Lname;
             PhoneNumber = user.PhoneNumber;
-            this.Type = user.Type;
+            Type = user.Type;
         }
 
-        public User(int id, string fname, string lname, int phoneNumber,  UserType type)
+        public User(int id, string fname, string lname, int phoneNumber, UserType type)
         {
             Id = id;
             Fname = fname;
             Lname = lname;
             PhoneNumber = phoneNumber;
-            
-            this.Type = type;
+            Type = type;
         }
     }
-
 }   
 
             
