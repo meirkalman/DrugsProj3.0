@@ -1,4 +1,5 @@
-﻿using DrugsProject3._0.Controls;
+﻿using BL;
+using DrugsProject3._0.Controls;
 using DrugsProject3._0.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -22,8 +23,13 @@ namespace DrugsProject3._0
     /// </summary>
     public partial class MainWindow : Window
     {
+        public IBL Bl { get; set; }
+        
+          
+       
         public MainWindow()//
         {
+            Bl = new BlObject();
             InitializeComponent();
             (App.Current as App).navigation.MainWindows = this;
             MainVM VM = new MainVM();
@@ -42,14 +48,50 @@ namespace DrugsProject3._0
 
         }
 
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    this.ShowControl(uc);
-        //}
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+         Bl.AddMedicine(new BE.Medicine(111,
+        "phenelzine",
+        "phenelzine",
+        "jf",
+        "gfd",
+        " "));
 
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    this.ShowControl(uc);Command="{Binding MainCommand}"
-        //}
-    }
+        Bl.AddMedicine(new BE.Medicine(222,"moclobemide","moclobemide",
+        "jf",
+        "gfd",
+        " "));
+
+
+        Bl.AddMedicine(new BE.Medicine(333,
+        "sumatriptan",
+        "sumatriptan",
+        "jf",
+        "gfd",
+        " "));
+
+
+            string drugName = "rizatriptan";
+            List<string> result = Bl.interactionDrugs(drugName);
+            if (result != null)
+            {
+                MessageBox.Show(result[0].ToString());
+            }
+           
+        }
+//    //phenelzine
+//    moclobemide
+//    isocarboxazid
+//methylene blue
+//tranylcypromine
+    //private void Button_Click(object sender, RoutedEventArgs e)
+    //{
+    //    this.ShowControl(uc);
+    //}
+
+    //private void Button_Click(object sender, RoutedEventArgs e)
+    //{
+    //    this.ShowControl(uc);Command="{Binding MainCommand}"
+    //}
+}
 }

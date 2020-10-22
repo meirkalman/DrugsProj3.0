@@ -33,6 +33,7 @@
                 <Button Content="doctor visit2" HorizontalAlignment="Left" Command="{Binding MainCommand}" CommandParameter ="DoctorVisitUC" Margin="124,225,0,0" VerticalAlignment="Top" Width="173" />
                 <Button Content="home page"   Command="{Binding MainCommand}" CommandParameter ="HomePageUC" HorizontalAlignment="Left" Margin="124,174,0,0" VerticalAlignment="Top" Width="173" />
                 <Button Content="admin" Command="{Binding MainCommand}" CommandParameter ="AdministratorUC"  HorizontalAlignment="Left" Margin="124,274,0,0" VerticalAlignment="Top" Width="173" />
+                <Button Content="Button" HorizontalAlignment="Left" Margin="831,198,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
             </Grid>
             <TreeView
   MinWidth="220"  FlowDirection="LeftToRight" HorizontalAlignment="Left" FontSize="18" Grid.ColumnSpan="1" Margin="742,10,0,408" >

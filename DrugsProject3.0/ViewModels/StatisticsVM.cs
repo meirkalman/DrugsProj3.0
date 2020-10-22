@@ -25,22 +25,14 @@ namespace DrugsProject3._0.ViewModels
 
             Command = new StatisticsCommand(this);
             
-            PatientsId = new ObservableCollection<int>(GetAllPatients());
+            
             
         }
         
 
-        public StatistucsCommand Command { get; set; }
+        public StatisticsCommand Command { get; set; }
         //  public DoctorCommand CommandAP { get; set; }
 
-        public List<int> GetAllPatients()
-        {
-            List<int> ids = new List<int>();
-            foreach (var item in DoctorM.GetAllPatients())
-            {
-                ids.Add(item.Id);
-            }
-            return ids;
-        }
+        
     }
 }

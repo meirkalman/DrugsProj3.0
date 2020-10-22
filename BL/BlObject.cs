@@ -134,7 +134,7 @@ namespace BL
 
         #region statistics
 
-        public Dictionary<DateTime, int> drugStatistic(int drugID, DateTime start, DateTime finish)
+        public Dictionary<DateTime, int> drugStatistics(int drugID, DateTime start, DateTime finish)
         {
             Dictionary<DateTime, int> result = new Dictionary<DateTime, int>();
             var prescriptionsOnTheAppropriateDate = (from item in IDalService.GetAllRecipes()
@@ -148,6 +148,8 @@ namespace BL
             return result;
 
         }
+
+       
         #endregion
 
 

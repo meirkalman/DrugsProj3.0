@@ -60,6 +60,10 @@ namespace BL
 
         User GetUser(int id);
 
+
+        Dictionary<DateTime, int> drugStatistics(int drugID, DateTime start, DateTime finish);
+
+        List<string> interactionDrugs(string drugName);
     }
 }
 
