@@ -16,7 +16,7 @@ namespace DAL
         {
             List<string> result = new List<string>();
             LoadDrugsList();
-            string result = string.Empty;
+            //string result = string.Empty;
             try
             {
                 int drugNum = ResolveRxcuiFromName(drugName);
