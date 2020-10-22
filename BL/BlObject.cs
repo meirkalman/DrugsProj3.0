@@ -139,8 +139,9 @@ namespace BL
             Dictionary<DateTime, int> result = new Dictionary<DateTime, int>();
             var prescriptionsOnTheAppropriateDate = (from item in IDalService.GetAllRecipes()
                                                      where (drugID == item.MedicineId && start >= item.Date && finish <= item.Date)
-                                                     group item by item.Date);
-            foreach (var g in prescriptionsOnTheAppropriateDate)
+                                                     group item by item.Date).ToList();
+            var prescriptions = prescriptionsOnTheAppropriateDate.OrderBy(g => g.Key);
+            foreach (var g in prescriptions)
             {
                 result.Add(g.Key, g.Count());
             }
