@@ -9,61 +9,57 @@ namespace BL
 {
     public interface IBL
     {
-        void AddMedicine(Medicine medicine);
-
-
-        void DeleteMedicine(int id);
-
-
-        void UpdateMedicine(Medicine medicine);
-
-
-        List<Medicine> GetAllMedicines();
-
-
-        List<Medicine> GetSomeMedicines(Predicate<Medicine> func = null);
-
-
-        Medicine GetMedicine(string commercialName );
-
-
-
         void AddPatient(Patient patient);
 
+        void AddMedicine(Medicine medicine);
 
-        void DeletePatient(int id);
-
-
-        void UpdatePatient(Patient patient);
-
-
-        List<Patient> GetAllPatients();
-
-
-        List<Patient> GetSomePatients(Predicate<Patient> func = null);
-
-
-        Patient GetPatient(int id);
-
-        void AddDoctorVisitToPatient(DoctorVisit doctorVisit, Patient patient);
+        void AddRecipe(Recipe recipe);
 
         void AddUser(User user);
 
 
-        void DeleteUser(int id);
+        void UpdatePatient(Patient patient);
 
+        void UpdateMedicine(Medicine medicine);
+
+        void UpdateRecipe(Recipe recipe);
 
         void UpdateUser(User user);
 
 
-        List<User> GetAllUsers();
+
+        void DeletePatient(Patient patient);
+
+        void DeleteMedicine(Medicine medicine);
+
+        void DeleteRecipe(Recipe recipe);
 
 
-        List<User> GetSomeUsers(Predicate<User> func = null);
+        void DeleteUser(User user);
+
+
+        List<Patient> GetAllPatients(Func<Patient, bool> predicate = null);
+
+
+        List<Medicine> GetAllMedicines(Func<Medicine, bool> predicate = null);
+
+
+        List<Recipe> GetAllRecipes(Func<Recipe, bool> predicate = null);
+
+
+        List<User> GetAllUsers(Func<User, bool> predicate = null);
+
+        Patient GetPatient(int id);
+
+
+        Medicine GetMedicine(int id);
+
+
+        Recipe GetRecipe(int recipeId);
 
 
         User GetUser(int id);
-       
+
     }
 }
 
