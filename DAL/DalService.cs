@@ -47,6 +47,7 @@ namespace DAL
             }
         }
 
+
         public void UpdatePatient(Patient patient)
         {
             using (var db = new DBContext())
