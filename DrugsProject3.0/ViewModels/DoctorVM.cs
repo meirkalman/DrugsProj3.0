@@ -2,6 +2,7 @@
 using BE.EventAggregate;
 using DrugsProject3._0.Commands;
 using DrugsProject3._0.Models;
+using DrugsProject3._0.Tools;
 using Prism.Events;
 using System;
 using System.Collections.Generic;
@@ -21,45 +22,57 @@ namespace DrugsProject3._0.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         public DoctorModel DoctorM;
-        public int PatientSelected { get; set; }
-
+        public DoctorCommand Command { get; set; }
+        public IControlManage iControlManage;
         public ObservableCollection<int> PatientsId { get; set; }
 
-        //private IEventAggregator eventAggreegator;
-        public DoctorVM(/*IEventAggregator eventAggreegator*/)
+        
+        public DoctorVM(IControlManage controlManage)
         {
+            this.iControlManage = controlManage;
             DoctorM = new DoctorModel();
-            //this.eventAggreegator = eventAggreegator;
-
             Command = new DoctorCommand(this);
-           // CommandAP = new DoctorCommand(this);
-
-           // CommandDV.Execute("OpenDoctorVisit");
-           // CommandAP.Execute("OpenAddPatient");
             PatientsId = new ObservableCollection<int>(GetAllPatients());
-            //PatientsId.CollectionChanged += PatientsId_CollectionChanged;
+           
         }
-        //public void EventMenage()
-        //{
-        //    Patient patient = DoctorM.GetPatient(PatientSelected);
-        //    this.eventAggreegator.GetEvent<PatientEvent>().Publish(patient);
-        //}
-
-        public DoctorCommand Command { get; set; }
-      //  public DoctorCommand CommandAP { get; set; }
-
         public List<int> GetAllPatients()
         {
-            List<int> ids = new List<int>();
-            foreach (var item in DoctorM.GetAllPatients())
-            {
-                ids.Add(item.Id);
-            }
+            var ids = (from item in DoctorM.GetAllPatients()
+                       select item.Id).ToList();
             return ids;
         }
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  public int PatientSelected { get; set; }
+
+//PatientsId.CollectionChanged += PatientsId_CollectionChanged;
+//private IEventAggregator eventAggreegator;
+/*IEventAggregator eventAggreegator*/
+//this.eventAggreegator = eventAggreegator;
+
+//public void EventMenage()
+//{
+//    Patient patient = DoctorM.GetPatient(PatientSelected);
+//    this.eventAggreegator.GetEvent<PatientEvent>().Publish(patient);
+//}
 //public Patient Subscribe(Patient patient)
 //{
 //    return patient;

@@ -1,4 +1,5 @@
 ﻿using DrugsProject3._0.Navigation;
+using DrugsProject3._0.Tools;
 using Prism.Events;
 using System;
 using System.Collections.Generic;
@@ -17,8 +18,9 @@ namespace DrugsProject3._0
     {
 
         public NavigationClass navigation = new NavigationClass();
-       // public IEventAggregator eventAggreegator = new EventAggregator();
 
+        public ControlManage controlManage = new ControlManage();
+      
 
 
 

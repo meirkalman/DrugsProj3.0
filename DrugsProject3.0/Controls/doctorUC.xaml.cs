@@ -1,4 +1,5 @@
-﻿using DrugsProject3._0.ViewModels;
+﻿using DrugsProject3._0.Tools;
+using DrugsProject3._0.ViewModels;
 using Prism.Events;
 using System;
 using System.Collections.Generic;
@@ -24,11 +25,8 @@ namespace DrugsProject3._0.Controls
     {
          //private IEventAggregator eventAggregator;
         public DoctorUC()
-        {
-
-            
-           //this.eventAggregator = new EventAggregator();
-            DoctorVM VM = new DoctorVM(/*App.Current as App).eventAggreegator*/);
+        {    
+            DoctorVM VM = new DoctorVM((App.Current as App).controlManage);
             DataContext = VM;
             InitializeComponent();
         }
