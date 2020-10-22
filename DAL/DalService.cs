@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DalService
+    public class DalService:IDalService
     {
 
 
 
-        #region add to db
+        #region add & update to db
 
         public void AddPatient(Patient patient)
         {
@@ -46,6 +46,7 @@ namespace DAL
                 db.SaveChanges();
             }
         }
+
 
         public void UpdatePatient(Patient patient)
         {
@@ -87,7 +88,7 @@ namespace DAL
                 current.Description = recipe.Description;
                 current.Date = recipe.Date;
                 db.SaveChanges();
-               
+
             }
         }
         public void UpdateUser(User user)
@@ -103,7 +104,209 @@ namespace DAL
                 db.SaveChanges();
             }
         }
-        #endregion add to db
+        #endregion add & update to db
+
+        public void DeletePatient(Patient patient)
+        {
+            using (var db = new DBContext())
+            {
+                var current = db.Patients.Find(patient.Id);
+                if (current != null)
+                {
+                    db.Patients.Remove(current);
+                    db.SaveChanges();
+                }
+            }
+        }
+        public void DeleteMedicine(Medicine medicine)
+        {
+            using (var db = new DBContext())
+            {
+                var current = db.Medicines.Find(medicine.Id);
+                if (current != null)
+                {
+                    db.Medicines.Remove(current);
+                    db.SaveChanges();
+                }
+            }
+        }
+        public void DeleteRecipe(Recipe recipe)
+        {
+            using (var db = new DBContext())
+            {
+                var current = db.Recipes.Find(recipe.RecipeId);
+                if (current != null)
+                {
+                    db.Recipes.Remove(current);
+                    db.SaveChanges();
+                }
+            }
+        }
+
+        public void DeleteUser(User user)
+        {
+            using (var db = new DBContext())
+            {
+                var current = db.Users.Find(user.Id);
+                if (current != null)
+                {
+                    db.Users.Remove(current);
+                    db.SaveChanges();
+                }
+            }
+        }
+
+        public List<Patient> GetAllPatients(Func<Patient, bool> predicate = null)
+        {
+            List<Patient> PatientList = new List<Patient>();
+            using (var db = new DBContext())
+            {
+                if (predicate == null)
+                    PatientList = db.Patients.ToList();
+                else
+                {
+                    PatientList = db.Patients.Where(predicate).ToList();
+                }
+            }
+            return PatientList;
+        }
+
+        public List<Medicine> GetAllMedicines(Func<Medicine, bool> predicate = null)
+        {
+            List<Medicine> MedicinetList = new List<Medicine>();
+            using (var db = new DBContext())
+            {
+                if (predicate == null)
+                    MedicinetList = db.Medicines.ToList();
+                else
+                {
+                    MedicinetList = db.Medicines.Where(predicate).ToList();
+                }
+            }
+            return MedicinetList;
+        }
+
+        public List<Recipe> GetAllRecipes(Func<Recipe, bool> predicate = null)
+        {
+            List<Recipe> RecipeList = new List<Recipe>();
+            using (var db = new DBContext())
+            {
+                if (predicate == null)
+                    RecipeList = db.Recipes.ToList();
+                else
+                {
+                    RecipeList = db.Recipes.Where(predicate).ToList();
+                }
+            }
+            return RecipeList;
+        }
+
+        public List<User> GetAllUsers(Func<User, bool> predicate = null)
+        {
+            List<User> UserList = new List<User>();
+            using (var db = new DBContext())
+            {
+                if (predicate == null)
+                    UserList = db.Users.ToList();
+                else
+                {
+                    UserList = db.Users.Where(predicate).ToList();
+                }
+            }
+            return UserList;
+        }
+
+        public Patient GetPatient(int id)
+        {
+            using (var db = new DBContext())
+            {
+                var patient = (from item in db.Patients
+                               where item.Id == id
+                               select item).ToList();
+
+                if (patient.Count == 1)
+                {
+                    return patient.First();
+                }
+                else if (patient.Count == 0)
+                {
+                    return null;
+                }
+                else
+                {
+                    throw new Exception("error,Patient not found");
+                }
+            }
+        }
+
+        public Medicine GetMedicine(int id)
+        {
+            using (var db = new DBContext())
+            {
+                var medicine = (from item in db.Medicines
+                                where item.Id == id
+                               select item).ToList();
+
+                if (medicine.Count == 1)
+                {
+                    return medicine.First();
+                }
+                else if (medicine.Count == 0)
+                {
+                    return null;
+                }
+                else
+                {
+                    throw new Exception("error,medicine not found");
+                }
+            }
+        }
+
+        public Recipe GetRecipe(int recipeId)
+        {
+            using (var db = new DBContext())
+            {
+                var recipe = (from item in db.Recipes
+                               where item.RecipeId == recipeId
+                               select item).ToList();
+
+                if (recipe.Count == 1)
+                {
+                    return recipe.First();
+                }
+                else if (recipe.Count == 0)
+                {
+                    return null;
+                }
+                else
+                {
+                    throw new Exception("error,recipe not found");
+                }
+            }
+        }
+
+        public User GetUser(int id)
+        {
+            using (var db = new DBContext())
+            {
+                var user = (from item in db.Users
+                            where item.Id == id
+                               select item).ToList();
+
+                if (user.Count == 1)
+                {
+                    return user.First();
+                }
+                else if (user.Count == 0)
+                {
+                    return null;
+                }
+                else
+                {
+                    throw new Exception("error,user not found");
+                }
+            }
+        }
     }
 }
 
