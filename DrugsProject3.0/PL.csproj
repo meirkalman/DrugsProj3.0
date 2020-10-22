@@ -106,19 +106,25 @@
     <Compile Include="Commands\BaseCommand.cs" />
     <Compile Include="Commands\DoctorCommand.cs" />
     <Compile Include="Commands\MainCommand.cs" />
+    <Compile Include="Commands\StatisticsCommand.cs" />
     <Compile Include="Controls\AddNewPatient.xaml.cs">
       <DependentUpon>AddNewPatient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\HomePageUC.xaml.cs">
       <DependentUpon>HomePageUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\StatisticsUC.xaml.cs">
+      <DependentUpon>StatisticsUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\AddDoctorVisitModel.cs" />
     <Compile Include="Models\DoctorModel.cs" />
+    <Compile Include="Models\StatisticsModel1.cs" />
     <Compile Include="Navigation\Navigation.cs" />
     <Compile Include="ViewModels\AddDoctorVisitVM.cs" />
     <Compile Include="ViewModels\AddPatientVM.cs" />
     <Compile Include="ViewModels\DoctorVM.cs" />
     <Compile Include="ViewModels\MainVM.cs" />
+    <Compile Include="ViewModels\StatisticsVM.cs" />
     <Page Include="Controls\AddNewPatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -140,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\LoginUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\StatisticsUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
