@@ -21,5 +21,15 @@ namespace DrugsProject3._0.Tools
             Patient = patient;
             User = user;
         }
+
+        public Patient GrtPatient()
+        {
+            return Patient;
+        }
+
+        public User GetUser()
+        {
+            return User;
+        }
     }
 }
