@@ -18,11 +18,14 @@ namespace DrugsProject3._0.ViewModels
 {
     class AddDoctorVisitVM : INotifyPropertyChanged
     {
+
         public event PropertyChangedEventHandler PropertyChanged;   
         public AddDoctorVisitModel AddDoctorVisitM { get; set; }
         public AddDoctorVisitCommand AddCommand { get; set; }
         public IControlManage IControlManage { get; set; }
         public Recipe Recipe { get; set; }
+        public Patient Patient { get; set; }
+        public User User { get; set; }
         public ObservableCollection<string> MedicinesNames { get; set; }
 
         public AddDoctorVisitVM(IControlManage controlManage)
@@ -31,21 +34,34 @@ namespace DrugsProject3._0.ViewModels
             AddDoctorVisitM = new AddDoctorVisitModel();
             AddCommand = new AddDoctorVisitCommand(this);
             MedicinesNames = new ObservableCollection<string>(AddDoctorVisitM.GetAllMedicinesNames());
+            Patient = IControlManage.Patient;
+            User = IControlManage.User;
         }
-
+       
         public int RecipeId { get; set; }
 
-        public string DoctorName { get; set; }
-        public string PatientName { get; set; }
-       
-        private string medicinesName;
-        public string MedicinesName
+        private string doctorName;
+        public string DoctorName
         {
-            get { return medicinesName; }
+            get { return doctorName; }
+            set { doctorName = User.Fname + User.Lname; }
+        }
+
+        private string patientName;
+        public string PatientName
+        {
+            get { return patientName; }
+            set { patientName = Patient.Fname + Patient.Lname; }
+        }
+     
+        private string medicineName;
+        public string MedicineName
+        {
+            get { return medicineName; }
             set
             {
-                medicinesName = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MedicinesName"));
+                medicineName = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MedicineName"));
             }
         }
 
@@ -86,18 +102,12 @@ namespace DrugsProject3._0.ViewModels
 
         public void AddRecipe()
         {
-            RecipeId = AddDoctorVisitM.AddRecipeId();
-            int PatientId = 1;
-            int DoctorId = 1;
-            int MedicineId = 1;
-            Recipe = new Recipe(RecipeId,PatientId, DoctorId, MedicineId,PeriodOfUse,QuantityPerDay,Description, Date);
+            RecipeId = AddDoctorVisitM.AddRecipeId();///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            int PatientId = Patient.Id;
+            int DoctorId = User.Id;
+            int MedicineId = AddDoctorVisitM.GetMedicineId(medicineName);
+            AddDoctorVisitM.AddRecipe(new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date));
         }
-
-
-        
-
-
-        
     }
 }
 

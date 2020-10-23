@@ -9,27 +9,19 @@ namespace DrugsProject3._0.Tools
 {
     public class ControlManage : IControlManage
     {
-        public Patient Patient { get; set; }
+       
         public User User { get; set; }
+        public Patient Patient { get; set; }
 
         public ControlManage()
         {
 
         }
-        public ControlManage(Patient patient, User user)
-        {
-            Patient = patient;
-            User = user;
-        }
+        //public ControlManage(Patient patient, User user)
+        //{
+        //    Patient = patient;
+        //    User = user;
+        //}
 
-        public Patient GrtPatient()
-        {
-            return Patient;
-        }
-
-        public User GetUser()
-        {
-            return User;
-        }
     }
 }

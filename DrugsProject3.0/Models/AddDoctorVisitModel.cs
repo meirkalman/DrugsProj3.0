@@ -15,20 +15,30 @@ namespace DrugsProject3._0.Models
         {
             Bl = new BlObject();
         }
-      
-        internal Medicine GetMedicine(int id)
+
+        public Medicine GetMedicine(int id)
         {
             return Bl.GetMedicine(id);
         }
 
-        internal int AddRecipeId()
+        public int AddRecipeId()
         {
-            throw new NotImplementedException();
+            return 4444;
         }
 
-        internal List<string> GetAllMedicinesNames()
+        public List<string> GetAllMedicinesNames()
         {
             return Bl.GetAllMedicinesNames();
+        }
+
+        public int GetMedicineId(string medicineName)
+        {
+            return Bl.GetMedicineId(medicineName);
+        }
+
+        internal void AddRecipe(Recipe recipe)
+        {
+            Bl.AddRecipe(recipe);
         }
     }
 }

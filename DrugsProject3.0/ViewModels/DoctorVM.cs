@@ -23,17 +23,29 @@ namespace DrugsProject3._0.ViewModels
 
         public DoctorModel DoctorM;
         public DoctorCommand Command { get; set; }
-        public IControlManage iControlManage;
+
+        public IControlManage IControlManage { get; set; }
         public ObservableCollection<int> PatientsId { get; set; }
-        public int PatientSelected { get; set; }
+       // public int PatientSelected { get; set; }
+
+        private int patientSelected;
+        public int PatientSelected
+        {
+            get { return patientSelected; }
+            set
+            {
+                patientSelected = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PatientSelected"));
+            }
+        }
 
         public DoctorVM(IControlManage controlManage)
         {
-            iControlManage = controlManage;
+            IControlManage = controlManage;
             DoctorM = new DoctorModel();
             Command = new DoctorCommand(this);
             PatientsId = new ObservableCollection<int>(GetAllPatients());
-           
+            IControlManage.Patient = DoctorM.GetPatient(patientSelected);
         }
         public List<int> GetAllPatients()
         {

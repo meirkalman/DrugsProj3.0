@@ -155,6 +155,16 @@ namespace BL
                          select item.CommercialName).ToList();
             return names; 
         }
+
+        public int GetMedicineId(string medicineName)
+        {
+            Medicine medicine = new Medicine();
+
+            medicine = (from item in GetAllMedicines()
+                        where item.CommercialName == medicineName
+                         select item).FirstOrDefault();
+            return medicine.Id;
+        }
     }
 }
 

@@ -29,9 +29,9 @@ namespace DrugsProject3._0.Commands
 
         public void Execute(object parameter)
         {    
-            if (parameter.ToString() == "AddMedicineToDV")
+            if (parameter.ToString() == "AddRecipe")
             {
-                CurrentVM.AddMedicine();
+                CurrentVM.AddRecipe();
 
             }
             if (parameter.ToString() == "DoctorUC")

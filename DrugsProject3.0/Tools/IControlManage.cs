@@ -9,7 +9,8 @@ namespace DrugsProject3._0.Tools
 {
     public interface IControlManage
     {
-        Patient GrtPatient();
-        User GetUser();
+     //   Patient GetPatient();
+        User User { get; set; }
+        Patient Patient { get; set; }
     }
 }
