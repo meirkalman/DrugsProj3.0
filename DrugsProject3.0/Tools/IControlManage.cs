@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,7 @@ namespace DrugsProject3._0.Tools
 {
     public interface IControlManage
     {
+        Patient GrtPatient();
+        User GetUser();
     }
 }
