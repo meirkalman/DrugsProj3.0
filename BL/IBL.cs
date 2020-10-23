@@ -53,7 +53,7 @@ namespace BL
 
 
         Medicine GetMedicine(int id);
-
+        List<string> GetAllMedicinesNames();
 
         Recipe GetRecipe(int recipeId);
 

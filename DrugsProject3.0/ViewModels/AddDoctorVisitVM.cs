@@ -18,114 +18,88 @@ namespace DrugsProject3._0.ViewModels
 {
     class AddDoctorVisitVM : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public Patient patient;
-       
-        private int id;
-        public int Id
-        {
-            get { return id; }
-            set
-            {
-
-                id = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Id"));
-            }
-        }
-
-        private string doctorName;
-            public string DoctorName
-        {
-                get { return doctorName; }
-                set
-                {
-                doctorName = null;
-                doctorName = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DoctorName"));
-                }
-            }
-
-            private string description;
-            public string Description
-        {
-                get { return description; }
-                set
-                {
-                description = null;
-                description = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Description"));
-                }
-            }
-
-       // private ObservableCollection<Medicine> medicines;
-
-        public ObservableCollection<string> MedicinesNames { get; set; }
-       
-
-        private DateTime date = DateTime.Now;
-            public DateTime Date
-        {
-                get { return date; }
-                set
-                {
-               
-                date = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Date"));
-                }
-            }
-
-
+        public event PropertyChangedEventHandler PropertyChanged;   
         public AddDoctorVisitModel AddDoctorVisitM { get; set; }
+        public AddDoctorVisitCommand AddCommand { get; set; }
+        public IControlManage IControlManage { get; set; }
+        public Recipe Recipe { get; set; }
+        public ObservableCollection<string> MedicinesNames { get; set; }
 
-        public IControlManage iControlManage;
-      
-     
-       
-           
-            public AddDoctorVisitVM(IControlManage controlManage)
+        public AddDoctorVisitVM(IControlManage controlManage)
         {
-            this.iControlManage = controlManage;
-          
+            IControlManage = controlManage;
             AddDoctorVisitM = new AddDoctorVisitModel();
             AddCommand = new AddDoctorVisitCommand(this);
-
-
-           
-            MedicinesNames = new ObservableCollection<string>(GetAllMedicines());
-         
-         
-            medicineList = new List<Medicine>();
-            
+            MedicinesNames = new ObservableCollection<string>(AddDoctorVisitM.GetAllMedicinesNames());
         }
 
-     
+        public int RecipeId { get; set; }
 
-        public AddDoctorVisitCommand AddCommand { get; set; }
-
-
-
-        public List<string> GetAllMedicines()
+        public string DoctorName { get; set; }
+        public string PatientName { get; set; }
+       
+        private string medicinesName;
+        public string MedicinesName
         {
-            List<string> names = new List<string>();
-            foreach (var item in AddDoctorVisitM.GetAllMedicines())
+            get { return medicinesName; }
+            set
             {
-                names.Add(item.CommercialName);
+                medicinesName = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MedicinesName"));
             }
-            return names;
         }
 
-        
-            public void AddDoctorVisitToPatient()
+        private int periodOfUse;
+        public int PeriodOfUse
+        {
+            get { return periodOfUse; }
+            set
             {
-           
-        
+                periodOfUse = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PeriodOfUse"));
             }
-
-
         }
+
+        private int quantityPerDay;
+        public int QuantityPerDay
+        {
+            get { return quantityPerDay; }
+            set
+            {
+                quantityPerDay = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("QuantityPerDay"));
+            }
+        }
+        
+        private string description;
+        public string Description
+        {
+            get { return description; }
+            set
+            {
+                description = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Description"));
+            }
+        }
+        
+        public DateTime Date { get; set; }
+
+        public void AddRecipe()
+        {
+            RecipeId = AddDoctorVisitM.AddRecipeId();
+            int PatientId = 1;
+            int DoctorId = 1;
+            int MedicineId = 1;
+            Recipe = new Recipe(RecipeId,PatientId, DoctorId, MedicineId,PeriodOfUse,QuantityPerDay,Description, Date);
+        }
+
+
+        
+
+
+        
     }
-
+}
 
 
 

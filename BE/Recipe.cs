@@ -15,6 +15,7 @@ namespace BE
         public int DoctorId { get; set; }
         public int MedicineId { get; set; }
         public int PeriodOfUse { get; set; }
+        public int QuantityPerDay { get; set; }
         public string Description { get; set; }
         public DateTime Date { get; set; }
 
@@ -24,13 +25,14 @@ namespace BE
         {
 
         }
-        public Recipe(int recipeId, int patientId, int doctorId, int medicineId, int periodOfUse, string description, DateTime date)
+        public Recipe(int recipeId, int patientId, int doctorId, int medicineId, int periodOfUse, int quantityPerDay, string description, DateTime date)
         {
             RecipeId = recipeId;
             PatientId = patientId;
             DoctorId = doctorId;
             MedicineId = medicineId;
             PeriodOfUse = periodOfUse;
+            QuantityPerDay = quantityPerDay;
             Description = Description;
             Date = date;
         }

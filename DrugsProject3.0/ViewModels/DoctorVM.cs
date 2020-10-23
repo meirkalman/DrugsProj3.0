@@ -25,11 +25,11 @@ namespace DrugsProject3._0.ViewModels
         public DoctorCommand Command { get; set; }
         public IControlManage iControlManage;
         public ObservableCollection<int> PatientsId { get; set; }
+        public int PatientSelected { get; set; }
 
-        
         public DoctorVM(IControlManage controlManage)
         {
-            this.iControlManage = controlManage;
+            iControlManage = controlManage;
             DoctorM = new DoctorModel();
             Command = new DoctorCommand(this);
             PatientsId = new ObservableCollection<int>(GetAllPatients());

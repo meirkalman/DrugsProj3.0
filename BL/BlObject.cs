@@ -148,16 +148,27 @@ namespace BL
             return result;
 
         }
-
-       
         #endregion
-
-
-
-        //public void AddDoctorVisitToPatient(DoctorVisit doctorVisit, Patient patient)
-        //{
-        //    IDalService.AddDoctorVisitToPatient(doctorVisit, patient);
-        //}
-
+        public List<string> GetAllMedicinesNames()
+        {
+            var names = (from item in IDalService.GetAllMedicines()           
+                         select item.CommercialName).ToList();
+            return names; 
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+//public void AddDoctorVisitToPatient(DoctorVisit doctorVisit, Patient patient)
+//{
+//    IDalService.AddDoctorVisitToPatient(doctorVisit, patient);
+//}
