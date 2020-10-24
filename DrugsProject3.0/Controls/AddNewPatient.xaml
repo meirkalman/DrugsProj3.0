@@ -30,15 +30,15 @@
                 <TextBox materialDesign:HintAssist.Hint="תעודת זהות" FlowDirection="RightToLeft" Text="{Binding Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Width="124" Margin="104,106,104,138"  />
                 <TextBox materialDesign:HintAssist.Hint="שם משפחה" FlowDirection="RightToLeft" Text="{Binding Fname}"  Height="39"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="128" Margin="104,67,100,0" />
                 <TextBox materialDesign:HintAssist.Hint="שם פרטי"  FlowDirection="RightToLeft" Text="{Binding Lname}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"   Width="122" Margin="107,106,103,210"  />
-                <materialDesign:PackIcon Kind="Account" Height="36" Width="42" Margin="228,69,0,0" RenderTransformOrigin="0.476,0.5"/>
-                <materialDesign:PackIcon Kind="CardAccountDetails" Height="41" Width="36" Margin="234,145,0,0"  />
-                <materialDesign:PackIcon Kind="Phone" Height="32" Width="42" Margin="232,184,0,0"  />
+                <materialDesign:PackIcon Kind="Account" Height="24" Width="30" Margin="234,80,0,0" RenderTransformOrigin="0.476,0.5"/>
+                <materialDesign:PackIcon Kind="CardAccountDetails" Height="24" Width="25" Margin="237,157,0,0"  />
+                <materialDesign:PackIcon Kind="Phone" Height="25" Width="30" Margin="234,194,0,0"  />
                 <TextBlock HorizontalAlignment="Left" Margin="74,0,0,0" TextWrapping="Wrap"  FlowDirection="RightToLeft" FontSize="20" Text="הוספת מטופל חדש" VerticalAlignment="Top" Height="43" Width="184"/>
-                <materialDesign:PackIcon Kind="Account" Height="36" Width="42" Margin="229,109,0,0" RenderTransformOrigin="0.476,0.5"/>
+                <materialDesign:PackIcon Kind="Account" Height="24" Width="30" Margin="234,116,0,0" RenderTransformOrigin="0.476,0.5"/>
             </Grid>
         </GroupBox>
         <!--<TextBox materialDesign:HintAssist.Hint="כתובת"  Text="{Binding Patient.Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="38,144,204,148" Width="124" />-->
-        
+
         <Button Content="חזור" HorizontalAlignment="Left" Margin="627,428,0,0" VerticalAlignment="Top" Width="75" />
 
 

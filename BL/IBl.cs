@@ -33,7 +33,7 @@ namespace BL
         void DeleteMedicine(Medicine medicine);
 
         void DeleteRecipe(Recipe recipe);
-
+     
 
         void DeleteUser(User user);
 
@@ -50,17 +50,16 @@ namespace BL
         List<User> GetAllUsers(Func<User, bool> predicate = null);
 
         Patient GetPatient(int id);
-
-
-        Medicine GetMedicine(int id);
         List<string> GetAllMedicinesNames();
+        Medicine GetMedicine(int id);
+        int GetMedicineId(string medicineName);
 
         Recipe GetRecipe(int recipeId);
 
 
         User GetUser(int id);
 
-
+        List<string> interactionDrugs(string drugName);
         Dictionary<DateTime, int> drugStatistics(int drugID, DateTime start, DateTime finish);
 
     }
