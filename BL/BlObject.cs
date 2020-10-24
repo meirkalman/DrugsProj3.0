@@ -3,6 +3,7 @@ using DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -149,6 +150,32 @@ namespace BL
 
         }
         #endregion
+
+        public int getPrescriptionID ()
+        {
+            int result;
+            Random rnd = new Random();
+            result = rnd.Next(100000000, 999999999);
+            
+            bool flag = false;
+            while(!flag)
+            {
+                flag = true;
+                result = rnd.Next(100000000, 999999999);
+                foreach (var item in GetAllRecipes())
+                {
+                    if (result == item.RecipeId)
+                    {
+                        flag = false;
+                        break;
+                    }
+                        
+                    
+                }
+            }
+
+            return result;
+        }
         public List<string> GetAllMedicinesNames()
         {
             var names = (from item in IDalService.GetAllMedicines()           

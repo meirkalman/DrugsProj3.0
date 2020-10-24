@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:DrugsProject3._0.Controls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid FlowDirection="RightToLeft">
+             d:DesignHeight="450" Width="869">
+    <Grid FlowDirection="RightToLeft" Margin="0,0,1,0">
 
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -15,68 +15,66 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
         <GroupBox
-  Header="עדכון רשימת תרופות "
-  Style="{DynamicResource MaterialDesignGroupBox}"
-  Margin="16"
-  materialDesign:ColorZoneAssist.Mode="Accent">
-            <Grid HorizontalAlignment="Center" Height="373"  VerticalAlignment="Top" Width="304" Margin="0,0,0,-5">
-                <ComboBox
-  materialDesign:HintAssist.Hint="Search"
-  materialDesign:HintAssist.HintOpacity=".26"
-  IsEditable="True" Margin="140,14,42,325" Height="34">
-                </ComboBox>
-                <TextBox Height="34"  FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,68,44,0"/>
-                <TextBox Height="36" FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,120,44,0"/>
-                <TextBox Height="36" FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="138,171,46,0"/>
-                <TextBox Height="36" FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,227,44,0"/>
-                <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="54,20,0,0" TextWrapping="Wrap" Text="שם מסחרי" VerticalAlignment="Top" Height="28" Width="86"/>
-                <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="90,74,0,0" TextWrapping="Wrap" Text="יצרן" VerticalAlignment="Top" Height="28" Width="43"/>
-                <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="73,128,0,0" TextWrapping="Wrap" Text="שם גנרי" Height="28" VerticalAlignment="Top"/>
-                <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="10,179,0,0" TextWrapping="Wrap" Text="מרכיבים פעילים" Height="28" VerticalAlignment="Top"/>
-                <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="43,235,0,0" TextWrapping="Wrap" Text="מאפייני מנה" Height="28" VerticalAlignment="Top"/>
-                <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="85,278,0,0" TextWrapping="Wrap" Text="תמונה" Height="28" VerticalAlignment="Top"/>
-                <Button Content="הוסף תמונה" HorizontalAlignment="Left" Margin="138,276,0,0" VerticalAlignment="Top" Width="109"/>
-                <Button Content="הוסף" HorizontalAlignment="Left" Margin="221,332,0,0" VerticalAlignment="Top" Width="74"/>
-
-            </Grid>
-        </GroupBox>
-        <GroupBox
-  Header="יצירת משתמש חדש"
-  Style="{DynamicResource MaterialDesignGroupBox}"
-  Margin="10,16,10,147"
-  materialDesign:ColorZoneAssist.Mode="Accent" Grid.Column="1">
+            
+  Header="ניהול משתמשים"
+  Margin="16">
             <Grid>
-                <TextBlock Margin="38,10,240,0" TextWrapping="Wrap" FontSize="20" Text="שם פרטי" VerticalAlignment="Top" Height="34"/>
-                <TextBox HorizontalAlignment="Left" Height="34" Margin="152,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159"/>
-                <TextBlock HorizontalAlignment="Left" Margin="12,60,0,0" FontSize="20" TextWrapping="Wrap" Text="שם משפחה" VerticalAlignment="Top" Height="34" Width="112"/>
-                <TextBlock HorizontalAlignment="Left" Margin="12,107,0,0" FontSize="20" TextWrapping="Wrap" Text="מספר טלפון" VerticalAlignment="Top" Height="30" Width="112"/>
-                <TextBlock HorizontalAlignment="Left" Margin="12,150,0,0" FontSize="20" TextWrapping="Wrap" Text="סוג משתמש" VerticalAlignment="Top" Height="32" Width="112"/>
-                <TextBox HorizontalAlignment="Left" Height="34" Margin="152,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159"/>
-                <TextBox HorizontalAlignment="Left" Height="34" Margin="152,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159"/>
-                <ComboBox HorizontalAlignment="Left" Margin="152,148,0,0" VerticalAlignment="Top" Width="159" Height="32">
-                    <ComboBoxItem>
-                        רופא
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        אדמיניסטרטור
-                    </ComboBoxItem>
-                </ComboBox>
-                <Button Content="הוסף" HorizontalAlignment="Left" Margin="235,195,0,0" VerticalAlignment="Top" Width="76"/>
-
+                <Grid.Background>
+                    <ImageBrush ImageSource="/DrugsProject3.0;component/images/Patient.png" Stretch="Uniform" />
+                </Grid.Background>
+                <Button
+                    
+                    HorizontalAlignment="Center"
+  Content="{materialDesign:PackIcon AccountPlus}"
+  ToolTip="Icon" Margin="0,326,0,10" />
             </Grid>
         </GroupBox>
         <GroupBox
-  Header="היסטורית צריכת תרופות"
-  Style="{DynamicResource MaterialDesignGroupBox}"
-  Margin="10,308,10,16"
-  materialDesign:ColorZoneAssist.Mode="Accent" Grid.Column="1">
-            <Grid HorizontalAlignment="Left" Height="84" VerticalAlignment="Top" Width="370" Margin="0,0,0,-8">
-                <Button Content="Button" HorizontalAlignment="Left" Margin="260,25,0,0" VerticalAlignment="Top" Width="74"/>
+            Grid.Column="1"
+  Header="ניהול מטופלים"
+  Margin="16">
+            <Grid>
+                <Grid.Background>
+                    <ImageBrush ImageSource="/DrugsProject3.0;component/images/doctor.png" Stretch="Uniform" />
+                </Grid.Background>
+                <Button
+                    HorizontalAlignment="Center"
+  Content="{materialDesign:PackIcon AccountPlus}"
+  ToolTip="Icon" Margin="0,326,0,10" />
             </Grid>
         </GroupBox>
-
+        <GroupBox
+             Grid.Column="2"
+  Header="ניהול תרופות"
+  Margin="16">
+            <Grid>
+                <Grid.Background>
+                    <ImageBrush ImageSource="/DrugsProject3.0;component/images/Medication.png" Stretch="Uniform" />
+                </Grid.Background>
+                <Button
+                    HorizontalAlignment="Center"
+  Content="{materialDesign:PackIcon PlusThick}"
+  ToolTip="Icon" Margin="0,326,0,10" />
+            </Grid>
+        </GroupBox>
+        <GroupBox
+             Grid.Column="3"
+  Header="סטטיסטיקות"
+  Margin="16">
+            <Grid>
+                <Grid.Background>
+                    <ImageBrush ImageSource="/DrugsProject3.0;component/images/statistics.png" Stretch="Uniform" />
+                </Grid.Background>
+                <Button
+                    HorizontalAlignment="Center"
+  Content="{materialDesign:PackIcon Finance}"
+  ToolTip="Icon" Margin="0,326,0,10" />
+            </Grid>
+            
+        </GroupBox>
     </Grid>
 </UserControl>
