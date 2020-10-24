@@ -23,7 +23,7 @@
             <PasswordBox
                  FlowDirection="RightToLeft"
     Style="{StaticResource MaterialDesignOutlinedPasswordFieldPasswordBox}"
-    VerticalAlignment="Top"
+    VerticalAlignment="Top" 
     
     materialDesign:HintAssist.Hint="סיסמה" Margin="137,220,127,0" Height="54"  Width="236" />
             <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="שם משתמש" HorizontalAlignment="Center" Height="54" Margin="138,119,126,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="236"/>
