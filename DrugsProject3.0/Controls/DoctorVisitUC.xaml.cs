@@ -26,8 +26,6 @@ namespace DrugsProject3._0.Controls
 
         public DoctorVisitUC()
         {
-        
-            
             AddDoctorVisitVM VM = new AddDoctorVisitVM((App.Current as App).controlManage);
             DataContext = VM;
             InitializeComponent();

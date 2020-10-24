@@ -33,12 +33,12 @@ namespace DrugsProject3._0.Commands
         {
             if (parameter.ToString() == "OpenDoctorVisit")
             {
-             //   CurrentVM.EventMenage();
+                CurrentVM.CManage();
                 (App.Current as App).navigation.ShowControls("DoctorVisitUC");
             }
             if (parameter.ToString() == "AddNewPatient")
             {
-                // CurrentVM.EventMenage();
+      
                 (App.Current as App).navigation.ShowControls("AddNewPatient");
             }
 

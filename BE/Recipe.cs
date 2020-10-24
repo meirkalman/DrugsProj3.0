@@ -33,7 +33,7 @@ namespace BE
             MedicineId = medicineId;
             PeriodOfUse = periodOfUse;
             QuantityPerDay = quantityPerDay;
-            Description = Description;
+            Description = description;
             Date = date;
         }
     }

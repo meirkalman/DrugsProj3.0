@@ -45,13 +45,17 @@ namespace DrugsProject3._0.ViewModels
             DoctorM = new DoctorModel();
             Command = new DoctorCommand(this);
             PatientsId = new ObservableCollection<int>(GetAllPatients());
-            IControlManage.Patient = DoctorM.GetPatient(patientSelected);
+           
         }
         public List<int> GetAllPatients()
         {
             var ids = (from item in DoctorM.GetAllPatients()
                        select item.Id).ToList();
             return ids;
+        }
+        public void CManage()
+        {
+            IControlManage.Patient = DoctorM.GetPatient(patientSelected);
         }
     }
 }

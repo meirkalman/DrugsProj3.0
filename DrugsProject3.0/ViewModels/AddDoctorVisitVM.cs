@@ -36,8 +36,9 @@ namespace DrugsProject3._0.ViewModels
             MedicinesNames = new ObservableCollection<string>(AddDoctorVisitM.GetAllMedicinesNames());
             Patient = IControlManage.Patient;
             User = IControlManage.User;
+            PatientName = Patient.Fname + Patient.Lname;
         }
-       
+
         public int RecipeId { get; set; }
 
         private string doctorName;
@@ -47,23 +48,9 @@ namespace DrugsProject3._0.ViewModels
             set { doctorName = User.Fname + User.Lname; }
         }
 
-        private string patientName;
-        public string PatientName
-        {
-            get { return patientName; }
-            set { patientName = Patient.Fname + Patient.Lname; }
-        }
-     
-        private string medicineName;
-        public string MedicineName
-        {
-            get { return medicineName; }
-            set
-            {
-                medicineName = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MedicineName"));
-            }
-        }
+        public string PatientName;
+       
+        public string MedicineSelected { get; set; }
 
         private int periodOfUse;
         public int PeriodOfUse
@@ -104,9 +91,19 @@ namespace DrugsProject3._0.ViewModels
         {
             RecipeId = AddDoctorVisitM.AddRecipeId();///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             int PatientId = Patient.Id;
-            int DoctorId = User.Id;
-            int MedicineId = AddDoctorVisitM.GetMedicineId(medicineName);
+            int DoctorId = 888; /*User.Id;*/
+            int MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
+            Date = DateTime.Now;
             AddDoctorVisitM.AddRecipe(new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date));
+         
+        }
+
+        private void MedicinesNames_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.Action == NotifyCollectionChangedAction.Add)
+            {
+                MedicinesNames.Add(e.NewItems[0] as string);
+            }
         }
     }
 }
