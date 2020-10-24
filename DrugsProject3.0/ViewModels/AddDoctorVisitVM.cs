@@ -112,7 +112,7 @@ namespace DrugsProject3._0.ViewModels
 
 
 
-//public string MedicineSelected { get; set; }
+/////public string MedicineSelected { get; set; }
 
 
 
