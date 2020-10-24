@@ -20,7 +20,7 @@
         </Grid.ColumnDefinitions>
         <GroupBox
             
-  Header="הוספת משתמש חדש"
+  Header="ניהול משתמשים"
   Margin="16">
             <Grid>
                 <Grid.Background>
@@ -32,7 +32,7 @@
         </GroupBox>
         <GroupBox
             Grid.Column="1"
-  Header="הוספת מטופל חדש"
+  Header="ניהול מטופלים"
   Margin="16">
             <Grid>
                 <Grid.Background>
@@ -44,7 +44,7 @@
         </GroupBox>
         <GroupBox
              Grid.Column="2"
-  Header="הוספת תרופה למערכת"
+  Header="ניהול תרופות"
   Margin="16">
             <Grid>
                 <Grid.Background>
