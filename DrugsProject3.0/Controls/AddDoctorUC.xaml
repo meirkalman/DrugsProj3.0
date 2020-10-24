@@ -29,7 +29,8 @@
                         אדמיניסטרטור
                     </ComboBoxItem>
                 </ComboBox>
-                <Button Content="הוסף" HorizontalAlignment="Left" Margin="272,332,0,0" VerticalAlignment="Top" Width="76"/>
+                <Button Content="הוסף" HorizontalAlignment="Left" Margin="235,332,0,0" VerticalAlignment="Top" Width="76"/>
+                <Button Content="חזור" HorizontalAlignment="Left" Margin="49,332,0,0" VerticalAlignment="Top" Width="75" />
 
             </Grid>
         </GroupBox>

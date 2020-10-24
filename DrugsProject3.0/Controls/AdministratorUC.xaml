@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:DrugsProject3._0.Controls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid FlowDirection="RightToLeft">
+             d:DesignHeight="450" Width="869">
+    <Grid FlowDirection="RightToLeft" Margin="0,0,1,0">
 
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -18,6 +18,54 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <GroupBox
+            
+  Header="הוספת משתמש חדש"
+  Margin="16">
+            <Grid>
+                <Grid.Background>
+                    <ImageBrush ImageSource="/DrugsProject3.0;component/images/Patient.png" Stretch="Uniform" />
+                </Grid.Background>
+                <Button Content="Button" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="74" Margin="46,314,47,0"/>
 
+            </Grid>
+        </GroupBox>
+        <GroupBox
+            Grid.Column="1"
+  Header="הוספת מטופל חדש"
+  Margin="16">
+            <Grid>
+                <Grid.Background>
+                    <ImageBrush ImageSource="/DrugsProject3.0;component/images/doctor.png" Stretch="Uniform" />
+                </Grid.Background>
+                <Button Content="Button"   HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="74" Margin="46,314,47,0"/>
+
+            </Grid>
+        </GroupBox>
+        <GroupBox
+             Grid.Column="2"
+  Header="הוספת תרופה למערכת"
+  Margin="16">
+            <Grid>
+                <Grid.Background>
+                    <ImageBrush ImageSource="/DrugsProject3.0;component/images/Medication.png" Stretch="Uniform" />
+                </Grid.Background>
+                <Button Content="Button" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="74" Margin="46,314,47,0"/>
+
+            </Grid>
+        </GroupBox>
+        <GroupBox
+             Grid.Column="3"
+  Header="סטטיסטיקות"
+  Margin="16">
+            <Grid>
+                <Grid.Background>
+                    <ImageBrush ImageSource="/DrugsProject3.0;component/images/statistics.png" Stretch="Uniform" />
+                </Grid.Background>
+                <Button Content="Button" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="74" Margin="46,314,47,0"/>
+
+            </Grid>
+            
+        </GroupBox>
     </Grid>
 </UserControl>
