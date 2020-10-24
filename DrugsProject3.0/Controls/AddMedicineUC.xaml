@@ -23,7 +23,7 @@
                 <TextBox Height="34"  FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,68,44,0"/>
                 <TextBox Height="36" FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,120,44,0"/>
                 <TextBox Height="36" FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="138,171,46,0"/>
-                <TextBox Height="36" FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,227,44,0"/>
+                <TextBox Height="36"  FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,227,44,0"/>
                 <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="54,20,0,0" TextWrapping="Wrap" Text="שם מסחרי" VerticalAlignment="Top" Height="28" Width="86"/>
                 <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="90,74,0,0" TextWrapping="Wrap" Text="יצרן" VerticalAlignment="Top" Height="28" Width="43"/>
                 <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="73,128,0,0" TextWrapping="Wrap" Text="שם גנרי" Height="28" VerticalAlignment="Top"/>
