@@ -14,8 +14,8 @@ namespace DrugsProject3._0.ViewModels
     {
         
             public event PropertyChangedEventHandler PropertyChanged;
-
-            
+            public User User { get; set; }
+        
             public HomePageCommand Command { get; set; }
 
             public HomePageModel HomePageM { get; set; }
@@ -31,10 +31,26 @@ namespace DrugsProject3._0.ViewModels
                 }
             }
 
+        public string Password { get; set; }
+
         public HomePageVM()
         {
             HomePageM = new HomePageModel();
             Command = new HomePageCommand(this);
+        }
+
+        internal void Login(string password)
+        {
+            Password = password;
+            User = HomePageM.GetUser(Id);
+            if (Password == User.Password && User.Type.ToString() == "ADMIN")
+            {
+                (App.Current as App).navigation.ShowControls("AdministratorUC");
+            }
+            else if (Password == User.Password && User.Type.ToString() == "DOCTOR")
+            {
+                (App.Current as App).navigation.ShowControls("DoctorUC");
+            }
         }
     }
 }

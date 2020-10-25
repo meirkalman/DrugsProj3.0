@@ -4,12 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 namespace DrugsProject3._0.Commands
 {
-    class AddPatientCommand : ICommand
+    public class AddUserCommand: ICommand
     {
         public event EventHandler CanExecuteChanged
         {
@@ -17,12 +16,12 @@ namespace DrugsProject3._0.Commands
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public AddPatientVM CurrentVM { get; set; }
-
-        public AddPatientCommand(AddPatientVM addVM)
+        public AddUserVM CurrentVM { get; set; }
+        public AddUserCommand(AddUserVM VM)
         {
-            CurrentVM = addVM;
+            CurrentVM = VM;
         }
+
         public bool CanExecute(object parameter)
         {
             return true;
@@ -30,14 +29,13 @@ namespace DrugsProject3._0.Commands
 
         public void Execute(object parameter)
         {
-            if (parameter.ToString() == "AddPatient")
+            if (parameter.ToString() == "AddUser")
             {
-                CurrentVM.AddPatient();
-                (App.Current as App).navigation.ShowControls("AddNewPatient");
+                CurrentVM.AddUser();
             }
             if (parameter.ToString() == "Return")
             {
-                (App.Current as App).navigation.ShowControls("AdministratorUC");
+                  (App.Current as App).navigation.ShowControls("AdministratorUC");
             }
         }
     }

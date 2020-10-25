@@ -33,13 +33,14 @@ namespace BE
             Password = user.Password;
         }
 
-        public User(string id, string fname, string lname, int phoneNumber, UserType type, string Password)
+        public User(string id, string fname, string lname, int phoneNumber, UserType type, string password)
         {
             Id = id;
             Fname = fname;
             Lname = lname;
             PhoneNumber = phoneNumber;
             Type = type;
+            Password = password;
         }
     }
 }   

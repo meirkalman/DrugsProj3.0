@@ -26,7 +26,7 @@
                 <Grid.Background>
                     <ImageBrush ImageSource="/DrugsProject3.0;component/Images/doctor.png" Stretch="Uniform" />
                 </Grid.Background>
-                <Button
+                <Button Command="{Binding Command}" CommandParameter="AddUser"
                     
                     HorizontalAlignment="Center"
   Content="{materialDesign:PackIcon AccountPlus}"
@@ -41,7 +41,7 @@
                 <Grid.Background>
                     <ImageBrush ImageSource="/DrugsProject3.0;component/Images/Patient.png" Stretch="Uniform" />
                 </Grid.Background>
-                <Button
+                <Button Command="{Binding Command}" CommandParameter="AddNewPatient"
                     HorizontalAlignment="Center"
   Content="{materialDesign:PackIcon AccountPlus}"
   ToolTip="Icon" Margin="0,326,0,10" />
@@ -55,7 +55,7 @@
                 <Grid.Background>
                     <ImageBrush ImageSource="/DrugsProject3.0;component/images/Medication.png" Stretch="Uniform" />
                 </Grid.Background>
-                <Button
+                <Button Command="{Binding Command}" CommandParameter="AddMedicine"
                     HorizontalAlignment="Center"
   Content="{materialDesign:PackIcon PlusThick}"
   ToolTip="Icon" Margin="0,326,0,10" />
@@ -69,7 +69,7 @@
                 <Grid.Background>
                     <ImageBrush ImageSource="/DrugsProject3.0;component/images/statistics.png" Stretch="Uniform" />
                 </Grid.Background>
-                <Button
+                <Button  Command="{Binding Command}" CommandParameter="Statistics"
                     HorizontalAlignment="Center"
   Content="{materialDesign:PackIcon Finance}"
   ToolTip="Icon" Margin="0,326,0,10" />

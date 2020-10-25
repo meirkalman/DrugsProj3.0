@@ -19,7 +19,7 @@
  
   materialDesign:ColorZoneAssist.Mode="Accent" Margin="0,0,377,0" >
             <Grid  FlowDirection="LeftToRight" HorizontalAlignment="Center" Height="406" Margin="10,10,10,0" VerticalAlignment="Top" Width="332">
-                <Button Background="#FF607D8B" Command="{Binding AddCommand}"
+                <Button Background="#FF607D8B" Command="{Binding AddCommand}" CommandParameter="AddPatient"
                 
                 Style="{StaticResource MaterialDesignRaisedAccentButton}"
                ToolTip="Resource name: MaterialDesignRaisedAccentButton"
@@ -34,7 +34,7 @@
                 <materialDesign:PackIcon Kind="CardAccountDetails" Height="24" Width="25" Margin="240,182,0,0"  />
                 <materialDesign:PackIcon Kind="Phone" Height="26" Width="30" Margin="240,240,0,0"  />
                 <materialDesign:PackIcon Kind="Account" Height="24" Width="30" Margin="240,117,0,0" RenderTransformOrigin="0.476,0.5"/>
-                <Button Content="חזור" HorizontalAlignment="Left" Margin="244,360,0,0" VerticalAlignment="Top" Width="76" />
+                <Button Content="חזור" Command="{Binding AddCommand}" CommandParameter="Return" HorizontalAlignment="Left" Margin="244,360,0,0" VerticalAlignment="Top" Width="76" />
             </Grid>
         </GroupBox>
         <GroupBox

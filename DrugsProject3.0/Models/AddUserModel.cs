@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace DrugsProject3._0.Models
 {
-    class HomePageModel
+    public class AddUserModel
     {
         public IBL Bl { get; set; }
-        public HomePageModel()
+        public AddUserModel()
         {
             Bl = new BlObject();
         }
 
-        public User GetUser(string id)
+        public void AddUser(User user)
         {
-             return Bl.GetUser(id);
+            Bl.AddUser(user);
         }
     }
 }

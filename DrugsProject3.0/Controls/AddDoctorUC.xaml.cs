@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DrugsProject3._0.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,8 @@ namespace DrugsProject3._0.Controls
     {
         public AddDoctorUC()
         {
+            AddUserVM VM = new AddUserVM();
+            DataContext = VM;
             InitializeComponent();
         }
     }

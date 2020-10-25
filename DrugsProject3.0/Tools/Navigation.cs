@@ -42,8 +42,19 @@ namespace DrugsProject3._0.Navigation
                     uc = new AddNewPatient();
                     title = "הוספת מטופל חדש";
                     break;
+                case "AddUserUC":
+                    uc = new AddDoctorUC();
+                    title = "הוספת משתמש חדש";
+                    break;
+                case "AddMedicineUC":
+                    uc = new AddMedicineUC();
+                    title = "הוספת משתמש חדש";
+                    break;
 
             }
+            
+
+
             MainWindows.ShowControl(uc, title);
         }
 

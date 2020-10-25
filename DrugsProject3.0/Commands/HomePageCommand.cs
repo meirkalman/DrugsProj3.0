@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace DrugsProject3._0.Commands
@@ -30,7 +31,8 @@ namespace DrugsProject3._0.Commands
 
         public void Execute(object parameter)
         {
-            (App.Current as App).navigation.ShowControls("");
+            var password = parameter as PasswordBox; 
+            CurrentVM.Login(password.Password);
         }
     }
 }
