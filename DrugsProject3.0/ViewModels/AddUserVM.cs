@@ -78,37 +78,31 @@ namespace DrugsProject3._0.ViewModels
             }
         }
         public ObservableCollection<string> Type { get; set; }
-        public UserType user { get; set; }
-        //private UserType type;
-        //public UserType Type
-        //{
-        //    get { return type; }
-        //    set
-        //    {
-        //        type = value;
-        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Type"));
-        //    }
-        //}
+      
+        private String typeSelected;
+        public String TypeSelected
+        {
+            get { return typeSelected; }
+            set
+            {
+                typeSelected = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TypeSelected"));
+            }
+        }
 
         public AddUserVM()
         {
             AddUserM = new AddUserModel();
             Command = new AddUserCommand(this);
-            Type = new ObservableCollection<string>(Enum.GetNames(typeof(UserType)));
-            Type.CollectionChanged += Type_CollectionChanged;
+            Type = new ObservableCollection<string>(Enum.GetNames(typeof(UserType)));   
         }
 
-        private void Type_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            if (e.Action == NotifyCollectionChangedAction.Add)
-            {
-                user = (UserType)Enum.Parse(typeof(UserType), e.NewItems[0] as string); 
-            }
-        }
+     
 
         public void AddUser()
         {
-            User = new User(Id,Fname,Lname,PhoneNum, user, Password);
+            UserType userType = (UserType)Enum.Parse(typeof(UserType), TypeSelected);
+            User = new User(Id,Fname,Lname,PhoneNum, userType, Password);
             AddUserM.AddUser(User);
         }
    
