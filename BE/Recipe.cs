@@ -9,7 +9,7 @@ namespace BE
 {
     public class Recipe
     {
-        [Key]
+       
         public int RecipeId { get; set; }
         public int PatientId { get; set; }
         public int DoctorId { get; set; }

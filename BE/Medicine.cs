@@ -9,7 +9,7 @@ namespace BE
 {
     public class Medicine
     {
-        [Key]
+       
         public int Id { get; set; }
         public string CommercialName { get; set; }
         public string GenericName { get; set; }

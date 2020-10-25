@@ -9,6 +9,10 @@ namespace BL
 {
     public interface IBL
     {
+
+        int getPrescriptionID();
+        Dictionary<string, string> getPatientHistory(Patient patient, bool now = false);
+       // int getPrescriptionID();
         void AddPatient(Patient patient);
 
         void AddMedicine(Medicine medicine);

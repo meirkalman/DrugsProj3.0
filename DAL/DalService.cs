@@ -52,8 +52,8 @@ namespace DAL
         {
             using (var db = new DBContext())
             {
-                var current = db.Patients.Find(patient.Id);
-                current.Id = patient.Id;
+                var current = db.Patients.Find(patient.PatientId);
+                current.PatientId = patient.PatientId;
                 current.Lname = patient.Lname;
                 current.Fname = patient.Fname;
                 current.PhoneNumber = patient.PhoneNumber;
@@ -110,7 +110,7 @@ namespace DAL
         {
             using (var db = new DBContext())
             {
-                var current = db.Patients.Find(patient.Id);
+                var current = db.Patients.Find(patient.PatientId);
                 if (current != null)
                 {
                     db.Patients.Remove(current);
@@ -221,7 +221,7 @@ namespace DAL
             using (var db = new DBContext())
             {
                 var patient = (from item in db.Patients
-                               where item.Id == id
+                               where item.PatientId == id
                                select item).ToList();
 
                 if (patient.Count == 1)

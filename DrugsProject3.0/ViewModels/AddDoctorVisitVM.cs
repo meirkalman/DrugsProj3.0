@@ -90,7 +90,7 @@ namespace DrugsProject3._0.ViewModels
         public void AddRecipe()
         {
             RecipeId = AddDoctorVisitM.AddRecipeId();///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            int PatientId = Patient.Id;
+            int PatientId = Patient.PatientId;
             int DoctorId = 888; /*User.Id;*/
             int MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
             Date = DateTime.Now;
@@ -98,13 +98,13 @@ namespace DrugsProject3._0.ViewModels
          
         }
 
-        private void MedicinesNames_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (e.Action == NotifyCollectionChangedAction.Add)
-            {
-                MedicinesNames.Add(e.NewItems[0] as string);
-            }
-        }
+        //private void MedicinesNames_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        //{
+        //    if (e.Action == NotifyCollectionChangedAction.Add)
+        //    {
+        //        MedicinesNames.Add(e.NewItems[0] as string);
+        //    }
+        //}
     }
 }
 
