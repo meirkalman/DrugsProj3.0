@@ -49,16 +49,16 @@ namespace DAL
 
         List<User> GetAllUsers(Func<User, bool> predicate = null);
 
-        Patient GetPatient(int id);
+        Patient GetPatient(string id);
 
 
-        Medicine GetMedicine(int id);
+        Medicine GetMedicine(string id);
 
 
-        Recipe GetRecipe(int recipeId);
+        Recipe GetRecipe(string recipeId);
 
 
-        User GetUser(int id);
+        User GetUser(string id);
        
     }
 }

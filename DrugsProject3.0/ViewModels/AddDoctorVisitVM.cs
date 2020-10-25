@@ -39,7 +39,7 @@ namespace DrugsProject3._0.ViewModels
             PatientName = Patient.Fname + Patient.Lname;
         }
 
-        public int RecipeId { get; set; }
+        public string RecipeId { get; set; }
 
         private string doctorName;
         public string DoctorName
@@ -90,9 +90,9 @@ namespace DrugsProject3._0.ViewModels
         public void AddRecipe()
         {
             RecipeId = AddDoctorVisitM.AddRecipeId();///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            int PatientId = Patient.PatientId;
-            int DoctorId = 888; /*User.Id;*/
-            int MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
+            string PatientId = Patient.PatientId;
+            string DoctorId = "888"; /*User.Id;*/
+            string MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
             Date = DateTime.Now;
             AddDoctorVisitM.AddRecipe(new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date));
          

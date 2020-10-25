@@ -10,10 +10,10 @@ namespace BE
     public class Recipe
     {
        
-        public int RecipeId { get; set; }
-        public int PatientId { get; set; }
-        public int DoctorId { get; set; }
-        public int MedicineId { get; set; }
+        public String RecipeId { get; set; }
+        public String PatientId { get; set; }
+        public String DoctorId { get; set; }
+        public string MedicineId { get; set; }
         public int PeriodOfUse { get; set; }
         public int QuantityPerDay { get; set; }
         public string Description { get; set; }
@@ -25,7 +25,7 @@ namespace BE
         {
 
         }
-        public Recipe(int recipeId, int patientId, int doctorId, int medicineId, int periodOfUse, int quantityPerDay, string description, DateTime date)
+        public Recipe(string recipeId, string patientId, string doctorId, string medicineId, int periodOfUse, int quantityPerDay, string description, DateTime date)
         {
             RecipeId = recipeId;
             PatientId = patientId;

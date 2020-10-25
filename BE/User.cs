@@ -10,7 +10,7 @@ namespace BE
     public class User
     {
      
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Fname { get; set; }
         public string Lname { get; set; }
         public int PhoneNumber { get; set; }
@@ -31,7 +31,7 @@ namespace BE
             Type = user.Type;
         }
 
-        public User(int id, string fname, string lname, int phoneNumber, UserType type)
+        public User(string id, string fname, string lname, int phoneNumber, UserType type)
         {
             Id = id;
             Fname = fname;

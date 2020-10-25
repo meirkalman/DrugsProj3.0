@@ -43,8 +43,8 @@ namespace DrugsProject3._0.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lname"));
             }
         }
-        private int id;
-        public int Id
+        private string id;
+        public string Id
         {
             get { return id; }
             set

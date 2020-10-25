@@ -10,7 +10,7 @@ namespace BL
     public interface IBL
     {
 
-        int getPrescriptionID();
+        string getPrescriptionID();
         Dictionary<string, string> getPatientHistory(Patient patient, bool now = false);
        // int getPrescriptionID();
         void AddPatient(Patient patient);
@@ -53,18 +53,18 @@ namespace BL
 
         List<User> GetAllUsers(Func<User, bool> predicate = null);
 
-        Patient GetPatient(int id);
+        Patient GetPatient(string id);
         List<string> GetAllMedicinesNames();
-        Medicine GetMedicine(int id);
-        int GetMedicineId(string medicineName);
+        Medicine GetMedicine(string id);
+        string GetMedicineId(string medicineName);
 
-        Recipe GetRecipe(int recipeId);
+        Recipe GetRecipe(string recipeId);
 
 
-        User GetUser(int id);
+        User GetUser(string id);
 
         List<string> interactionDrugs(string drugName);
-        Dictionary<DateTime, int> drugStatistics(int drugID, DateTime start, DateTime finish);
+        Dictionary<DateTime, int> drugStatistics(string drugID, DateTime start, DateTime finish);
 
     }
 }

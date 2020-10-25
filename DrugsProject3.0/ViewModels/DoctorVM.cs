@@ -25,11 +25,11 @@ namespace DrugsProject3._0.ViewModels
         public DoctorCommand Command { get; set; }
 
         public IControlManage IControlManage { get; set; }
-        public ObservableCollection<int> PatientsId { get; set; }
+        public ObservableCollection<string> PatientsId { get; set; }
        // public int PatientSelected { get; set; }
 
-        private int patientSelected;
-        public int PatientSelected
+        private string patientSelected;
+        public string PatientSelected
         {
             get { return patientSelected; }
             set
@@ -44,10 +44,10 @@ namespace DrugsProject3._0.ViewModels
             IControlManage = controlManage;
             DoctorM = new DoctorModel();
             Command = new DoctorCommand(this);
-            PatientsId = new ObservableCollection<int>(GetAllPatients());
+            PatientsId = new ObservableCollection<string>(GetAllPatients());
            
         }
-        public List<int> GetAllPatients()
+        public List<string> GetAllPatients()
         {
             var ids = (from item in DoctorM.GetAllPatients()
                        select item.PatientId).ToList();

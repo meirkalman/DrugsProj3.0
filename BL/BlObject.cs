@@ -112,22 +112,22 @@ namespace BL
         #endregion get all/some
 
         #region get 
-        public Medicine GetMedicine(int id)
+        public Medicine GetMedicine(string id)
         {
             return IDalService.GetMedicine(id);
         }
 
-        public Patient GetPatient(int id)
+        public Patient GetPatient(string id)
         {
             return IDalService.GetPatient(id);
         }
 
-        public Recipe GetRecipe(int recipeId)
+        public Recipe GetRecipe(string recipeId)
         {
             return IDalService.GetRecipe(recipeId);
         }
 
-        public User GetUser(int id)
+        public User GetUser(string id)
         {
             return IDalService.GetUser(id);
         }
@@ -135,7 +135,7 @@ namespace BL
 
         #region statistics
 
-        public Dictionary<DateTime, int> drugStatistics(int drugID, DateTime start, DateTime finish)
+        public Dictionary<DateTime, int> drugStatistics(string drugID, DateTime start, DateTime finish)
         {
             Dictionary<DateTime, int> result = new Dictionary<DateTime, int>();
             var prescriptionsOnTheAppropriateDate = (from item in IDalService.GetAllRecipes()
@@ -151,7 +151,7 @@ namespace BL
         }
         #endregion
 
-        public int getPrescriptionID ()
+        public string getPrescriptionID ()
         {
             int result;
             Random rnd = new Random();
@@ -164,7 +164,7 @@ namespace BL
                 result = rnd.Next(100000000, 999999999);
                 foreach (var item in GetAllRecipes())
                 {
-                    if (result == item.RecipeId)
+                    if (result == int.Parse(item.RecipeId))
                     {
                         flag = false;
                         break;
@@ -174,7 +174,7 @@ namespace BL
                 }
             }
 
-            return result;
+            return result.ToString();
         }
 
         
@@ -185,7 +185,7 @@ namespace BL
             return names; 
         }
 
-        public int GetMedicineId(string medicineName)
+        public string GetMedicineId(string medicineName)
         {
             Medicine medicine = new Medicine();
 

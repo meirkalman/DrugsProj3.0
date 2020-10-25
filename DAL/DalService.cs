@@ -272,7 +272,7 @@ namespace DAL
             return UserList;
         }
 
-        public Patient GetPatient(int id)
+        public Patient GetPatient(string id)
         {
             using (var db = new DBContext())
             {
@@ -295,7 +295,7 @@ namespace DAL
             }
         }
 
-        public Medicine GetMedicine(int id)
+        public Medicine GetMedicine(string id)
         {
             using (var db = new DBContext())
             {
@@ -318,7 +318,7 @@ namespace DAL
             }
         }
 
-        public Recipe GetRecipe(int recipeId)
+        public Recipe GetRecipe(string recipeId)
         {
             using (var db = new DBContext())
             {
@@ -341,7 +341,7 @@ namespace DAL
             }
         }
 
-        public User GetUser(int id)
+        public User GetUser(string id)
         {
             using (var db = new DBContext())
             {
