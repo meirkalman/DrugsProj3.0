@@ -50,20 +50,20 @@ namespace DrugsProject3._0
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-         Bl.AddMedicine(new BE.Medicine(111,
+         Bl.AddMedicine(new BE.Medicine("111",
         "phenelzine",
         "phenelzine",
         "jf",
         "gfd",
         " "));
 
-        Bl.AddMedicine(new BE.Medicine(222,"moclobemide","moclobemide",
+        Bl.AddMedicine(new BE.Medicine("222","moclobemide","moclobemide",
         "jf",
         "gfd",
         " "));
 
 
-        Bl.AddMedicine(new BE.Medicine(333,
+        Bl.AddMedicine(new BE.Medicine("333",
         "sumatriptan",
         "sumatriptan",
         "jf",

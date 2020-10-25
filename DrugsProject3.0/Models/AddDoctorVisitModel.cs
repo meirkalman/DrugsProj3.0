@@ -16,14 +16,14 @@ namespace DrugsProject3._0.Models
             Bl = new BlObject();
         }
 
-        public Medicine GetMedicine(int id)
+        public Medicine GetMedicine(string id)
         {
             return Bl.GetMedicine(id);
         }
 
-        public int AddRecipeId()
+        public string AddRecipeId()
         {
-            return 4444;
+            return "4444";
         }
 
         public List<string> GetAllMedicinesNames()
@@ -31,7 +31,7 @@ namespace DrugsProject3._0.Models
             return Bl.GetAllMedicinesNames();
         }
 
-        public int GetMedicineId(string medicineName)
+        public string GetMedicineId(string medicineName)
         {
             return Bl.GetMedicineId(medicineName);
         }

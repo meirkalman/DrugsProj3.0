@@ -10,7 +10,7 @@ namespace BE
     public class Medicine
     {
        
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string CommercialName { get; set; }
         public string GenericName { get; set; }
         public string Producer { get; set; }
@@ -22,7 +22,7 @@ namespace BE
         {
         }
 
-        public Medicine(int id,string cName, string  gName, string producer,  string activeIngredients, string imageUri)
+        public Medicine(string id,string cName, string  gName, string producer,  string activeIngredients, string imageUri)
         {
            Id = id;
            CommercialName =cName;
