@@ -9,33 +9,33 @@ namespace DAL
 {
     public interface IDalService
     {
-        void AddPatient(Patient patient);
+        bool AddPatient(Patient patient);
 
-        void AddMedicine(Medicine medicine);
+        bool AddMedicine(Medicine medicine);
 
-        void AddRecipe(Recipe recipe);
+        bool AddRecipe(Recipe recipe);
 
-        void AddUser(User user);
-
-
-        void UpdatePatient(Patient patient);
-
-        void UpdateMedicine(Medicine medicine);
-
-        void UpdateRecipe(Recipe recipe);
-
-        void UpdateUser(User user);
+        bool AddUser(User user);
 
 
+        bool UpdatePatient(Patient patient);
 
-        void DeletePatient(Patient patient);
+        bool UpdateMedicine(Medicine medicine);
 
-        void DeleteMedicine(Medicine medicine);
+        bool UpdateRecipe(Recipe recipe);
 
-        void DeleteRecipe(Recipe recipe);
+        bool UpdateUser(User user);
 
 
-        void DeleteUser(User user);
+
+        bool DeletePatient(Patient patient);
+
+        bool DeleteMedicine(Medicine medicine);
+
+        bool DeleteRecipe(Recipe recipe);
+
+
+        bool DeleteUser(User user);
 
 
         List<Patient> GetAllPatients(Func<Patient, bool> predicate = null);
