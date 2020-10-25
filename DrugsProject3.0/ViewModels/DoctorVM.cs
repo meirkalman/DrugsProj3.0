@@ -79,7 +79,7 @@ namespace DrugsProject3._0.ViewModels
 
 //  public int PatientSelected { get; set; }
 
-//PatientsId.CollectionChanged += PatientsId_CollectionChanged;
+///PatientsId.CollectionChanged += PatientsId_CollectionChanged;
 //private IEventAggregator eventAggreegator;
 /*IEventAggregator eventAggreegator*/
 //this.eventAggreegator = eventAggreegator;
