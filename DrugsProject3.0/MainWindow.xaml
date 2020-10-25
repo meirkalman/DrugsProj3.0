@@ -35,21 +35,7 @@
                 <Button Content="admin" Command="{Binding MainCommand}" CommandParameter ="AdministratorUC"  HorizontalAlignment="Left" Margin="124,274,0,0" VerticalAlignment="Top" Width="173" />
                 <Button Content="Button" HorizontalAlignment="Left" Margin="831,198,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
             </Grid>
-            <TreeView
-  MinWidth="220"  FlowDirection="LeftToRight" HorizontalAlignment="Left" FontSize="18" Grid.ColumnSpan="1" Margin="742,10,0,408" >
-                <TreeViewItem 
-                 
-    Header="דף הבית">
-                    
-                    <TreeViewItem
-      Header="צור קשר" />
-                    <TreeViewItem
-      Header="דרג אותנו">
-                       
-                    </TreeViewItem>
-           
-                </TreeViewItem>
-            </TreeView>
+            <Button Content="התנתקות" FontSize="17" HorizontalAlignment="Left" Margin="834,10,0,0" VerticalAlignment="Top" Width="105" Background="#00F44336" BorderBrush="#00F44336" Foreground="#FF0023FF"/>
 
 
         </Grid>

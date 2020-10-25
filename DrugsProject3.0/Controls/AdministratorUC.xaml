@@ -24,7 +24,7 @@
   Margin="16">
             <Grid>
                 <Grid.Background>
-                    <ImageBrush ImageSource="/DrugsProject3.0;component/images/Patient.png" Stretch="Uniform" />
+                    <ImageBrush ImageSource="/DrugsProject3.0;component/Images/doctor.png" Stretch="Uniform" />
                 </Grid.Background>
                 <Button
                     
@@ -39,7 +39,7 @@
   Margin="16">
             <Grid>
                 <Grid.Background>
-                    <ImageBrush ImageSource="/DrugsProject3.0;component/images/doctor.png" Stretch="Uniform" />
+                    <ImageBrush ImageSource="/DrugsProject3.0;component/Images/Patient.png" Stretch="Uniform" />
                 </Grid.Background>
                 <Button
                     HorizontalAlignment="Center"

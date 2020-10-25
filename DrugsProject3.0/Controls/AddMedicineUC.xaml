@@ -7,7 +7,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid FlowDirection="RightToLeft"  HorizontalAlignment="Center">
+    <Grid FlowDirection="RightToLeft"  HorizontalAlignment="Center" Margin="114,0,376,0" Width="310">
 
         <GroupBox
   Header="הוסף תרופה למערכת "
@@ -31,10 +31,23 @@
                 <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="43,235,0,0" TextWrapping="Wrap" Text="מאפייני מנה" Height="28" VerticalAlignment="Top"/>
                 <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="85,278,0,0" TextWrapping="Wrap" Text="תמונה" Height="28" VerticalAlignment="Top"/>
                 <Button Content="הוסף תמונה" HorizontalAlignment="Left" Margin="138,276,0,0" VerticalAlignment="Top" Width="109"/>
-                <Button Content="הוסף" HorizontalAlignment="Left" Margin="220,341,0,0" VerticalAlignment="Top" Width="74"/>
-                <Button Content="חזור" HorizontalAlignment="Left" Margin="10,341,0,0" VerticalAlignment="Top" Width="75" />
+                <Button Content="הוסף" HorizontalAlignment="Left" Margin="112,341,0,0" VerticalAlignment="Top" Width="74"/>
 
             </Grid>
         </GroupBox>
+
+        <GroupBox
+  Header="הסרת תרופה מהמערכת "
+  Style="{DynamicResource MaterialDesignGroupBox}"
+  HorizontalAlignment="Center"
+  materialDesign:ColorZoneAssist.Mode="Accent" Margin="-324,0,315,0" Width="319">
+            <Grid HorizontalAlignment="Left" Height="419" Margin="0,-13,0,-6" VerticalAlignment="Top" Width="309">
+                <ComboBox Margin="52,116,51,0" VerticalAlignment="Top" Height="40"/>
+                <Button Content="הסר" HorizontalAlignment="Left" Margin="118,195,0,0" VerticalAlignment="Top" Width="76"/>
+                <TextBlock HorizontalAlignment="Left" Margin="92,59,0,0" TextWrapping="Wrap" FontSize="22" Text="שם התרופה" VerticalAlignment="Top" Height="37" Width="126"/>
+                <Button Content="חזור" HorizontalAlignment="Left" Margin="10,364,0,0" VerticalAlignment="Top" Width="75" />
+            </Grid>
+        </GroupBox>
+
     </Grid>
 </UserControl>

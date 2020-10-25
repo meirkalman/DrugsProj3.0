@@ -13,13 +13,13 @@
         <GroupBox
             HorizontalAlignment="Center"
             VerticalContentAlignment="Center"
-            
+             FlowDirection="RightToLeft"
   Header="הוספת מטופל חדש"
   Style="{DynamicResource MaterialDesignGroupBox}"
  
-  materialDesign:ColorZoneAssist.Mode="Accent" >
+  materialDesign:ColorZoneAssist.Mode="Accent" Margin="0,0,377,0" >
             <Grid  FlowDirection="LeftToRight" HorizontalAlignment="Center" Height="406" Margin="10,10,10,0" VerticalAlignment="Top" Width="332">
-                <Button Command="{Binding AddCommand}"
+                <Button Background="#FF607D8B" Command="{Binding AddCommand}"
                 
                 Style="{StaticResource MaterialDesignRaisedAccentButton}"
                ToolTip="Resource name: MaterialDesignRaisedAccentButton"
@@ -35,6 +35,23 @@
                 <materialDesign:PackIcon Kind="Phone" Height="26" Width="30" Margin="240,240,0,0"  />
                 <materialDesign:PackIcon Kind="Account" Height="24" Width="30" Margin="240,117,0,0" RenderTransformOrigin="0.476,0.5"/>
                 <Button Content="חזור" HorizontalAlignment="Left" Margin="244,360,0,0" VerticalAlignment="Top" Width="76" />
+            </Grid>
+        </GroupBox>
+        <GroupBox
+             FlowDirection="RightToLeft"
+            HorizontalAlignment="Center"
+            VerticalContentAlignment="Center"
+            
+  Header="הסר מטופל קיים"
+  Style="{DynamicResource MaterialDesignGroupBox}"
+ 
+  materialDesign:ColorZoneAssist.Mode="Accent" Margin="375,0,0,0" Width="372" >
+            <Grid Margin="0,86,0,19">
+                <ComboBox HorizontalAlignment="Center"   Height="40" Margin="58,58,64,235" Width="232"/>
+                <Button Content="הסר" HorizontalAlignment="Left" Margin="137,136,0,0" VerticalAlignment="Top" Width="76"/>
+                <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" FontSize="22" Text="שם המטופל" VerticalAlignment="Top" Height="37" Width="126"/>
+                <Button Content="חזור" HorizontalAlignment="Left" Margin="25,283,0,0" VerticalAlignment="Top" Width="75" />
+
             </Grid>
         </GroupBox>
         <!--<TextBox materialDesign:HintAssist.Hint="כתובת"  Text="{Binding Patient.Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Margin="38,144,204,148" Width="124" />-->
