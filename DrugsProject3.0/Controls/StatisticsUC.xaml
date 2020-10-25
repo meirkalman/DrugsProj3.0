@@ -4,8 +4,18 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DrugsProject3._0.Controls"
-             xmlns:materialDesignMahApps="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="DrugsProject3._0.Controls.StatisticsUC"
+             xmlns:materialDesignMahApps="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf" x:Class="DrugsProject3._0.Controls.StatisticsUC"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid/>
+    <Grid>
+        <lvc:CartesianChart LegendLocation="Left">
+            <lvc:CartesianChart.Series>
+              
+                <lvc:LineSeries Title="תרופה" Values="{Binding Delivered}" StrokeThickness="2" 
+                       Stroke="#FFF74646" Fill="Transparent" LineSmoothness="1" 
+                       PointGeometrySize="15" PointForeground="#222E31"/>
+            </lvc:CartesianChart.Series>
+        </lvc:CartesianChart>
+    </Grid>
 </UserControl>
