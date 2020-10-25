@@ -10,7 +10,7 @@ namespace BE
     public class Patient
     {
         
-        public int Id { get; set; }
+        public int PatientId { get; set; }
         public string Fname { get; set; }
         public string Lname { get; set; }
         public int PhoneNumber { get; set; }
@@ -18,7 +18,7 @@ namespace BE
 
         public Patient(int id, string fname, string lname, int phoneNumber,  DateTime dateOfBirth)
         {
-            Id = id;
+            PatientId = id;
             Fname = fname;
             Lname = lname;
             PhoneNumber = phoneNumber;

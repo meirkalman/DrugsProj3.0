@@ -199,7 +199,7 @@ namespace BL
         {
             Dictionary<string, string> result = new Dictionary<string, string>();
             var patientPrescriptions = from p in GetAllRecipes()
-                                       where p.PatientId == patient.Id
+                                       where p.PatientId == patient.PatientId
                                        select p;
 
             if(now)

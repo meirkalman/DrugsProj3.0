@@ -50,7 +50,7 @@ namespace DrugsProject3._0.ViewModels
         public List<int> GetAllPatients()
         {
             var ids = (from item in DoctorM.GetAllPatients()
-                       select item.Id).ToList();
+                       select item.PatientId).ToList();
             return ids;
         }
         public void CManage()
