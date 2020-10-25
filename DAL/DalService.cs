@@ -14,45 +14,76 @@ namespace DAL
 
         #region add & update to db
 
-        public void AddPatient(Patient patient)
+        public bool AddPatient(Patient patient)
         {
+            
             using (var db = new DBContext())
             {
+                
+                var current = db.Patients.Find(patient.PatientId);
+                if(current != null)
+                {
+                    return false;
+                }
                 db.Patients.Add(patient);
                 db.SaveChanges();
+                return true;
             }
         }
-        public void AddMedicine(Medicine medicine)
+        public bool AddMedicine(Medicine medicine)
         {
+            
             using (var db = new DBContext())
             {
+                var current = db.Medicines.Find(medicine.Id);
+                if (current != null)
+                {
+                    return false;
+                }
                 db.Medicines.Add(medicine);
                 db.SaveChanges();
             }
+            return true;
         }
-        public void AddRecipe(Recipe recipe)
+        public bool AddRecipe(Recipe recipe)
         {
             using (var db = new DBContext())
             {
+                var current = db.Recipes.Find(recipe.RecipeId);
+                if (current != null)
+                {
+                    return false;
+                }
                 db.Recipes.Add(recipe);
                 db.SaveChanges();
             }
+            return true;
         }
-        public void AddUser(User user)
+        public bool AddUser(User user)
         {
             using (var db = new DBContext())
             {
+                var current = db.Users.Find(user.Id);
+                if (current != null)
+                {
+                    return false;
+                }
                 db.Users.Add(user);
                 db.SaveChanges();
             }
+            return true;
         }
 
 
-        public void UpdatePatient(Patient patient)
+        public bool UpdatePatient(Patient patient)
         {
             using (var db = new DBContext())
             {
                 var current = db.Patients.Find(patient.PatientId);
+                if (current == null)
+                {
+                    return false;
+                }
                 current.PatientId = patient.PatientId;
                 current.Lname = patient.Lname;
                 current.Fname = patient.Fname;
@@ -60,12 +91,17 @@ namespace DAL
                 current.DateOfBirth = patient.DateOfBirth;
                 db.SaveChanges();
             }
+            return true;
         }
-        public void UpdateMedicine(Medicine medicine)
+        public bool UpdateMedicine(Medicine medicine)
         {
             using (var db = new DBContext())
             {
                 var current = db.Medicines.Find(medicine.Id);
+                if (current == null)
+                {
+                    return false;
+                }
                 current.Id = medicine.Id;
                 current.CommercialName = medicine.CommercialName;
                 current.GenericName = medicine.GenericName;
@@ -74,12 +110,17 @@ namespace DAL
                 current.ImageUri = medicine.ImageUri;
                 db.SaveChanges();
             }
+            return true;
         }
-        public void UpdateRecipe(Recipe recipe)
+        public bool UpdateRecipe(Recipe recipe)
         {
             using (var db = new DBContext())
             {
                 var current = db.Recipes.Find(recipe.RecipeId);
+                if (current == null)
+                {
+                    return false;
+                }
                 current.RecipeId = recipe.RecipeId;
                 current.DoctorId = recipe.DoctorId;
                 current.PatientId = recipe.PatientId;
@@ -88,14 +129,18 @@ namespace DAL
                 current.Description = recipe.Description;
                 current.Date = recipe.Date;
                 db.SaveChanges();
-
             }
+            return true;
         }
-        public void UpdateUser(User user)
+        public bool UpdateUser(User user)
         {
             using (var db = new DBContext())
             {
                 var current = db.Users.Find(user.Id);
+                if (current == null)
+                {
+                    return false;
+                }
                 current.Id = user.Id;
                 current.Lname = user.Lname;
                 current.Fname = user.Fname;
@@ -103,56 +148,67 @@ namespace DAL
                 current.Type = user.Type;
                 db.SaveChanges();
             }
+            return true;
         }
         #endregion add & update to db
 
-        public void DeletePatient(Patient patient)
+        public bool DeletePatient(Patient patient)
         {
             using (var db = new DBContext())
             {
                 var current = db.Patients.Find(patient.PatientId);
-                if (current != null)
+                if (current == null)
                 {
-                    db.Patients.Remove(current);
-                    db.SaveChanges();
+                    return false;
                 }
+                db.Patients.Remove(current);
+                db.SaveChanges();
+
+                return true;
+                
             }
         }
-        public void DeleteMedicine(Medicine medicine)
+        public bool DeleteMedicine(Medicine medicine)
         {
             using (var db = new DBContext())
             {
                 var current = db.Medicines.Find(medicine.Id);
-                if (current != null)
+                if (current == null)
                 {
-                    db.Medicines.Remove(current);
-                    db.SaveChanges();
+                    return false;
                 }
+                db.Medicines.Remove(current);
+                db.SaveChanges();
+                return true;
             }
         }
-        public void DeleteRecipe(Recipe recipe)
+        public bool DeleteRecipe(Recipe recipe)
         {
             using (var db = new DBContext())
             {
                 var current = db.Recipes.Find(recipe.RecipeId);
-                if (current != null)
+                if (current == null)
                 {
-                    db.Recipes.Remove(current);
-                    db.SaveChanges();
+                    return false;
                 }
+                db.Recipes.Remove(current);
+                db.SaveChanges();
+                return true;
             }
         }
 
-        public void DeleteUser(User user)
+        public bool DeleteUser(User user)
         {
             using (var db = new DBContext())
             {
                 var current = db.Users.Find(user.Id);
-                if (current != null)
+                if (current == null)
                 {
-                    db.Users.Remove(current);
-                    db.SaveChanges();
+                    return false;
                 }
+                db.Users.Remove(current);
+                db.SaveChanges();
+                return true;
             }
         }
 
