@@ -26,8 +26,8 @@
     VerticalAlignment="Top" 
     
     materialDesign:HintAssist.Hint="סיסמה" Margin="137,220,127,0" Height="54"  Width="236" />
-            <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="שם משתמש" HorizontalAlignment="Center" Height="54" Margin="138,119,126,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="236"/>
-            <Button Content="התחבר" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="146" Height="52" Margin="170,316,184,0" />
+            <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="מספר זהות" HorizontalAlignment="Center" Height="54" Margin="138,119,126,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="236"/>
+            <Button Content="התחבר" Command="{Binding Command}" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="146" Height="52" Margin="170,316,184,0" />
 
         </Grid>
 

@@ -105,6 +105,7 @@
     <Compile Include="Commands\AddPatientCommand.cs" />
     <Compile Include="Commands\BaseCommand.cs" />
     <Compile Include="Commands\DoctorCommand.cs" />
+    <Compile Include="Commands\HomePageCommand.cs" />
     <Compile Include="Commands\MainCommand.cs" />
     <Compile Include="Commands\StatisticsCommand.cs" />
     <Compile Include="Controls\AddDoctorUC.xaml.cs">
@@ -124,6 +125,7 @@
     </Compile>
     <Compile Include="Models\AddDoctorVisitModel.cs" />
     <Compile Include="Models\DoctorModel.cs" />
+    <Compile Include="Models\HomePageModel.cs" />
     <Compile Include="Models\StatisticsModel1.cs" />
     <Compile Include="Tools\ControlManage.cs" />
     <Compile Include="Tools\IControlManage.cs" />
@@ -131,6 +133,7 @@
     <Compile Include="ViewModels\AddDoctorVisitVM.cs" />
     <Compile Include="ViewModels\AddPatientVM.cs" />
     <Compile Include="ViewModels\DoctorVM.cs" />
+    <Compile Include="ViewModels\HomePageVM.cs" />
     <Compile Include="ViewModels\MainVM.cs" />
     <Compile Include="ViewModels\StatisticsVM.cs" />
     <Page Include="Controls\AddDoctorUC.xaml">

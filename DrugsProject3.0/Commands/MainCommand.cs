@@ -51,7 +51,11 @@ namespace DrugsProject3._0.Commands
             {
                 (App.Current as App).navigation.ShowControls("AdministratorUC");
             }
-
+            if (parameter.ToString() == "LogOut")
+            {
+                (App.Current as App).navigation.ShowControls("DoctorUC");
+            }
+            
         }
         
     }
