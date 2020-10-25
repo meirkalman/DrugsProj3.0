@@ -79,24 +79,19 @@ namespace DrugsProject3._0
             }
            
         }
+//    //phenelzine
+//    moclobemide
+//    isocarboxazid
+//methylene blue
+//tranylcypromine
+    //private void Button_Click(object sender, RoutedEventArgs e)
+    //{
+    //    this.ShowControl(uc);
+    //}
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Test");
-        }
-        //    //phenelzine
-        //    moclobemide
-        //    isocarboxazid
-        //methylene blue
-        //tranylcypromine
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    this.ShowControl(uc);
-        //}
-
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    this.ShowControl(uc);Command="{Binding MainCommand}"
-        //}
-    }
+    //private void Button_Click(object sender, RoutedEventArgs e)
+    //{
+    //    this.ShowControl(uc);Command="{Binding MainCommand}"
+    //}
+}
 }
