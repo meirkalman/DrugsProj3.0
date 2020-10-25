@@ -133,6 +133,7 @@ namespace BL
         }
         #endregion get 
 
+
         #region statistics
 
         public Dictionary<DateTime, int> drugStatistics(string drugID, DateTime start, DateTime finish)
@@ -176,7 +177,13 @@ namespace BL
 
             return result.ToString();
         }
-
+        public List<string> GetAllPatientsId()
+        {
+            var ids = (from item in IDalService.GetAllPatients()
+                           select item.PatientId).ToList();
+            
+            return ids;
+        }
         
         public List<string> GetAllMedicinesNames()
         {

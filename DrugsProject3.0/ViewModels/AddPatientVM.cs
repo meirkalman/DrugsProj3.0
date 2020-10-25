@@ -3,6 +3,7 @@ using DrugsProject3._0.Commands;
 using DrugsProject3._0.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -75,11 +76,13 @@ namespace DrugsProject3._0.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PhoneNum"));
             }
         }
+        public ObservableCollection<string> PatientIds { get; set; }
         
         public AddPatientVM()
         {
             AddPatientM = new AddPatientModel();
             AddCommand = new AddPatientCommand(this);
+            PatientIds = new ObservableCollection<string>(AddPatientM.GetAllPatientsId());
         }
         
         public void AddPatient()

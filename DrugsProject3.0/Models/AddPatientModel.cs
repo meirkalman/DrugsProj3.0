@@ -20,5 +20,10 @@ namespace DrugsProject3._0.Models
         {
             Bl.AddPatient(patient);
         }
+
+        internal List<string> GetAllPatientsId()
+        {
+            Bl.GetAllPatientsId();
+        }
     }
 }
