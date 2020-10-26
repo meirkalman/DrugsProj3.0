@@ -11,7 +11,7 @@
             <ColumnDefinition Width="323*"/>
             <ColumnDefinition Width="543*"/>
         </Grid.ColumnDefinitions>
-        <materialDesign:PackIcon Kind="Plus" HorizontalAlignment="Center" Height="36" Width="40"  Grid.Column="1" Margin="473,16,30,0" />
+        <materialDesign:PackIcon Kind="Plus" HorizontalAlignment="Center" Height="36" Width="40"  Grid.Column="1" Margin="464.8,16,37.6,0" />
         <materialDesign:PackIcon Kind="AccountClock"  HorizontalAlignment="Center" Height="36" Width="40" Margin="273,16,10,0"  />
 
         <ComboBox

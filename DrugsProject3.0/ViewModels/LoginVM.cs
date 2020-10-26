@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace DrugsProject3._0.ViewModels
 {
-    class HomePageVM : INotifyPropertyChanged
+    class LoginVM : INotifyPropertyChanged
     {
         
             public event PropertyChangedEventHandler PropertyChanged;
             public User User { get; set; }
         
-            public HomePageCommand Command { get; set; }
+            public LoginCommand Command { get; set; }
 
-            public HomePageModel HomePageM { get; set; }
+            public LoginModel HomePageM { get; set; }
 
             private string id;
             public string Id
@@ -33,10 +33,10 @@ namespace DrugsProject3._0.ViewModels
 
         public string Password { get; set; }
 
-        public HomePageVM()
+        public LoginVM()
         {
-            HomePageM = new HomePageModel();
-            Command = new HomePageCommand(this);
+            HomePageM = new LoginModel();
+            Command = new LoginCommand(this);
         }
 
         internal void Login(string password)

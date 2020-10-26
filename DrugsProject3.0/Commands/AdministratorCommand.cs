@@ -33,9 +33,9 @@ namespace DrugsProject3._0.Commands
             {
                 (App.Current as App).navigation.ShowControls("AddUserUC");
             }
-            if (parameter.ToString() == "AddNewPatient")
+            if (parameter.ToString() == "PatientUC")
             {
-                (App.Current as App).navigation.ShowControls("AddNewPatient");
+                (App.Current as App).navigation.ShowControls("PatientUC");
             }
             if (parameter.ToString() == "AddMedicine")
             {
@@ -45,6 +45,7 @@ namespace DrugsProject3._0.Commands
             {
                 (App.Current as App).navigation.ShowControls("StatisticsUC");
             }
+            
         }
     
     }

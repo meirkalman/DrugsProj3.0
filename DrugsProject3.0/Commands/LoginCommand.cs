@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace DrugsProject3._0.Commands
 {
-    class HomePageCommand : ICommand
+    class LoginCommand : ICommand
     {
         public event EventHandler CanExecuteChanged
         {
@@ -17,9 +17,9 @@ namespace DrugsProject3._0.Commands
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public HomePageVM CurrentVM { get; set; }
+        public LoginVM CurrentVM { get; set; }
 
-        public HomePageCommand(HomePageVM VM)
+        public LoginCommand(LoginVM VM)
         {
             CurrentVM = VM;
         }

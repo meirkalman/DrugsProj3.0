@@ -16,16 +16,14 @@ using static BE.User;
 namespace DrugsProject3._0.ViewModels
 {
 
-    public class AddUserVM : INotifyPropertyChanged
+    public class UserVM : INotifyPropertyChanged
     {
-
-
         public event PropertyChangedEventHandler PropertyChanged;
         public User User { get; set; }
 
-        public AddUserCommand Command { get; set; }
+        public UserCommand Command { get; set; }
 
-        public AddUserModel AddUserM { get; set; }
+        public UserModel AddUserM { get; set; }
 
         private string id;
         public string Id
@@ -136,21 +134,18 @@ namespace DrugsProject3._0.ViewModels
         public ObservableCollection<string> UserIds { get; set; }
 
         public string UserSelected { get; set; }
-        public AddUserVM()
+        public UserVM()
         {
-            AddUserM = new AddUserModel();
-            Command = new AddUserCommand(this);
+            AddUserM = new UserModel();
+            Command = new UserCommand(this);
             Type = new ObservableCollection<string>(Enum.GetNames(typeof(UserType)));
             UserIds = new ObservableCollection<string>(AddUserM.GetAllUserId());
         }
-
-
 
         public void AddUser()
         {
             try
             {
-
 
                 UserType userType = (UserType)Enum.Parse(typeof(UserType), TypeSelected);
                 if (Id == null || Fname == null || Lname == null || PhoneNum == null || Password == null)
@@ -162,6 +157,7 @@ namespace DrugsProject3._0.ViewModels
 
                     User = new User(Id, Fname, Lname, PhoneNum, userType, Password);
                     AddUserM.AddUser(User);
+                    UserIds.Add(User.Id);
                     (App.Current as App).navigation.MainWindows.comments.Text = "משתמש נוסף בהצלחה";
                 }
             }
@@ -171,13 +167,13 @@ namespace DrugsProject3._0.ViewModels
                 (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
             }
 
-
         }
 
         public void DeleteUser()
         {
-            //User = AddUserM.GetUser(UserSelected);
-            //AddPatientM.DeletePatient(PatientV);
+            User = AddUserM.GetUser(UserSelected);
+            AddUserM.DeleteUser(User);
+            UserIds.Remove(User.Id);
         }
 
     }

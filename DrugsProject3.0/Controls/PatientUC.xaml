@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="DrugsProject3._0.Controls.AddNewPatient"
+﻿<UserControl x:Class="DrugsProject3._0.Controls.PatientUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -19,7 +19,7 @@
  
   materialDesign:ColorZoneAssist.Mode="Accent" Margin="0,0,377,0" >
             <Grid  FlowDirection="LeftToRight" HorizontalAlignment="Center" Height="406" Margin="10,10,10,0" VerticalAlignment="Top" Width="332">
-                <Button Background="#FF607D8B" Command="{Binding AddCommand}" CommandParameter="AddPatient"
+                <Button Background="#FF607D8B" Command="{Binding Command}" CommandParameter="AddPatient"
                 
                 Style="{StaticResource MaterialDesignRaisedAccentButton}"
                ToolTip="Resource name: MaterialDesignRaisedAccentButton"
@@ -34,7 +34,7 @@
                 <materialDesign:PackIcon Kind="CardAccountDetails" Height="24" Width="25" Margin="240,182,0,0"  />
                 <materialDesign:PackIcon Kind="Phone" Height="26" Width="30" Margin="240,240,0,0"  />
                 <materialDesign:PackIcon Kind="Account" Height="24" Width="30" Margin="240,117,0,0" RenderTransformOrigin="0.476,0.5"/>
-                <Button Content="חזור" Command="{Binding AddCommand}" CommandParameter="Return" HorizontalAlignment="Left" Margin="244,360,0,0" VerticalAlignment="Top" Width="76" />
+                <Button Content="חזור" Command="{Binding Command}" CommandParameter="Return" HorizontalAlignment="Left" Margin="244,360,0,0" VerticalAlignment="Top" Width="76" />
             </Grid>
         </GroupBox>
         <GroupBox
@@ -48,9 +48,9 @@
   materialDesign:ColorZoneAssist.Mode="Accent" Margin="375,0,0,0" Width="372" >
             <Grid Margin="0,86,0,19">
                 <ComboBox  ItemsSource="{Binding PatientIds}" SelectedItem="{Binding PatientSelected}" HorizontalAlignment="Center"   Height="40" Margin="58,58,64,235" Width="232"/>
-                <Button Content="הסר" Command="{Binding AddCommand}" CommandParameter="DeletePatient" HorizontalAlignment="Left" Margin="137,136,0,0" VerticalAlignment="Top" Width="76"/>
+                <Button Content="הסר" Command="{Binding Command}" CommandParameter="DeletePatient" HorizontalAlignment="Left" Margin="137,136,0,0" VerticalAlignment="Top" Width="76"/>
                 <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" FontSize="22" Text="שם המטופל" VerticalAlignment="Top" Height="37" Width="126"/>
-                <Button Content="חזור" Command="{Binding AddCommand}" CommandParameter="Return" HorizontalAlignment="Left" Margin="25,283,0,0" VerticalAlignment="Top" Width="75" />
+                <Button Content="חזור" Command="{Binding Command}" CommandParameter="Return" HorizontalAlignment="Left" Margin="25,283,0,0" VerticalAlignment="Top" Width="75" />
 
             </Grid>
         </GroupBox>

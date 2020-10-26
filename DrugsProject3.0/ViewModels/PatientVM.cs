@@ -13,15 +13,15 @@ using System.Threading.Tasks;
 
 namespace DrugsProject3._0.ViewModels
 {
-    class AddPatientVM : INotifyPropertyChanged
+    class PatientVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
         public Patient PatientV;
-        public AddPatientCommand AddCommand { get; set; }
+        public PatientCommand Command { get; set; }
 
 
-        public AddPatientModel AddPatientM { get; set; }
+        public PatientModel PatientM { get; set; }
 
 
         private string fname;
@@ -109,11 +109,11 @@ namespace DrugsProject3._0.ViewModels
         public ObservableCollection<string> PatientIds { get; set; }
 
         public string PatientSelected { get; set; }
-        public AddPatientVM()
+        public PatientVM()
         {
-            AddPatientM = new AddPatientModel();
-            AddCommand = new AddPatientCommand(this);
-            PatientIds = new ObservableCollection<string>(AddPatientM.GetAllPatientsId());
+            PatientM = new PatientModel();
+            Command = new PatientCommand(this);
+            PatientIds = new ObservableCollection<string>(PatientM.GetAllPatientsId());
                
         }
 
@@ -126,23 +126,17 @@ namespace DrugsProject3._0.ViewModels
             else
             {
                 PatientV = new Patient(Id, Fname, Lname, PhoneNum, DateOfBirth);
-                AddPatientM.AddPatient(PatientV);
+                PatientM.AddPatient(PatientV);
+                PatientIds.Add(PatientV.PatientId);
                 (App.Current as App).navigation.MainWindows.comments.Text = "המטופל נוסף בהצלחה";
             }
         }
         public void DeletePatient()
         {
-            PatientV = AddPatientM.GetPatient(PatientSelected);
-            AddPatientM.DeletePatient(PatientV);
+            PatientV = PatientM.GetPatient(PatientSelected);
+            PatientM.DeletePatient(PatientV);
+            PatientIds.Remove(PatientV.PatientId);
         }
 
     }
 }
-//    //private void PatientIds_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-//{
-//    if (e.Action == NotifyCollectionChangedAction.Add)
-//    {
-//        PatientIds = new ObservableCollection<string>(AddPatientM.GetAllPatientsId());
-//        //PatientIds.Add(e.NewItems[0] as string);
-//    }
-//}

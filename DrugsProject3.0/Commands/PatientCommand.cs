@@ -9,38 +9,41 @@ using System.Windows.Input;
 
 namespace DrugsProject3._0.Commands
 {
-    public class AddUserCommand: ICommand
+    class PatientCommand : ICommand
     {
-    
         public event EventHandler CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public AddUserVM CurrentVM { get; set; }
-        public AddUserCommand(AddUserVM VM)
-        {
-            CurrentVM = VM;
-        }
+        public PatientVM CurrentVM { get; set; }
 
+        public PatientCommand(PatientVM addVM)
+        {
+            CurrentVM = addVM;
+        }
         public bool CanExecute(object parameter)
         {
-           
             return true;
         }
 
         public void Execute(object parameter)
         {
-            if (parameter.ToString() == "AddUser")
+            if (parameter.ToString() == "AddPatient")
             {
-                CurrentVM.AddUser();
+                CurrentVM.AddPatient(); 
             }
             if (parameter.ToString() == "Return")
             {
-                  (App.Current as App).navigation.ShowControls("AdministratorUC");
+                (App.Current as App).navigation.ShowControls("AdministratorUC");
             }
+            if (parameter.ToString() == "DeletePatient")
+            {
+                CurrentVM.DeletePatient();
+            }
+            
         }
     }
 }
-//
+

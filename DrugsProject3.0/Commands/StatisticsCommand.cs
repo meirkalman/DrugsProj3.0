@@ -34,10 +34,10 @@ namespace DrugsProject3._0.Commands
                 //   CurrentVM.EventMenage();
                 (App.Current as App).navigation.ShowControls("DoctorVisitUC");
             }
-            if (parameter.ToString() == "AddNewPatient")
+            if (parameter.ToString() == "PatientUC")
             {
                 // CurrentVM.EventMenage();
-                (App.Current as App).navigation.ShowControls("AddNewPatient");
+                (App.Current as App).navigation.ShowControls("PatientUC");
             }
 
         }

@@ -126,6 +126,7 @@ namespace DrugsProject3._0.ViewModels
 
                     string Id = MedicineM.ResolveRxcuiFromName(CommercialName).ToString();
                     MedicineM.AddMedicine(new Medicine(Id, CommercialName, GenericName, Producer, Price, ImageUri));
+                    MedicineIds.Add(Id);
                     (App.Current as App).navigation.MainWindows.comments.Text = "התרופה נוספה בהצלחה";
                 }
             }
@@ -140,6 +141,7 @@ namespace DrugsProject3._0.ViewModels
         {
             MedicineV = MedicineM.GetMedicine(MedicineSelected);
             MedicineM.DeleteMedicine(MedicineV);
+            MedicineIds.Remove(MedicineV.Id);
         }
         public void AddImegeUri()
         {

@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace DrugsProject3._0.Models
 {
-    public class AddUserModel
+    public class UserModel
     {
         public IBL Bl { get; set; }
-        public AddUserModel()
+        public UserModel()
         {
             Bl = new BlObject();
         }
@@ -26,9 +26,14 @@ namespace DrugsProject3._0.Models
             return Bl.GetAllUserId();
         }
 
-        internal User GetUser(string userSelected)
+        public User GetUser(string userSelected)
         {
-            throw new NotImplementedException();
+            return Bl.GetUser(userSelected);
+        }
+
+        public void DeleteUser(User user)
+        {
+             Bl.DeleteUser(user);
         }
     }
 }

@@ -132,34 +132,34 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\AddDoctorVisitCommand.cs" />
-    <Compile Include="Commands\AddPatientCommand.cs" />
-    <Compile Include="Commands\AddUserCommand.cs" />
+    <Compile Include="Commands\PatientCommand.cs" />
+    <Compile Include="Commands\UserCommand.cs" />
     <Compile Include="Commands\AdministratorCommand.cs" />
     <Compile Include="Commands\BaseCommand.cs" />
     <Compile Include="Commands\DoctorCommand.cs" />
-    <Compile Include="Commands\HomePageCommand.cs" />
+    <Compile Include="Commands\LoginCommand.cs" />
     <Compile Include="Commands\MainCommand.cs" />
     <Compile Include="Commands\MedicineCommand.cs" />
     <Compile Include="Commands\StatisticsCommand.cs" />
-    <Compile Include="Controls\AddDoctorUC.xaml.cs">
-      <DependentUpon>AddDoctorUC.xaml</DependentUpon>
+    <Compile Include="Controls\UserUC.xaml.cs">
+      <DependentUpon>UserUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\MedicineUC.xaml.cs">
       <DependentUpon>MedicineUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\AddNewPatient.xaml.cs">
-      <DependentUpon>AddNewPatient.xaml</DependentUpon>
+    <Compile Include="Controls\PatientUC.xaml.cs">
+      <DependentUpon>PatientUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\HomePageUC.xaml.cs">
-      <DependentUpon>HomePageUC.xaml</DependentUpon>
+    <Compile Include="Controls\LoginUC.xaml.cs">
+      <DependentUpon>LoginUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\StatisticsUC.xaml.cs">
       <DependentUpon>StatisticsUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\AddDoctorVisitModel.cs" />
-    <Compile Include="Models\AddUserModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\DoctorModel.cs" />
-    <Compile Include="Models\HomePageModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MedicineModel.cs" />
     <Compile Include="Models\StatisticsModel1.cs" />
     <Compile Include="Tools\ControlManage.cs" />
@@ -167,15 +167,15 @@
     <Compile Include="Tools\Navigation.cs" />
     <Compile Include="Tools\VerifyInput.cs" />
     <Compile Include="ViewModels\AddDoctorVisitVM.cs" />
-    <Compile Include="ViewModels\AddPatientVM.cs" />
-    <Compile Include="ViewModels\AddUserVM.cs" />
+    <Compile Include="ViewModels\PatientVM.cs" />
+    <Compile Include="ViewModels\UserVM.cs" />
     <Compile Include="ViewModels\AdministratorVM.cs" />
     <Compile Include="ViewModels\DoctorVM.cs" />
-    <Compile Include="ViewModels\HomePageVM.cs" />
+    <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\MainVM.cs" />
     <Compile Include="ViewModels\MedicineVM.cs" />
     <Compile Include="ViewModels\StatisticsVM.cs" />
-    <Page Include="Controls\AddDoctorUC.xaml">
+    <Page Include="Controls\UserUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -183,7 +183,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\AddNewPatient.xaml">
+    <Page Include="Controls\PatientUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -196,10 +196,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\DoctorVisitUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\HomePageUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,16 +224,13 @@
     <Compile Include="Controls\DoctorVisitUC.xaml.cs">
       <DependentUpon>DoctorVisitUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\LoginUC.xaml.cs">
-      <DependentUpon>LoginUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\AddPatientModel.cs" />
+    <Compile Include="Models\PatientModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

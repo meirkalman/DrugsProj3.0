@@ -15,15 +15,10 @@ namespace DrugsProject3._0.Navigation
         public void ShowControls(string UserControl)
         {
             UserControl uc = null;
-           
             switch (UserControl)
             {
                 case "LoginUC":
                     uc = new LoginUC();
-                    title="עמוד הבית";
-                    break;
-                case "HomePageUC":
-                    uc = new HomePageUC();
                     title = "עמוד הבית";
                     break;
                 case "DoctorVisitUC":
@@ -38,13 +33,13 @@ namespace DrugsProject3._0.Navigation
                     uc = new AdministratorUC();
                     title = "אדמיניסטרטור";
                     break;
-                case "AddNewPatient":
-                    uc = new AddNewPatient();
-                    title = "הוספת מטופל חדש";
+                case "PatientUC":
+                    uc = new PatientUC();
+                    title = "ניהול חולים";
                     break;
                 case "AddUserUC":
-                    uc = new AddDoctorUC();
-                    title = "הוספת משתמש חדש";
+                    uc = new UserUC();
+                    title = "ניהול משתמשים ";
                     break;
                 case "MedicineUC":
                     uc = new MedicineUC();
@@ -54,14 +49,8 @@ namespace DrugsProject3._0.Navigation
                     uc = new StatisticsUC();
                     title = "היסטורית צריכת תרופות";
                     break;
-
             }
-            
-
-
             MainWindows.ShowControl(uc, title);
         }
-
-       
     }
 }

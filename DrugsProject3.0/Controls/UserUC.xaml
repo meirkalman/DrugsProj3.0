@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="DrugsProject3._0.Controls.AddDoctorUC"
+﻿<UserControl x:Class="DrugsProject3._0.Controls.UserUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -46,7 +46,7 @@
   materialDesign:HintAssist.HintOpacity=".26"
   IsEditable="True" Margin="63,131,87,224" Height="36">
                 </ComboBox>
-                <Button Content="הסר" HorizontalAlignment="Left" Margin="118,204,0,0" VerticalAlignment="Top" Width="94"/>
+                <Button Content="הסר" Command="{Binding Command}" CommandParameter="DeleteUser" HorizontalAlignment="Left" Margin="118,204,0,0" VerticalAlignment="Top" Width="94"/>
                 <TextBlock HorizontalAlignment="Left" Margin="92,71,0,0" TextWrapping="Wrap" FontSize="22" Text="שם המשתמש" VerticalAlignment="Top" Height="37" Width="141"/>
                 <Button Content="חזור" Command="{Binding Command}" CommandParameter="Return" HorizontalAlignment="Left" Margin="10,349,0,0" VerticalAlignment="Top" Width="75" />
             </Grid>

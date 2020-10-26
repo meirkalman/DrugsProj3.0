@@ -41,7 +41,7 @@
                 <Grid.Background>
                     <ImageBrush ImageSource="/DrugsProject3.0;component/Images/Patient.png" Stretch="Uniform" />
                 </Grid.Background>
-                <Button Command="{Binding Command}" CommandParameter="AddNewPatient"
+                <Button Command="{Binding Command}" CommandParameter="PatientUC"
                     HorizontalAlignment="Center"
   Content="{materialDesign:PackIcon AccountPlus}"
   ToolTip="Icon" Margin="0,326,0,10" />

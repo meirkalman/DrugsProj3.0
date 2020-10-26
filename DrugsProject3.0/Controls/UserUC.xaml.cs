@@ -17,18 +17,15 @@ using System.Windows.Shapes;
 namespace DrugsProject3._0.Controls
 {
     /// <summary>
-    /// Interaction logic for AddNewPatient.xaml
+    /// Interaction logic for UserUC.xaml
     /// </summary>
-    public partial class AddNewPatient : UserControl
+    public partial class UserUC : UserControl
     {
-        
-        public AddNewPatient()
+        public UserUC()
         {
-            AddPatientVM VM = new AddPatientVM();
+            UserVM VM = new UserVM();
             DataContext = VM;
             InitializeComponent();
         }
-
-      
     }
 }

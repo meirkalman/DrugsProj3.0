@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace DrugsProject3._0.Models
 {
-    class AddPatientModel
+    class PatientModel
     {
         public IBL Bl { get; set; }
-        public AddPatientModel()
+        public PatientModel()
         {
             Bl = new BlObject();
         }

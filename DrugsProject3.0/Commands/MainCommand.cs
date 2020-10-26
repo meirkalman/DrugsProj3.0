@@ -39,9 +39,9 @@ namespace DrugsProject3._0.Commands
             {
                 (App.Current as App).navigation.ShowControls("DoctorUC");
             }
-            if (parameter.ToString() == "HomePageUC")
+            if (parameter.ToString() == "LoginUC")
             {
-                (App.Current as App).navigation.ShowControls("HomePageUC");
+                (App.Current as App).navigation.ShowControls("LoginUC");
             }
             if (parameter.ToString() == "DoctorVisitUC")
             {
@@ -53,7 +53,7 @@ namespace DrugsProject3._0.Commands
             }
             if (parameter.ToString() == "LogOut")
             {
-                (App.Current as App).navigation.ShowControls("HomePageUC");
+                (App.Current as App).navigation.ShowControls("LoginUC");
             }
             
         }

@@ -28,6 +28,7 @@ namespace DrugsProject3._0.ViewModels
         public Patient Patient { get; set; }
         public User User { get; set; }
         public ObservableCollection<string> MedicinesNames { get; set; }
+       // public ObservableCollection<string> MedicinesSelected { get; set; }
 
         public AddDoctorVisitVM(IControlManage controlManage)/////////////////////////////////////////////
         {
@@ -37,7 +38,8 @@ namespace DrugsProject3._0.ViewModels
             MedicinesNames = new ObservableCollection<string>(AddDoctorVisitM.GetAllMedicinesNames());
             Patient = IControlManage.Patient;
             User = IControlManage.User;
-            PatientName = Patient.Fname + Patient.Lname;
+            PatientName = Patient.Fname + " " + Patient.Lname;
+           // MedicinesSelected = new ObservableCollection<string>();
         }
 
         public void Massage(List<string> res)
@@ -117,58 +119,7 @@ namespace DrugsProject3._0.ViewModels
             string DoctorId = "888"; /*User.Id;*/
             Date = DateTime.Now;
             AddDoctorVisitM.AddRecipe(new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date));
-         
+           // MedicinesSelected.Add(MedicineSelected);
         }
-
-        //private void MedicinesNames_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        //{
-        //    if (e.Action == NotifyCollectionChangedAction.Add)
-        //    {
-        //        MedicinesNames.Add(e.NewItems[0] as string);
-        //    }
-        //}
     }
 }
-
-
-
-
-
-/////public string MedicineSelected { get; set; }
-
-
-
-//Medicines.CollectionChanged += Medicines_CollectionChanged;
-// eventAggreegator.GetEvent<PatientEvent>().Subscribe(EventSubscribe);
-
-//private void EventSubscribe(Patient patient)
-//{
-//    this.patient = patient;
-//    MessageBox.Show("dd");
-//    MessageBox.Show(patient.Id.ToString());
-//}
-//public void tt()
-//{
-//    MessageBox.Show(patient.Id.ToString());
-
-//}
-
-//private void Medicines_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-//{
-//    if (e.Action == NotifyCollectionChangedAction.Add)
-//    {
-//        MedicineV.Add(e.NewItems[0] as Medicine);
-//    }
-//}
-//public void MedicineUC()
-//{
-//    //Medicine medicine;
-//    //medicine = AddDoctorVisitM.GetMedicine(MedicineSelected);
-//    //medicineList.Add(medicine);
-//}
-
-//patient = new Patient();
-//this.eventAggreegator = eventAggreegator;
-//  doctorVisit = new DoctorVisit(Id, DoctorName, Description,medicineList, Date);
-
-// AddDoctorVisitM.AddDoctorVisitToPatient(doctorVisit,patient);

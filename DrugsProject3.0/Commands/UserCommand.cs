@@ -9,20 +9,21 @@ using System.Windows.Input;
 
 namespace DrugsProject3._0.Commands
 {
-    class AddPatientCommand : ICommand
+    public class UserCommand: ICommand
     {
+    
         public event EventHandler CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public AddPatientVM CurrentVM { get; set; }
-
-        public AddPatientCommand(AddPatientVM addVM)
+        public UserVM CurrentVM { get; set; }
+        public UserCommand(UserVM VM)
         {
-            CurrentVM = addVM;
+            CurrentVM = VM;
         }
+
         public bool CanExecute(object parameter)
         {
             return true;
@@ -30,20 +31,19 @@ namespace DrugsProject3._0.Commands
 
         public void Execute(object parameter)
         {
-            if (parameter.ToString() == "AddPatient")
+            if (parameter.ToString() == "AddUser")
             {
-                CurrentVM.AddPatient(); 
+                CurrentVM.AddUser();
+            }
+            if (parameter.ToString() == "DeleteUser")
+            {
+                CurrentVM.DeleteUser();
             }
             if (parameter.ToString() == "Return")
             {
-                (App.Current as App).navigation.ShowControls("AdministratorUC");
+                  (App.Current as App).navigation.ShowControls("AdministratorUC");
             }
-            if (parameter.ToString() == "DeletePatient")
-            {
-                CurrentVM.DeletePatient();
-            }
-            
         }
     }
 }
-
+//
