@@ -1,6 +1,7 @@
 ﻿using BE;
 using DrugsProject3._0.Commands;
 using DrugsProject3._0.Models;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,68 +16,61 @@ namespace DrugsProject3._0.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public Medicine MedicineV;
+       // public Medicine MedicineV;
         public MedicineCommand Command { get; set; }
 
 
         public MedicineModel MedicineM { get; set; }
 
 
-        private string fname;
-        public string Fname
+        private string commercialName;
+        public string CommercialName
         {
-            get { return fname; }
+            get { return commercialName; }
             set
             {
-                fname = null;
-                fname = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fname"));
+               
+                commercialName = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CommercialName"));
             }
         }
 
-        private string lname;
-        public string Lname
+        private string genericName;
+        public string GenericName
         {
-            get { return lname; }
+            get { return genericName; }
             set
             {
-                lname = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lname"));
+                genericName = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("GenericName"));
             }
         }
-        private string id;
-        public string Id
-        {
-            get { return id; }
-            set
-            {
 
-                id = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Id"));
-            }
-        }
-        private DateTime dateOfBirth = DateTime.Now;
-        public DateTime DateOfBirth
+        private string producer;
+        public string Producer
         {
-            get { return dateOfBirth; }
+            get { return producer; }
             set
             {
-                //  dateOfBirth = DateTime.Now;
-                dateOfBirth = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DateOfBirth"));
+                producer = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Producer"));
             }
         }
-        private int phoneNum;
-        public int PhoneNum
+
+        private string price;
+        public string Price
         {
-            get { return phoneNum; }
+            get { return price; }
             set
             {
-                phoneNum = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PhoneNum"));
+                price = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
             }
         }
-        public ObservableCollection<string> PatientIds { get; set; }
+        
+        public string ImageUri { get; set; }
+        
+       // public ObservableCollection<string> PatientIds { get; set; }
 
         public string MedicineSelected { get; set; }
         public MedicineVM()
@@ -89,15 +83,25 @@ namespace DrugsProject3._0.ViewModels
 
         public void AddMedicine()
         {
-            //MedicineV = new Medicine(Id, Fname, Lname, PhoneNum, DateOfBirth);
-            MedicineM.AddMedicine(MedicineV);
+            string Id = MedicineM.ResolveRxcuiFromName(CommercialName).ToString();
+            MedicineM.AddMedicine(new Medicine(Id, CommercialName, GenericName, Producer, Price,ImageUri)); 
         }
         public void DeleteMedicine()
         {
             //MedicineV = MedicineM.GetMedicine(PatientSelected);
-            MedicineM.DeleteMedicine(MedicineV);
+           // MedicineM.DeleteMedicine(MedicineV);
+        }
+        public void AddImegeUri()
+        {
+            //OpenFileDialog openFileDialog = new OpenFileDialog();
+            //if (openFileDialog.ShowDialog() == true)
+            //{
+            //    ImageUri = openFileDialog.SafeFileName;
+            //}
+            ImageUri = "rr";
         }
 
-   
     }
 }
+
+

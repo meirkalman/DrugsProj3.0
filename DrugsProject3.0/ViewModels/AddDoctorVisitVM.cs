@@ -19,7 +19,7 @@ namespace DrugsProject3._0.ViewModels
     class AddDoctorVisitVM : INotifyPropertyChanged
     {
 
-        public event PropertyChangedEventHandler PropertyChanged;   
+        public event PropertyChangedEventHandler PropertyChanged;
         public AddDoctorVisitModel AddDoctorVisitM { get; set; }
         public AddDoctorVisitCommand AddCommand { get; set; }
         public IControlManage IControlManage { get; set; }
@@ -45,7 +45,9 @@ namespace DrugsProject3._0.ViewModels
         public string DoctorName
         {
             get { return doctorName; }
-            set { doctorName = User.Fname + User.Lname; }
+            set {
+               
+                doctorName = User.Fname + User.Lname; }
         }
 
         public string PatientName;
@@ -89,6 +91,7 @@ namespace DrugsProject3._0.ViewModels
 
         public void AddRecipe()
         {
+           
             RecipeId = AddDoctorVisitM.AddRecipeId();///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             string PatientId = Patient.PatientId;
             string DoctorId = "888"; /*User.Id;*/

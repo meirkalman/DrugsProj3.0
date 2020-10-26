@@ -26,9 +26,9 @@ namespace DrugsProject3._0.Models
             return Bl.GetAllMedicineId();
         }
 
-        public Medicine GetMedicine(string medicinetId)
+        public int ResolveRxcuiFromName(string name)
         {
-            return Bl.GetMedicine(medicinetId);
+            return Bl.ResolveRxcuiFromName(name);
         }
         public void DeleteMedicine(Medicine medicine)
         {
