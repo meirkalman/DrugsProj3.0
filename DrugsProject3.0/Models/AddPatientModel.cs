@@ -21,9 +21,18 @@ namespace DrugsProject3._0.Models
             Bl.AddPatient(patient);
         }
 
-        //internal List<string> GetAllPatientsId()
-        //{
-        //    return Bl.GetAllPatientsId();
-        //}
+        public List<string> GetAllPatientsId()
+        {
+            return Bl.GetAllPatientsId();
+        }
+
+        public Patient GetPatient(string patientId)
+        {
+            return Bl.GetPatient(patientId);
+        }
+        public void DeletePatient(Patient patient)
+        {
+             Bl.DeletePatient(patientId);
+        }
     }
 }
