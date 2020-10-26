@@ -7,11 +7,14 @@ using PdfSharp.Pdf;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace BL
 {
@@ -21,7 +24,7 @@ namespace BL
         public void createPDF(string content)
         {
             PdfDocument pdf = new PdfDocument();
-            pdf.Info.Title = "My First PDF";
+            pdf.Info.Title = "My second PDF";
             PdfPage pdfPage = pdf.AddPage();
             XGraphics graph = XGraphics.FromPdfPage(pdfPage);
             XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
@@ -267,7 +270,19 @@ namespace BL
             
         }
 
+        public int ResolveRxcuiFromName(string name)
+        {
+            return CI.ResolveRxcuiFromName(name);
+        }
+
         
+
+        void IBL.print(string filePath, string content)
+        {
+           
+            createPDF(content);
+            Printing p = new Printing(filePath);
+        }
     }
 }
 
