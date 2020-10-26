@@ -176,8 +176,8 @@ namespace DrugsProject3._0.ViewModels
 
         public void DeleteUser()
         {
-            User = AddUserM.GetUser(UserSelected);
-            AddPatientM.DeletePatient(PatientV);
+            //User = AddUserM.GetUser(UserSelected);
+            //AddPatientM.DeletePatient(PatientV);
         }
 
     }

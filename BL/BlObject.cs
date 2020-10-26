@@ -284,7 +284,12 @@ namespace BL
         }
 
 
-
+        public List<string> GetAllUserId()
+        {
+            var res = (from item in GetAllUsers()
+                       select item.Id).ToList();
+            return res;
+        }
         void print(string filePath, Recipe recipe)
         {
 
