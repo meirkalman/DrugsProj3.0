@@ -1,4 +1,5 @@
 ﻿using BE;
+using CareManagment.Tools;
 using DrugsProject3._0.Commands;
 using DrugsProject3._0.Models;
 using System;
@@ -9,13 +10,16 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using static BE.User;
 
 namespace DrugsProject3._0.ViewModels
 {
+   
     public class AddUserVM : INotifyPropertyChanged
     {
-
+   
+	
         public event PropertyChangedEventHandler PropertyChanged;
         public User User { get; set; }
 
@@ -101,9 +105,47 @@ namespace DrugsProject3._0.ViewModels
 
         public void AddUser()
         {
-            UserType userType = (UserType)Enum.Parse(typeof(UserType), TypeSelected);
-            User = new User(Id,Fname,Lname,PhoneNum, userType, Password);
-            AddUserM.AddUser(User);
+            try
+            {
+                
+                UserType userType = (UserType)Enum.Parse(typeof(UserType), TypeSelected);
+                if (!new VerifyInput().IsValidPersonId(Id))
+                {
+                    throw new ArgumentException("לא תקין  id ");
+                }
+                if (!new VerifyInput().IsValidPersonId(Fname))
+                {
+                    throw new ArgumentException("שם פרטי לא תקין  ");
+                }
+                if (!new VerifyInput().IsValidPersonId(Lname))
+                {
+                    throw new ArgumentException("שם משפחה לא תקין");
+                }
+                //if (!new VerifyInput().IsValidPhoneNumber(PhoneNum))
+                //{
+                //    throw new ArgumentException("מספר טלפון לא תקין ");
+                //}
+                
+                if (!new VerifyInput().IsValidPassword(Password))
+                {
+                    throw new ArgumentException("סיסמה לא תקינה ");
+                }
+                else
+                {
+                    MessageBox.Show("Test");
+                    (App.Current as App).navigation.MainWindows.comments.Text = "";
+                    User = new User(Id, Fname, Lname, PhoneNum, userType, Password);
+                    AddUserM.AddUser(User);
+                   
+                }
+               
+           
+            }
+            catch (Exception e)
+            {
+               
+               (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
         }
    
     }
