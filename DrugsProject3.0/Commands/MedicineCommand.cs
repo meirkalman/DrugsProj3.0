@@ -29,20 +29,20 @@ namespace DrugsProject3._0.Commands
 
         public void Execute(object parameter)
         {
-            //if (parameter.ToString() == "AddPatient")
-            //{
-            //    CurrentVM.AddPatient();
-            //}
-            //if (parameter.ToString() == "Return")
-            //{
-            //    (App.Current as App).navigation.ShowControls("AdministratorUC");
-            //}
+            if (parameter.ToString() == "AddImage")
+            {
+                CurrentVM.AddImegeUri();
+            }
+            if (parameter.ToString() == "AddMedicine")
+            {
+                CurrentVM.AddMedicine();
+            }
             //if (parameter.ToString() == "DeletePatient")
             //{
             //    CurrentVM.DeletePatient();
             //}
 
         }
-    
+
     }
 }

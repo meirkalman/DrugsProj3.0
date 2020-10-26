@@ -9,7 +9,7 @@ namespace BL
 {
     public interface IBL
     {
-
+        int ResolveRxcuiFromName(string name);
         string getPrescriptionID();
 
         void createPDF(string content);

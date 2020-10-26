@@ -106,7 +106,7 @@ namespace DAL
                 current.CommercialName = medicine.CommercialName;
                 current.GenericName = medicine.GenericName;
                 current.Producer = medicine.Producer;
-                current.ActiveIngredients = medicine.ActiveIngredients;
+                current.Price = medicine.Price;
                 current.ImageUri = medicine.ImageUri;
                 db.SaveChanges();
             }

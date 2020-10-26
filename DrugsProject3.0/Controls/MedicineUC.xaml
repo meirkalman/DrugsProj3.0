@@ -15,19 +15,17 @@
   HorizontalAlignment="Center"
   materialDesign:ColorZoneAssist.Mode="Accent" Margin="297,0,0,0">
             <Grid HorizontalAlignment="Center" Height="373"  VerticalAlignment="Top" Width="304" Margin="0,0,0,-5">
-                <TextBox Height="34"  FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,68,44,0"/>
-                <TextBox Height="34"  FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,20,44,0"/>
-                <TextBox Height="36" FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,120,44,0"/>
-                <TextBox Height="36" FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="138,171,46,0"/>
-                <TextBox Height="36"  FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,227,44,0"/>
-                <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="54,20,0,0" TextWrapping="Wrap" Text="שם מסחרי" VerticalAlignment="Top" Height="28" Width="86"/>
-                <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="90,74,0,0" TextWrapping="Wrap" Text="יצרן" VerticalAlignment="Top" Height="28" Width="43"/>
-                <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="73,128,0,0" TextWrapping="Wrap" Text="שם גנרי" Height="28" VerticalAlignment="Top"/>
-                <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="10,179,0,0" TextWrapping="Wrap" Text="מרכיבים פעילים" Height="28" VerticalAlignment="Top"/>
-                <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="43,235,0,0" TextWrapping="Wrap" Text="מאפייני מנה" Height="28" VerticalAlignment="Top"/>
+                <TextBox Height="34" Text="{Binding Producer}" FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,96,44,0"/>
+                <TextBox Height="34" Text="{Binding CommercialName}"  FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,37,44,0"/>
+                <TextBox Height="36" Text="{Binding GenericName}" FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,147,44,0"/>
+                <TextBox Height="36" Text="{Binding Price}"  FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="138,207,46,0"/>
+                <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="54,43,0,0" TextWrapping="Wrap" Text="שם מסחרי" VerticalAlignment="Top" Height="28" Width="86"/>
+                <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="85,102,0,0" TextWrapping="Wrap" Text="יצרן" VerticalAlignment="Top" Height="28" Width="43"/>
+                <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="76,155,0,0" TextWrapping="Wrap" Text="שם גנרי" Height="28" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="85,215,0,0" TextWrapping="Wrap" Text="מחיר" Height="28" VerticalAlignment="Top"/>
                 <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="85,278,0,0" TextWrapping="Wrap" Text="תמונה" Height="28" VerticalAlignment="Top"/>
-                <Button Content="הוסף תמונה" HorizontalAlignment="Left" Margin="138,276,0,0" VerticalAlignment="Top" Width="109"/>
-                <Button Content="הוסף" HorizontalAlignment="Left" Margin="112,341,0,0" VerticalAlignment="Top" Width="74"/>
+                <Button Content="הוסף תמונה" Command="{Binding Command}" CommandParameter="AddImage" HorizontalAlignment="Left" Margin="138,276,0,0" VerticalAlignment="Top" Width="109"/>
+                <Button Content="הוסף" Command="{Binding Command}" CommandParameter="AddMedicine" HorizontalAlignment="Left" Margin="112,341,0,0" VerticalAlignment="Top" Width="74"/>
 
             </Grid>
         </GroupBox>
