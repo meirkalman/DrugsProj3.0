@@ -32,7 +32,7 @@ namespace DrugsProject3._0.Models
         }
         public void DeletePatient(Patient patient)
         {
-             Bl.DeletePatient(patientId);
+             Bl.DeletePatient(patient);
         }
     }
 }
