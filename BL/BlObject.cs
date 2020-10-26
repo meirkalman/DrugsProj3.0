@@ -14,6 +14,10 @@ namespace BL
         CheckInteraction CI = new CheckInteraction();
         public IDalService IDalService { get; set; }
 
+        public List<string> getDrugsNames()
+        {
+            return CI.getDrugsNames();
+        }
         public BlObject()
         {
             IDalService = new DalService();
