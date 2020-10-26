@@ -7,28 +7,44 @@
                           xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid FlowDirection="RightToLeft" HorizontalAlignment="Center">
+    <Grid FlowDirection="RightToLeft" HorizontalAlignment="Center" Margin="2,0,382,0">
         <GroupBox
   Header="יצירת משתמש חדש"
   Style="{DynamicResource MaterialDesignGroupBox}"
-  Margin="10,16,10,10"
+  Margin="10,10,10,16"
   materialDesign:ColorZoneAssist.Mode="Accent">
             <Grid>
-                <TextBlock Margin="38,10,240,0" TextWrapping="Wrap" FontSize="20" Text="שם פרטי" VerticalAlignment="Top" Height="34"/>
-                <TextBox HorizontalAlignment="Left" Text="{Binding Id}" Height="34" Margin="152,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159"/>
-                <TextBox HorizontalAlignment="Left" Text="{Binding Fname}" Height="34" Margin="152,44,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159"/>
-                <TextBlock HorizontalAlignment="Left" Margin="12,90,0,0" FontSize="20" TextWrapping="Wrap" Text="שם משפחה" VerticalAlignment="Top" Height="34" Width="112"/>
-                <TextBlock HorizontalAlignment="Left" Margin="12,129,0,0" FontSize="20" TextWrapping="Wrap" Text="מספר טלפון" VerticalAlignment="Top" Height="30" Width="112"/>
-                <TextBlock HorizontalAlignment="Left" Margin="12,250,0,0" FontSize="20" TextWrapping="Wrap" Text="סוג משתמש" VerticalAlignment="Top" Height="32" Width="112"/>
-                <TextBox HorizontalAlignment="Left" Text="{Binding Lname}" Height="34" Margin="152,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159"/>
-                <TextBox HorizontalAlignment="Left" Text="{Binding PhoneNum}" Height="34" Margin="152,129,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159"/>
-                <TextBox HorizontalAlignment="Left"  Text="{Binding Password}" Height="34" Margin="152,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159"/>
-                <ComboBox HorizontalAlignment="Left"  ItemsSource="{Binding Type}" SelectedItem="{Binding TypeSelected}"  Margin="152,250,0,0" VerticalAlignment="Top" Width="159" Height="32">
-                  
+                <TextBlock Margin="41,10,230,0" TextWrapping="Wrap" FontSize="20" Text="תעודת זהות" VerticalAlignment="Top" Height="34"/>
+
+                <TextBlock Margin="66,56,231,0" TextWrapping="Wrap" FontSize="20" Text="שם פרטי" VerticalAlignment="Top" Height="34" RenderTransformOrigin="0.738,0.529"/>
+                <TextBox HorizontalAlignment="Left" Text="{Binding Id}" Height="34" Margin="152,6,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159"/>
+                <TextBox HorizontalAlignment="Left" Text="{Binding Fname}" Height="34" Margin="152,52,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159"/>
+                <TextBlock HorizontalAlignment="Left" Margin="40,106,0,0" FontSize="20" TextWrapping="Wrap" Text="שם משפחה" VerticalAlignment="Top" Height="34" Width="112"/>
+                <TextBlock HorizontalAlignment="Left" Margin="35,155,0,0" FontSize="20" TextWrapping="Wrap" Text="מספר טלפון" VerticalAlignment="Top" Height="30" Width="112"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="82,205,0,0" FontSize="20" TextWrapping="Wrap" Text="סיסמה" VerticalAlignment="Top" Height="30" Width="70"/>
+                <TextBlock HorizontalAlignment="Left" Margin="35,256,0,0" FontSize="20" TextWrapping="Wrap" Text="סוג משתמש" VerticalAlignment="Top" Height="32" Width="112"/>
+                <TextBox HorizontalAlignment="Left" Text="{Binding Lname}" Height="34" Margin="152,102,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159"/>
+                <TextBox HorizontalAlignment="Left" Text="{Binding PhoneNum}" Height="34" Margin="152,151,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159"/>
+                <TextBox HorizontalAlignment="Left"  Text="{Binding Password}" Height="34" Margin="152,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159"/>
+                <ComboBox HorizontalAlignment="Left"  ItemsSource="{Binding Type}" SelectedItem="{Binding TypeSelected}"  Margin="152,256,0,0" VerticalAlignment="Top" Width="159" Height="32">
+
                 </ComboBox>
-                <Button Content="הוסף" Command="{Binding Command}" CommandParameter="AddUser" HorizontalAlignment="Left" Margin="235,332,0,0" VerticalAlignment="Top" Width="76"/>
-                <Button Content="חזור" Command="{Binding Command}" CommandParameter="Return" HorizontalAlignment="Left" Margin="49,332,0,0" VerticalAlignment="Top" Width="75" />
-                
+                <Button Content="הוסף" Command="{Binding Command}" CommandParameter="AddUser" HorizontalAlignment="Left" Margin="152,317,0,0" VerticalAlignment="Top" Width="76"/>
+
+            </Grid>
+        </GroupBox>
+
+        <GroupBox
+  Header="הסרת משתמש מהמערכת "
+  Style="{DynamicResource MaterialDesignGroupBox}"
+  HorizontalAlignment="Center"
+  materialDesign:ColorZoneAssist.Mode="Accent" Margin="-374,10,429,16" Width="360">
+            <Grid HorizontalAlignment="Left" Height="391" Margin="0,-13,0,-4" VerticalAlignment="Top" Width="350">
+                <ComboBox Margin="52,116,51,0" VerticalAlignment="Top" Height="40"/>
+                <Button Content="הסר" HorizontalAlignment="Left" Margin="118,204,0,0" VerticalAlignment="Top" Width="94"/>
+                <TextBlock HorizontalAlignment="Left" Margin="92,59,0,0" TextWrapping="Wrap" FontSize="22" Text="שם המשתמש" VerticalAlignment="Top" Height="37" Width="141"/>
+                <Button Content="חזור" Command="{Binding Command}" CommandParameter="Return" HorizontalAlignment="Left" Margin="10,349,0,0" VerticalAlignment="Top" Width="75" />
             </Grid>
         </GroupBox>
     </Grid>
