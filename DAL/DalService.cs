@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace DAL
 {
@@ -12,7 +11,7 @@ namespace DAL
     {
 
 
-        Message m = new Message();
+
         #region add & update to db
 
         public bool AddPatient(Patient patient)
@@ -275,80 +274,94 @@ namespace DAL
 
         public Patient GetPatient(string id)
         {
-            try
+            using (var db = new DBContext())
             {
-                using (var db = new DBContext())
-                {
-                    var res = (from item in db.Patients
+                var patient = (from item in db.Patients
                                where item.PatientId == id
                                select item).ToList();
-                    return res.First();
+
+                if (patient.Count == 1)
+                {
+                    return patient.First();
+                }
+                else if (patient.Count == 0)
+                {
+                    return null;
+                }
+                else
+                {
+                    throw new Exception("error,Patient not found");
                 }
             }
-            catch (Exception)
-            {
-                m.message = "לא נמצא.";
-            }
-            return null;
         }
 
         public Medicine GetMedicine(string id)
         {
-            try
+            using (var db = new DBContext())
             {
-                using (var db = new DBContext())
-                {
-                    var res = (from item in db.Medicines
-                               where item.Id == id
+                var medicine = (from item in db.Medicines
+                                where item.Id == id
                                select item).ToList();
-                    return res.First();
+
+                if (medicine.Count == 1)
+                {
+                    return medicine.First();
+                }
+                else if (medicine.Count == 0)
+                {
+                    return null;
+                }
+                else
+                {
+                    throw new Exception("error,medicine not found");
                 }
             }
-            catch (Exception)
-            {
-
-                m.message = "לא נמצא.";
-            }
-            return null;
         }
-            
 
-            public Recipe GetRecipe(string recipeId)
+        public Recipe GetRecipe(string recipeId)
+        {
+            using (var db = new DBContext())
             {
-            try
-            {
-                using (var db = new DBContext())
-                {
-                    var res = (from item in db.Recipes
+                var recipe = (from item in db.Recipes
                                where item.RecipeId == recipeId
                                select item).ToList();
-                    return res.First();
+
+                if (recipe.Count == 1)
+                {
+                    return recipe.First();
+                }
+                else if (recipe.Count == 0)
+                {
+                    return null;
+                }
+                else
+                {
+                    throw new Exception("error,recipe not found");
                 }
             }
-            catch (Exception)
-            {
-                m.message = "לא נמצא.";
-            }
-            return null;
         }
 
         public User GetUser(string id)
         {
-            try
+            using (var db = new DBContext())
             {
-                using (var db = new DBContext())
-                {
-                    var res = (from item in db.Users
-                               where item.Id == id
+                var user = (from item in db.Users
+                            where item.Id == id
                                select item).ToList();
-                    return res.First();
+
+                if (user.Count == 1)
+                {
+                    return user.First();
+                }
+                else if (user.Count == 0)
+                {
+                    return null;
+                }
+                else
+                {
+                    throw new Exception("error,user not found");
                 }
             }
-            catch (Exception)
-            {
-                m.message = "לא נמצא";
-            }
-            return null;
         }
     }
 }
