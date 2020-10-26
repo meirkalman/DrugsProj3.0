@@ -49,7 +49,7 @@ namespace DAL
 
             return result;
         }
-        public static int ResolveRxcuiFromName(string name)
+        public int ResolveRxcuiFromName(string name)
         {
             int result = 0;
             XmlElement root = drugsNums.DocumentElement;
