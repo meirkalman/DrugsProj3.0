@@ -36,14 +36,14 @@
   HorizontalAlignment="Center"
   materialDesign:ColorZoneAssist.Mode="Accent" Margin="-27,0,327,0" Width="319">
             <Grid HorizontalAlignment="Left" Height="419" Margin="0,-13,0,-6" VerticalAlignment="Top" Width="309">
-                <ComboBox
+                <ComboBox ItemsSource="{Binding MedicineIds}" SelectedItem="{Binding MedicineSelected}"
   materialDesign:HintAssist.Hint="Search"
   materialDesign:HintAssist.HintOpacity=".26"
   IsEditable="True" Margin="68,121,66,264" Height="34">
                 </ComboBox>
-                <Button Content="הסר" HorizontalAlignment="Left" Margin="118,195,0,0" VerticalAlignment="Top" Width="76"/>
-                <TextBlock HorizontalAlignment="Left" Margin="92,59,0,0" TextWrapping="Wrap" FontSize="22" Text="שם התרופה" VerticalAlignment="Top" Height="37" Width="126"/>
-                <Button Content="חזור" HorizontalAlignment="Left" Margin="10,364,0,0" VerticalAlignment="Top" Width="75" />
+                <Button Content="הסר"  Command="{Binding Command}" CommandParameter="DeleteMedicine" HorizontalAlignment="Left" Margin="118,195,0,0" VerticalAlignment="Top" Width="76"/>
+                <TextBlock HorizontalAlignment="Left" Margin="92,59,0,0" TextWrapping="Wrap" FontSize="22" Text="מספר תרופה" VerticalAlignment="Top" Height="37" Width="151"/>
+                <Button Content="חזור"  Command="{Binding Command}" CommandParameter="Return" HorizontalAlignment="Left" Margin="10,364,0,0" VerticalAlignment="Top" Width="75" />
             </Grid>
         </GroupBox>
 

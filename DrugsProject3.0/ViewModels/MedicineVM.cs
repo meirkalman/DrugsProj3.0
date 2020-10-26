@@ -16,7 +16,7 @@ namespace DrugsProject3._0.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-       // public Medicine MedicineV;
+        public Medicine MedicineV;
         public MedicineCommand Command { get; set; }
 
 
@@ -70,15 +70,14 @@ namespace DrugsProject3._0.ViewModels
         
         public string ImageUri { get; set; }
         
-       // public ObservableCollection<string> PatientIds { get; set; }
+        public ObservableCollection<string> MedicineIds { get; set; }
 
         public string MedicineSelected { get; set; }
         public MedicineVM()
         {
             MedicineM = new MedicineModel();
            Command = new MedicineCommand(this);
-            //PatientIds = new ObservableCollection<string>(AddPatientM.GetAllPatientsId());
-                 
+            MedicineIds = new ObservableCollection<string>(MedicineM.GetAllMedicineId());
         }
 
         public void AddMedicine()
@@ -88,8 +87,8 @@ namespace DrugsProject3._0.ViewModels
         }
         public void DeleteMedicine()
         {
-            //MedicineV = MedicineM.GetMedicine(PatientSelected);
-           // MedicineM.DeleteMedicine(MedicineV);
+            MedicineV = MedicineM.GetMedicine(MedicineSelected);
+            MedicineM.DeleteMedicine(MedicineV);
         }
         public void AddImegeUri()
         {
