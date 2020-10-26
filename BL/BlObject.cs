@@ -31,14 +31,13 @@ namespace BL
             XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
             Medicine medicine = GetMedicine(recipe.MedicineId);
             Patient patient = GetPatient(recipe.PatientId);
-            graph.DrawString("recipe number: " + recipe.RecipeId,
-                //"/n patient ID: " + recipe.PatientId +
-                //"/n patient ID: " + recipe.PatientId +
-                //"/n patient ID: " + recipe.PatientId +
-                //"/n patient ID: " + recipe.PatientId +
-
+            graph.DrawString("recipe number: " + recipe.RecipeId + 
+                "/n patient ID: " + recipe.PatientId +
+                "/n " + patient.Fname + " " + patient.Lname +
+                " need to take " + medicine.CommercialName +
+                " " + recipe.PeriodOfUse  + " " + recipe.QuantityPerDay,
                 font, XBrushes.Black, new XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.Center);
-            string pdfFilename = "firstpage.pdf";
+            string pdfFilename = "prescription.pdf";
             pdf.Save(pdfFilename);
             Process.Start(pdfFilename);
 

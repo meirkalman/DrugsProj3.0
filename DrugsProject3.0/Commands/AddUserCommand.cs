@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace DrugsProject3._0.Commands
 {
     public class AddUserCommand: ICommand
     {
+    
         public event EventHandler CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
@@ -24,6 +26,7 @@ namespace DrugsProject3._0.Commands
 
         public bool CanExecute(object parameter)
         {
+           
             return true;
         }
 

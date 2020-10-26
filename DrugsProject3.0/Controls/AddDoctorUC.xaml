@@ -26,7 +26,7 @@
                 <TextBlock HorizontalAlignment="Left" Margin="35,256,0,0" FontSize="20" TextWrapping="Wrap" Text="סוג משתמש" VerticalAlignment="Top" Height="32" Width="112"/>
                 <TextBox HorizontalAlignment="Left" Text="{Binding Lname}" Height="34" Margin="152,102,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159"/>
                 <TextBox HorizontalAlignment="Left" Text="{Binding PhoneNum}"   Height="34" Margin="152,151,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159"/>
-                <TextBox HorizontalAlignment="Left"  Text="{Binding Password}" Height="34" Margin="152,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159"/>
+                <TextBox  HorizontalAlignment="Left"  Text="{Binding Password}" Height="34" Margin="152,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159"/>
                 <ComboBox HorizontalAlignment="Left"  ItemsSource="{Binding Type}" SelectedItem="{Binding TypeSelected}"  Margin="152,256,0,0" VerticalAlignment="Top" Width="159" Height="32">
 
                 </ComboBox>

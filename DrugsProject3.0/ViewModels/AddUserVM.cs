@@ -15,11 +15,11 @@ using static BE.User;
 
 namespace DrugsProject3._0.ViewModels
 {
-   
+
     public class AddUserVM : INotifyPropertyChanged
     {
-   
-	
+
+
         public event PropertyChangedEventHandler PropertyChanged;
         public User User { get; set; }
 
@@ -33,8 +33,17 @@ namespace DrugsProject3._0.ViewModels
             get { return id; }
             set
             {
-                id = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Id"));
+                if (!new VerifyInput().IsValidPersonId(value))
+                {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "מספר id לא תקין ";
+                }
+                else
+                {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "";
+                    id = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Id"));
+                }
+
             }
         }
 
@@ -44,8 +53,16 @@ namespace DrugsProject3._0.ViewModels
             get { return fname; }
             set
             {
-                fname = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fname"));
+                if (!new VerifyInput().IsValidName(value))
+                {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "שם פרטי לא תקין";
+                }
+                else
+                {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "";
+                    fname = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fname"));
+                }
             }
         }
 
@@ -55,8 +72,16 @@ namespace DrugsProject3._0.ViewModels
             get { return lname; }
             set
             {
-                lname = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lname"));
+                if (!new VerifyInput().IsValidName(value))
+                {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "שם משפחה לא תקין";
+                }
+                else
+                {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "";
+                    lname = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lname"));
+                }
             }
         }
 
@@ -77,12 +102,20 @@ namespace DrugsProject3._0.ViewModels
             get { return password; }
             set
             {
-                password = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Password"));
+                if (!new VerifyInput().IsValidPassword(value))
+                {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "סיסמה צריכה להיות 8 ספרות";
+                }
+                else
+                {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "";
+                    password = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Password"));
+                }
             }
         }
         public ObservableCollection<string> Type { get; set; }
-      
+
         private String typeSelected;
         public String TypeSelected
         {
@@ -98,39 +131,21 @@ namespace DrugsProject3._0.ViewModels
         {
             AddUserM = new AddUserModel();
             Command = new AddUserCommand(this);
-            Type = new ObservableCollection<string>(Enum.GetNames(typeof(UserType)));   
+            Type = new ObservableCollection<string>(Enum.GetNames(typeof(UserType)));
         }
 
-     
+
 
         public void AddUser()
         {
             try
             {
-                
-                UserType userType = (UserType)Enum.Parse(typeof(UserType), TypeSelected);
-                if (!new VerifyInput().IsValidPersonId(Id))
-                {
-                    throw new ArgumentException("לא תקין  id ");
-                }
-                if (!new VerifyInput().IsValidName(Fname))
-                {
-                    throw new ArgumentException("שם פרטי לא תקין  ");
-                }
-                if (!new VerifyInput().IsValidName(Lname))
-                {
-                    throw new ArgumentException("שם משפחה לא תקין");
-                }
-                //if (!new VerifyInput().IsValidPhoneNumber(PhoneNum))
-                //{
-                //if (Tools.VerifyInput().IsVaildEmail(value)) mailAddress = value;
-                //else throw new ArgumentException("נא הכנס כתובת מייל תקינה");
-                //    throw new ArgumentException("מספר טלפון לא תקין ");
-                //}
 
-                if (!new VerifyInput().IsValidPassword(Password))
+
+                UserType userType = (UserType)Enum.Parse(typeof(UserType), TypeSelected);
+                if (Id == null || Fname == null || Lname == null || PhoneNum == null || Password == null)
                 {
-                    throw new ArgumentException("סיסמה לא תקינה ");
+                    throw new ArgumentException("אתה צריך למלא את כל השדות");
                 }
                 else
                 {
@@ -138,19 +153,20 @@ namespace DrugsProject3._0.ViewModels
                     (App.Current as App).navigation.MainWindows.comments.Text = "";
                     User = new User(Id, Fname, Lname, PhoneNum, userType, Password);
                     AddUserM.AddUser(User);
-                   
+
                 }
-               
-           
             }
             catch (Exception e)
             {
-               
-               (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
             }
+
+
         }
-   
+
     }
+
 }
 
 
@@ -159,9 +175,3 @@ namespace DrugsProject3._0.ViewModels
 
 
 
-  //<ComboBoxItem>
-  //                      רופא
-  //                  </ComboBoxItem>
-  //                  <ComboBoxItem>
-  //                      אדמיניסטרטור
-  //                  </ComboBoxItem>

@@ -24,13 +24,14 @@ namespace CareManagment.Tools
                 {  // Make sure ID is formatted properly
                     return false;
                 }
-                int incNum, sum = 0;
-                for (int i = 0; i < 9; i++)
-                {
-                    incNum = int.Parse(id[i].ToString()) * ((i % 2) + 1);  // Multiply number by 1 or 2
-                    sum += (incNum > 9) ? incNum - 9 : incNum;  // Sum the digits up and add to total
-                }
-                return sum % 10 == 0;
+                return true;
+                //int incNum, sum = 0;
+                //for (int i = 0; i < 9; i++)
+                //{
+                //    incNum = int.Parse(id[i].ToString()) * ((i % 2) + 1);  // Multiply number by 1 or 2
+                //    sum += (incNum > 9) ? incNum - 9 : incNum;  // Sum the digits up and add to total
+                //}
+                //return sum % 10 == 0;
             }
         }
 
