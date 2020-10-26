@@ -165,6 +165,7 @@
     <Compile Include="Tools\ControlManage.cs" />
     <Compile Include="Tools\IControlManage.cs" />
     <Compile Include="Tools\Navigation.cs" />
+    <Compile Include="Tools\VerifyInput.cs" />
     <Compile Include="ViewModels\AddDoctorVisitVM.cs" />
     <Compile Include="ViewModels\AddPatientVM.cs" />
     <Compile Include="ViewModels\AddUserVM.cs" />

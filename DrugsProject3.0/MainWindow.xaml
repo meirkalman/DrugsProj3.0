@@ -37,6 +37,7 @@
                 <Controls:HomePageUC HorizontalAlignment="Left" Height="441" Margin="88,54,0,0" VerticalAlignment="Top" Width="524"/>
             </Grid>
             <Button Name="LogOut" Command="{Binding MainCommand}" CommandParameter ="LogOut" Visibility="Visible" Content="התנתקות" FontSize="17" HorizontalAlignment="Left" Margin="834,10,0,0" VerticalAlignment="Top" Width="105" Background="#00F44336" BorderBrush="#00F44336" Foreground="#FF0023FF"/>
+            <TextBlock x:Name="comments" HorizontalAlignment="Left" Margin="352,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="38" Width="491"/>
 
 
         </Grid>
