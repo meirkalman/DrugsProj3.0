@@ -52,6 +52,7 @@ namespace DAL
         public int ResolveRxcuiFromName(string name)
         {
             int result = 0;
+            drugsNums.Load("mainxml.xml");
             XmlElement root = drugsNums.DocumentElement;
             XmlNodeList nodes = root.SelectNodes("minConcept"); // You can also use XPath here
             foreach (XmlNode node in nodes)
