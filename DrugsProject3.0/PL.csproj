@@ -53,11 +53,9 @@
     <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
     </Reference>
-    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
-    </Reference>
     <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.2.0.0\lib\net46\MahApps.Metro.dll</HintPath>
@@ -79,12 +77,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Prism, Version=7.2.0.1422, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
-      <HintPath>..\packages\Prism.Core.7.2.0.1422\lib\net45\Prism.dll</HintPath>
-    </Reference>
-    <Reference Include="Prism.Wpf, Version=7.2.0.1422, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
-      <HintPath>..\packages\Prism.Wpf.7.2.0.1422\lib\net45\Prism.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -113,9 +105,6 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Prism.Wpf.7.2.0.1422\lib\net45\System.Windows.Interactivity.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -143,12 +132,13 @@
     <Compile Include="Commands\DoctorCommand.cs" />
     <Compile Include="Commands\HomePageCommand.cs" />
     <Compile Include="Commands\MainCommand.cs" />
+    <Compile Include="Commands\MedicineCommand.cs" />
     <Compile Include="Commands\StatisticsCommand.cs" />
     <Compile Include="Controls\AddDoctorUC.xaml.cs">
       <DependentUpon>AddDoctorUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\AddMedicineUC.xaml.cs">
-      <DependentUpon>AddMedicineUC.xaml</DependentUpon>
+    <Compile Include="Controls\MedicineUC.xaml.cs">
+      <DependentUpon>MedicineUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\AddNewPatient.xaml.cs">
       <DependentUpon>AddNewPatient.xaml</DependentUpon>
@@ -163,6 +153,7 @@
     <Compile Include="Models\AddUserModel.cs" />
     <Compile Include="Models\DoctorModel.cs" />
     <Compile Include="Models\HomePageModel.cs" />
+    <Compile Include="Models\MedicineModel.cs" />
     <Compile Include="Models\StatisticsModel1.cs" />
     <Compile Include="Tools\ControlManage.cs" />
     <Compile Include="Tools\IControlManage.cs" />
@@ -174,12 +165,13 @@
     <Compile Include="ViewModels\DoctorVM.cs" />
     <Compile Include="ViewModels\HomePageVM.cs" />
     <Compile Include="ViewModels\MainVM.cs" />
+    <Compile Include="ViewModels\MedicineVM.cs" />
     <Compile Include="ViewModels\StatisticsVM.cs" />
     <Page Include="Controls\AddDoctorUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\AddMedicineUC.xaml">
+    <Page Include="Controls\MedicineUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

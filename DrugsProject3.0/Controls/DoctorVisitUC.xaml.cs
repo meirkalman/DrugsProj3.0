@@ -1,5 +1,5 @@
 ﻿using DrugsProject3._0.ViewModels;
-using Prism.Events;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

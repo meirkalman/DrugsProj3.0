@@ -9,13 +9,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <lvc:CartesianChart LegendLocation="Left">
-            <lvc:CartesianChart.Series>
-              
-                <lvc:LineSeries Title="תרופה" Values="{Binding Delivered}" StrokeThickness="2" 
-                       Stroke="#FFF74646" Fill="Transparent" LineSmoothness="1" 
-                       PointGeometrySize="15" PointForeground="#222E31"/>
-            </lvc:CartesianChart.Series>
-        </lvc:CartesianChart>
+        <DataGrid HorizontalAlignment="Left" Height="171" Margin="101,163,0,0" VerticalAlignment="Top" Width="574"/>
+
     </Grid>
 </UserControl>

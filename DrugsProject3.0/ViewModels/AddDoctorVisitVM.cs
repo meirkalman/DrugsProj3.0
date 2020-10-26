@@ -1,9 +1,9 @@
 ﻿using BE;
-using BE.EventAggregate;
+
 using DrugsProject3._0.Commands;
 using DrugsProject3._0.Models;
 using DrugsProject3._0.Tools;
-using Prism.Events;
+
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -138,7 +138,7 @@ namespace DrugsProject3._0.ViewModels
 //        MedicineV.Add(e.NewItems[0] as Medicine);
 //    }
 //}
-//public void AddMedicineUC()
+//public void MedicineUC()
 //{
 //    //Medicine medicine;
 //    //medicine = AddDoctorVisitM.GetMedicine(MedicineSelected);

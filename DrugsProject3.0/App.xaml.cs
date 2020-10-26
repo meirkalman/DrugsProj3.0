@@ -1,6 +1,6 @@
 ﻿using DrugsProject3._0.Navigation;
 using DrugsProject3._0.Tools;
-using Prism.Events;
+
 using System;
 using System.Collections.Generic;
 using System.Configuration;

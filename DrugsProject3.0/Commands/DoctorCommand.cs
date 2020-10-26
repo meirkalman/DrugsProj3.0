@@ -36,10 +36,10 @@ namespace DrugsProject3._0.Commands
                 CurrentVM.CManage();
                 (App.Current as App).navigation.ShowControls("DoctorVisitUC");
             }
-            if (parameter.ToString() == "AddNewPatient")
+            if (parameter.ToString() == "Return")
             {
       
-                (App.Current as App).navigation.ShowControls("AddNewPatient");
+                (App.Current as App).navigation.ShowControls("HomePageUC");
             }
 
         }

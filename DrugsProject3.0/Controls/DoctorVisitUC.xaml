@@ -51,12 +51,12 @@
             </materialDesign:PopupBox.ToggleCheckedContent>
             <StackPanel>
                 <Button
-      ToolTip="הדפס מרשם"  FontSize="25">
+      ToolTip="הדפס מרשם"  FontSize="23">
                     ✍
                 </Button>
 
                 <Button
-      ToolTip=" PDF צור קובץ" FontSize="25">
+      ToolTip=" PDF צור קובץ" FontSize="23">
                     +
                 </Button>
             </StackPanel>

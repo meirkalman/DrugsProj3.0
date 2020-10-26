@@ -39,7 +39,7 @@ namespace DrugsProject3._0.Commands
             }
             if (parameter.ToString() == "AddMedicine")
             {
-                (App.Current as App).navigation.ShowControls("AddMedicineUC");
+                (App.Current as App).navigation.ShowControls("MedicineUC");
             }
             if (parameter.ToString() == "Statistics")
             {

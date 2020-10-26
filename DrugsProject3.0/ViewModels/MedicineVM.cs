@@ -4,7 +4,6 @@ using DrugsProject3._0.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -12,15 +11,15 @@ using System.Threading.Tasks;
 
 namespace DrugsProject3._0.ViewModels
 {
-    class AddPatientVM : INotifyPropertyChanged
+    class MedicineVM: INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public Patient PatientV;
-        public AddPatientCommand AddCommand { get; set; }
+        public Medicine MedicineV;
+        public MedicineCommand Command { get; set; }
 
 
-        public AddPatientModel AddPatientM { get; set; }
+        public MedicineModel MedicineM { get; set; }
 
 
         private string fname;
@@ -51,7 +50,7 @@ namespace DrugsProject3._0.ViewModels
             get { return id; }
             set
             {
-                
+
                 id = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Id"));
             }
@@ -62,7 +61,7 @@ namespace DrugsProject3._0.ViewModels
             get { return dateOfBirth; }
             set
             {
-              //  dateOfBirth = DateTime.Now;
+                //  dateOfBirth = DateTime.Now;
                 dateOfBirth = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DateOfBirth"));
             }
@@ -79,33 +78,26 @@ namespace DrugsProject3._0.ViewModels
         }
         public ObservableCollection<string> PatientIds { get; set; }
 
-        public string PatientSelected { get; set; }
-        public AddPatientVM()
+        public string MedicineSelected { get; set; }
+        public MedicineVM()
         {
-            AddPatientM = new AddPatientModel();
-            AddCommand = new AddPatientCommand(this);
-            PatientIds = new ObservableCollection<string>(AddPatientM.GetAllPatientsId());
-           // PatientIds.CollectionChanged += PatientIds_CollectionChanged;       
+            MedicineM = new MedicineModel();
+           Command = new MedicineCommand(this);
+            //PatientIds = new ObservableCollection<string>(AddPatientM.GetAllPatientsId());
+                 
         }
 
-        public void AddPatient()
+        public void AddMedicine()
         {
-            PatientV = new Patient(Id, Fname, Lname, PhoneNum, DateOfBirth);
-            AddPatientM.AddPatient(PatientV);
+            MedicineV = new Medicine(Id, Fname, Lname, PhoneNum, DateOfBirth);
+            MedicineM.AddMedicine(MedicineV);
         }
-        public void DeletePatient()
+        public void DeleteMedicine()
         {
-            PatientV = AddPatientM.GetPatient(PatientSelected);
-            AddPatientM.DeletePatient(PatientV);
+            MedicineV = MedicineM.GetMedicine(PatientSelected);
+            MedicineM.DeleteMedicine(MedicineV);
         }
 
+    {
     }
 }
-//    //private void PatientIds_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-//{
-//    if (e.Action == NotifyCollectionChangedAction.Add)
-//    {
-//        PatientIds = new ObservableCollection<string>(AddPatientM.GetAllPatientsId());
-//        //PatientIds.Add(e.NewItems[0] as string);
-//    }
-//}

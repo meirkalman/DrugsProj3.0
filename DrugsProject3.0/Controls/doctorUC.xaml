@@ -9,35 +9,33 @@
              mc:Ignorable="d" Height="480" Width="827">
 
     <Grid FlowDirection="RightToLeft">
-       
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <GroupBox FontSize="15"
                       VerticalAlignment="Center"
                       HorizontalAlignment="Center"
                       FlowDirection="RightToLeft"
   Header=" חיפוש מטופל קיים " Height="351" Margin="184,37,190,10"  >
-                    <StackPanel Grid.Column="1">
-                        <ComboBox x:Name="ComboBoxId" ItemsSource="{Binding PatientsId}"
+            <Grid Grid.Column="1">
+                <ComboBox x:Name="ComboBoxId" ItemsSource="{Binding PatientsId}"
                                   SelectedValue="{Binding PatientSelected}"
                         FlowDirection="RightToLeft"
-                Grid.Column="1"
-                 Height="39"
-                Width="126"
+                 Height="40"
+                Width="160"
                  HorizontalAlignment="Center"
   materialDesign:HintAssist.Hint="תעודת זהות"
   materialDesign:HintAssist.HintOpacity=".26"
-  IsEditable="True" Margin="106,30,105,30"/>
-                        <Button Content="פתיחת ביקור" Command="{Binding Command}" CommandParameter ="OpenDoctorVisit"  Width="120"  Style="{StaticResource MaterialDesignRaisedAccentButton}"   />
-                        <Button Content="הוסף מטופל חדש" Command="{Binding Command}" CommandParameter ="AddNewPatient"  Width="145" Margin="70" VerticalAlignment="Bottom"  />
-                    </StackPanel>
-                </GroupBox>
-                <Button Content="חזור" Style="{StaticResource MaterialDesignRaisedAccentButton}" HorizontalAlignment="Left" Margin="104,407,0,0" VerticalAlignment="Top" Width="74"/>
-            
-        
+  IsEditable="True" Margin="86,90,91,167"/>
+                <Button Content="פתיחת ביקור" Command="{Binding Command}" CommandParameter ="OpenDoctorVisit"  Width="120"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Margin="106,173,111,92"   />
+            </Grid>
+        </GroupBox>
+        <Button Content="חזור" Style="{StaticResource MaterialDesignRaisedAccentButton}" HorizontalAlignment="Left" Margin="104,407,0,0" VerticalAlignment="Top" Width="74"/>
+
+
     </Grid>
 </UserControl>

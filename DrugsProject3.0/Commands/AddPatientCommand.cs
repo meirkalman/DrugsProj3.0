@@ -32,13 +32,17 @@ namespace DrugsProject3._0.Commands
         {
             if (parameter.ToString() == "AddPatient")
             {
-                CurrentVM.AddPatient();
-                (App.Current as App).navigation.ShowControls("AddNewPatient");
+                CurrentVM.AddPatient(); 
             }
             if (parameter.ToString() == "Return")
             {
                 (App.Current as App).navigation.ShowControls("AdministratorUC");
             }
+            if (parameter.ToString() == "DeletePatient")
+            {
+                CurrentVM.DeletePatient();
+            }
+            
         }
     }
 }

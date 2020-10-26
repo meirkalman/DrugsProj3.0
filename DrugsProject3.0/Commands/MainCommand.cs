@@ -53,7 +53,7 @@ namespace DrugsProject3._0.Commands
             }
             if (parameter.ToString() == "LogOut")
             {
-                (App.Current as App).navigation.ShowControls("DoctorUC");
+                (App.Current as App).navigation.ShowControls("HomePageUC");
             }
             
         }

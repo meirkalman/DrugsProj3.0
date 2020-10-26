@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace DrugsProject3._0.Commands
 {
-    public class AddUserCommand: ICommand
+    class MedicineCommand: ICommand
     {
         public event EventHandler CanExecuteChanged
         {
@@ -16,12 +16,12 @@ namespace DrugsProject3._0.Commands
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public AddUserVM CurrentVM { get; set; }
-        public AddUserCommand(AddUserVM VM)
+        public MedicineVM CurrentVM { get; set; }
+
+        public MedicineCommand(MedicineVM VM)
         {
             CurrentVM = VM;
         }
-
         public bool CanExecute(object parameter)
         {
             return true;
@@ -29,15 +29,20 @@ namespace DrugsProject3._0.Commands
 
         public void Execute(object parameter)
         {
-            if (parameter.ToString() == "AddUser")
-            {
-                CurrentVM.AddUser();
-            }
-            if (parameter.ToString() == "Return")
-            {
-                  (App.Current as App).navigation.ShowControls("AdministratorUC");
-            }
+            //if (parameter.ToString() == "AddPatient")
+            //{
+            //    CurrentVM.AddPatient();
+            //}
+            //if (parameter.ToString() == "Return")
+            //{
+            //    (App.Current as App).navigation.ShowControls("AdministratorUC");
+            //}
+            //if (parameter.ToString() == "DeletePatient")
+            //{
+            //    CurrentVM.DeletePatient();
+            //}
+
         }
+    
     }
 }
-//

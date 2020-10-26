@@ -47,10 +47,10 @@
  
   materialDesign:ColorZoneAssist.Mode="Accent" Margin="375,0,0,0" Width="372" >
             <Grid Margin="0,86,0,19">
-                <ComboBox HorizontalAlignment="Center"   Height="40" Margin="58,58,64,235" Width="232"/>
-                <Button Content="הסר" HorizontalAlignment="Left" Margin="137,136,0,0" VerticalAlignment="Top" Width="76"/>
+                <ComboBox  ItemsSource="{Binding PatientIds}" SelectedItem="{Binding PatientSelected}" HorizontalAlignment="Center"   Height="40" Margin="58,58,64,235" Width="232"/>
+                <Button Content="הסר" Command="{Binding AddCommand}" CommandParameter="DeletePatient" HorizontalAlignment="Left" Margin="137,136,0,0" VerticalAlignment="Top" Width="76"/>
                 <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" FontSize="22" Text="שם המטופל" VerticalAlignment="Top" Height="37" Width="126"/>
-                <Button Content="חזור" HorizontalAlignment="Left" Margin="25,283,0,0" VerticalAlignment="Top" Width="75" />
+                <Button Content="חזור" Command="{Binding AddCommand}" CommandParameter="Return" HorizontalAlignment="Left" Margin="25,283,0,0" VerticalAlignment="Top" Width="75" />
 
             </Grid>
         </GroupBox>
