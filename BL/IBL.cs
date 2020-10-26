@@ -9,7 +9,7 @@ namespace BL
 {
     public interface IBL
     {
-        void print(string filePath, string content);
+        void print(string filePath, Recipe recipe);
         int ResolveRxcuiFromName(string name);
         string getPrescriptionID();
 
