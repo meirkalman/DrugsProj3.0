@@ -21,14 +21,23 @@ namespace BL
 
     public class BlObject: IBL
     {
-        public void createPDF(string content)
+        public void createPDF(Recipe recipe)
         {
             PdfDocument pdf = new PdfDocument();
-            pdf.Info.Title = "My second PDF";
+            pdf.Info.Title = "Prescription";
+            
             PdfPage pdfPage = pdf.AddPage();
             XGraphics graph = XGraphics.FromPdfPage(pdfPage);
             XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
-            graph.DrawString(content, font, XBrushes.Black, new XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.Center);
+            Medicine medicine = GetMedicine(recipe.MedicineId);
+            Patient patient = GetPatient(recipe.PatientId);
+            graph.DrawString("recipe number: " + recipe.RecipeId+
+                "/n patient ID: " + recipe.PatientId +
+                "/n patient ID: " + recipe.PatientId +
+                "/n patient ID: " + recipe.PatientId +
+                "/n patient ID: " + recipe.PatientId +
+
+                font, XBrushes.Black, new XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.Center);
             string pdfFilename = "firstpage.pdf";
             pdf.Save(pdfFilename);
             Process.Start(pdfFilename);
@@ -277,10 +286,10 @@ namespace BL
 
         
 
-        void IBL.print(string filePath, string content)
+        void IBL.print(string filePath, Recipe recipe)
         {
            
-            createPDF(content);
+            createPDF(recipe);
             Printing p = new Printing(filePath);
         }
     }

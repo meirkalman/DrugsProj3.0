@@ -20,6 +20,7 @@ namespace BL
         public Printing(string filePath)
         {
             this.filePath = filePath;
+            printing(filePath);
         }
         //The PrintPage event is raised for each page to be printed.
         private void pd_PrintPage(object sender, PrintPageEventArgs ev)
@@ -51,7 +52,7 @@ namespace BL
             else
                 ev.HasMorePages = false;
         }
-        public void printing(Stream filePath)
+        public void printing(string filePath)
         {
             try
             {
