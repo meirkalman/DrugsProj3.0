@@ -85,8 +85,8 @@ namespace DrugsProject3._0.ViewModels
             }
         }
 
-        private int phoneNum;
-        public int PhoneNum
+        private string phoneNum;
+        public string PhoneNum
         {
             get { return phoneNum; }
             set

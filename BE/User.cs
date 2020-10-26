@@ -13,7 +13,7 @@ namespace BE
         public string Id { get; set; }
         public string Fname { get; set; }
         public string Lname { get; set; }
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         public UserType Type { get; set; }
         public string Password { get; set; }
 
@@ -33,7 +33,7 @@ namespace BE
             Password = user.Password;
         }
 
-        public User(string id, string fname, string lname, int phoneNumber, UserType type, string password)
+        public User(string id, string fname, string lname, string phoneNumber, UserType type, string password)
         {
             Id = id;
             Fname = fname;
