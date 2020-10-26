@@ -18,7 +18,7 @@ namespace BL
         void AddPatient(Patient patient);
 
         void AddMedicine(Medicine medicine);
-
+        List<string> GetAllUserId();
         void AddRecipe(Recipe recipe);
 
         void AddUser(User user);
