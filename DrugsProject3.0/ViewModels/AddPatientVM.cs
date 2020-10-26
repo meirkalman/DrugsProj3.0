@@ -114,7 +114,7 @@ namespace DrugsProject3._0.ViewModels
             AddPatientM = new AddPatientModel();
             AddCommand = new AddPatientCommand(this);
             PatientIds = new ObservableCollection<string>(AddPatientM.GetAllPatientsId());
-           // PatientIds.CollectionChanged += PatientIds_CollectionChanged;       
+               
         }
 
         public void AddPatient()

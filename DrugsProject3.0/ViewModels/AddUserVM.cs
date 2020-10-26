@@ -133,12 +133,15 @@ namespace DrugsProject3._0.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TypeSelected"));
             }
         }
+        public ObservableCollection<string> UserIds { get; set; }
 
+        public string UserSelected { get; set; }
         public AddUserVM()
         {
             AddUserM = new AddUserModel();
             Command = new AddUserCommand(this);
             Type = new ObservableCollection<string>(Enum.GetNames(typeof(UserType)));
+            UserIds = new ObservableCollection<string>(AddUserM.GetAllUserId());
         }
 
 
@@ -156,7 +159,7 @@ namespace DrugsProject3._0.ViewModels
                 }
                 else
                 {
-                   
+
                     User = new User(Id, Fname, Lname, PhoneNum, userType, Password);
                     AddUserM.AddUser(User);
                     (App.Current as App).navigation.MainWindows.comments.Text = "משתמש נוסף בהצלחה";
@@ -169,6 +172,12 @@ namespace DrugsProject3._0.ViewModels
             }
 
 
+        }
+
+        public void DeleteUser()
+        {
+            User = AddUserM.GetUser(UserSelected);
+            AddPatientM.DeletePatient(PatientV);
         }
 
     }

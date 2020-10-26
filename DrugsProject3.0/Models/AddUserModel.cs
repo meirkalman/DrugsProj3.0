@@ -20,5 +20,15 @@ namespace DrugsProject3._0.Models
         {
             Bl.AddUser(user);
         }
+
+        public List<string> GetAllUserId()
+        {
+            return Bl.GetAllUserId();
+        }
+
+        internal User GetUser(string userSelected)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

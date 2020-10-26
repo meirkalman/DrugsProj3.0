@@ -41,7 +41,7 @@
   HorizontalAlignment="Center"
   materialDesign:ColorZoneAssist.Mode="Accent" Margin="18,10,418,16" Width="360">
             <Grid HorizontalAlignment="Left" Height="391" Margin="0,-13,0,-4" VerticalAlignment="Top" Width="350">
-                <ComboBox
+                <ComboBox ItemsSource="{Binding UserIds}" SelectedItem="{Binding UserSelected}"
   materialDesign:HintAssist.Hint="Search"
   materialDesign:HintAssist.HintOpacity=".26"
   IsEditable="True" Margin="63,131,87,224" Height="36">
