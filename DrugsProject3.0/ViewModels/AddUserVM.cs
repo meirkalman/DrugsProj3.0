@@ -91,8 +91,15 @@ namespace DrugsProject3._0.ViewModels
             get { return phoneNum; }
             set
             {
-                phoneNum = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PhoneNum"));
+                if (!new VerifyInput().IsValidPhoneNumber(value))
+                {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "מספר טלפון לא תקין";
+                }
+                else
+                {
+                    phoneNum = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PhoneNum"));
+                }
             }
         }
 
@@ -149,11 +156,10 @@ namespace DrugsProject3._0.ViewModels
                 }
                 else
                 {
-                    MessageBox.Show("Test");
-                    (App.Current as App).navigation.MainWindows.comments.Text = "";
+                   
                     User = new User(Id, Fname, Lname, PhoneNum, userType, Password);
                     AddUserM.AddUser(User);
-
+                    (App.Current as App).navigation.MainWindows.comments.Text = "משתמש נוסף בהצלחה";
                 }
             }
             catch (Exception e)

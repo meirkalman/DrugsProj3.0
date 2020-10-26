@@ -13,10 +13,10 @@ namespace BE
         public string PatientId { get; set; }
         public string Fname { get; set; }
         public string Lname { get; set; }
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         public DateTime DateOfBirth { get; set; }
 
-        public Patient(string id, string fname, string lname, int phoneNumber,  DateTime dateOfBirth)
+        public Patient(string id, string fname, string lname, string phoneNumber,  DateTime dateOfBirth)
         {
             PatientId = id;
             Fname = fname;

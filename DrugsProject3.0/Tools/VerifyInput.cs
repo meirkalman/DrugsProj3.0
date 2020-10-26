@@ -15,7 +15,7 @@ namespace CareManagment.Tools
             return typeof(T).GetProperties().Any(propertyInfo => propertyInfo.GetValue(obj) == null);
         }
 
-       
+
         public bool IsValidPersonId(string id)
         {
             {
@@ -45,9 +45,18 @@ namespace CareManagment.Tools
             return Regex.IsMatch(name, @"^\s*[א-ת]+(?:\s+[א-ת]+)*\s*$");
         }
 
+
         public bool IsValidPassword(string password)
         {
             return password.Length == 8;
+        }
+        public bool IsValidPrice(string number)
+        {
+            return Regex.IsMatch(number, @"^[0-9,.]*$");
+        }
+        public bool IsMedicineName(string name)
+        {
+            return Regex.IsMatch(name, @"^[a-zA-Z0-9_]+$");
         }
     }
 }

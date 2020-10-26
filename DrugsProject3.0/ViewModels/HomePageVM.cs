@@ -41,16 +41,34 @@ namespace DrugsProject3._0.ViewModels
 
         internal void Login(string password)
         {
-            Password = password;
-            User = HomePageM.GetUser(Id);
-            if (Password == User.Password && User.Type.ToString() == "ADMIN")
+            try
             {
-                (App.Current as App).navigation.ShowControls("AdministratorUC");
+               
+                if (Id == null || password == null)
+                {
+                    throw new ArgumentException("אתה צריך למלא את כל השדות");
+                }
+                else
+                {
+                    Password = password;
+
+                    User = HomePageM.GetUser(Id);
+                    if (Password == User.Password && User.Type.ToString() == "ADMIN")
+                    {
+                        (App.Current as App).navigation.ShowControls("AdministratorUC");
+                    }
+                    else if (Password == User.Password && User.Type.ToString() == "DOCTOR")
+                    {
+                        (App.Current as App).navigation.ShowControls("DoctorUC");
+                    }
+                }
             }
-            else if (Password == User.Password && User.Type.ToString() == "DOCTOR")
+            catch (Exception e)
             {
-                (App.Current as App).navigation.ShowControls("DoctorUC");
+
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
             }
+
         }
     }
 }

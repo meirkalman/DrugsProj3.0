@@ -1,4 +1,5 @@
 ﻿using BE;
+using CareManagment.Tools;
 using DrugsProject3._0.Commands;
 using DrugsProject3._0.Models;
 using System;
@@ -29,9 +30,16 @@ namespace DrugsProject3._0.ViewModels
             get { return fname; }
             set
             {
-                fname = null;
-                fname = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fname"));
+                if (!new VerifyInput().IsValidName(value))
+                {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "שם פרטי לא תקין";
+                }
+                else
+                {
+                    fname = null;
+                    fname = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fname"));
+                }
             }
         }
 
@@ -41,8 +49,15 @@ namespace DrugsProject3._0.ViewModels
             get { return lname; }
             set
             {
-                lname = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lname"));
+                if (!new VerifyInput().IsValidName(value))
+                {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "שם משפחה לא תקין";
+                }
+                else
+                {
+                    lname = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lname"));
+                }
             }
         }
         private string id;
@@ -51,9 +66,15 @@ namespace DrugsProject3._0.ViewModels
             get { return id; }
             set
             {
-                
-                id = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Id"));
+                if (!new VerifyInput().IsValidPersonId(value))
+                {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "מספר id לא תקין ";
+                }
+                else
+                {
+                    id = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Id"));
+                }
             }
         }
         private DateTime dateOfBirth = DateTime.Now;
@@ -62,19 +83,27 @@ namespace DrugsProject3._0.ViewModels
             get { return dateOfBirth; }
             set
             {
+            
               //  dateOfBirth = DateTime.Now;
                 dateOfBirth = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DateOfBirth"));
             }
         }
-        private int phoneNum;
-        public int PhoneNum
+        private string phoneNum;
+        public string PhoneNum
         {
             get { return phoneNum; }
             set
             {
-                phoneNum = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PhoneNum"));
+                if (!new VerifyInput().IsValidPhoneNumber(value))
+                {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "מספר טלפון לא תקין";
+                }
+                else
+                {
+                    phoneNum = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PhoneNum"));
+                }
             }
         }
         public ObservableCollection<string> PatientIds { get; set; }
@@ -90,8 +119,16 @@ namespace DrugsProject3._0.ViewModels
 
         public void AddPatient()
         {
-            PatientV = new Patient(Id, Fname, Lname, PhoneNum, DateOfBirth);
-            AddPatientM.AddPatient(PatientV);
+            if (Id == null || Fname == null || Lname == null || PhoneNum == null )
+            {
+                throw new ArgumentException("אתה צריך למלא את כל השדות");
+            }
+            else
+            {
+                PatientV = new Patient(Id, Fname, Lname, PhoneNum, DateOfBirth);
+                AddPatientM.AddPatient(PatientV);
+                (App.Current as App).navigation.MainWindows.comments.Text = "המטופל נוסף בהצלחה";
+            }
         }
         public void DeletePatient()
         {
