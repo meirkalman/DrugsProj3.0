@@ -9,10 +9,11 @@ namespace BL
 {
     public interface IBL
     {
+        void print(string filePath, string content);
         int ResolveRxcuiFromName(string name);
         string getPrescriptionID();
 
-        void createPDF(string content);
+        void createPDF(Recipe recipe);
         Dictionary<string, string> getPatientHistory(Patient patient, bool now = false);
        // int getPrescriptionID();
         void AddPatient(Patient patient);
