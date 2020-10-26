@@ -14,7 +14,7 @@ namespace BL
 
         void createPDF(Recipe recipe);
         Dictionary<string, string> getPatientHistory(Patient patient, bool now = false);
-       // int getPrescriptionID();
+        // int getPrescriptionID();
         void AddPatient(Patient patient);
 
         void AddMedicine(Medicine medicine);
@@ -22,7 +22,7 @@ namespace BL
         void AddRecipe(Recipe recipe);
 
         void AddUser(User user);
-        
+
 
         void UpdatePatient(Patient patient);
 
@@ -39,7 +39,7 @@ namespace BL
         void DeleteMedicine(Medicine medicine);
 
         void DeleteRecipe(Recipe recipe);
-     
+
 
         void DeleteUser(User user);
 
@@ -58,7 +58,7 @@ namespace BL
         Patient GetPatient(string id);
         List<string> GetAllPatientsId();
         List<string> GetAllMedicineId();
-        
+
         List<string> GetAllMedicinesNames();
         Medicine GetMedicine(string id);
         string GetMedicineId(string medicineName);
@@ -71,6 +71,7 @@ namespace BL
         List<string> interactionDrugs(string drugName);
         Dictionary<DateTime, int> drugStatistics(string drugID, DateTime start, DateTime finish);
 
+         //List<string> GetMedicineNamesOfPatient(string patientId);
     }
 }
 
