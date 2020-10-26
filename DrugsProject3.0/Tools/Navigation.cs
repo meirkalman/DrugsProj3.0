@@ -50,6 +50,10 @@ namespace DrugsProject3._0.Navigation
                     uc = new AddMedicineUC();
                     title = "הוספת משתמש חדש";
                     break;
+                case "StatisticsUC":
+                    uc = new StatisticsUC();
+                    title = "היסטורית צריכת תרופות";
+                    break;
 
             }
             
