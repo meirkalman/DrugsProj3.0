@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace DrugsProject3._0.Controls
 {
     /// <summary>
-    /// Interaction logic for AddMedicineUC.xaml
+    /// Interaction logic for MedicineUC.xaml
     /// </summary>
-    public partial class AddMedicineUC : UserControl
+    public partial class MedicineUC : UserControl
     {
-        public AddMedicineUC()
+        public MedicineUC()
         {
             InitializeComponent();
         }
