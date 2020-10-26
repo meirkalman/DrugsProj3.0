@@ -22,15 +22,16 @@ namespace DrugsProject3._0.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;   
         public AddDoctorVisitModel AddDoctorVisitM { get; set; }
         public AddDoctorVisitCommand AddCommand { get; set; }
-        public IControlManage IControlManage { get; set; }
+        public IControlManage IControlManage { get; set; }/////////////////////////////////////////////
+
         public Recipe Recipe { get; set; }
         public Patient Patient { get; set; }
         public User User { get; set; }
         public ObservableCollection<string> MedicinesNames { get; set; }
 
-        public AddDoctorVisitVM(IControlManage controlManage)
+        public AddDoctorVisitVM(IControlManage controlManage)/////////////////////////////////////////////
         {
-            IControlManage = controlManage;
+            IControlManage = controlManage;/////////////////////////////////////////////
             AddDoctorVisitM = new AddDoctorVisitModel();
             AddCommand = new AddDoctorVisitCommand(this);
             MedicinesNames = new ObservableCollection<string>(AddDoctorVisitM.GetAllMedicinesNames());
@@ -41,7 +42,7 @@ namespace DrugsProject3._0.ViewModels
 
         public void Massage(List<string> res)
         {
-            (App.Current as App).navigation.MainWindows.comments.Text = res.ToString();
+            (App.Current as App).navigation.MainWindows.comments.Text = res.ToString();/////////////////////////////////////////////
         }
 
         public string RecipeId { get; set; }
@@ -53,8 +54,8 @@ namespace DrugsProject3._0.ViewModels
             set { doctorName = User.Fname + User.Lname; }
         }
 
-        public string PatientName;
-       
+        public string PatientName { get; set; }
+
         public string MedicineSelected { get; set; }
 
         private int periodOfUse;

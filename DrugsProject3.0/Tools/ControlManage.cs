@@ -13,6 +13,7 @@ namespace DrugsProject3._0.Tools
         public User User { get; set; }
         public Patient Patient { get; set; }
 
+        public Message Message { get; set; }
         public ControlManage()
         {
 

@@ -51,21 +51,21 @@ namespace DrugsProject3._0
         private void Button_Click(object sender, RoutedEventArgs e)
         {
          //Bl.print(@"firstpage.pdf", "printttttttttttttttt");
-         Bl.createPDF(new BE.Recipe ("111", "222", "333" ,"444", 2,2,"gfsd", DateTime.Now));
-         Bl.AddMedicine(new BE.Medicine("111",
+        // Bl.createPDF(new BE.Recipe ("111", "222", "333" ,"444", 2,2,"gfsd", DateTime.Now));
+         Bl.AddMedicine(new BE.Medicine("8124",
         "phenelzine",
         "phenelzine",
         "jf",
         "gfd",
         " "));
 
-        Bl.AddMedicine(new BE.Medicine("222","moclobemide","moclobemide",
+        Bl.AddMedicine(new BE.Medicine("199487","moclobemide","moclobemide",
         "jf",
         "gfd",
         " "));
 
 
-        Bl.AddMedicine(new BE.Medicine("333",
+        Bl.AddMedicine(new BE.Medicine("37418",
         "sumatriptan",
         "sumatriptan",
         "jf",

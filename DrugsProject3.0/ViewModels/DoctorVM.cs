@@ -25,6 +25,14 @@ namespace DrugsProject3._0.ViewModels
         public DoctorCommand Command { get; set; }
 
         public IControlManage IControlManage { get; set; }
+        //private ObservableCollection<string> patientsId;
+
+        //public ObservableCollection<string> PatientsId
+        //{
+        //    get { return patientsId; }
+        //    set { patientsId = new ObservableCollection<string>(GetAllPatients()); }
+        //}
+
         public ObservableCollection<string> PatientsId { get; set; }
        // public int PatientSelected { get; set; }
 
