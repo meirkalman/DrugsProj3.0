@@ -22,7 +22,7 @@ namespace BL
         void AddRecipe(Recipe recipe);
 
         void AddUser(User user);
-
+        
 
         void UpdatePatient(Patient patient);
 
@@ -57,6 +57,8 @@ namespace BL
 
         Patient GetPatient(string id);
         List<string> GetAllPatientsId();
+        List<string> GetAllMedicineId();
+        
         List<string> GetAllMedicinesNames();
         Medicine GetMedicine(string id);
         string GetMedicineId(string medicineName);
