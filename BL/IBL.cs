@@ -56,6 +56,7 @@ namespace BL
         List<User> GetAllUsers(Func<User, bool> predicate = null);
 
         Patient GetPatient(string id);
+        List<string> GetAllPatientsId();
         List<string> GetAllMedicinesNames();
         Medicine GetMedicine(string id);
         string GetMedicineId(string medicineName);
