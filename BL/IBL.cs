@@ -9,7 +9,6 @@ namespace BL
 {
     public interface IBL
     {
-        void print(string filePath, string content);
         int ResolveRxcuiFromName(string name);
         string getPrescriptionID();
 
