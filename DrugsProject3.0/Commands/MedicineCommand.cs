@@ -37,11 +37,14 @@ namespace DrugsProject3._0.Commands
             {
                 CurrentVM.AddMedicine();
             }
-            //if (parameter.ToString() == "DeletePatient")
-            //{
-            //    CurrentVM.DeletePatient();
-            //}
-
+            if (parameter.ToString() == "DeleteMedicine")
+            {
+                CurrentVM.DeleteMedicine();
+            }
+            if (parameter.ToString() == "Return")
+            {
+                (App.Current as App).navigation.ShowControls("AdministratorUC");
+            }
         }
 
     }

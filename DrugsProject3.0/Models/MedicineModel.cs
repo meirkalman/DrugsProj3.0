@@ -34,5 +34,10 @@ namespace DrugsProject3._0.Models
         {
             Bl.DeleteMedicine(medicine);
         }
+
+        public Medicine GetMedicine(string id)
+        {
+           return Bl.GetMedicine(id);
+        }
     }
 }
