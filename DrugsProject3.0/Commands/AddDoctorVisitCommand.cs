@@ -31,8 +31,15 @@ namespace DrugsProject3._0.Commands
         {    
             if (parameter.ToString() == "AddRecipe")
             {
-                CurrentVM.AddRecipe();
-
+                List<string> res = CurrentVM.CheckInteractionDrugs();
+                if (res.Count == 0)
+                {
+                    CurrentVM.AddRecipe();
+                }
+                else
+                {
+                    CurrentVM.Massage(res);
+                }  
             }
             if (parameter.ToString() == "DoctorUC")
             {

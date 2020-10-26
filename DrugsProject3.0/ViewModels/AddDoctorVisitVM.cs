@@ -39,6 +39,11 @@ namespace DrugsProject3._0.ViewModels
             PatientName = Patient.Fname + Patient.Lname;
         }
 
+        public void Massage(List<string> res)
+        {
+            (App.Current as App).navigation.MainWindows.comments.Text = res.ToString();
+        }
+
         public string RecipeId { get; set; }
         public string MedicineId { get; set; }
         private string doctorName;
@@ -86,20 +91,30 @@ namespace DrugsProject3._0.ViewModels
         }
         
         public DateTime Date { get; set; }
-        public void yy()
+        public List<string> CheckInteractionDrugs()
         {
-            MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
-          
-
+            List<string> interactionDrugsList =  AddDoctorVisitM.interactionDrugs(MedicineSelected);
+            List<string> DrugsList = AddDoctorVisitM.getPatientHistory(Patient.PatientId);
+            List<string> res = new List<string>();
+            foreach (string item in DrugsList)
+            {
+                foreach (string item2 in interactionDrugsList)
+                {
+                    if (item == item2)
+                    {
+                        res.Add(item);
+                    }
+                }
+            }
+            return res;
         }
             public void AddRecipe()
         {
+            MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
             RecipeId = AddDoctorVisitM.AddRecipeId();///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             string PatientId = Patient.PatientId;
             string DoctorId = "888"; /*User.Id;*/
-           
             Date = DateTime.Now;
-
             AddDoctorVisitM.AddRecipe(new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date));
          
         }

@@ -44,7 +44,11 @@ namespace DrugsProject3._0.Models
         {
            return Bl.interactionDrugs(drugName);
         }
-        
+
+        public List<string> getPatientHistory(string patientId)
+        {
+            return Bl.getPatientHistory(Bl.GetPatient(patientId),true).Keys.ToList();
+        }
     }
 }
 //public void AddMedicineToDoctorVisit(List<Medicine> medicines)

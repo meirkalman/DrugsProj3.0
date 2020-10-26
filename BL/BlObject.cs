@@ -19,13 +19,13 @@ using System.Windows;
 namespace BL
 {
 
-    public class BlObject: IBL
+    public class BlObject : IBL
     {
         public void createPDF(Recipe recipe)
         {
             PdfDocument pdf = new PdfDocument();
             pdf.Info.Title = "Prescription";
-            
+
             PdfPage pdfPage = pdf.AddPage();
             XGraphics graph = XGraphics.FromPdfPage(pdfPage);
             XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
@@ -188,14 +188,14 @@ namespace BL
         }
         #endregion
 
-        public string getPrescriptionID ()
+        public string getPrescriptionID()
         {
             int result;
             Random rnd = new Random();
             result = rnd.Next(100000000, 999999999);
-            
+
             bool flag = false;
-            while(!flag)
+            while (!flag)
             {
                 flag = true;
                 result = rnd.Next(100000000, 999999999);
@@ -206,8 +206,8 @@ namespace BL
                         flag = false;
                         break;
                     }
-                        
-                    
+
+
                 }
             }
 
@@ -216,8 +216,8 @@ namespace BL
         public List<string> GetAllPatientsId()
         {
             var ids = (from item in IDalService.GetAllPatients()
-                           select item.PatientId).ToList();
-            
+                       select item.PatientId).ToList();
+
             return ids;
         }
 
@@ -225,15 +225,15 @@ namespace BL
         public List<string> GetAllMedicineId()
         {
             var ids = (from item in IDalService.GetAllMedicines()
-                         select item.Id).ToList();
+                       select item.Id).ToList();
             return ids;
         }
 
         public List<string> GetAllMedicinesNames()
         {
-            var names = (from item in IDalService.GetAllMedicines()           
+            var names = (from item in IDalService.GetAllMedicines()
                          select item.CommercialName).ToList();
-            return names; 
+            return names;
         }
 
         public string GetMedicineId(string medicineName)
@@ -242,7 +242,7 @@ namespace BL
 
             medicine = (from item in GetAllMedicines()
                         where item.CommercialName == medicineName
-                         select item).FirstOrDefault();
+                        select item).FirstOrDefault();
             return medicine.Id;
         }
 
@@ -253,7 +253,7 @@ namespace BL
                                        where p.PatientId == patient.PatientId
                                        select p;
 
-            if(now)
+            if (now)
             {
                 var drugsRightOfToday = from p in patientPrescriptions
                                         where p.Date.AddDays(p.PeriodOfUse) > DateTime.Now
@@ -272,11 +272,11 @@ namespace BL
                     result.Add(medicine.GenericName, p.Description);
                 }
             }
-            
+
 
             return result;
 
-            
+
         }
 
         public int ResolveRxcuiFromName(string name)
@@ -284,14 +284,21 @@ namespace BL
             return CI.ResolveRxcuiFromName(name);
         }
 
-        
+
 
         void print(string filePath, Recipe recipe)
         {
-           
+
             createPDF(recipe);
             Printing p = new Printing(filePath);
         }
+
+        //public List<string> GetMedicineNamesOfPatient(string patientId)
+        //{
+        //    List<Recipe> recipes = IDalService.GetAllRecipes(x => x.PatientId == patientId).ToList();
+        //    var ids = (from item in recipes select item.MedicineId).ToList();
+        //    return ids;
+        //}
     }
 }
 
