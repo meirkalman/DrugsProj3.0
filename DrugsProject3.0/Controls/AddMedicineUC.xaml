@@ -7,13 +7,13 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid FlowDirection="RightToLeft"  HorizontalAlignment="Center" Margin="114,0,376,0" Width="310">
+    <Grid FlowDirection="RightToLeft"  HorizontalAlignment="Center" Margin="2,0,3,0" Width="795">
 
         <GroupBox
   Header="הוסף תרופה למערכת "
   Style="{DynamicResource MaterialDesignGroupBox}"
   HorizontalAlignment="Center"
-  materialDesign:ColorZoneAssist.Mode="Accent">
+  materialDesign:ColorZoneAssist.Mode="Accent" Margin="297,0,0,0">
             <Grid HorizontalAlignment="Center" Height="373"  VerticalAlignment="Top" Width="304" Margin="0,0,0,-5">
                 <ComboBox
   materialDesign:HintAssist.Hint="Search"
@@ -40,9 +40,13 @@
   Header="הסרת תרופה מהמערכת "
   Style="{DynamicResource MaterialDesignGroupBox}"
   HorizontalAlignment="Center"
-  materialDesign:ColorZoneAssist.Mode="Accent" Margin="-324,0,315,0" Width="319">
+  materialDesign:ColorZoneAssist.Mode="Accent" Margin="-27,0,327,0" Width="319">
             <Grid HorizontalAlignment="Left" Height="419" Margin="0,-13,0,-6" VerticalAlignment="Top" Width="309">
-                <ComboBox Margin="52,116,51,0" VerticalAlignment="Top" Height="40"/>
+                <ComboBox
+  materialDesign:HintAssist.Hint="Search"
+  materialDesign:HintAssist.HintOpacity=".26"
+  IsEditable="True" Margin="68,121,66,264" Height="34">
+                </ComboBox>
                 <Button Content="הסר" HorizontalAlignment="Left" Margin="118,195,0,0" VerticalAlignment="Top" Width="76"/>
                 <TextBlock HorizontalAlignment="Left" Margin="92,59,0,0" TextWrapping="Wrap" FontSize="22" Text="שם התרופה" VerticalAlignment="Top" Height="37" Width="126"/>
                 <Button Content="חזור" HorizontalAlignment="Left" Margin="10,364,0,0" VerticalAlignment="Top" Width="75" />
