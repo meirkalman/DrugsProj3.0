@@ -11,6 +11,8 @@ namespace BL
     {
 
         string getPrescriptionID();
+
+        void createPDF(string content);
         Dictionary<string, string> getPatientHistory(Patient patient, bool now = false);
        // int getPrescriptionID();
         void AddPatient(Patient patient);
@@ -54,7 +56,6 @@ namespace BL
         List<User> GetAllUsers(Func<User, bool> predicate = null);
 
         Patient GetPatient(string id);
-        List<string> GetAllPatientsId();
         List<string> GetAllMedicinesNames();
         Medicine GetMedicine(string id);
         string GetMedicineId(string medicineName);

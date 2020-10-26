@@ -82,7 +82,7 @@ namespace DrugsProject3._0.ViewModels
         {
             AddPatientM = new AddPatientModel();
             AddCommand = new AddPatientCommand(this);
-            PatientIds = new ObservableCollection<string>(AddPatientM.GetAllPatientsId());
+            //PatientIds = new ObservableCollection<string>(AddPatientM.GetAllPatientsId());
         }
         
         public void AddPatient()
