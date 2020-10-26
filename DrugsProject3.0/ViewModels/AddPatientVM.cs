@@ -77,12 +77,12 @@ namespace DrugsProject3._0.ViewModels
             }
         }
         public ObservableCollection<string> PatientIds { get; set; }
-        
+        public string PatientSelected { get; set; }
         public AddPatientVM()
         {
             AddPatientM = new AddPatientModel();
             AddCommand = new AddPatientCommand(this);
-            //PatientIds = new ObservableCollection<string>(AddPatientM.GetAllPatientsId());
+            PatientIds = new ObservableCollection<string>(AddPatientM.GetAllPatientsId());
         }
         
         public void AddPatient()
@@ -90,7 +90,11 @@ namespace DrugsProject3._0.ViewModels
             PatientV = new Patient(Id, Fname, Lname, PhoneNum, DateOfBirth);
             AddPatientM.AddPatient(PatientV);
         }
+        public void DeletePatient()
+        {
+            PatientV = AddPatientM.GetPatient(PatientSelected);
+            AddPatientM.DeletePatient(PatientV);
+        }
 
-        
     }
 }
