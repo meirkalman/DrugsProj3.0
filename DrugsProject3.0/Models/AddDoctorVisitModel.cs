@@ -36,10 +36,15 @@ namespace DrugsProject3._0.Models
             return Bl.GetMedicineId(medicineName);
         }
 
-        internal void AddRecipe(Recipe recipe)
+        public void AddRecipe(Recipe recipe)
         {
             Bl.AddRecipe(recipe);
         }
+        public List<string> interactionDrugs(string drugName)
+        {
+           return Bl.interactionDrugs(drugName);
+        }
+        
     }
 }
 //public void AddMedicineToDoctorVisit(List<Medicine> medicines)

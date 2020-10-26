@@ -286,7 +286,7 @@ namespace BL
 
         
 
-        void IBL.print(string filePath, Recipe recipe)
+        void print(string filePath, Recipe recipe)
         {
            
             createPDF(recipe);

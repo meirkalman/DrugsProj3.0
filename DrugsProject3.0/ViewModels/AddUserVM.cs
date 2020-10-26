@@ -113,19 +113,21 @@ namespace DrugsProject3._0.ViewModels
                 {
                     throw new ArgumentException("לא תקין  id ");
                 }
-                if (!new VerifyInput().IsValidPersonId(Fname))
+                if (!new VerifyInput().IsValidName(Fname))
                 {
                     throw new ArgumentException("שם פרטי לא תקין  ");
                 }
-                if (!new VerifyInput().IsValidPersonId(Lname))
+                if (!new VerifyInput().IsValidName(Lname))
                 {
                     throw new ArgumentException("שם משפחה לא תקין");
                 }
                 //if (!new VerifyInput().IsValidPhoneNumber(PhoneNum))
                 //{
+                //if (Tools.VerifyInput().IsVaildEmail(value)) mailAddress = value;
+                //else throw new ArgumentException("נא הכנס כתובת מייל תקינה");
                 //    throw new ArgumentException("מספר טלפון לא תקין ");
                 //}
-                
+
                 if (!new VerifyInput().IsValidPassword(Password))
                 {
                     throw new ArgumentException("סיסמה לא תקינה ");
