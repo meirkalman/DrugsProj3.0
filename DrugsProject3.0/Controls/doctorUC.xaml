@@ -33,9 +33,10 @@
   materialDesign:HintAssist.HintOpacity=".26"
   IsEditable="True" Margin="106,30,105,30"/>
                         <Button Content="פתיחת ביקור" Command="{Binding Command}" CommandParameter ="OpenDoctorVisit"  Width="120"  Style="{StaticResource MaterialDesignRaisedAccentButton}"   />
-            </StackPanel>
+                        <Button Content="הוסף מטופל חדש" Command="{Binding Command}" CommandParameter ="AddNewPatient"  Width="145" Margin="70" VerticalAlignment="Bottom"  />
+                    </StackPanel>
                 </GroupBox>
-        <Button Content="חזור" Command="{Binding Command}" CommandParameter ="Return" Style="{StaticResource MaterialDesignRaisedAccentButton}" HorizontalAlignment="Left" Margin="104,407,0,0" VerticalAlignment="Top" Width="74"/>
+                <Button Content="חזור" Style="{StaticResource MaterialDesignRaisedAccentButton}" HorizontalAlignment="Left" Margin="104,407,0,0" VerticalAlignment="Top" Width="74"/>
             
         
     </Grid>
