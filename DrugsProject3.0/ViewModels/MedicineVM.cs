@@ -89,15 +89,15 @@ namespace DrugsProject3._0.ViewModels
 
         public void AddMedicine()
         {
-            MedicineV = new Medicine(Id, Fname, Lname, PhoneNum, DateOfBirth);
+            //MedicineV = new Medicine(Id, Fname, Lname, PhoneNum, DateOfBirth);
             MedicineM.AddMedicine(MedicineV);
         }
         public void DeleteMedicine()
         {
-            MedicineV = MedicineM.GetMedicine(PatientSelected);
+            //MedicineV = MedicineM.GetMedicine(PatientSelected);
             MedicineM.DeleteMedicine(MedicineV);
         }
 
-    {
+   
     }
 }
