@@ -1,7 +1,7 @@
 ﻿using BE;
 using DAL;
-using PdfSharp.Drawing;
-using PdfSharp.Pdf;
+//using PdfSharp.Drawing;
+//using PdfSharp.Pdf;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
