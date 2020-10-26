@@ -132,12 +132,13 @@
     <Compile Include="Commands\DoctorCommand.cs" />
     <Compile Include="Commands\HomePageCommand.cs" />
     <Compile Include="Commands\MainCommand.cs" />
+    <Compile Include="Commands\MedicineCommand.cs" />
     <Compile Include="Commands\StatisticsCommand.cs" />
     <Compile Include="Controls\AddDoctorUC.xaml.cs">
       <DependentUpon>AddDoctorUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\AddMedicineUC.xaml.cs">
-      <DependentUpon>AddMedicineUC.xaml</DependentUpon>
+    <Compile Include="Controls\MedicineUC.xaml.cs">
+      <DependentUpon>MedicineUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\AddNewPatient.xaml.cs">
       <DependentUpon>AddNewPatient.xaml</DependentUpon>
@@ -152,6 +153,7 @@
     <Compile Include="Models\AddUserModel.cs" />
     <Compile Include="Models\DoctorModel.cs" />
     <Compile Include="Models\HomePageModel.cs" />
+    <Compile Include="Models\MedicineModel.cs" />
     <Compile Include="Models\StatisticsModel1.cs" />
     <Compile Include="Tools\ControlManage.cs" />
     <Compile Include="Tools\IControlManage.cs" />
@@ -163,12 +165,13 @@
     <Compile Include="ViewModels\DoctorVM.cs" />
     <Compile Include="ViewModels\HomePageVM.cs" />
     <Compile Include="ViewModels\MainVM.cs" />
+    <Compile Include="ViewModels\MedicineVM.cs" />
     <Compile Include="ViewModels\StatisticsVM.cs" />
     <Page Include="Controls\AddDoctorUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\AddMedicineUC.xaml">
+    <Page Include="Controls\MedicineUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

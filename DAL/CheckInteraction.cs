@@ -65,6 +65,18 @@ namespace DAL
             }
             return result;
         }
+        public List<string> getDrugsNames()
+        {
+            List<string> result = new List<string>();
+            XmlElement root = drugsNums.DocumentElement;
+            XmlNodeList nodes = root.SelectNodes("minConcept"); // You can also use XPath here
+            foreach (XmlNode node in nodes)
+            {
+                XmlNodeList properties = node.ChildNodes;
+                result.Add(properties[1].InnerText);
+            }
+            return result;
+        }
 
         public static void LoadDrugsList()
         {

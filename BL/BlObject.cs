@@ -32,6 +32,10 @@ namespace BL
         CheckInteraction CI = new CheckInteraction();
         public IDalService IDalService { get; set; }
 
+        public List<string> getDrugsNames()
+        {
+            return CI.getDrugsNames();
+        }
         public BlObject()
         {
             IDalService = new DalService();
@@ -202,7 +206,15 @@ namespace BL
             
             return ids;
         }
-        
+
+
+        public List<string> GetAllMedicineId()
+        {
+            var ids = (from item in IDalService.GetAllMedicines()
+                         select item.Id).ToList();
+            return ids;
+        }
+
         public List<string> GetAllMedicinesNames()
         {
             var names = (from item in IDalService.GetAllMedicines()           

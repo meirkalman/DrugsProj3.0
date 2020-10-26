@@ -138,7 +138,7 @@ namespace DrugsProject3._0.ViewModels
 //        MedicineV.Add(e.NewItems[0] as Medicine);
 //    }
 //}
-//public void AddMedicineUC()
+//public void MedicineUC()
 //{
 //    //Medicine medicine;
 //    //medicine = AddDoctorVisitM.GetMedicine(MedicineSelected);

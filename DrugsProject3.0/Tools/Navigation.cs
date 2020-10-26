@@ -46,8 +46,8 @@ namespace DrugsProject3._0.Navigation
                     uc = new AddDoctorUC();
                     title = "הוספת משתמש חדש";
                     break;
-                case "AddMedicineUC":
-                    uc = new AddMedicineUC();
+                case "MedicineUC":
+                    uc = new MedicineUC();
                     title = "הוספת משתמש חדש";
                     break;
                 case "StatisticsUC":
