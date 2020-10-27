@@ -1,4 +1,5 @@
 ﻿using BE;
+using DrugsProject3._0.Commands;
 using DrugsProject3._0.Models;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,12 @@ namespace DrugsProject3._0.ViewModels
 
 
         public ObservableCollection<User> Users { get; set; }
-
+        public UserInformationCommand Command { get; set; }
+        
 
         public UserInformationVM()
         {
+            Command = new UserInformationCommand(this);
             try
             {
                 UserInformationM = new UserInformationModel();

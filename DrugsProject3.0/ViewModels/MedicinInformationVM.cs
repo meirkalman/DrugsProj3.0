@@ -14,7 +14,7 @@ namespace DrugsProject3._0.ViewModels
         public MedicinInformationModel MedicinInformationM;
 
 
-        public ObservableCollection<Medicine> Users { get; set; }
+        public ObservableCollection<Medicine> Medicines { get; set; }
 
 
         public MedicinInformationVM()
@@ -22,7 +22,7 @@ namespace DrugsProject3._0.ViewModels
             try
             {
                 MedicinInformationM = new MedicinInformationModel();
-                Users = new ObservableCollection<Medicine>(MedicinInformationM.GetMedicins());
+                Medicines = new ObservableCollection<Medicine>(MedicinInformationM.GetMedicins());
             }
             catch (Exception e)
             {
