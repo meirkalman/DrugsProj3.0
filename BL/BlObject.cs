@@ -55,7 +55,7 @@ namespace BL
                     tf.DrawString(texts, font, XBrushes.Black,
                     new XRect(100, 100, page.Width - 200, 600), XStringFormats.TopLeft);
 
-                    string pdfFilename = "prescription1.pdf";
+                    string pdfFilename = recipe.RecipeId + ".pdf";
                     pdf.Save(pdfFilename);
                     Process.Start(pdfFilename);
                
@@ -581,11 +581,25 @@ namespace BL
 
 
         }
-        void print(string filePath, Recipe recipe)
+        public void print(Recipe recipe)
         {
 
             createPDF(recipe);
-            Printing p = new Printing(filePath);
+            ProcessStartInfo info = new ProcessStartInfo();
+            info.Verb = "print";
+            info.FileName = recipe.RecipeId + ".pdf";
+            info.CreateNoWindow = true;
+            info.WindowStyle = ProcessWindowStyle.Hidden;
+
+            Process p = new Process();
+            p.StartInfo = info;
+            p.Start();
+
+            p.WaitForInputIdle();
+            System.Threading.Thread.Sleep(3000);
+            if (false == p.CloseMainWindow())
+                 p.Kill();
+            
         }
 
         //public List<string> GetMedicineNamesOfPatient(string patientId)

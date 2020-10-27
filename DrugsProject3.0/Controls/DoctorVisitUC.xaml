@@ -53,11 +53,13 @@
             </materialDesign:PopupBox.ToggleCheckedContent>
             <StackPanel>
                 <Button
+                    Command="{Binding AddCommand}" CommandParameter ="Print"
       ToolTip="הדפס מרשם"  FontSize="23">
                     ✍
                 </Button>
 
-                <Button
+                <Button 
+                    Command="{Binding AddCommand}" CommandParameter ="PDF"
       ToolTip=" PDF צור קובץ" FontSize="23">
                     +
                 </Button>
