@@ -19,7 +19,15 @@ namespace DrugsProject3._0.Models
 
         public List<User> GetUsers()
         {
-            return Bl.GetAllUsers();
+            try
+            {
+                return Bl.GetAllUsers();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+           
         }
     }
 }

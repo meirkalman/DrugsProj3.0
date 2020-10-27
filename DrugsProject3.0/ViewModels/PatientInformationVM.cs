@@ -9,26 +9,25 @@ using System.Threading.Tasks;
 
 namespace DrugsProject3._0.ViewModels
 {
-    class UserInformationVM
+    class PatientInformationVM
     {
-        public UserInformationModel UserInformationM;
+        public PatientInformationModel PatientInformationM;
 
 
-        public ObservableCollection<User> Users { get; set; }
+        public ObservableCollection<Patient> Users { get; set; }
 
 
-        public UserInformationVM()
+        public PatientInformationVM()
         {
             try
             {
-                UserInformationM = new UserInformationModel();
-                Users = new ObservableCollection<User>(UserInformationM.GetUsers());
+                PatientInformationM = new PatientInformationModel();
+                Users = new ObservableCollection<Patient>(PatientInformationM.GetPatients());
             }
             catch (Exception e)
             {
                 (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
             }
         }
-
     }
 }

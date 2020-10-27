@@ -23,7 +23,7 @@ namespace DrugsProject3._0.Controls
     {
         public AdministratorInformation()
         {
-            AdministratorInformationVM VM = new AdministratorInformationVM();
+            PatientInformationVM VM = new PatientInformationVM();
             DataContext = VM;
             InitializeComponent();
         }
