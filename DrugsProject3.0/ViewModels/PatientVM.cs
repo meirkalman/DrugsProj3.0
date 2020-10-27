@@ -140,6 +140,7 @@ namespace DrugsProject3._0.ViewModels
                     PatientM.AddPatient(PatientV);
                     PatientIds.Add(PatientV.PatientId);
                     (App.Current as App).navigation.MainWindows.comments.Text = "המטופל נוסף בהצלחה";
+                  
                 }
             }
             catch (Exception e)

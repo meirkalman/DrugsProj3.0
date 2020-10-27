@@ -168,6 +168,7 @@ namespace DrugsProject3._0.ViewModels
                     AddUserM.AddUser(User);
                     UserIds.Add(User.Id);
                     (App.Current as App).navigation.MainWindows.comments.Text = "משתמש נוסף בהצלחה";
+                   
                 }
             }
             catch (Exception e)
