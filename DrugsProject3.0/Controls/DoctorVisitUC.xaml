@@ -93,7 +93,7 @@
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="191,21,0,0" FontSize="18" TextWrapping="Wrap" Text="שם הפציינט" VerticalAlignment="Top" Height="31" Width="100"/>
         <TextBox Grid.Column="1"  Text ="{Binding PatientName, Mode=OneWay}" IsEnabled="False"  HorizontalAlignment="Left" FontSize="16" Margin="19,16,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="36" Width="167"/>
         <DataGrid x:Name="DataGrid"  HorizontalAlignment="Center" ItemsSource="{Binding Recipes}" CanUserAddRows="False" CanUserDeleteRows="False"  IsReadOnly="True" 
-           FlowDirection="RightToLeft" EnableRowVirtualization="True" AutoGenerateColumns="False" HorizontalContentAlignment="Center" Margin="14,139,12,0">
+           FlowDirection="RightToLeft" EnableRowVirtualization="True" AutoGenerateColumns="False" HorizontalContentAlignment="Center" Margin="10,84,10,55" Width="303">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="מספר מרשם" Binding="{Binding RecipeId }"/>
                 <DataGridTextColumn Header="מספר רופא" Binding="{Binding DoctorId}"/>
