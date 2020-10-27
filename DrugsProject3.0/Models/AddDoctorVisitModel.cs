@@ -32,7 +32,7 @@ namespace DrugsProject3._0.Models
 
         public string AddRecipeId()
         {
-            return "4444";
+            return Bl.getPrescriptionID();
         }
 
         public List<string> GetAllMedicinesNames()

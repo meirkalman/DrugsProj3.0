@@ -141,6 +141,7 @@
     <Compile Include="Commands\MainCommand.cs" />
     <Compile Include="Commands\MedicineCommand.cs" />
     <Compile Include="Commands\StatisticsCommand.cs" />
+    <Compile Include="Commands\UserInformationCommand.cs" />
     <Compile Include="Controls\MedicinInformationUC.xaml.cs">
       <DependentUpon>MedicinInformationUC.xaml</DependentUpon>
     </Compile>
