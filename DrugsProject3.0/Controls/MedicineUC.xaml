@@ -26,6 +26,7 @@
                 <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="85,278,0,0" TextWrapping="Wrap" Text="תמונה" Height="28" VerticalAlignment="Top"/>
                 <Button Content="הוסף תמונה" Command="{Binding Command}" CommandParameter="AddImage" HorizontalAlignment="Left" Margin="138,276,0,0" VerticalAlignment="Top" Width="109"/>
                 <Button Content="הוסף" Command="{Binding Command}" CommandParameter="AddMedicine" HorizontalAlignment="Left" Margin="112,341,0,0" VerticalAlignment="Top" Width="74"/>
+                <Image x:Name="aa" HorizontalAlignment="Left" Height="100" Margin="285,178,-81,0" VerticalAlignment="Top" Width="100"/>
 
             </Grid>
         </GroupBox>
