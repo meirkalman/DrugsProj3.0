@@ -1,15 +1,13 @@
 ﻿using BE;
 using CareManagment.Tools;
 using DrugsProject3._0.Commands;
+using DrugsProject3._0.Controls;
 using DrugsProject3._0.Models;
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace DrugsProject3._0.ViewModels
 {
@@ -165,12 +163,13 @@ namespace DrugsProject3._0.ViewModels
         }
         public void AddImegeUri()
         {
-            //OpenFileDialog openFileDialog = new OpenFileDialog();
-            //if (openFileDialog.ShowDialog() == true)
-            //{
-            //    ImageUri = openFileDialog.SafeFileName;
-            //}
-            ImageUri = "rr";
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                ImageUri = openFileDialog.FileName;
+            }
+           
+           
         }
 
     }

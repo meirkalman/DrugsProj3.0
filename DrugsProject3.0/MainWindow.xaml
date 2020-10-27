@@ -21,7 +21,7 @@
 
                     <TextBlock
                         Name="title"
-                        Text=" תוכנית" FontSize="20"
+                        Text=" ברוך הבא " FontSize="20"
       VerticalAlignment="Center"
       Margin="16 0 0 0">
 
@@ -32,12 +32,7 @@
                 <Grid.Background>
                     <ImageBrush ImageSource="/DrugsProject3.0;component/Images/medical-background.jpg" Opacity="0.5" Stretch="UniformToFill" />
                 </Grid.Background>
-                <Button x:Name="button" Command="{Binding MainCommand}" CommandParameter ="DoctorUC"   Content="doctor" HorizontalAlignment="Left" Margin="733,301,0,0" VerticalAlignment="Top" Width="173"  />
-                <Button Content="doctor visit2" HorizontalAlignment="Left" Command="{Binding MainCommand}" CommandParameter ="DoctorVisitUC" Margin="711,428,0,0" VerticalAlignment="Top" Width="173" />
-                <Button Content="home page"   Command="{Binding MainCommand}" CommandParameter ="HomePageUC" HorizontalAlignment="Left" Margin="733,372,0,0" VerticalAlignment="Top" Width="173" />
-                <Button Content="admin" Command="{Binding MainCommand}" CommandParameter ="AdministratorUC"  HorizontalAlignment="Left" Margin="766,108,0,0" VerticalAlignment="Top" Width="173" />
-                <Button Content="Button" HorizontalAlignment="Left" Margin="831,198,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-                <Controls:LoginUC HorizontalAlignment="Left" Height="441" Margin="88,54,0,0" VerticalAlignment="Top" Width="524"/>
+                <Controls:LoginUC HorizontalAlignment="Left" Height="533" Margin="0,0,0,-28" VerticalAlignment="Top" Width="972"/>
             </Grid>
             <Button Name="LogOut" Command="{Binding MainCommand}" CommandParameter ="LogOut" Visibility="Visible" Content="התנתקות" FontSize="17" HorizontalAlignment="Left" Margin="834,10,0,0" VerticalAlignment="Top" Width="105" Background="#00F44336" BorderBrush="#00F44336" Foreground="#FF0023FF"/>
             <TextBlock x:Name="comments" Foreground="Red"  FontSize="18"  HorizontalAlignment="Left" Margin="478,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="38" Width="331"/>
