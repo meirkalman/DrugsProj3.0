@@ -380,6 +380,22 @@ namespace BL
             return result;
 
         }
+
+
+        //public List<Recipe> drugStatistics(string drugID, DateTime start, DateTime finish)
+        //{
+        //    List<Recipe> result = new List<Recipe>();
+        //    var prescriptionsOnTheAppropriateDate = (from item in IDalService.GetAllRecipes()
+        //                                             where (drugID == item.MedicineId && start >= item.Date && finish <= item.Date)
+        //                                             group item by item.Date).ToList();
+        //    var prescriptions = prescriptionsOnTheAppropriateDate.OrderBy(g => g.Key);
+        //    foreach (var g in prescriptions)
+        //    {
+        //        result.Add(g.Key, g.Count());
+        //    }
+        //    return result;
+
+        //}
         #endregion
 
         public string getPrescriptionID()
