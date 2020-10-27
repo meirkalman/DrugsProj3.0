@@ -13,7 +13,7 @@ namespace BL
         string getPrescriptionID();
 
         void createPDF(Recipe recipe);
-        List<Recipe> getPatientHistory(string patientId, bool now = false);
+       
         // int getPrescriptionID();
         void AddPatient(Patient patient);
 
@@ -70,8 +70,9 @@ namespace BL
 
         List<string> interactionDrugs(string drugName);
         Dictionary<DateTime, int> drugStatistics(string drugID, DateTime start, DateTime finish);
-
-         //List<string> GetMedicineNamesOfPatient(string patientId);
+        List<Recipe> getPatientHistoryByDrug(string patientId, DateTime first, DateTime second, string drugID);
+        List<Recipe> getPatientHistory(string patientId, bool now = false);
+        
     }
 }
 

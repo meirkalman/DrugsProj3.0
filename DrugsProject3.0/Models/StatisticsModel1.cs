@@ -32,5 +32,40 @@ namespace DrugsProject3._0.Models
                 throw ex;
             }
         }
+
+        public List<string> GetAllPatientsId()
+        {
+            try
+            {
+                return Bl.GetAllPatientsId();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<string> GetAllMedicineId()
+        {
+            try
+            {
+                return Bl.GetAllMedicineId();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<Recipe> getPatientHistoryByDrug(string patientId, DateTime first, DateTime second, string drugID)
+        {
+            try
+            {
+                return Bl.getPatientHistoryByDrug(patientId, first, second,drugID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

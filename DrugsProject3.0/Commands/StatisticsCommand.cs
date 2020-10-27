@@ -29,17 +29,14 @@ namespace DrugsProject3._0.Commands
 
         public void Execute(object parameter)
         {
-            if (parameter.ToString() == "OpenDoctorVisit")
+            if (parameter.ToString() == "Show")
             {
-                //   CurrentVM.EventMenage();
-                (App.Current as App).navigation.ShowControls("DoctorVisitUC");
+                CurrentVM.getPatientHistoryByDrug();
             }
-            if (parameter.ToString() == "PatientUC")
+            if (parameter.ToString() == "Return")
             {
-                // CurrentVM.EventMenage();
-                (App.Current as App).navigation.ShowControls("PatientUC");
+                (App.Current as App).navigation.ShowControls("AdministratorUC");
             }
-
         }
     }
 }
