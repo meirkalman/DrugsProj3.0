@@ -15,7 +15,10 @@ namespace DrugsProject3._0.Models
         {
             Bl = new BlObject();
         }
-
+        public void creatPDF(Recipe r)
+        {
+            Bl.createPDF(r);
+        }
         public Medicine GetMedicine(string id)
         {
             try
