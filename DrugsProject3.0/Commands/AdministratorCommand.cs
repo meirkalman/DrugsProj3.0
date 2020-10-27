@@ -29,6 +29,18 @@ namespace DrugsProject3._0.Commands
 
         public void Execute(object parameter)
         {
+            if (parameter.ToString() == "MedicinInformationUC")
+            {
+                (App.Current as App).navigation.ShowControls("MedicinInformationUC");
+            }
+            if (parameter.ToString() == "PatientInformationUC")
+            {
+                (App.Current as App).navigation.ShowControls("PatientInformationUC");
+            }
+            if (parameter.ToString() == "UserInformationUC")
+            {
+                (App.Current as App).navigation.ShowControls("UserInformationUC");
+            }
             if (parameter.ToString() == "AddUser")
             {
                 (App.Current as App).navigation.ShowControls("AddUserUC");

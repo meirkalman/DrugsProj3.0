@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace DrugsProject3._0.Models
 {
-    class AdministratorInformationModel
+    class MedicinInformationModel
     {
         public IBL Bl { get; set; }
-        public AdministratorInformationModel()
+        public MedicinInformationModel()
         {
             Bl = new BlObject();
         }
-        
 
-        public List<User> GetUsers()
+
+        public List<Medicine> GetMedicins()
         {
             try
             {
-                return Bl.GetAllUsers();
+                return Bl.GetAllMedicines();
             }
             catch (Exception ex)
             {
@@ -30,4 +30,3 @@ namespace DrugsProject3._0.Models
         }
     }
 }
- 

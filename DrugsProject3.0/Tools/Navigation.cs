@@ -17,6 +17,18 @@ namespace DrugsProject3._0.Navigation
             UserControl uc = null;
             switch (UserControl)
             {
+                case "MedicinInformationUC":
+                    uc = new MedicinInformationUC();
+                    title = "מידע על תרופות";
+                    break;
+                case "PatientInformationUC":
+                    uc = new PatientInformationUC();
+                    title = "מידע על מטופלים";
+                    break;
+                case "UserInformationUC":
+                    uc = new UserInformationUC();
+                    title = "מידע על רופאים";
+                    break;
                 case "LoginUC":
                     uc = new LoginUC();
                     title = "ברוך הבא";

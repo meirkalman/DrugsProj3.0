@@ -17,15 +17,16 @@ using System.Windows.Shapes;
 namespace DrugsProject3._0.Controls
 {
     /// <summary>
-    /// Interaction logic for AdministratorInformation.xaml
+    /// Interaction logic for MedicinInformationUC.xaml
     /// </summary>
-    public partial class AdministratorInformation : UserControl
+    public partial class MedicinInformationUC : UserControl
     {
-        public AdministratorInformation()
+        public MedicinInformationUC()
         {
-            AdministratorInformationVM VM = new AdministratorInformationVM();
+            MedicinInformationVM VM = new MedicinInformationVM();
             DataContext = VM;
             InitializeComponent();
+            
         }
     }
 }
