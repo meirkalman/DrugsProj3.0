@@ -141,6 +141,12 @@
     <Compile Include="Commands\MainCommand.cs" />
     <Compile Include="Commands\MedicineCommand.cs" />
     <Compile Include="Commands\StatisticsCommand.cs" />
+    <Compile Include="Controls\AdministratorInformation.xaml.cs">
+      <DependentUpon>AdministratorInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserInformation.xaml.cs">
+      <DependentUpon>UserInformation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\UserUC.xaml.cs">
       <DependentUpon>UserUC.xaml</DependentUpon>
     </Compile>
@@ -167,6 +173,7 @@
     <Compile Include="Tools\Navigation.cs" />
     <Compile Include="Tools\VerifyInput.cs" />
     <Compile Include="ViewModels\AddDoctorVisitVM.cs" />
+    <Compile Include="ViewModels\AdministratorInformationVM.cs" />
     <Compile Include="ViewModels\PatientVM.cs" />
     <Compile Include="ViewModels\UserVM.cs" />
     <Compile Include="ViewModels\AdministratorVM.cs" />
@@ -175,6 +182,14 @@
     <Compile Include="ViewModels\MainVM.cs" />
     <Compile Include="ViewModels\MedicineVM.cs" />
     <Compile Include="ViewModels\StatisticsVM.cs" />
+    <Page Include="Controls\AdministratorInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UserInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\UserUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
