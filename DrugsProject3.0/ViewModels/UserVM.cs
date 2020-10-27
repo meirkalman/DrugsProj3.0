@@ -139,7 +139,16 @@ namespace DrugsProject3._0.ViewModels
             AddUserM = new UserModel();
             Command = new UserCommand(this);
             Type = new ObservableCollection<string>(Enum.GetNames(typeof(UserType)));
-            UserIds = new ObservableCollection<string>(AddUserM.GetAllUserId());
+            try
+            {
+                UserIds = new ObservableCollection<string>(AddUserM.GetAllUserId());
+            }
+            catch (Exception e)
+            {
+
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
+            
         }
 
         public void AddUser()
@@ -171,9 +180,17 @@ namespace DrugsProject3._0.ViewModels
 
         public void DeleteUser()
         {
-            User = AddUserM.GetUser(UserSelected);
-            AddUserM.DeleteUser(User);
-            UserIds.Remove(User.Id);
+            try
+            {
+                User = AddUserM.GetUser(UserSelected);
+                AddUserM.DeleteUser(User);
+                UserIds.Remove(User.Id);
+            }
+            catch (Exception e)
+            {
+
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
         }
 
     }

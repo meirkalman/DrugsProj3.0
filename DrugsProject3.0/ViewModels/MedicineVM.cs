@@ -105,9 +105,19 @@ namespace DrugsProject3._0.ViewModels
         public string MedicineSelected { get; set; }
         public MedicineVM()
         {
+
             MedicineM = new MedicineModel();
-           Command = new MedicineCommand(this);
-            MedicineIds = new ObservableCollection<string>(MedicineM.GetAllMedicineId());
+            Command = new MedicineCommand(this);
+            try
+            {
+                MedicineIds = new ObservableCollection<string>(MedicineM.GetAllMedicineId());
+            }
+            catch (Exception e)
+            {
+
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
+            
         }
 
         public void AddMedicine()
@@ -139,9 +149,19 @@ namespace DrugsProject3._0.ViewModels
         }
         public void DeleteMedicine()
         {
-            MedicineV = MedicineM.GetMedicine(MedicineSelected);
-            MedicineM.DeleteMedicine(MedicineV);
-            MedicineIds.Remove(MedicineV.Id);
+            try
+            {
+
+                MedicineV = MedicineM.GetMedicine(MedicineSelected);
+                MedicineM.DeleteMedicine(MedicineV);
+                MedicineIds.Remove(MedicineV.Id);
+
+            }
+            catch (Exception e)
+            {
+
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
         }
         public void AddImegeUri()
         {

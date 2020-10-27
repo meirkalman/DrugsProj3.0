@@ -113,29 +113,56 @@ namespace DrugsProject3._0.ViewModels
         {
             PatientM = new PatientModel();
             Command = new PatientCommand(this);
-            PatientIds = new ObservableCollection<string>(PatientM.GetAllPatientsId());
-               
+            try
+            {
+                PatientIds = new ObservableCollection<string>(PatientM.GetAllPatientsId());
+            }
+            catch (Exception e)
+            {
+
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
+
+
         }
 
         public void AddPatient()
         {
-            if (Id == null || Fname == null || Lname == null || PhoneNum == null )
+            try
             {
-                throw new ArgumentException("אתה צריך למלא את כל השדות");
+                if (Id == null || Fname == null || Lname == null || PhoneNum == null)
+                {
+                    throw new ArgumentException("אתה צריך למלא את כל השדות");
+                }
+                else
+                {
+                    PatientV = new Patient(Id, Fname, Lname, PhoneNum, DateOfBirth);
+                    PatientM.AddPatient(PatientV);
+                    PatientIds.Add(PatientV.PatientId);
+                    (App.Current as App).navigation.MainWindows.comments.Text = "המטופל נוסף בהצלחה";
+                }
             }
-            else
+            catch (Exception e)
             {
-                PatientV = new Patient(Id, Fname, Lname, PhoneNum, DateOfBirth);
-                PatientM.AddPatient(PatientV);
-                PatientIds.Add(PatientV.PatientId);
-                (App.Current as App).navigation.MainWindows.comments.Text = "המטופל נוסף בהצלחה";
+
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
             }
+            
         }
         public void DeletePatient()
         {
-            PatientV = PatientM.GetPatient(PatientSelected);
-            PatientM.DeletePatient(PatientV);
-            PatientIds.Remove(PatientV.PatientId);
+            try
+            {
+                PatientV = PatientM.GetPatient(PatientSelected);
+                PatientM.DeletePatient(PatientV);
+                PatientIds.Remove(PatientV.PatientId);
+            }
+            catch (Exception e)
+            {
+
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
+            
         }
 
     }
