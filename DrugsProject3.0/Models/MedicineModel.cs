@@ -32,21 +32,57 @@ namespace DrugsProject3._0.Models
 
         public List<string> GetAllMedicineId()
         {
-            return Bl.GetAllMedicineId();
+            try
+            {
+                return Bl.GetAllMedicineId();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
 
         public int ResolveRxcuiFromName(string name)
         {
-            return Bl.ResolveRxcuiFromName(name);
+            try
+            {
+                return Bl.ResolveRxcuiFromName(name);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
         public void DeleteMedicine(Medicine medicine)
         {
-            Bl.DeleteMedicine(medicine);
+            try
+            {
+                Bl.DeleteMedicine(medicine);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
 
         public Medicine GetMedicine(string id)
         {
-           return Bl.GetMedicine(id);
+            try
+            {
+                return Bl.GetMedicine(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
     }
 }
