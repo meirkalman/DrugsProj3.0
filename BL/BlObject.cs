@@ -1,6 +1,7 @@
 ﻿using BE;
 using DAL;
 using PdfSharp.Drawing;
+using PdfSharp.Drawing.Layout;
 using PdfSharp.Pdf;
 //using PdfSharp.Drawing;
 //using PdfSharp.Pdf;
@@ -34,12 +35,37 @@ namespace BL
             {
                 PdfDocument pdf = new PdfDocument();
                 pdf.Info.Title = "Prescription";
-
+                XPdfFontOptions options = new XPdfFontOptions(PdfFontEncoding.Unicode, PdfFontEmbedding.Always);
                 PdfPage pdfPage = pdf.AddPage();
                 XGraphics graph = XGraphics.FromPdfPage(pdfPage);
                 XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
                 Medicine medicine = GetMedicine(recipe.MedicineId);
                 Patient patient = GetPatient(recipe.PatientId);
+
+//                for (int idx = 0; idx < texts.Length; idx++)
+
+//                {
+
+//                    PdfPage page = pdf.AddPage();
+
+//                    XGraphics gfx = XGraphics.FromPdfPage(page);
+
+//                    XTextFormatter tf = new XTextFormatter(gfx);
+                    
+//                    tf.Alignment = XParagraphAlignment.Left;
+
+
+
+//                    17.
+//                    tf.DrawString(texts[idx], font, XBrushes.Black,
+//                    18.
+//                    new XRect(100, 100, page.Width - 200, 600), XStringFormats.TopLeft);
+//                    19.
+//}
+
+
+
+
                 graph.DrawString("recipe number: " + recipe.RecipeId +
                     "/n patient ID: " + recipe.PatientId +
                     "/n " + patient.Fname + " " + patient.Lname +
@@ -55,17 +81,17 @@ namespace BL
 
                 throw new Exception("pdf cannot be create");
             }
-            
+
 
         }
-        
-       
+
+
 
         public List<string> getDrugsNames()
         {
             return CI.getDrugsNames();
         }
-        
+
 
         public List<string> interactionDrugs(string drugName)
         {
@@ -83,7 +109,7 @@ namespace BL
 
                 throw ex;
             }
-            
+
         }
 
         public void AddPatient(Patient patient)
@@ -264,7 +290,7 @@ namespace BL
         {
             try
             {
-                List < Patient > res = IDalService.GetAllPatients();
+                List<Patient> res = IDalService.GetAllPatients();
                 return res;
             }
             catch (Exception ex)
@@ -279,7 +305,7 @@ namespace BL
         {
             try
             {
-                List < Recipe> res = IDalService.GetAllRecipes();
+                List<Recipe> res = IDalService.GetAllRecipes();
                 return res;
             }
             catch (Exception ex)
@@ -296,7 +322,7 @@ namespace BL
             {
                 List<User> res = IDalService.GetAllUsers();
                 return res;
-            
+
             }
             catch (Exception ex)
             {
@@ -386,7 +412,7 @@ namespace BL
 
                 throw e;
             }
-            
+
 
         }
 
@@ -490,7 +516,7 @@ namespace BL
                 medicine = (from item in GetAllMedicines()
                             where item.CommercialName == medicineName
                             select item).FirstOrDefault();
-                if(medicine == null)
+                if (medicine == null)
                 {
                     throw new Exception("אין כזו תרופה");
                 }
@@ -503,7 +529,14 @@ namespace BL
             }
 
         }
-
+        public List<Recipe> getPatientHistoryByDrug(string patientId, DateTime first, DateTime second, string drugID)
+        {
+            List<Recipe> result = new List<Recipe>();
+            result = (from item in getPatientHistory(patientId)
+                      where drugID == item.MedicineId && (item.Date < second) && item.Date.AddDays(item.PeriodOfUse) > first
+                      select item).ToList();
+            return result;
+        }
         public List<Recipe> getPatientHistory(string patientId, bool now = false)
         {
             try
