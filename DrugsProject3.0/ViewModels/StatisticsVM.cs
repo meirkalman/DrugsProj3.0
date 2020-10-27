@@ -4,6 +4,7 @@ using DrugsProject3._0.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -61,13 +62,16 @@ namespace DrugsProject3._0.ViewModels
                 (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
             }
         }
+
         public void getPatientHistoryByDrug()
         {
             try
             {
-                
-                Recipes.ClearItems(); 
-                Recipes.Add(new ObservableCollection<Recipe>(StatisticsM.getPatientHistoryByDrug(PatientSelected, DateStart, DateFinish, MedicineSelected)));
+                Recipes.Clear();
+                foreach (var item in StatisticsM.getPatientHistoryByDrug(PatientSelected, DateStart, DateFinish, MedicineSelected))
+                {
+                    Recipes.Add(item);
+                }
             }
             catch (Exception e)
             {
