@@ -23,7 +23,7 @@ namespace DrugsProject3._0.Navigation
                     break;
                 case "PatientInformationUC":
                     uc = new PatientInformationUC();
-                    title = "מידע על מטופלים";
+                    title = "מידע על חולים";
                     break;
                 case "UserInformationUC":
                     uc = new UserInformationUC();

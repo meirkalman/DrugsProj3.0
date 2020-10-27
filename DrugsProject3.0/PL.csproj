@@ -132,7 +132,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\AddDoctorVisitCommand.cs" />
+    <Compile Include="Commands\MedicinInformationCommand.cs" />
     <Compile Include="Commands\PatientCommand.cs" />
+    <Compile Include="Commands\PatientInformationCommand.cs" />
     <Compile Include="Commands\UserCommand.cs" />
     <Compile Include="Commands\AdministratorCommand.cs" />
     <Compile Include="Commands\BaseCommand.cs" />
