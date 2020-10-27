@@ -18,6 +18,7 @@ namespace DrugsProject3._0.Models
 
         public void AddUser(User user)
         {
+
             Bl.AddUser(user);
         }
 

@@ -18,7 +18,16 @@ namespace DrugsProject3._0.Models
 
         public void AddMedicine(Medicine medicine)
         {
-            Bl.AddMedicine(medicine);
+            try
+            {
+                Bl.AddMedicine(medicine);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("כבר קיימת תרופה כזו");
+            }
+            
         }
 
         public List<string> GetAllMedicineId()
