@@ -16,7 +16,7 @@ namespace DrugsProject3._0
     /// </summary>
     public partial class App : Application
     {
-        public NavigationClass navigation = new NavigationClass();
+      public NavigationClass navigation = new NavigationClass();
 
         public ControlManage controlManage = new ControlManage();
 

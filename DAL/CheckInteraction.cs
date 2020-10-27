@@ -11,15 +11,11 @@ namespace DAL
 {
     public class CheckInteraction
     {
-        public CheckInteraction()
-        {
-            drugsNums = new XmlDocument();
-        }
-        public XmlDocument drugsNums;
+        static XmlDocument drugsNums = new XmlDocument();
         public List<string> interactionDrugs(string drugName)
         {
             List<string> result = new List<string>();
-            LoadDrugsList();
+            drugsNums.Load("mainxml.xml");
             //string result = string.Empty;
             try
             {
@@ -88,10 +84,7 @@ namespace DAL
             return result;
         }
 
-        public void LoadDrugsList()
-        {
-            drugsNums.Load("mainxml.xml");
-        }
+        
 
 
         public static string HttpRequest(String url)
