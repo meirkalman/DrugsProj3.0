@@ -50,50 +50,52 @@ namespace DrugsProject3._0
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-         //Bl.print(@"firstpage.pdf", "printttttttttttttttt");
-         Bl.createPDF(new BE.Recipe ("111", "222", "333" ,"444", 2,2,"gfsd", DateTime.Now));
-         Bl.AddMedicine(new BE.Medicine("8124",
-        "phenelzine",
-        "phenelzine",
-        "jf",
-        "gfd",
-        " "));
+            Bl.AddRecipe(new BE.Recipe("11", "312246605", "4444", "44", 44, 44,"ll",DateTime.Now));
 
-        Bl.AddMedicine(new BE.Medicine("199487","moclobemide","moclobemide",
-        "jf",
-        "gfd",
-        " "));
+            // //Bl.print(@"firstpage.pdf", "printttttttttttttttt");
+            // Bl.createPDF(new BE.Recipe ("111", "222", "333" ,"444", 2,2,"gfsd", DateTime.Now));
+            // Bl.AddMedicine(new BE.Medicine("8124",
+            //"phenelzine",
+            //"phenelzine",
+            //"jf",
+            //"gfd",
+            //" "));
 
-
-        Bl.AddMedicine(new BE.Medicine("37418",
-        "sumatriptan",
-        "sumatriptan",
-        "jf",
-        "gfd",
-        " "));
+            //Bl.AddMedicine(new BE.Medicine("199487","moclobemide","moclobemide",
+            //"jf",
+            //"gfd",
+            //" "));
 
 
-            string drugName = "rizatriptan";
-            List<string> result = Bl.interactionDrugs(drugName);
-            if (result != null)
-            {
-                MessageBox.Show(result[0].ToString());
-            }
-           
+            //Bl.AddMedicine(new BE.Medicine("37418",
+            //"sumatriptan",
+            //"sumatriptan",
+            //"jf",
+            //"gfd",
+            //" "));
+
+
+            //    string drugName = "rizatriptan";
+            //    List<string> result = Bl.interactionDrugs(drugName);
+            //    if (result != null)
+            //    {
+            //        MessageBox.Show(result[0].ToString());
+            //    }
+
         }
-//    //phenelzine
-//    moclobemide
-//    isocarboxazid
-//methylene blue
-//tranylcypromine
-    //private void Button_Click(object sender, RoutedEventArgs e)
-    //{
-    //    this.ShowControl(uc);
-    //}
+        //    //phenelzine
+        //    moclobemide
+        //    isocarboxazid
+        //methylene blue
+        //tranylcypromine
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    this.ShowControl(uc);
+        //}
 
-    //private void Button_Click(object sender, RoutedEventArgs e)
-    //{
-    //    this.ShowControl(uc);Command="{Binding MainCommand}"
-    //}
-}
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    this.ShowControl(uc);Command="{Binding MainCommand}"
+        //}
+    }
 }

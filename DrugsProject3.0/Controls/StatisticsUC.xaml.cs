@@ -29,6 +29,7 @@ namespace DrugsProject3._0.Controls
             StatisticsVM VM = new StatisticsVM();
             DataContext = VM;
             InitializeComponent();
+            
         }
     }
 }

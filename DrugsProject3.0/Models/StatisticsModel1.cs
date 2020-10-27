@@ -1,4 +1,5 @@
-﻿using BL;
+﻿using BE;
+using BL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,10 @@ namespace DrugsProject3._0.Models
         {
             return Bl.drugStatistics(drugID, start, finish);
         }
-       
+
+        public List<Recipe> GetAllRecipes()
+        {
+            return Bl.GetAllRecipes();
+        }
     }
 }
