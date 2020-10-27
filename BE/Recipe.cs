@@ -19,7 +19,14 @@ namespace BE
         public string Description { get; set; }
         public DateTime Date { get; set; }
 
-
+        public override string ToString()
+        {
+            return "recipe number: " + RecipeId +
+                    "\n patient ID: " + PatientId +
+                    "\n " +
+                    " need to take medicine number " + MedicineId +
+                    " " + PeriodOfUse + " " + QuantityPerDay;
+        }
 
         public Recipe()
         {
