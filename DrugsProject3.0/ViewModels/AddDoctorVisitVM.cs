@@ -19,7 +19,7 @@ namespace DrugsProject3._0.ViewModels
     class AddDoctorVisitVM : INotifyPropertyChanged
     {
 
-        public event PropertyChangedEventHandler PropertyChanged;   
+        public event PropertyChangedEventHandler PropertyChanged;
         public AddDoctorVisitModel AddDoctorVisitM { get; set; }
         public AddDoctorVisitCommand AddCommand { get; set; }
         public IControlManage IControlManage { get; set; }/////////////////////////////////////////////
@@ -28,18 +28,27 @@ namespace DrugsProject3._0.ViewModels
         public Patient Patient { get; set; }
         public User User { get; set; }
         public ObservableCollection<string> MedicinesNames { get; set; }
-       // public ObservableCollection<string> MedicinesSelected { get; set; }
+        // public ObservableCollection<string> MedicinesSelected { get; set; }
 
         public AddDoctorVisitVM(IControlManage controlManage)/////////////////////////////////////////////
         {
-            IControlManage = controlManage;/////////////////////////////////////////////
-            AddDoctorVisitM = new AddDoctorVisitModel();
-            AddCommand = new AddDoctorVisitCommand(this);
-            MedicinesNames = new ObservableCollection<string>(AddDoctorVisitM.GetAllMedicinesNames());
-            Patient = IControlManage.Patient;
-            User = IControlManage.User;
-            PatientName = Patient.Fname + " " + Patient.Lname;
-           // MedicinesSelected = new ObservableCollection<string>();
+            try
+            {
+                IControlManage = controlManage;/////////////////////////////////////////////
+                AddDoctorVisitM = new AddDoctorVisitModel();
+                AddCommand = new AddDoctorVisitCommand(this);
+                MedicinesNames = new ObservableCollection<string>(AddDoctorVisitM.GetAllMedicinesNames());
+                Patient = IControlManage.Patient;
+                User = IControlManage.User;
+                PatientName = Patient.Fname + " " + Patient.Lname;
+                // MedicinesSelected = new ObservableCollection<string>();
+            }
+            catch (Exception e)
+            {
+
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
+            
         }
 
         public void Massage(List<string> res)
@@ -81,7 +90,7 @@ namespace DrugsProject3._0.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("QuantityPerDay"));
             }
         }
-        
+
         private string description;
         public string Description
         {
@@ -92,34 +101,53 @@ namespace DrugsProject3._0.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Description"));
             }
         }
-        
+
         public DateTime Date { get; set; }
         public List<string> CheckInteractionDrugs()
         {
-            List<string> interactionDrugsList =  AddDoctorVisitM.interactionDrugs(MedicineSelected);
-            List<string> DrugsList = AddDoctorVisitM.getPatientHistory(Patient.PatientId);
-            List<string> res = new List<string>();
-            foreach (string item in DrugsList)
+            try
             {
-                foreach (string item2 in interactionDrugsList)
+                List<string> interactionDrugsList = AddDoctorVisitM.interactionDrugs(MedicineSelected);
+                List<string> DrugsList = AddDoctorVisitM.getPatientHistory(Patient.PatientId);
+                List<string> res = new List<string>();
+                foreach (string item in DrugsList)
                 {
-                    if (item == item2)
+                    foreach (string item2 in interactionDrugsList)
                     {
-                        res.Add(item);
+                        if (item == item2)
+                        {
+                            res.Add(item);
+                        }
                     }
                 }
+                return res;
             }
-            return res;
+            catch (Exception e)
+            {
+
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
+            return null;
+
         }
-            public void AddRecipe()
+        public void AddRecipe()
         {
-            MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
-            RecipeId = AddDoctorVisitM.AddRecipeId();///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            string PatientId = Patient.PatientId;
-            string DoctorId = "888"; /*User.Id;*/
-            Date = DateTime.Now;
-            AddDoctorVisitM.AddRecipe(new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date));
-           // MedicinesSelected.Add(MedicineSelected);
+            try
+            {
+                MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
+                RecipeId = AddDoctorVisitM.AddRecipeId();///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                string PatientId = Patient.PatientId;
+                string DoctorId = "888"; /*User.Id;*/
+                Date = DateTime.Now;
+                AddDoctorVisitM.AddRecipe(new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date));
+                // MedicinesSelected.Add(MedicineSelected);
+            }
+            catch (Exception e)
+            {
+
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
+
         }
     }
 }
