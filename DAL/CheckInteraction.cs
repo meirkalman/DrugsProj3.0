@@ -34,7 +34,7 @@ namespace DAL
                                 {
                                     if (item3.sourceConceptItem.name != drugName)
                                     {
-                                        result.Add(item3.sourceConceptItem.name);
+                                        result.Add(NumberFromName(item3.sourceConceptItem.name).ToString());
                                     }
                                 }
                             }

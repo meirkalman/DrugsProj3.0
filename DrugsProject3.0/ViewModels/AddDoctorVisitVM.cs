@@ -147,7 +147,7 @@ namespace DrugsProject3._0.ViewModels
                 Date = DateTime.Now;
                 Recipe recipe = new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date);
                 AddDoctorVisitM.AddRecipe(recipe);
-                PrescriptionsGiven.Add(recipe.MedicineId);
+                //PrescriptionsGiven.Add(recipe.MedicineId);
                 // MedicinesSelected.Add(MedicineSelected);
             }
             catch (Exception e)

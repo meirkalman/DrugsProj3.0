@@ -490,6 +490,10 @@ namespace BL
                 medicine = (from item in GetAllMedicines()
                             where item.CommercialName == medicineName
                             select item).FirstOrDefault();
+                if(medicine == null)
+                {
+                    throw new Exception("אין כזו תרופה");
+                }
                 return medicine.Id;
             }
             catch (Exception ex)
