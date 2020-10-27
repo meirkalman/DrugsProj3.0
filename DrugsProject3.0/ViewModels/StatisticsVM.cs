@@ -1,4 +1,5 @@
-﻿using DrugsProject3._0.Commands;
+﻿using BE;
+using DrugsProject3._0.Commands;
 using DrugsProject3._0.Models;
 using System;
 using System.Collections.Generic;
@@ -13,23 +14,20 @@ namespace DrugsProject3._0.ViewModels
     {
 
 
-        public StatisticsModel StatisticsModel;
+        public StatisticsModel StatisticsM;
         
 
-        public ObservableCollection<int> PatientsId { get; set; }
+        public ObservableCollection<Recipe> Recipes { get; set; }
 
         
         public StatisticsVM()
         {
-            StatisticsModel = new StatisticsModel();
+            StatisticsM = new StatisticsModel();
 
             Command = new StatisticsCommand(this);
-            
-            
-            
+            Recipes = new ObservableCollection<Recipe>(StatisticsM.GetAllRecipes());
         }
         
-
         public StatisticsCommand Command { get; set; }
         //  public DoctorCommand CommandAP { get; set; }
 
