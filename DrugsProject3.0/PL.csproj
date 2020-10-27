@@ -141,14 +141,14 @@
     <Compile Include="Commands\MainCommand.cs" />
     <Compile Include="Commands\MedicineCommand.cs" />
     <Compile Include="Commands\StatisticsCommand.cs" />
-    <Compile Include="Controls\MedicinInformation.xaml.cs">
-      <DependentUpon>MedicinInformation.xaml</DependentUpon>
+    <Compile Include="Controls\MedicinInformationUC.xaml.cs">
+      <DependentUpon>MedicinInformationUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\PatientInformation.xaml.cs">
-      <DependentUpon>PatientInformation.xaml</DependentUpon>
+    <Compile Include="Controls\PatientInformationUC.xaml.cs">
+      <DependentUpon>PatientInformationUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\UserInformation.xaml.cs">
-      <DependentUpon>UserInformation.xaml</DependentUpon>
+    <Compile Include="Controls\UserInformationUC.xaml.cs">
+      <DependentUpon>UserInformationUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\UserUC.xaml.cs">
       <DependentUpon>UserUC.xaml</DependentUpon>
@@ -190,15 +190,15 @@
     <Compile Include="ViewModels\MainVM.cs" />
     <Compile Include="ViewModels\MedicineVM.cs" />
     <Compile Include="ViewModels\StatisticsVM.cs" />
-    <Page Include="Controls\MedicinInformation.xaml">
+    <Page Include="Controls\MedicinInformationUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\PatientInformation.xaml">
+    <Page Include="Controls\PatientInformationUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\UserInformation.xaml">
+    <Page Include="Controls\UserInformationUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

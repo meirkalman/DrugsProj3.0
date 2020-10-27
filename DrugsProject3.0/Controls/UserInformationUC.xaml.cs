@@ -1,5 +1,4 @@
-﻿using DrugsProject3._0.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,14 +16,12 @@ using System.Windows.Shapes;
 namespace DrugsProject3._0.Controls
 {
     /// <summary>
-    /// Interaction logic for AdministratorInformation.xaml
+    /// Interaction logic for UserInformationUC.xaml
     /// </summary>
-    public partial class AdministratorInformation : UserControl
+    public partial class UserInformationUC : UserControl
     {
-        public AdministratorInformation()
+        public UserInformationUC()
         {
-            PatientInformationVM VM = new PatientInformationVM();
-            DataContext = VM;
             InitializeComponent();
         }
     }

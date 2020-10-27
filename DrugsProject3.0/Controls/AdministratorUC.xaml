@@ -26,7 +26,7 @@
                 <Grid.Background>
                     <ImageBrush ImageSource="/DrugsProject3.0;component/Images/doctor.png" Stretch="Uniform" />
                 </Grid.Background>
-                <Button  Command="{Binding Command}"  CommandParameter="Information"
+                <Button  Command="{Binding Command}"  CommandParameter="UserInformationUC"
                     HorizontalAlignment="Center"
   Content="{materialDesign:PackIcon InformationOutline}"
   ToolTip="Icon" Margin="109,326,10,10"  />
@@ -45,7 +45,7 @@
                 <Grid.Background>
                     <ImageBrush ImageSource="/DrugsProject3.0;component/Images/Patient.png" Stretch="Uniform" />
                 </Grid.Background>
-                <Button  Command="{Binding Command}" CommandParameter="Statistics"
+                <Button  Command="{Binding Command}" CommandParameter="PatientInformationUC"
                     HorizontalAlignment="Center"
   Content="{materialDesign:PackIcon InformationOutline}"
   ToolTip="Icon" Margin="109,326,10,10"  />
@@ -63,7 +63,7 @@
                 <Grid.Background>
                     <ImageBrush ImageSource="/DrugsProject3.0;component/images/Medication.png" Stretch="Uniform" />
                 </Grid.Background>
-                <Button  Command="{Binding Command}" CommandParameter="Statistics"
+                <Button  Command="{Binding Command}" CommandParameter="MedicinInformationUC"
                     HorizontalAlignment="Center"
   Content="{materialDesign:PackIcon InformationOutline}"
   ToolTip="Icon" Margin="109,326,10,10"  />
