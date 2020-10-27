@@ -52,18 +52,46 @@ namespace DrugsProject3._0.ViewModels
             IControlManage = controlManage;
             DoctorM = new DoctorModel();
             Command = new DoctorCommand(this);
-            PatientsId = new ObservableCollection<string>(GetAllPatients());
+            try
+            {
+                PatientsId = new ObservableCollection<string>(GetAllPatients());
+            }
+            catch (Exception e)
+            {
+
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
+           
            
         }
         public List<string> GetAllPatients()
         {
-            var ids = (from item in DoctorM.GetAllPatients()
-                       select item.PatientId).ToList();
-            return ids;
+            
+            try
+            {
+                var res = (from item in DoctorM.GetAllPatients()
+                           select item.PatientId).ToList();
+                
+            }
+            catch (Exception e)
+            {
+
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
+            return null;
         }
         public void CManage()
         {
-            IControlManage.Patient = DoctorM.GetPatient(patientSelected);
+            try
+            {
+                IControlManage.Patient = DoctorM.GetPatient(patientSelected);
+            }
+            catch (Exception e)
+            {
+
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
+            
         }
     }
 }
