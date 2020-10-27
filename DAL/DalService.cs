@@ -14,7 +14,7 @@ namespace DAL
 
         #region add & update to db
 
-        public bool AddPatient(Patient patient)
+        public void AddPatient(Patient patient)
         {
             
             using (var db = new DBContext())
@@ -23,14 +23,14 @@ namespace DAL
                 var current = db.Patients.Find(patient.PatientId);
                 if(current != null)
                 {
-                    return false;
+                    throw new Exception("חולה כבר קיים ");
                 }
                 db.Patients.Add(patient);
                 db.SaveChanges();
-                return true;
+                
             }
         }
-        public bool AddMedicine(Medicine medicine)
+        public void AddMedicine(Medicine medicine)
         {
             
             using (var db = new DBContext())
@@ -38,26 +38,26 @@ namespace DAL
                 var current = db.Medicines.Find(medicine.Id);
                 if (current != null)
                 {
-                    return false;
+                    throw new Exception("תרופה כבר קיימת ");
                 }
                 db.Medicines.Add(medicine);
                 db.SaveChanges();
             }
-            return true;
+            
         }
-        public bool AddRecipe(Recipe recipe)
+        public void AddRecipe(Recipe recipe)
         {
             using (var db = new DBContext())
             {
                 var current = db.Recipes.Find(recipe.RecipeId);
                 if (current != null)
                 {
-                    return false;
+                    throw new Exception("מרשם כבר קיים ");
                 }
                 db.Recipes.Add(recipe);
                 db.SaveChanges();
             }
-            return true;
+            
         }
         public void AddUser(User user)
         {
@@ -74,14 +74,14 @@ namespace DAL
         }
 
 
-        public bool UpdatePatient(Patient patient)
+        public void UpdatePatient(Patient patient)
         {
             using (var db = new DBContext())
             {
                 var current = db.Patients.Find(patient.PatientId);
                 if (current == null)
                 {
-                    return false;
+                    throw new Exception("חולה כבר קיים ");
                 }
                 current.PatientId = patient.PatientId;
                 current.Lname = patient.Lname;
@@ -90,16 +90,16 @@ namespace DAL
                 current.DateOfBirth = patient.DateOfBirth;
                 db.SaveChanges();
             }
-            return true;
+            
         }
-        public bool UpdateMedicine(Medicine medicine)
+        public void UpdateMedicine(Medicine medicine)
         {
             using (var db = new DBContext())
             {
                 var current = db.Medicines.Find(medicine.Id);
                 if (current == null)
                 {
-                    return false;
+                    throw new Exception("תרופה לא במערכת ");
                 }
                 current.Id = medicine.Id;
                 current.CommercialName = medicine.CommercialName;
@@ -109,16 +109,16 @@ namespace DAL
                 current.ImageUri = medicine.ImageUri;
                 db.SaveChanges();
             }
-            return true;
+           
         }
-        public bool UpdateRecipe(Recipe recipe)
+        public void UpdateRecipe(Recipe recipe)
         {
             using (var db = new DBContext())
             {
                 var current = db.Recipes.Find(recipe.RecipeId);
                 if (current == null)
                 {
-                    return false;
+                    throw new Exception("מרשם לא במערכת ");
                 }
                 current.RecipeId = recipe.RecipeId;
                 current.DoctorId = recipe.DoctorId;
@@ -129,16 +129,16 @@ namespace DAL
                 current.Date = recipe.Date;
                 db.SaveChanges();
             }
-            return true;
+            
         }
-        public bool UpdateUser(User user)
+        public void UpdateUser(User user)
         {
             using (var db = new DBContext())
             {
                 var current = db.Users.Find(user.Id);
                 if (current == null)
                 {
-                    return false;
+                    throw new Exception("משתמש לא במערכת ");
                 }
                 current.Id = user.Id;
                 current.Lname = user.Lname;
@@ -147,67 +147,67 @@ namespace DAL
                 current.Type = user.Type;
                 db.SaveChanges();
             }
-            return true;
+            
         }
         #endregion add & update to db
 
-        public bool DeletePatient(Patient patient)
+        public void DeletePatient(Patient patient)
         {
             using (var db = new DBContext())
             {
                 var current = db.Patients.Find(patient.PatientId);
                 if (current == null)
                 {
-                    return false;
+                    throw new Exception("חולה לא במערכת ");
                 }
                 db.Patients.Remove(current);
                 db.SaveChanges();
 
-                return true;
+               
                 
             }
         }
-        public bool DeleteMedicine(Medicine medicine)
+        public void DeleteMedicine(Medicine medicine)
         {
             using (var db = new DBContext())
             {
                 var current = db.Medicines.Find(medicine.Id);
                 if (current == null)
                 {
-                    return false;
+                    throw new Exception("תרופה לא במערכת ");
                 }
                 db.Medicines.Remove(current);
                 db.SaveChanges();
                 return true;
             }
         }
-        public bool DeleteRecipe(Recipe recipe)
+        public void DeleteRecipe(Recipe recipe)
         {
             using (var db = new DBContext())
             {
                 var current = db.Recipes.Find(recipe.RecipeId);
                 if (current == null)
                 {
-                    return false;
+                    throw new Exception("מרשם לא במערכת ");
                 }
                 db.Recipes.Remove(current);
                 db.SaveChanges();
-                return true;
+                
             }
         }
 
-        public bool DeleteUser(User user)
+        public void DeleteUser(User user)
         {
             using (var db = new DBContext())
             {
                 var current = db.Users.Find(user.Id);
                 if (current == null)
                 {
-                    return false;
+                    throw new Exception("משתמש לא במערכת ");
                 }
                 db.Users.Remove(current);
                 db.SaveChanges();
-                return true;
+                
             }
         }
 
@@ -223,6 +223,8 @@ namespace DAL
                     PatientList = db.Patients.Where(predicate).ToList();
                 }
             }
+            if(PatientList.Count == 0)
+                throw new Exception("אין חולים במערכת ");
             return PatientList;
         }
 
@@ -238,6 +240,8 @@ namespace DAL
                     MedicinetList = db.Medicines.Where(predicate).ToList();
                 }
             }
+            if (MedicinetList.Count == 0)
+                throw new Exception("אין תרופות במערכת ");
             return MedicinetList;
         }
 
@@ -253,6 +257,8 @@ namespace DAL
                     RecipeList = db.Recipes.Where(predicate).ToList();
                 }
             }
+            if (RecipeList.Count == 0)
+                throw new Exception("אין מרשמים במערכת ");
             return RecipeList;
         }
 
@@ -268,6 +274,8 @@ namespace DAL
                     UserList = db.Users.Where(predicate).ToList();
                 }
             }
+            if (UserList.Count == 0)
+                throw new Exception("אין משתמשים במערכת ");
             return UserList;
         }
 
@@ -279,18 +287,10 @@ namespace DAL
                                where item.PatientId == id
                                select item).ToList();
 
-                if (patient.Count == 1)
-                {
-                    return patient.First();
-                }
-                else if (patient.Count == 0)
-                {
-                    return null;
-                }
-                else
-                {
-                    throw new Exception("error,Patient not found");
-                }
+                if (patient.Count != 1)
+                    throw new Exception("חולה לא נמצא");
+                return patient.First();
+
             }
         }
 
@@ -302,18 +302,9 @@ namespace DAL
                                 where item.Id == id
                                select item).ToList();
 
-                if (medicine.Count == 1)
-                {
-                    return medicine.First();
-                }
-                else if (medicine.Count == 0)
-                {
-                    return null;
-                }
-                else
-                {
-                    throw new Exception("error,medicine not found");
-                }
+                if (medicine.Count != 1)
+                    throw new Exception("תרופה לא במערכת");
+                return medicine.First();
             }
         }
 
@@ -325,18 +316,9 @@ namespace DAL
                                where item.RecipeId == recipeId
                                select item).ToList();
 
-                if (recipe.Count == 1)
-                {
-                    return recipe.First();
-                }
-                else if (recipe.Count == 0)
-                {
-                    return null;
-                }
-                else
-                {
-                    throw new Exception("error,recipe not found");
-                }
+                if (recipe.Count != 1)
+                    throw new Exception("מרשם לא במערכת");
+                return recipe.First();
             }
         }
 
@@ -348,18 +330,9 @@ namespace DAL
                             where item.Id == id
                                select item).ToList();
 
-                if (user.Count == 1)
-                {
-                    return user.First();
-                }
-                else if (user.Count == 0)
-                {
-                    return null;
-                }
-                else
-                {
-                    throw new Exception("error,user not found");
-                }
+                if (user.Count != 1)
+                    throw new Exception("מרשם לא במערכת");
+                return user.First();
             }
         }
     }
