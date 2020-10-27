@@ -22,14 +22,22 @@ namespace DrugsProject3._0.ViewModels
         
         public StatisticsVM()
         {
-            StatisticsM = new StatisticsModel();
+            try
+            {
+                StatisticsM = new StatisticsModel();
 
-            Command = new StatisticsCommand(this);
-            Recipes = new ObservableCollection<Recipe>(StatisticsM.GetAllRecipes());
+                Command = new StatisticsCommand(this);
+                Recipes = new ObservableCollection<Recipe>(StatisticsM.GetAllRecipes());
+            }
+            catch (Exception e)
+            {
+
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
         }
         
         public StatisticsCommand Command { get; set; }
-        //  public DoctorCommand CommandAP { get; set; }
+       
 
         
     }

@@ -23,7 +23,14 @@ namespace DrugsProject3._0.Models
 
         public List<Recipe> GetAllRecipes()
         {
-            return Bl.GetAllRecipes();
+            try
+            {
+                return Bl.GetAllRecipes();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
