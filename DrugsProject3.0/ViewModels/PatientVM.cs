@@ -126,7 +126,7 @@ namespace DrugsProject3._0.ViewModels
             else
             {
                 PatientV = new Patient(Id, Fname, Lname, PhoneNum, DateOfBirth);
-                PatientM.AddPatient(PatientV);
+              //  PatientM.AddPatient(PatientV);
                 PatientIds.Add(PatientV.PatientId);
                 (App.Current as App).navigation.MainWindows.comments.Text = "המטופל נוסף בהצלחה";
             }
