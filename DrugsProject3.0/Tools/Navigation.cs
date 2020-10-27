@@ -19,7 +19,7 @@ namespace DrugsProject3._0.Navigation
             {
                 case "LoginUC":
                     uc = new LoginUC();
-                    title = "עמוד הבית";
+                    title = "ברוך הבא";
                     break;
                 case "DoctorVisitUC":
                     uc = new DoctorVisitUC();
