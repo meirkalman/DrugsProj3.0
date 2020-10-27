@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
@@ -56,20 +57,21 @@ namespace BL
         {
             try
             {
+                    ProcessStartInfo info = new ProcessStartInfo();
+                    info.Verb = "print";
+                    info.FileName = @"c:\output.pdf";
+                    info.CreateNoWindow = true;
+                    info.WindowStyle = ProcessWindowStyle.Hidden;
 
-                streamToPrint = new StreamReader(filePath);
-                try
-                {
-                    printFont = new Font("Arial", 10);
-                    PrintDocument pd = new PrintDocument();
-                    pd.PrintPage += new PrintPageEventHandler(pd_PrintPage);
-                    // Print the document.
-                    pd.Print();
-                }
-                finally
-                {
-                    streamToPrint.Close();
-                }
+                    Process p = new Process();
+                    p.StartInfo = info;
+                    p.Start();
+
+                    p.WaitForInputIdle();
+                    System.Threading.Thread.Sleep(3000);
+                    if (false == p.CloseMainWindow())
+                        p.Kill();
+               
             }
             catch (Exception ex)
             {

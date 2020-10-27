@@ -62,6 +62,7 @@ namespace DrugsProject3._0
             //Bl.AddMedicine(new BE.Medicine("8124", "phenelzine", "phenelzine", "טבע", "30", "gfjd"));
             //Bl.AddMedicine(new BE.Medicine("199487", "moclobemide", "moclobemide", "טבע", "900", "ddd"));
             //Bl.AddMedicine(new BE.Medicine("37418", "sumatriptan", "sumatriptan", "טבע", "87", "llll"));
+            Bl.print(new BE.Recipe("1234", "999999999", "222222222", "8124", 30, 2, "כאב בטן", DateTime.Now.AddDays(-3)));
             Bl.createPDF(new BE.Recipe("1234", "999999999", "222222222", "8124", 30, 2, "כאב בטן", DateTime.Now.AddDays(-3)));
             //string drugName = "rizatriptan";
             //List<string> result = Bl.interactionDrugs(drugName);
