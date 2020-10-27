@@ -54,7 +54,7 @@ namespace DrugsProject3._0.ViewModels
             Command = new DoctorCommand(this);
             try
             {
-                PatientsId = new ObservableCollection<string>(GetAllPatients());
+                PatientsId = new ObservableCollection<string>(DoctorM.GetAllPatientsId());
             }
             catch (Exception e)
             {
@@ -64,22 +64,7 @@ namespace DrugsProject3._0.ViewModels
            
            
         }
-        public List<string> GetAllPatients()
-        {
-            
-            try
-            {
-                var res = (from item in DoctorM.GetAllPatients()
-                           select item.PatientId).ToList();
-                
-            }
-            catch (Exception e)
-            {
-
-                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
-            }
-            return null;
-        }
+        
         public void CManage()
         {
             try

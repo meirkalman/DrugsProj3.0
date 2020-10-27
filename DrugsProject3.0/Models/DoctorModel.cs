@@ -40,7 +40,19 @@ namespace DrugsProject3._0.Models
 
                 throw ex;
             }
-            
+
+        }
+        public List<string> GetAllPatientsId()
+        {
+            try
+            {
+                return Bl.GetAllPatientsId();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }
