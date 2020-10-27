@@ -15,6 +15,7 @@ namespace DrugsProject3._0.Models
         {
             Bl = new BlObject();
         }
+
         public Dictionary<DateTime, int> drugStatistics(string drugID, DateTime start, DateTime finish)
         {
             return Bl.drugStatistics(drugID, start, finish);
