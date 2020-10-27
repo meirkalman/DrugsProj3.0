@@ -18,11 +18,29 @@ namespace DrugsProject3._0.Models
 
         public List<Patient> GetAllPatients()
         {
-            return Bl.GetAllPatients();
+            try
+            {
+                return Bl.GetAllPatients();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
         public Patient GetPatient(string id)
         {
-            return Bl.GetPatient(id);
+            try
+            {
+                return Bl.GetPatient(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
     }
 }

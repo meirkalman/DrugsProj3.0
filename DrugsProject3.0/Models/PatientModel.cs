@@ -19,21 +19,57 @@ namespace DrugsProject3._0.Models
 
         public void AddPatient(Patient patient)
         {
-            Bl.AddPatient(patient);
+            try
+            {
+                Bl.AddPatient(patient);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
         }
 
         public List<string> GetAllPatientsId()
         {
-            return Bl.GetAllPatientsId();
+            try
+            {
+                return Bl.GetAllPatientsId();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
 
         public Patient GetPatient(string patientId)
         {
-            return Bl.GetPatient(patientId);
+            try
+            {
+                return Bl.GetPatient(patientId);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
         public void DeletePatient(Patient patient)
         {
-             Bl.DeletePatient(patient);
+            try
+            {
+                Bl.DeletePatient(patient);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
     }
 }

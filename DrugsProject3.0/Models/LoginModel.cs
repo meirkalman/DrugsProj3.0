@@ -18,7 +18,16 @@ namespace DrugsProject3._0.Models
 
         public User GetUser(string id)
         {
-             return Bl.GetUser(id);
+            try
+            {
+                return Bl.GetUser(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
     }
 }

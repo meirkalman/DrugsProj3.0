@@ -18,8 +18,16 @@ namespace DrugsProject3._0.Models
 
         public Medicine GetMedicine(string id)
         {
+            try
+            {
+                return Bl.GetMedicine(id);
+            }
+            catch (Exception ex)
+            {
 
-            return Bl.GetMedicine(id);
+                throw ex;
+            }
+            
         }
 
         public string AddRecipeId()
@@ -29,26 +37,71 @@ namespace DrugsProject3._0.Models
 
         public List<string> GetAllMedicinesNames()
         {
-            return Bl.GetAllMedicinesNames();
+            try
+            {
+                return Bl.GetAllMedicinesNames();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
 
         public string GetMedicineId(string medicineName)
         {
-            return Bl.GetMedicineId(medicineName);
+            try
+            {
+                return Bl.GetMedicineId(medicineName);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
 
         public void AddRecipe(Recipe recipe)
         {
-            Bl.AddRecipe(recipe);
+            try
+            {
+                Bl.AddRecipe(recipe);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
         public List<string> interactionDrugs(string drugName)
         {
-           return Bl.interactionDrugs(drugName);
+            try
+            {
+                return Bl.interactionDrugs(drugName);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
 
         public List<string> getPatientHistory(string patientId)
         {
-            return Bl.getPatientHistory(Bl.GetPatient(patientId),true).Keys.ToList();
+            try
+            {
+                return Bl.getPatientHistory(Bl.GetPatient(patientId), true).Keys.ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
     }
 }
