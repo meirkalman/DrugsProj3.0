@@ -13,7 +13,7 @@ namespace BL
         string getPrescriptionID();
 
         void createPDF(Recipe recipe);
-        Dictionary<string, string> getPatientHistory(Patient patient, bool now = false);
+        List<Recipe> getPatientHistory(string patientId, bool now = false);
         // int getPrescriptionID();
         void AddPatient(Patient patient);
 

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid FlowDirection="RightToLeft">
-        <DataGrid x:Name="DataGrid"  HorizontalAlignment="Stretch" ItemsSource="{Binding Recipes}" CanUserAddRows="False" CanUserDeleteRows="False"  IsReadOnly="True" 
+        <DataGrid x:Name="DataGrid"  HorizontalAlignment="Stretch" ItemsSource="{Binding Medicines}" CanUserAddRows="False" CanUserDeleteRows="False"  IsReadOnly="True" 
            FlowDirection="RightToLeft" EnableRowVirtualization="True" AutoGenerateColumns="False" HorizontalContentAlignment="Center" Margin="48,139,51,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="תעודת זהות" Binding="{Binding Id }"/>
