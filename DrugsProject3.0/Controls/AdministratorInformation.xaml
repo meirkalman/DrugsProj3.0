@@ -10,13 +10,12 @@
         <DataGrid x:Name="DataGrid"  HorizontalAlignment="Stretch" ItemsSource="{Binding Recipes}" CanUserAddRows="False" CanUserDeleteRows="False"  IsReadOnly="True" 
            FlowDirection="RightToLeft" EnableRowVirtualization="True" AutoGenerateColumns="False" HorizontalContentAlignment="Center" Margin="48,139,51,0">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="תעודת זהות" Binding="{Binding RecipeId }"/>
-                <DataGridTextColumn Header="שם פרטי" Binding="{Binding PatientId}"/>
-                <DataGridTextColumn Header="שם משפחה" Binding="{Binding DoctorId}"/>
-                <DataGridTextColumn Header="מספר טלפון" Binding="{Binding MedicineId }"/>
-                <DataGridTextColumn Header="סוג משתמש" Binding="{Binding PeriodOfUse }"/>
-                <DataGridTextColumn Header="סיסמה" Binding="{Binding QuantityPerDay }"/>
-
+                <DataGridTextColumn Header="תעודת זהות" Binding="{Binding Id }"/>
+                <DataGridTextColumn Header="שם פרטי" Binding="{Binding Fname}"/>
+                <DataGridTextColumn Header="שם משפחה" Binding="{Binding Lname}"/>
+                <DataGridTextColumn Header="מספר טלפון" Binding="{Binding PhoneNumber }"/>
+                <DataGridTextColumn Header="סוג משתמש" Binding="{Binding Type }"/>
+                <DataGridTextColumn Header="סיסמה" Binding="{Binding Password }"/>
             </DataGrid.Columns>
         </DataGrid>
         <Grid HorizontalAlignment="Left" Height="124" Margin="0,10,0,0" VerticalAlignment="Top" Width="790">

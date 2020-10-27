@@ -9,22 +9,21 @@ using System.Threading.Tasks;
 
 namespace DrugsProject3._0.ViewModels
 {
-    class AdministratorInformationVM
+    class UserInformationVM
     {
-        public AdministratorInformationModel AdministratorInformationM;
+        public UserInformationModel UserInformationM;
 
 
         public ObservableCollection<User> Users { get; set; }
 
 
-        public AdministratorInformationVM()
+        public UserInformationVM()
         {
-            AdministratorInformationM = new AdministratorInformationModel();
+            UserInformationM = new UserInformationModel();
 
-           
-            Users = new ObservableCollection<User>(AdministratorInformationM.GetUsers());
+
+            Users = new ObservableCollection<User>(UserInformationM.GetUsers());
         }
 
-     
     }
 }

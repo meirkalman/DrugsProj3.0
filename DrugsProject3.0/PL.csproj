@@ -163,6 +163,8 @@
       <DependentUpon>StatisticsUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\AddDoctorVisitModel.cs" />
+    <Compile Include="Models\AdministratorInformationModel.cs" />
+    <Compile Include="Models\UserInformationModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\DoctorModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -175,6 +177,7 @@
     <Compile Include="ViewModels\AddDoctorVisitVM.cs" />
     <Compile Include="ViewModels\AdministratorInformationVM.cs" />
     <Compile Include="ViewModels\PatientVM.cs" />
+    <Compile Include="ViewModels\UserInformationVM.cs" />
     <Compile Include="ViewModels\UserVM.cs" />
     <Compile Include="ViewModels\AdministratorVM.cs" />
     <Compile Include="ViewModels\DoctorVM.cs" />
