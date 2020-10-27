@@ -18,23 +18,58 @@ namespace DrugsProject3._0.Models
 
         public void AddUser(User user)
         {
+            try
+            {
+                Bl.AddUser(user);
+            }
+            catch (Exception ex)
+            {
 
-            Bl.AddUser(user);
+                throw ex;
+            }
+            
         }
 
         public List<string> GetAllUserId()
         {
-            return Bl.GetAllUserId();
+            try
+            {
+                return Bl.GetAllUserId();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
+            
 
         public User GetUser(string userSelected)
         {
-            return Bl.GetUser(userSelected);
+                try
+                {
+                    return Bl.GetUser(userSelected);
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+                
         }
 
         public void DeleteUser(User user)
         {
-             Bl.DeleteUser(user);
+            try
+            {
+                Bl.DeleteUser(user);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
     }
 }

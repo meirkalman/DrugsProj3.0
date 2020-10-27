@@ -22,10 +22,10 @@ namespace DrugsProject3._0.Models
             {
                 Bl.AddMedicine(medicine);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("כבר קיימת תרופה כזו");
+                throw ex;
             }
             
         }

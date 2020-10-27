@@ -51,7 +51,7 @@ namespace DrugsProject3._0
         private void Button_Click(object sender, RoutedEventArgs e)
         {
          //Bl.print(@"firstpage.pdf", "printttttttttttttttt");
-        // Bl.createPDF(new BE.Recipe ("111", "222", "333" ,"444", 2,2,"gfsd", DateTime.Now));
+         Bl.createPDF(new BE.Recipe ("111", "222", "333" ,"444", 2,2,"gfsd", DateTime.Now));
          Bl.AddMedicine(new BE.Medicine("8124",
         "phenelzine",
         "phenelzine",

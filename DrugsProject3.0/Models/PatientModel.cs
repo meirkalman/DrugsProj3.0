@@ -11,12 +11,13 @@ namespace DrugsProject3._0.Models
     class PatientModel
     {
         public IBL Bl { get; set; }
+        
         public PatientModel()
         {
             Bl = new BlObject();
         }
 
-        public void AddPatient(Patient patient)
+        public void AddPatient(Patient patient, Message m)
         {
             Bl.AddPatient(patient);
         }
