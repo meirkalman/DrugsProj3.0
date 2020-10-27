@@ -1,4 +1,5 @@
 ﻿using BE;
+using DrugsProject3._0.Commands;
 using DrugsProject3._0.Models;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,13 @@ namespace DrugsProject3._0.ViewModels
 
 
         public ObservableCollection<Medicine> Medicines { get; set; }
-
+        public MedicinInformationCommand Command { get; set; }
 
         public MedicinInformationVM()
         {
             try
             {
+                Command = new MedicinInformationCommand(this);
                 MedicinInformationM = new MedicinInformationModel();
                 Medicines = new ObservableCollection<Medicine>(MedicinInformationM.GetMedicins());
             }
