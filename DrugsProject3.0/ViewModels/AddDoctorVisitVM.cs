@@ -28,8 +28,8 @@ namespace DrugsProject3._0.ViewModels
         public Patient Patient { get; set; }
         public User User { get; set; }
         public ObservableCollection<string> MedicinesNames { get; set; }
-        //public ObservableCollection<string> MedicationsAdded { get; set; }
-        //public ObservableCollection<string> PrescriptionsGiven { get; set; }
+        public ObservableCollection<string> MedicationsAdded { get; set; }
+        public List<string> PrescriptionsGiven { get; set; }
         public ObservableCollection<Recipe> Recipes { get; set; }
 
         public AddDoctorVisitVM(IControlManage controlManage)/////////////////////////////////////////////
@@ -44,7 +44,7 @@ namespace DrugsProject3._0.ViewModels
                 User = IControlManage.User;
                 PatientName = Patient.Fname + " " + Patient.Lname;
                 Recipes = new ObservableCollection<Recipe>(getPatientHistory());
-             //   MedicationsAdded = new ObservableCollection<string>(PrescriptionsGiven);
+                MedicationsAdded = new ObservableCollection<string>(PrescriptionsGiven);    
             }
             catch (Exception e)
             {
@@ -173,8 +173,9 @@ namespace DrugsProject3._0.ViewModels
                 Date = DateTime.Now;
                 Recipe recipe = new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date);
                 AddDoctorVisitM.AddRecipe(recipe);
-                //PrescriptionsGiven.Add(recipe.MedicineId);
-                // MedicinesSelected.Add(MedicineSelected);
+                PrescriptionsGiven.Add(recipe.MedicineId);
+                MedicationsAdded.Add(recipe.MedicineId);
+                
             }
             catch (Exception e)
             {
