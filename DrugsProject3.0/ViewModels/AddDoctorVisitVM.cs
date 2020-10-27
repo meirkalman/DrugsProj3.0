@@ -28,8 +28,8 @@ namespace DrugsProject3._0.ViewModels
         public Patient Patient { get; set; }
         public User User { get; set; }
         public ObservableCollection<string> MedicinesNames { get; set; }
-        public ObservableCollection<string> MedicationsAdded { get; set; }
-        public ObservableCollection<string> PrescriptionsGiven { get; set; }
+        //public ObservableCollection<string> MedicationsAdded { get; set; }
+        //public ObservableCollection<string> PrescriptionsGiven { get; set; }
         public ObservableCollection<Recipe> Recipes { get; set; }
 
         public AddDoctorVisitVM(IControlManage controlManage)/////////////////////////////////////////////
@@ -44,7 +44,7 @@ namespace DrugsProject3._0.ViewModels
                 User = IControlManage.User;
                 PatientName = Patient.Fname + " " + Patient.Lname;
                 Recipes = new ObservableCollection<Recipe>(getPatientHistory());
-                MedicationsAdded = new ObservableCollection<string>(PrescriptionsGiven);
+             //   MedicationsAdded = new ObservableCollection<string>(PrescriptionsGiven);
             }
             catch (Exception e)
             {
@@ -56,7 +56,7 @@ namespace DrugsProject3._0.ViewModels
 
         public void Massage(List<string> res)
         {
-            (App.Current as App).navigation.MainWindows.comments.Text = res.ToString();/////////////////////////////////////////////
+            (App.Current as App).navigation.MainWindows.comments.Text = "יש התנגשות עם תרופה מספר " +res[0];/////////////////////////////////////////////
         }
 
         public string RecipeId { get; set; }
