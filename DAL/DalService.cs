@@ -178,7 +178,7 @@ namespace DAL
                 }
                 db.Medicines.Remove(current);
                 db.SaveChanges();
-                return true;
+                
             }
         }
         public void DeleteRecipe(Recipe recipe)
