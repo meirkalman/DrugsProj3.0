@@ -500,46 +500,33 @@ namespace BL
 
         }
 
-        public Dictionary<string, string> getPatientHistory(Patient patient, bool now = false)
+        public List<Recipe> getPatientHistory(string patientId, bool now = false)
         {
             try
             {
-                Dictionary<string, string> result = new Dictionary<string, string>();
                 var patientPrescriptions = from p in GetAllRecipes()
-                                           where p.PatientId == patient.PatientId
+                                           where p.PatientId == patientId
                                            select p;
 
                 if (now)
                 {
-                    var drugsRightOfToday = from p in patientPrescriptions
-                                            where p.Date.AddDays(p.PeriodOfUse) > DateTime.Now
-                                            select p;
-                    foreach (var d in drugsRightOfToday)
-                    {
-                        Medicine medicine = GetMedicine(d.MedicineId);
-                        result.Add(medicine.GenericName, d.Description);
-                    }
+                    var drugsRightOfToday = (from p in patientPrescriptions
+                                             where p.Date.AddDays(p.PeriodOfUse) > DateTime.Now
+                                             select p).ToList();
+                    return drugsRightOfToday;
+
                 }
                 else
                 {
-                    foreach (var p in patientPrescriptions)
-                    {
-                        Medicine medicine = GetMedicine(p.MedicineId);
-                        result.Add(medicine.GenericName, p.Description);
-                    }
+                    return patientPrescriptions.ToList();
                 }
 
-
-                return result;
             }
             catch (Exception)
             {
 
                 throw new Exception("לא נמצא חולה במערכת");
             }
-            
-
-
         }
 
         public int ResolveRxcuiFromName(string name)

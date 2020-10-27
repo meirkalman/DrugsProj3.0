@@ -29,7 +29,7 @@
     ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="309,362,122,89" Height="Auto" >
             הוסף תרופה
         </Button>
-        <Button 
+        <Button  Command="{Binding AddCommand}" CommandParameter ="AddRecipe"
     Style="{StaticResource MaterialDesignRaisedAccentButton}"
     ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="153,362,276,89" Height="Auto" >
             הסר תרופה
@@ -39,7 +39,7 @@
     ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="447,441,10,10" Content="סיום" Height="Auto" />
 
 
-        <ListBox x:Name="MedicineListBox" ItemsSource="{Binding MedicinesNames}" Grid.Column="1"  HorizontalAlignment="Left" FlowDirection="RightToLeft" IsEnabled="False" Height="113" Margin="24,218,0,0"   VerticalAlignment="Top" Width="188" Background="Transparent" BorderThickness="2" BorderBrush="Black"/>
+        <ListBox x:Name="MedicineListBox" ItemsSource="{Binding MedicationsAdded}" Grid.Column="1"  HorizontalAlignment="Left" FlowDirection="RightToLeft" IsEnabled="False" Height="113" Margin="24,218,0,0"   VerticalAlignment="Top" Width="188" Background="Transparent" BorderThickness="2" BorderBrush="Black"/>
         <materialDesign:PopupBox
   Style="{StaticResource MaterialDesignMultiFloatingActionAccentPopupBox}"
   PlacementMode="BottomAndAlignCentres"
@@ -104,6 +104,15 @@
                 <DataGridTextColumn Header="מספר פציינט" Binding="{Binding PatientId}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <ComboBox x:Name="comboBox"  SelectedItem="{Binding Selected}" 
+            HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Width="54">
+            <ComboBoxItem> 
+                כל המידע
+            </ComboBoxItem>
+            <ComboBoxItem>
+                מידע עדכני
+            </ComboBoxItem>
+        </ComboBox>
 
     </Grid>
 </UserControl>

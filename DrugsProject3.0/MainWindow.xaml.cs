@@ -50,25 +50,25 @@ namespace DrugsProject3._0
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //Bl.AddRecipe(new BE.Recipe("11", "312246605", "4444", "44", 44, 44,"ll",DateTime.Now));
-            //Bl.AddRecipe(new BE.Recipe("22", "5555", "555", "55", 88, 88, "88", DateTime.Now.AddDays(-10)));
-            //Bl.AddRecipe(new BE.Recipe("33", "3333", "333", "333", 33, 33, "33", DateTime.Now.AddDays(-20)));
-            //Bl.AddUser(new BE.User("11", "hh", "hh", "44", BE.User.UserType.ADMIN, "kk"));
-            //Bl.AddUser(new BE.User("74", "yy", "yy", "78", BE.User.UserType.ADMIN, "55"));
-            //Bl.AddUser(new BE.User("478", "kk", "kkk", "77", BE.User.UserType.DOCTOR, "66"));
-            //Bl.AddPatient(new BE.Patient("44444", "oo", "oo", "47888", DateTime.Now.AddDays(-100)));
-            //Bl.AddPatient(new BE.Patient("888888", "ll", "lll", "7777777", DateTime.Now.AddDays(-200)));
-            //Bl.AddPatient(new BE.Patient("7777777", "gg", "gg", "6656", DateTime.Now.AddDays(-107)));
-            //Bl.AddMedicine(new BE.Medicine("8124", "phenelzine", "phenelzine", "jf", "gfd", "gfjd"));
-            //Bl.AddMedicine(new BE.Medicine("199487", "moclobemide", "moclobemide", "dd", "dd", "ddd"));
-            //Bl.AddMedicine(new BE.Medicine("37418", "sumatriptan", "sumatriptan", "lll", "lll", "llll"));
-           
-                string drugName = "rizatriptan";
-                List<string> result = Bl.interactionDrugs(drugName);
-                if (result != null)
-                {
-                    MessageBox.Show(result[0].ToString());
-                }
+            Bl.AddRecipe(new BE.Recipe("1234", "999999999", "222222222", "8124", 30, 2, "כאב בטן", DateTime.Now.AddDays(-3)));
+            Bl.AddRecipe(new BE.Recipe("1235", "888888888", "222222222", "199487", 40, 3, "כאב", DateTime.Now.AddDays(-10)));
+            Bl.AddRecipe(new BE.Recipe("1236", "777777777", "222222222", "37418", 40, 3, "שלשול", DateTime.Now.AddDays(-20)));
+            Bl.AddUser(new BE.User("111111111", "מאיר", "קלמן", "11111111", BE.User.UserType.ADMIN, "11111111"));
+            Bl.AddUser(new BE.User("222222222", "יצחקי", "רביץ", "22222222", BE.User.UserType.DOCTOR, "22222222"));
+            Bl.AddUser(new BE.User("333333333", "זאבי", "קמינסקי", "77", BE.User.UserType.DOCTOR, "33333333"));
+            Bl.AddPatient(new BE.Patient("999999999", "משה", "כהן", "0527631366", DateTime.Now.AddDays(-100)));
+            Bl.AddPatient(new BE.Patient("888888888", "יוסף", "ברקוביץ", "0527631366", DateTime.Now.AddDays(-200)));
+            Bl.AddPatient(new BE.Patient("777777777", "הלל", "לוי", "0527631366", DateTime.Now.AddDays(-107)));
+            Bl.AddMedicine(new BE.Medicine("8124", "phenelzine", "phenelzine", "טבע", "30", "gfjd"));
+            Bl.AddMedicine(new BE.Medicine("199487", "moclobemide", "moclobemide", "טבע", "900", "ddd"));
+            Bl.AddMedicine(new BE.Medicine("37418", "sumatriptan", "sumatriptan", "טבע", "87", "llll"));
+
+            //string drugName = "rizatriptan";
+            //List<string> result = Bl.interactionDrugs(drugName);
+            //if (result != null)
+            //{
+            //    MessageBox.Show(result[0].ToString());
+            //}
 
         }
         //    //phenelzine

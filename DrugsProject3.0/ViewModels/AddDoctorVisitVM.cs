@@ -28,7 +28,9 @@ namespace DrugsProject3._0.ViewModels
         public Patient Patient { get; set; }
         public User User { get; set; }
         public ObservableCollection<string> MedicinesNames { get; set; }
-        // public ObservableCollection<string> MedicinesSelected { get; set; }
+        public ObservableCollection<string> MedicationsAdded { get; set; }
+        public ObservableCollection<string> PrescriptionsGiven { get; set; }
+        public ObservableCollection<Recipe> Recipes { get; set; }
 
         public AddDoctorVisitVM(IControlManage controlManage)/////////////////////////////////////////////
         {
@@ -41,14 +43,15 @@ namespace DrugsProject3._0.ViewModels
                 Patient = IControlManage.Patient;
                 User = IControlManage.User;
                 PatientName = Patient.Fname + " " + Patient.Lname;
-                // MedicinesSelected = new ObservableCollection<string>();
+                Recipes = new ObservableCollection<Recipe>(getPatientHistory());
+                MedicationsAdded = new ObservableCollection<string>(PrescriptionsGiven);
             }
             catch (Exception e)
             {
 
                 (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
             }
-            
+
         }
 
         public void Massage(List<string> res)
@@ -108,7 +111,10 @@ namespace DrugsProject3._0.ViewModels
             try
             {
                 List<string> interactionDrugsList = AddDoctorVisitM.interactionDrugs(MedicineSelected);
-                List<string> DrugsList = AddDoctorVisitM.getPatientHistory(Patient.PatientId);
+                List<string> DrugsList = (from item in AddDoctorVisitM.getPatientHistory(Patient.PatientId, true)
+                           select item.MedicineId).ToList();
+
+              //  List<string> DrugsList = AddDoctorVisitM.getPatientHistory(Patient.PatientId, true);
                 List<string> res = new List<string>();
                 foreach (string item in DrugsList)
                 {
@@ -139,15 +145,34 @@ namespace DrugsProject3._0.ViewModels
                 string PatientId = Patient.PatientId;
                 string DoctorId = "888"; /*User.Id;*/
                 Date = DateTime.Now;
-                AddDoctorVisitM.AddRecipe(new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date));
+                Recipe recipe = new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date);
+                AddDoctorVisitM.AddRecipe(recipe);
+                PrescriptionsGiven.Add(recipe.MedicineId);
                 // MedicinesSelected.Add(MedicineSelected);
             }
             catch (Exception e)
             {
-
                 (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
             }
+        }
+        public string Selected { get; set; }
 
+        public List<Recipe> getPatientHistory()
+        {
+            try
+            {
+                if (Selected == "מידע עדכני")
+                {
+                    return AddDoctorVisitM.getPatientHistory(Patient.PatientId, true);
+                }
+                return AddDoctorVisitM.getPatientHistory(Patient.PatientId);
+            }
+            catch (Exception e)
+            {
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
+            return null;
         }
     }
+    
 }

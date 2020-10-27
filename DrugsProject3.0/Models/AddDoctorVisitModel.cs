@@ -84,24 +84,20 @@ namespace DrugsProject3._0.Models
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
-            
         }
 
-        public List<string> getPatientHistory(string patientId)
+        public List<Recipe> getPatientHistory(string patientId, bool flag = false)
         {
             try
             {
-                return Bl.getPatientHistory(Bl.GetPatient(patientId), true).Keys.ToList();
+                return Bl.getPatientHistory(patientId, flag);
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
-            
         }
     }
 }
