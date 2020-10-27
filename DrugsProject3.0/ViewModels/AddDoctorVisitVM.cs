@@ -54,6 +54,28 @@ namespace DrugsProject3._0.ViewModels
 
         }
 
+        internal void Print()
+        {
+            try
+            {
+                if (Description == null || QuantityPerDay == 0 || PeriodOfUse == 0)
+                {
+                    throw new ArgumentException("אתה צריך למלא את כל השדות");
+                }
+                MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
+                RecipeId = AddDoctorVisitM.AddRecipeId();///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                string PatientId = Patient.PatientId;
+                string DoctorId = "888"; /*User.Id;*/
+                Date = DateTime.Now;
+                Recipe = new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date);
+                AddDoctorVisitM.Print(Recipe);
+            }
+            catch (Exception e)
+            {
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
+        }
+
         public void Massage(List<string> res)
         {
             (App.Current as App).navigation.MainWindows.comments.Text = "יש התנגשות עם תרופה מספר " +res[0];/////////////////////////////////////////////
@@ -184,7 +206,7 @@ namespace DrugsProject3._0.ViewModels
             }
         }
 
-
+        
 
         public List<Recipe> getPatientHistory()
         {

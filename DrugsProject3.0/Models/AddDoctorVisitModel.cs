@@ -19,6 +19,11 @@ namespace DrugsProject3._0.Models
         {
             Bl.createPDF(r);
         }
+
+        public void Print(Recipe r)
+        {
+            Bl.print(r);
+        }
         public Medicine GetMedicine(string id)
         {
             try

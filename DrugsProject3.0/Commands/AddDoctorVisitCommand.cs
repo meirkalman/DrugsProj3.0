@@ -50,10 +50,15 @@ namespace DrugsProject3._0.Commands
 
                 (App.Current as App).navigation.ShowControls("DoctorUC");
             }
-            if (parameter.ToString() == "Print")
+            
+            if (parameter.ToString() == "PDF")
             {
                 CurrentVM.creatPDF();
-            }   
+            }
+            if (parameter.ToString() == "Print")
+            {
+                CurrentVM.Print();
+            }
         }
     }
 }
