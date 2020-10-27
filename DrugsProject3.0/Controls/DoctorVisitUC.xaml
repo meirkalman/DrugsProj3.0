@@ -28,8 +28,13 @@
   Margin="0 16 0 0"/>
         <Button Command="{Binding AddCommand}" CommandParameter ="AddRecipe"
     Style="{StaticResource MaterialDesignRaisedAccentButton}"
-    ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="255,362,124,89" Height="Auto" >
+    ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="309,362,122,89" Height="Auto" >
             הוסף תרופה
+        </Button>
+        <Button 
+    Style="{StaticResource MaterialDesignRaisedAccentButton}"
+    ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="153,362,276,89" Height="Auto" >
+            הסר תרופה
         </Button>
         <Button Command="{Binding AddCommand}" CommandParameter ="DoctorUC"
     Style="{StaticResource MaterialDesignRaisedAccentButton}"

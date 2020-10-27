@@ -50,6 +50,7 @@ namespace DrugsProject3._0.Navigation
                     title = "היסטורית צריכת תרופות";
                     break;
             }
+             (App.Current as App).navigation.MainWindows.comments.Text = "";
             MainWindows.ShowControl(uc, title);
         }
     }

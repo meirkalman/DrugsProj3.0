@@ -43,6 +43,7 @@ namespace DrugsProject3._0.Commands
             }
             if (parameter.ToString() == "Return")
             {
+
                 (App.Current as App).navigation.ShowControls("AdministratorUC");
             }
         }

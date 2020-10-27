@@ -43,6 +43,7 @@ namespace DrugsProject3._0.Commands
             }
             if (parameter.ToString() == "Statistics")
             {
+
                 (App.Current as App).navigation.ShowControls("StatisticsUC");
             }
             

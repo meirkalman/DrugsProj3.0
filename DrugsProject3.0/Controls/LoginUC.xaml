@@ -6,8 +6,7 @@
              xmlns:local="clr-namespace:DrugsProject3._0.Controls"
               xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
             
-             mc:Ignorable="d" 
-             d:DesignHeight="450" Width="510.5">
+             mc:Ignorable="d" Width="871.275" Height="492.672">
     <Grid Margin="0,0,10,0">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -20,7 +19,7 @@
             <TextBlock
             VerticalAlignment="Center"
               FlowDirection="RightToLeft"
-    Style="{StaticResource MaterialDesignHeadline6TextBlock}" Margin="214,10,198,416"><Run Text="התחברות"/></TextBlock>
+    Style="{StaticResource MaterialDesignHeadline6TextBlock}" Margin="375,34,384,420" Height="39"><Run Text="התחברות"/></TextBlock>
             <PasswordBox x:Name="PasswordBoxLogin"
                  FlowDirection="RightToLeft"
     Style="{StaticResource MaterialDesignOutlinedPasswordFieldPasswordBox}"
