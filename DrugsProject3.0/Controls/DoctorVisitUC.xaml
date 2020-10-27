@@ -57,7 +57,8 @@
                     ✍
                 </Button>
 
-                <Button
+                <Button 
+                    Command="{Binding AddCommand}" CommandParameter ="Print"
       ToolTip=" PDF צור קובץ" FontSize="23">
                     +
                 </Button>
