@@ -15,6 +15,8 @@ namespace BL
         void createPDF(Recipe recipe);
 
         void print(Recipe recipe);
+
+        List<Recipe> getPatientHistoryByDrug(string patientId, DateTime first, DateTime second, string drugID);
         List<Recipe> getPatientHistory(string patientId, bool now = false);
         // int getPrescriptionID();
         void AddPatient(Patient patient);

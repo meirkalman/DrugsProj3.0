@@ -517,7 +517,7 @@ namespace BL
         {
             List<Recipe> result = new List<Recipe>();
             result = (from item in getPatientHistory(patientId)
-                      where drugID == item.MedicineId && (item.Date < second) && item.Date.AddDays(item.PeriodOfUse) > first
+                      where drugID == item.MedicineId && item.Date < second && item.Date.AddDays(item.PeriodOfUse) > first
                       select item).ToList();
             return result;
         }
@@ -602,12 +602,7 @@ namespace BL
             
         }
 
-        //public List<string> GetMedicineNamesOfPatient(string patientId)
-        //{
-        //    List<Recipe> recipes = IDalService.GetAllRecipes(x => x.PatientId == patientId).ToList();
-        //    var ids = (from item in recipes select item.MedicineId).ToList();
-        //    return ids;
-        //}
+        
     }
 }
 
@@ -621,7 +616,3 @@ namespace BL
 
 
 
-//public void AddDoctorVisitToPatient(DoctorVisit doctorVisit, Patient patient)
-//{
-//    IDalService.AddDoctorVisitToPatient(doctorVisit, patient);
-//}
