@@ -17,7 +17,7 @@ namespace DrugsProject3._0.Models
             Bl = new BlObject();
         }
 
-        public void AddPatient(Patient patient, Message m)
+        public void AddPatient(Patient patient)
         {
             Bl.AddPatient(patient);
         }
