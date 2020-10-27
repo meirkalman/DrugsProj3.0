@@ -13,6 +13,8 @@ namespace BL
         string getPrescriptionID();
 
         void createPDF(Recipe recipe);
+
+        void print(Recipe recipe);
         List<Recipe> getPatientHistory(string patientId, bool now = false);
         // int getPrescriptionID();
         void AddPatient(Patient patient);
