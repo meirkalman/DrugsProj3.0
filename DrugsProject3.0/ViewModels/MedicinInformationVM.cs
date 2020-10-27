@@ -20,9 +20,10 @@ namespace DrugsProject3._0.ViewModels
 
         public MedicinInformationVM()
         {
+            Command = new MedicinInformationCommand(this);
             try
             {
-                Command = new MedicinInformationCommand(this);
+                
                 MedicinInformationM = new MedicinInformationModel();
                 Medicines = new ObservableCollection<Medicine>(MedicinInformationM.GetMedicins());
             }

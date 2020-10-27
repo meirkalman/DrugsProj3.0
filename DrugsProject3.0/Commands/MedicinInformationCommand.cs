@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace DrugsProject3._0.Commands
 {
-    class MedicinInformationCommand
+    class MedicinInformationCommand : ICommand
     {
         public event EventHandler CanExecuteChanged
         {
