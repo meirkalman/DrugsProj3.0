@@ -65,8 +65,9 @@ namespace DrugsProject3._0.ViewModels
         {
             try
             {
-                StatisticsM.getPatientHistoryByDrug(PatientSelected, DateStart, DateFinish, MedicineSelected);
-                Recipes = new ObservableCollection<Recipe>(StatisticsM.GetAllRecipes());
+                
+                Recipes.ClearItems(); 
+                Recipes.Add(new ObservableCollection<Recipe>(StatisticsM.getPatientHistoryByDrug(PatientSelected, DateStart, DateFinish, MedicineSelected)));
             }
             catch (Exception e)
             {
