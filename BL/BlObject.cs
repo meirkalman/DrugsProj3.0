@@ -41,40 +41,24 @@ namespace BL
                 XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
                 Medicine medicine = GetMedicine(recipe.MedicineId);
                 Patient patient = GetPatient(recipe.PatientId);
+                string texts = recipe.ToString();
+                
 
-//                for (int idx = 0; idx < texts.Length; idx++)
+                    PdfPage page = pdf.AddPage();
 
-//                {
+                    XGraphics gfx = XGraphics.FromPdfPage(page);
 
-//                    PdfPage page = pdf.AddPage();
+                    XTextFormatter tf = new XTextFormatter(gfx);
 
-//                    XGraphics gfx = XGraphics.FromPdfPage(page);
+                    tf.Alignment = XParagraphAlignment.Left;
 
-//                    XTextFormatter tf = new XTextFormatter(gfx);
-                    
-//                    tf.Alignment = XParagraphAlignment.Left;
+                    tf.DrawString(texts, font, XBrushes.Black,
+                    new XRect(100, 100, page.Width - 200, 600), XStringFormats.TopLeft);
 
-
-
-//                    17.
-//                    tf.DrawString(texts[idx], font, XBrushes.Black,
-//                    18.
-//                    new XRect(100, 100, page.Width - 200, 600), XStringFormats.TopLeft);
-//                    19.
-//}
-
-
-
-
-                graph.DrawString("recipe number: " + recipe.RecipeId +
-                    "/n patient ID: " + recipe.PatientId +
-                    "/n " + patient.Fname + " " + patient.Lname +
-                    " need to take " + medicine.CommercialName +
-                    " " + recipe.PeriodOfUse + " " + recipe.QuantityPerDay,
-                    font, XBrushes.Black, new XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.Center);
-                string pdfFilename = "prescription.pdf";
-                pdf.Save(pdfFilename);
-                Process.Start(pdfFilename);
+                    string pdfFilename = "prescription1.pdf";
+                    pdf.Save(pdfFilename);
+                    Process.Start(pdfFilename);
+               
             }
             catch (Exception)
             {
