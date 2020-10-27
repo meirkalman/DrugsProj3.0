@@ -15,7 +15,7 @@ namespace DAL
 
         bool AddRecipe(Recipe recipe);
 
-        bool AddUser(User user);
+        void AddUser(User user);
 
 
         bool UpdatePatient(Patient patient);

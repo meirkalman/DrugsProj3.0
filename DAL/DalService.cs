@@ -59,19 +59,18 @@ namespace DAL
             }
             return true;
         }
-        public bool AddUser(User user)
+        public void AddUser(User user)
         {
             using (var db = new DBContext())
             {
                 var current = db.Users.Find(user.Id);
                 if (current != null)
                 {
-                    return false;
+                    throw new Exception("משתמש כבר קיים במערכת");
                 }
                 db.Users.Add(user);
                 db.SaveChanges();
             }
-            return true;
         }
 
 
