@@ -78,10 +78,10 @@ namespace BL
             {
                 IDalService.AddMedicine(medicine);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("כבר קיימת תרופה כזו");
+                throw ex;
             }
             
         }
@@ -92,12 +92,12 @@ namespace BL
             {
                 IDalService.AddPatient(patient);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw  new Exception("כבר קיים חולה כזה");
+                throw ex;
             }
-            
+
         }
 
         public void AddRecipe(Recipe recipe)
@@ -106,12 +106,12 @@ namespace BL
             {
                 IDalService.AddRecipe(recipe);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("כבר קיים מרשם כזה");
+                throw ex;
             }
-            
+
         }
 
         public void AddUser(User user)
@@ -120,12 +120,12 @@ namespace BL
             {
                 IDalService.AddUser(user);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("כבר קיים משתמש כזה");
+                throw ex;
             }
-            
+
         }
         #endregion add
 
@@ -136,12 +136,12 @@ namespace BL
             {
                 IDalService.UpdateMedicine(medicine);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("אין תרופה כזו במערכת");
+                throw ex;
             }
-            
+
         }
 
         public void UpdatePatient(Patient patient)
@@ -150,12 +150,12 @@ namespace BL
             {
                 IDalService.UpdatePatient(patient);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("אין חולה כזה במערכת");
+                throw ex;
             }
-            
+
         }
 
         public void UpdateRecipe(Recipe recipe)
@@ -164,12 +164,12 @@ namespace BL
             {
                 IDalService.UpdateRecipe(recipe);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("אין מרשם כזה במערכת");
+                throw ex;
             }
-            
+
         }
 
         public void UpdateUser(User user)
@@ -178,12 +178,12 @@ namespace BL
             {
                 IDalService.UpdateUser(user);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("אין משתמש כזה במערכת");
+                throw ex;
             }
-            
+
         }
         #endregion update
 
@@ -194,12 +194,11 @@ namespace BL
             {
                 IDalService.DeleteMedicine(medicine);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("אין תרופה כזו במערכת");
+                throw ex;
             }
-            
         }
 
         public void DeletePatient(Patient patient)
@@ -208,12 +207,12 @@ namespace BL
             {
                 IDalService.DeletePatient(patient);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("אין חולה כזה במערכת");
+                throw ex;
             }
-            
+
         }
 
         public void DeleteRecipe(Recipe recipe)
@@ -222,12 +221,12 @@ namespace BL
             {
                 IDalService.DeleteRecipe(recipe);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("אין מרשם כזה במערכת");
+                throw ex;
             }
-            
+
         }
 
         public void DeleteUser(User user)
@@ -236,12 +235,12 @@ namespace BL
             {
                 IDalService.DeleteUser(user);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("אין משתמש כזה במערכת");
+                throw ex;
             }
-            
+
         }
         #endregion delete
 
@@ -251,16 +250,14 @@ namespace BL
             try
             {
                 List<Medicine> res = IDalService.GetAllMedicines();
-                if (res.Count == 0 || res == null)
-                    throw new Exception("אין תרופות במערכת");
                 return res;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("אין תרופות במערכת" );
-            } 
-            
+                throw ex;
+            }
+
         }
 
         public List<Patient> GetAllPatients(Func<Patient, bool> predicate = null)
@@ -268,16 +265,14 @@ namespace BL
             try
             {
                 List < Patient > res = IDalService.GetAllPatients();
-                if(res.Count == 0 || res ==null)
-                    throw new Exception("אין חולים במערכת");
                 return res;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("אין חולים במערכת");
+                throw ex;
             }
-            
+
         }
 
         public List<Recipe> GetAllRecipes(Func<Recipe, bool> predicate = null)
@@ -285,16 +280,14 @@ namespace BL
             try
             {
                 List < Recipe> res = IDalService.GetAllRecipes();
-                if(res.Count== 0 || res == null)
-                    throw new Exception("אין מרשמים במערכת");
                 return res;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("אין מרשמים במערכת");
+                throw ex;
             }
-            
+
         }
 
         public List<User> GetAllUsers(Func<User, bool> predicate = null)
@@ -302,17 +295,14 @@ namespace BL
             try
             {
                 List<User> res = IDalService.GetAllUsers();
-                if (res.Count == 0 || res == null)
-                    throw new Exception("אין משתמשים במערכת");
                 return res;
             
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw new Exception("אין משתמשים במערכת");
+                throw ex;
             }
-            
+
         }
         #endregion get all/some
 
@@ -323,12 +313,11 @@ namespace BL
             {
                 return IDalService.GetMedicine(id);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("אין כזו תרופה במערכת");
+                throw ex;
             }
-            
         }
 
         public Patient GetPatient(string id)
@@ -337,12 +326,12 @@ namespace BL
             {
                 return IDalService.GetPatient(id);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("אין כזה חולה במערכת");
+                throw ex;
             }
-            
+
         }
 
         public Recipe GetRecipe(string recipeId)
@@ -351,12 +340,12 @@ namespace BL
             {
                 return IDalService.GetRecipe(recipeId);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("אין כזה מרשם במערכת");
+                throw ex;
             }
-            
+
         }
 
         public User GetUser(string id)
@@ -365,12 +354,12 @@ namespace BL
             {
                 return IDalService.GetUser(id);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("אין כזה משתמש במערכת");
+                throw ex;
             }
-            
+
         }
         #endregion get 
 
@@ -427,12 +416,12 @@ namespace BL
 
                 return ids;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("אין חולים במערכת");
+                throw ex;
             }
-            
+
         }
 
 
@@ -444,12 +433,12 @@ namespace BL
                            select item.Id).ToList();
                 return ids;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("אין תרופות במערכת");
+                throw ex;
             }
-            
+
         }
 
         public List<string> GetAllMedicinesNames()
@@ -460,12 +449,12 @@ namespace BL
                              select item.CommercialName).ToList();
                 return names;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("אין תרופות במערכת");
+                throw ex;
             }
-            
+
         }
 
         public string GetMedicineId(string medicineName)
@@ -479,12 +468,12 @@ namespace BL
                             select item).FirstOrDefault();
                 return medicine.Id;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("לא נמצאה התרופה");
+                throw ex;
             }
-            
+
         }
 
         public Dictionary<string, string> getPatientHistory(Patient patient, bool now = false)
@@ -535,12 +524,12 @@ namespace BL
             {
                 return CI.ResolveRxcuiFromName(name);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception(" אין כזו תרופה");
+                throw ex;
             }
-            
+
         }
 
 
@@ -552,13 +541,13 @@ namespace BL
                            select item.Id).ToList();
                 return res;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception (" אין משתמשים");
+                throw ex;
             }
-            
-            
+
+
         }
         void print(string filePath, Recipe recipe)
         {

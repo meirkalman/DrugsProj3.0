@@ -18,7 +18,16 @@ namespace DrugsProject3._0.Models
 
         public void AddMedicine(Medicine medicine)
         {
-            Bl.AddMedicine(medicine);
+            try
+            {
+                Bl.AddMedicine(medicine);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
 
         public List<string> GetAllMedicineId()
