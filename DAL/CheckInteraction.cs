@@ -11,7 +11,11 @@ namespace DAL
 {
     public class CheckInteraction
     {
-        public XmlDocument drugsNums = new XmlDocument();
+        public CheckInteraction()
+        {
+            drugsNums = new XmlDocument();
+        }
+        public XmlDocument drugsNums;
         public List<string> interactionDrugs(string drugName)
         {
             List<string> result = new List<string>();
