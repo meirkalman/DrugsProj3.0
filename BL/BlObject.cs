@@ -513,21 +513,28 @@ namespace BL
             }
 
         }
-        public List<Recipe> getPatientHistoryByDrug(string patientId, DateTime first, DateTime second, string drugID)
+        public List<Recipe> getPatientHistoryByDrug(string patientId = null, DateTime first, DateTime second, string drugID = null)
         {
-            List<Recipe> result = new List<Recipe>();
-            result = (from item in getPatientHistory(patientId)
-                      where drugID == item.MedicineId && item.Date < second && item.Date.AddDays(item.PeriodOfUse) > first
-                      select item).ToList();
-            return result;
+            try
+            {
+                List<Recipe> result = new List<Recipe>();
+                result = (from item in getPatientHistory(patientId)
+                          where drugID == item.MedicineId && item.Date <= second && item.Date.AddDays(item.PeriodOfUse) > first
+                          select item).ToList();
+                return result;
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
         public List<Recipe> getPatientHistory(string patientId, bool now = false)
         {
             try
             {
-                var patientPrescriptions = from p in GetAllRecipes()
+                var patientPrescriptions = (from p in GetAllRecipes()
                                            where p.PatientId == patientId
-                                           select p;
+                                           select p).ToList();
 
                 if (now)
                 {

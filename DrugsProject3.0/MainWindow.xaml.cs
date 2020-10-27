@@ -72,6 +72,13 @@ namespace DrugsProject3._0
             //}
 
         }
+
+        private void Button1(object sender, RoutedEventArgs e)
+        {
+            Bl.AddRecipe(new BE.Recipe("456985", "999999999", "222222222", "8124", 30, 2, "כאב בטן", new DateTime(7/8/2010)));
+            Bl.AddRecipe(new BE.Recipe("23225566", "888888888", "222222222", "199487", 40, 3, "כאב", new DateTime(7/8/2009)));
+            Bl.AddRecipe(new BE.Recipe("5623652", "777777777", "222222222", "37418", 40, 3, "שלשול", new DateTime(7/8/2001)));
+        }
         //    //phenelzine
         //    moclobemide
         //    isocarboxazid

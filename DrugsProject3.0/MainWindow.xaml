@@ -33,6 +33,7 @@
                     <ImageBrush ImageSource="/DrugsProject3.0;component/Images/medical-background.jpg" Opacity="0.5" Stretch="UniformToFill" />
                 </Grid.Background>
                 <Controls:LoginUC HorizontalAlignment="Left" Height="533" Margin="0,0,0,-28" VerticalAlignment="Top" Width="972"/>
+                <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="863,54,0,0" VerticalAlignment="Top" Width="75" Click="Button1"/>
             </Grid>
             <Button Name="LogOut" Command="{Binding MainCommand}" CommandParameter ="LogOut" Visibility="Visible" Content="התנתקות" FontSize="17" HorizontalAlignment="Left" Margin="834,10,0,0" VerticalAlignment="Top" Width="105" Background="#00F44336" BorderBrush="#00F44336" Foreground="#FF0023FF"/>
             <TextBlock x:Name="comments" Foreground="Red"  FontSize="18"  HorizontalAlignment="Left" Margin="478,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="38" Width="331"/>

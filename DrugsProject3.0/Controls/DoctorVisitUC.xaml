@@ -98,12 +98,13 @@
            FlowDirection="RightToLeft" EnableRowVirtualization="True" AutoGenerateColumns="False" HorizontalContentAlignment="Center" Margin="10,84,10,55" Width="303">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="מספר מרשם" Binding="{Binding RecipeId }"/>
-                <DataGridTextColumn Header="מספר רופא" Binding="{Binding DoctorId}"/>
+                <DataGridTextColumn Header="מספר פציינט" Binding="{Binding PatientId}"/>
                 <DataGridTextColumn Header="מספר תרופה" Binding="{Binding MedicineId }"/>
+                <DataGridTextColumn Header="מספר רופא" Binding="{Binding DoctorId}"/>
                 <DataGridTextColumn Header="מספר ימי שימוש" Binding="{Binding PeriodOfUse }"/>
                 <DataGridTextColumn Header="מספר פעמים ליום" Binding="{Binding QuantityPerDay }"/>
                 <DataGridTextColumn Header="תיאור" Binding="{Binding Description }"/>
-                <DataGridTextColumn Header="מספר פציינט" Binding="{Binding PatientId}"/>
+                <DataGridTextColumn Header="תאריך" Binding="{Binding Date }"/>
             </DataGrid.Columns>
         </DataGrid>
         <ComboBox x:Name="comboBox"  SelectedItem="{Binding Selected}" 
