@@ -21,38 +21,51 @@ namespace BL
 
     public class BlObject : IBL
     {
+        public IDalService IDalService { get; set; }
+        public CheckInteraction CI { get; set; }
+        public BlObject()
+        {
+            IDalService = new DalService();
+            CI = new CheckInteraction();
+        }
         public void createPDF(Recipe recipe)
         {
-            PdfDocument pdf = new PdfDocument();
-            pdf.Info.Title = "Prescription";
+            try
+            {
+                PdfDocument pdf = new PdfDocument();
+                pdf.Info.Title = "Prescription";
 
-            PdfPage pdfPage = pdf.AddPage();
-            XGraphics graph = XGraphics.FromPdfPage(pdfPage);
-            XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
-            Medicine medicine = GetMedicine(recipe.MedicineId);
-            Patient patient = GetPatient(recipe.PatientId);
-            graph.DrawString("recipe number: " + recipe.RecipeId + 
-                "/n patient ID: " + recipe.PatientId +
-                "/n " + patient.Fname + " " + patient.Lname +
-                " need to take " + medicine.CommercialName +
-                " " + recipe.PeriodOfUse  + " " + recipe.QuantityPerDay,
-                font, XBrushes.Black, new XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.Center);
-            string pdfFilename = "prescription.pdf";
-            pdf.Save(pdfFilename);
-            Process.Start(pdfFilename);
+                PdfPage pdfPage = pdf.AddPage();
+                XGraphics graph = XGraphics.FromPdfPage(pdfPage);
+                XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
+                Medicine medicine = GetMedicine(recipe.MedicineId);
+                Patient patient = GetPatient(recipe.PatientId);
+                graph.DrawString("recipe number: " + recipe.RecipeId +
+                    "/n patient ID: " + recipe.PatientId +
+                    "/n " + patient.Fname + " " + patient.Lname +
+                    " need to take " + medicine.CommercialName +
+                    " " + recipe.PeriodOfUse + " " + recipe.QuantityPerDay,
+                    font, XBrushes.Black, new XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.Center);
+                string pdfFilename = "prescription.pdf";
+                pdf.Save(pdfFilename);
+                Process.Start(pdfFilename);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("pdf cannot be create");
+            }
+            
 
         }
-        CheckInteraction CI = new CheckInteraction();
-        public IDalService IDalService { get; set; }
+        
+       
 
         public List<string> getDrugsNames()
         {
             return CI.getDrugsNames();
         }
-        public BlObject()
-        {
-            IDalService = new DalService();
-        }
+        
 
         public List<string> interactionDrugs(string drugName)
         {
@@ -61,110 +74,303 @@ namespace BL
         #region add
         public void AddMedicine(Medicine medicine)
         {
-            IDalService.AddMedicine(medicine);
+            try
+            {
+                IDalService.AddMedicine(medicine);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("כבר קיימת תרופה כזו");
+            }
+            
         }
 
         public void AddPatient(Patient patient)
         {
-            IDalService.AddPatient(patient);
+            try
+            {
+                IDalService.AddPatient(patient);
+            }
+            catch (Exception)
+            {
+
+                throw  new Exception("כבר קיים חולה כזה");
+            }
+            
         }
 
         public void AddRecipe(Recipe recipe)
         {
-            IDalService.AddRecipe(recipe);
+            try
+            {
+                IDalService.AddRecipe(recipe);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("כבר קיים מרשם כזה");
+            }
+            
         }
 
         public void AddUser(User user)
         {
-            IDalService.AddUser(user);
+            try
+            {
+                IDalService.AddUser(user);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("כבר קיים משתמש כזה");
+            }
+            
         }
         #endregion add
 
         #region update
         public void UpdateMedicine(Medicine medicine)
         {
-            IDalService.UpdateMedicine(medicine);
+            try
+            {
+                IDalService.UpdateMedicine(medicine);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("אין תרופה כזו במערכת");
+            }
+            
         }
 
         public void UpdatePatient(Patient patient)
         {
-            IDalService.UpdatePatient(patient);
+            try
+            {
+                IDalService.UpdatePatient(patient);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("אין חולה כזה במערכת");
+            }
+            
         }
 
         public void UpdateRecipe(Recipe recipe)
         {
-            IDalService.UpdateRecipe(recipe);
+            try
+            {
+                IDalService.UpdateRecipe(recipe);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("אין מרשם כזה במערכת");
+            }
+            
         }
 
         public void UpdateUser(User user)
         {
-            IDalService.UpdateUser(user);
+            try
+            {
+                IDalService.UpdateUser(user);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("אין משתמש כזה במערכת");
+            }
+            
         }
         #endregion update
 
         #region delete
         public void DeleteMedicine(Medicine medicine)
         {
-            IDalService.DeleteMedicine(medicine);
+            try
+            {
+                IDalService.DeleteMedicine(medicine);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("אין תרופה כזו במערכת");
+            }
+            
         }
 
         public void DeletePatient(Patient patient)
         {
-            IDalService.DeletePatient(patient);
+            try
+            {
+                IDalService.DeletePatient(patient);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("אין חולה כזה במערכת");
+            }
+            
         }
 
         public void DeleteRecipe(Recipe recipe)
         {
-            IDalService.DeleteRecipe(recipe);
+            try
+            {
+                IDalService.DeleteRecipe(recipe);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("אין מרשם כזה במערכת");
+            }
+            
         }
 
         public void DeleteUser(User user)
         {
-            IDalService.DeleteUser(user);
+            try
+            {
+                IDalService.DeleteUser(user);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("אין משתמש כזה במערכת");
+            }
+            
         }
         #endregion delete
 
         #region get all/some
         public List<Medicine> GetAllMedicines(Func<Medicine, bool> predicate = null)
         {
-            return IDalService.GetAllMedicines();
+            try
+            {
+                List<Medicine> res = IDalService.GetAllMedicines();
+                if (res.Count == 0 || res == null)
+                    throw new Exception("אין תרופות במערכת");
+                return res;
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("אין תרופות במערכת" );
+            } 
+            
         }
 
         public List<Patient> GetAllPatients(Func<Patient, bool> predicate = null)
         {
-            return IDalService.GetAllPatients();
+            try
+            {
+                List < Patient > res = IDalService.GetAllPatients();
+                if(res.Count == 0 || res ==null)
+                    throw new Exception("אין חולים במערכת");
+                return res;
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("אין חולים במערכת");
+            }
+            
         }
 
         public List<Recipe> GetAllRecipes(Func<Recipe, bool> predicate = null)
         {
-            return IDalService.GetAllRecipes();
+            try
+            {
+                List < Recipe> res = IDalService.GetAllRecipes();
+                if(res.Count== 0 || res == null)
+                    throw new Exception("אין מרשמים במערכת");
+                return res;
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("אין מרשמים במערכת");
+            }
+            
         }
 
         public List<User> GetAllUsers(Func<User, bool> predicate = null)
         {
-            return IDalService.GetAllUsers();
+            try
+            {
+                List<User> res = IDalService.GetAllUsers();
+                if (res.Count == 0 || res == null)
+                    throw new Exception("אין משתמשים במערכת");
+                return res;
+            
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("אין משתמשים במערכת");
+            }
+            
         }
         #endregion get all/some
 
         #region get 
         public Medicine GetMedicine(string id)
         {
-            return IDalService.GetMedicine(id);
+            try
+            {
+                return IDalService.GetMedicine(id);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("אין כזו תרופה במערכת");
+            }
+            
         }
 
         public Patient GetPatient(string id)
         {
-            return IDalService.GetPatient(id);
+            try
+            {
+                return IDalService.GetPatient(id);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("אין כזה חולה במערכת");
+            }
+            
         }
 
         public Recipe GetRecipe(string recipeId)
         {
-            return IDalService.GetRecipe(recipeId);
+            try
+            {
+                return IDalService.GetRecipe(recipeId);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("אין כזה מרשם במערכת");
+            }
+            
         }
 
         public User GetUser(string id)
         {
-            return IDalService.GetUser(id);
+            try
+            {
+                return IDalService.GetUser(id);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("אין כזה משתמש במערכת");
+            }
+            
         }
         #endregion get 
 
@@ -214,81 +420,145 @@ namespace BL
         }
         public List<string> GetAllPatientsId()
         {
-            var ids = (from item in IDalService.GetAllPatients()
-                       select item.PatientId).ToList();
+            try
+            {
+                var ids = (from item in IDalService.GetAllPatients()
+                           select item.PatientId).ToList();
 
-            return ids;
+                return ids;
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("אין חולים במערכת");
+            }
+            
         }
 
 
         public List<string> GetAllMedicineId()
         {
-            var ids = (from item in IDalService.GetAllMedicines()
-                       select item.Id).ToList();
-            return ids;
+            try
+            {
+                var ids = (from item in IDalService.GetAllMedicines()
+                           select item.Id).ToList();
+                return ids;
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("אין תרופות במערכת");
+            }
+            
         }
 
         public List<string> GetAllMedicinesNames()
         {
-            var names = (from item in IDalService.GetAllMedicines()
-                         select item.CommercialName).ToList();
-            return names;
+            try
+            {
+                var names = (from item in IDalService.GetAllMedicines()
+                             select item.CommercialName).ToList();
+                return names;
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("אין תרופות במערכת");
+            }
+            
         }
 
         public string GetMedicineId(string medicineName)
         {
-            Medicine medicine = new Medicine();
+            try
+            {
+                Medicine medicine = new Medicine();
 
-            medicine = (from item in GetAllMedicines()
-                        where item.CommercialName == medicineName
-                        select item).FirstOrDefault();
-            return medicine.Id;
+                medicine = (from item in GetAllMedicines()
+                            where item.CommercialName == medicineName
+                            select item).FirstOrDefault();
+                return medicine.Id;
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("לא נמצאה התרופה");
+            }
+            
         }
 
         public Dictionary<string, string> getPatientHistory(Patient patient, bool now = false)
         {
-            Dictionary<string, string> result = new Dictionary<string, string>();
-            var patientPrescriptions = from p in GetAllRecipes()
-                                       where p.PatientId == patient.PatientId
-                                       select p;
-
-            if (now)
+            try
             {
-                var drugsRightOfToday = from p in patientPrescriptions
-                                        where p.Date.AddDays(p.PeriodOfUse) > DateTime.Now
-                                        select p;
-                foreach (var d in drugsRightOfToday)
+                Dictionary<string, string> result = new Dictionary<string, string>();
+                var patientPrescriptions = from p in GetAllRecipes()
+                                           where p.PatientId == patient.PatientId
+                                           select p;
+
+                if (now)
                 {
-                    Medicine medicine = GetMedicine(d.MedicineId);
-                    result.Add(medicine.GenericName, d.Description);
+                    var drugsRightOfToday = from p in patientPrescriptions
+                                            where p.Date.AddDays(p.PeriodOfUse) > DateTime.Now
+                                            select p;
+                    foreach (var d in drugsRightOfToday)
+                    {
+                        Medicine medicine = GetMedicine(d.MedicineId);
+                        result.Add(medicine.GenericName, d.Description);
+                    }
                 }
+                else
+                {
+                    foreach (var p in patientPrescriptions)
+                    {
+                        Medicine medicine = GetMedicine(p.MedicineId);
+                        result.Add(medicine.GenericName, p.Description);
+                    }
+                }
+
+
+                return result;
             }
-            else
+            catch (Exception)
             {
-                foreach (var p in patientPrescriptions)
-                {
-                    Medicine medicine = GetMedicine(p.MedicineId);
-                    result.Add(medicine.GenericName, p.Description);
-                }
+
+                throw new Exception("לא נמצא חולה במערכת");
             }
-
-
-            return result;
+            
 
 
         }
 
         public int ResolveRxcuiFromName(string name)
         {
-            return CI.ResolveRxcuiFromName(name);
+            try
+            {
+                return CI.ResolveRxcuiFromName(name);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception(" אין כזו תרופה");
+            }
+            
         }
 
 
         public List<string> GetAllUserId()
         {
-            var res = (from item in GetAllUsers()
-                       select item.Id).ToList();
-            return res;
+            try
+            {
+                var res = (from item in GetAllUsers()
+                           select item.Id).ToList();
+                return res;
+            }
+            catch (Exception)
+            {
+
+                throw new Exception (" אין משתמשים");
+            }
+            
+            
         }
         void print(string filePath, Recipe recipe)
         {
