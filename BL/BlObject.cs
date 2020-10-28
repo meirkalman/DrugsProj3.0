@@ -513,15 +513,37 @@ namespace BL
             }
 
         }
-        public List<Recipe> getPatientHistoryByDrug(string patientId = null, DateTime first, DateTime second, string drugID = null)
+        public List<Recipe> getPatientHistoryByDrug(DateTime first, DateTime second, string patientId = null, string drugID = null)
         {
             try
             {
                 List<Recipe> result = new List<Recipe>();
-                result = (from item in getPatientHistory(patientId)
-                          where drugID == item.MedicineId && item.Date <= second && item.Date.AddDays(item.PeriodOfUse) > first
-                          select item).ToList();
+                if (patientId != null && drugID != null)
+                {
+                    result = (from item in getPatientHistory(patientId)
+                              where drugID == item.MedicineId && item.Date.Day <= second.Day && item.Date.AddDays(item.PeriodOfUse) > first
+                              select item).ToList();
+                }
+                if (patientId != null && drugID == null)
+                {
+                    result = (from item in getPatientHistory(patientId)
+                              where item.Date <= second && item.Date.AddDays(item.PeriodOfUse) > first
+                              select item).ToList();
+                }
+                if (patientId == null && drugID != null)
+                {
+                    result = (from item in IDalService.GetAllRecipes()
+                              where drugID == item.MedicineId && item.Date <= second && item.Date.AddDays(item.PeriodOfUse) > first
+                              select item).ToList();
+                }
+                if (patientId == null && drugID == null)
+                {
+                    result = (from item in IDalService.GetAllRecipes()
+                              where  item.Date <= second && item.Date.AddDays(item.PeriodOfUse) > first
+                              select item).ToList();
+                }
                 return result;
+            }
             catch (Exception ex)
             {
 

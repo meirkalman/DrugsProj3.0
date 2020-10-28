@@ -34,7 +34,7 @@
   IsEditable="True" Margin="40,66,628,24" Height="34">
             </ComboBox>
             <ComboBox HorizontalAlignment="Left" ItemsSource="{Binding Patients}" 
-             SelectedItem="{Binding PatientSelected}" Margin="202,74,0,0" VerticalAlignment="Top" Width="120"/>
+             SelectedItem="{Binding PatientSelected}" materialDesign:HintAssist.Hint="Search" Margin="202,74,0,0" VerticalAlignment="Top" IsEditable="True" Width="120"/>
             <Button Content="הצג" Command="{Binding Command}" CommandParameter="Show" HorizontalAlignment="Left" Margin="692,68,0,0" VerticalAlignment="Top" Width="74"/>
             <TextBlock HorizontalAlignment="Left" FontSize="20" Margin="554,36,0,0" TextWrapping="Wrap" Text="תאריך סיום" VerticalAlignment="Top" Height="35" Width="120"/>
             <TextBlock HorizontalAlignment="Left" FontSize="20" Margin="370,34,0,0" TextWrapping="Wrap" Text=" תאריך התחלה" VerticalAlignment="Top" Height="35" Width="134"/>
