@@ -36,6 +36,7 @@ namespace DrugsProject3._0.ViewModels
                 }
                 else
                 {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "";
                     fname = null;
                     fname = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fname"));
@@ -55,6 +56,7 @@ namespace DrugsProject3._0.ViewModels
                 }
                 else
                 {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "";
                     lname = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lname"));
                 }
@@ -72,6 +74,7 @@ namespace DrugsProject3._0.ViewModels
                 }
                 else
                 {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "";
                     id = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Id"));
                 }
