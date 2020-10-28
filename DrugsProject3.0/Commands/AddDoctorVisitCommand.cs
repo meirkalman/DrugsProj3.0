@@ -32,11 +32,7 @@ namespace DrugsProject3._0.Commands
             if (parameter.ToString() == "AddRecipe")
             {
                 List<string> res = CurrentVM.CheckInteractionDrugs();
-                if (res == null)
-                {
-                    CurrentVM.AddRecipe();
-                }
-                else if(res.Count == 0)
+                if (res == null|| res.Count == 0)
                 {
                     CurrentVM.AddRecipe();
                 }
@@ -50,7 +46,12 @@ namespace DrugsProject3._0.Commands
 
                 (App.Current as App).navigation.ShowControls("DoctorUC");
             }
-            
+
+            if (parameter.ToString() == "Show")
+            {
+                CurrentVM.getPatientHistory();
+            }
+
             if (parameter.ToString() == "PDF")
             {
                 CurrentVM.creatPDF();
