@@ -68,8 +68,12 @@ namespace DrugsProject3._0.ViewModels
             try
             {
                 Recipes.Clear();
-
-                foreach (var item in StatisticsM.getPatientHistoryByDrug( DateStart, DateFinish, PatientSelected, StatisticsM.GetMedicineId(MedicineSelected)))
+                string medicineId = null;
+                if (MedicineSelected != null)
+                {
+                     medicineId = StatisticsM.GetMedicineId(MedicineSelected);
+                }
+                foreach (var item in StatisticsM.getPatientHistoryByDrug( DateStart, DateFinish, PatientSelected, medicineId))
                 {
                     Recipes.Add(item);
                 }
