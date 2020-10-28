@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace DrugsProject3._0.Navigation
@@ -71,8 +72,15 @@ namespace DrugsProject3._0.Navigation
 
         public void ShowControl(UserControl uc, string t)
         {
-            string userName = (App.Current as App).controlManage.User.Fname + " " + (App.Current as App).controlManage.User.Lname;
-            MainWindows.UserName.Text = userName;
+            if (t != "ברוך הבא")
+            {
+                string userName = (App.Current as App).controlManage.User.Fname + " " + (App.Current as App).controlManage.User.Lname;
+                MainWindows.UserName.Text = userName;
+            }
+            else
+            {
+                MainWindows.UserName.Text = "";
+            }
             MainWindows.title.Text = t;
             MainWindows.InternalGrid.Children.Clear();
             MainWindows.InternalGrid.Children.Add(uc);

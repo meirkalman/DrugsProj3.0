@@ -32,7 +32,7 @@ namespace DrugsProject3._0.ViewModels
             {
                 if (!new VerifyInput().IsValidName(value))
                 {
-                    (App.Current as App).navigation.MainWindows.comments.Text = "שם פרטי לא תקין";
+                    (App.Current as App).navigation.MainWindows.comments.Text = "שם פרטי צריך להכיל רק תווים בעברית";
                 }
                 else
                 {
@@ -52,7 +52,7 @@ namespace DrugsProject3._0.ViewModels
             {
                 if (!new VerifyInput().IsValidName(value))
                 {
-                    (App.Current as App).navigation.MainWindows.comments.Text = "שם משפחה לא תקין";
+                    (App.Current as App).navigation.MainWindows.comments.Text = "שם משפחה צריך להכיל רק תווים בעברית";
                 }
                 else
                 {

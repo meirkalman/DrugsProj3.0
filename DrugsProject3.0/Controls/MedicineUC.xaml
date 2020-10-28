@@ -13,7 +13,7 @@
   Header="הוסף תרופה למערכת "
   Style="{DynamicResource MaterialDesignGroupBox}"
   HorizontalAlignment="Center"
-  materialDesign:ColorZoneAssist.Mode="Accent" Margin="297,0,0,0">
+  materialDesign:ColorZoneAssist.Mode="Accent" Margin="385,0,88,30">
             <Grid HorizontalAlignment="Center" Height="373"  VerticalAlignment="Top" Width="304" Margin="0,0,0,-5">
                 <TextBox Height="34" Text="{Binding Producer}" FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,96,44,0"/>
                 <TextBox Height="34" Text="{Binding CommercialName}"  FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,37,44,0"/>
@@ -35,7 +35,7 @@
   Header="הסרת תרופה מהמערכת "
   Style="{DynamicResource MaterialDesignGroupBox}"
   HorizontalAlignment="Center"
-  materialDesign:ColorZoneAssist.Mode="Accent" Margin="-27,0,327,0" Width="319">
+  materialDesign:ColorZoneAssist.Mode="Accent" Margin="61,0,415,30" Width="319">
             <Grid HorizontalAlignment="Left" Height="419" Margin="0,-13,0,-6" VerticalAlignment="Top" Width="309">
                 <ComboBox ItemsSource="{Binding MedicineIds}" SelectedItem="{Binding MedicineSelected}"
   materialDesign:HintAssist.Hint="Search"
@@ -44,7 +44,7 @@
                 </ComboBox>
                 <Button Content="הסר"  Command="{Binding Command}" CommandParameter="DeleteMedicine" HorizontalAlignment="Left" Margin="118,195,0,0" VerticalAlignment="Top" Width="76"/>
                 <TextBlock HorizontalAlignment="Left" Margin="92,59,0,0" TextWrapping="Wrap" FontSize="22" Text="מספר תרופה" VerticalAlignment="Top" Height="37" Width="151"/>
-                <Button Content="חזור"  Command="{Binding Command}" CommandParameter="Return" HorizontalAlignment="Left" Margin="10,364,0,0" VerticalAlignment="Top" Width="75" />
+                <Button Content="חזור"  Command="{Binding Command}" CommandParameter="Return" HorizontalAlignment="Left" Margin="10,0,0,18" VerticalAlignment="Bottom" Width="75" />
             </Grid>
         </GroupBox>
 

@@ -48,7 +48,7 @@
                 </ComboBox>
                 <Button Content="הסר" Command="{Binding Command}" CommandParameter="DeleteUser" HorizontalAlignment="Left" Margin="118,204,0,0" VerticalAlignment="Top" Width="94"/>
                 <TextBlock HorizontalAlignment="Left" Margin="92,71,0,0" TextWrapping="Wrap" FontSize="22" Text="שם המשתמש" VerticalAlignment="Top" Height="37" Width="141"/>
-                <Button Content="חזור" Command="{Binding Command}" CommandParameter="Return" HorizontalAlignment="Left" Margin="10,349,0,0" VerticalAlignment="Top" Width="75" />
+                <Button Content="חזור" Command="{Binding Command}" CommandParameter="Return" HorizontalAlignment="Left" Margin="10,349,0,0" VerticalAlignment="Bottom" Width="75" />
             </Grid>
         </GroupBox>
     </Grid>

@@ -37,12 +37,12 @@
             <ComboBox HorizontalAlignment="Left" ItemsSource="{Binding Patients}" 
              SelectedItem="{Binding PatientSelected}" materialDesign:HintAssist.Hint="Search" Margin="202,74,0,0" VerticalAlignment="Top" IsEditable="True" Width="120"/>
             <Button Content="הצג" Command="{Binding Command}" CommandParameter="Show" HorizontalAlignment="Left" Margin="692,68,0,0" VerticalAlignment="Top" Width="74"/>
-            <TextBlock HorizontalAlignment="Left" FontSize="20" Margin="554,36,0,0" TextWrapping="Wrap" Text="תאריך סיום" VerticalAlignment="Top" Height="35" Width="120"/>
-            <TextBlock HorizontalAlignment="Left" FontSize="20" Margin="370,34,0,0" TextWrapping="Wrap" Text=" תאריך התחלה" VerticalAlignment="Top" Height="35" Width="134"/>
-            <TextBlock HorizontalAlignment="Left" FontSize="20" Margin="202,38,0,0" TextWrapping="Wrap" Text=" חולה" VerticalAlignment="Top" Height="33" Width="120"/>
-            <TextBlock HorizontalAlignment="Left" FontSize="20" Margin="40,36,0,0" TextWrapping="Wrap" Text=" תרופה" VerticalAlignment="Top" Height="33" Width="120"/>
-            <DatePicker HorizontalAlignment="Left" SelectedDate="{Binding DateStart, Mode=TwoWay}" Margin="385,78,0,0" VerticalAlignment="Top" Width="101"/>
-            <DatePicker HorizontalAlignment="Left" SelectedDate="{Binding DateFinish, Mode=TwoWay}" Margin="554,83,0,0" VerticalAlignment="Top" Width="87"/>
+            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="542,38,0,0" TextWrapping="Wrap" Text="תאריך סיום" VerticalAlignment="Top" Height="33" Width="120"/>
+            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="371,36,0,0" TextWrapping="Wrap" Text=" תאריך התחלה" VerticalAlignment="Top" Height="35" Width="134"/>
+            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="202,38,0,0" TextWrapping="Wrap" Text=" חולה" VerticalAlignment="Top" Height="33" Width="120"/>
+            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="40,38,0,0" TextWrapping="Wrap" Text=" תרופה" VerticalAlignment="Top" Height="33" Width="120"/>
+            <DatePicker HorizontalAlignment="Left" SelectedDate="{Binding DateStart, Mode=TwoWay}" Margin="387,74,0,0" VerticalAlignment="Top" Width="101"/>
+            <DatePicker HorizontalAlignment="Left" SelectedDate="{Binding DateFinish, Mode=TwoWay}" Margin="542,74,0,0" VerticalAlignment="Top" Width="99"/>
         </Grid>
     </Grid>
 </UserControl>

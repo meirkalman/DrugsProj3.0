@@ -46,7 +46,7 @@ namespace DrugsProject3._0.ViewModels
             try
             {
                
-                if (Id == null || password == null)
+                if (Id == null || password == "")
                 {
                     throw new ArgumentException("אתה צריך למלא את כל השדות");
                 }
@@ -64,6 +64,10 @@ namespace DrugsProject3._0.ViewModels
                     {
                         IControlManage.User = User;
                         (App.Current as App).navigation.ShowControls("DoctorUC");
+                    }
+                    else
+                    {
+                        throw new ArgumentException("סיסמה לא נכונה");
                     }
                 }
             }

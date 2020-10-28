@@ -19,7 +19,7 @@
             <TextBlock
             VerticalAlignment="Center"
               FlowDirection="RightToLeft"
-    Style="{StaticResource MaterialDesignHeadline6TextBlock}" Margin="375,34,384,420" Height="39"><Run Text="התחברות"/></TextBlock>
+    Style="{StaticResource MaterialDesignHeadline6TextBlock}" HorizontalAlignment="Center" Margin="375,34,384,420" Height="39"><Run Text="התחברות"/></TextBlock>
             <PasswordBox x:Name="PasswordBoxLogin"
                  FlowDirection="RightToLeft"
     Style="{StaticResource MaterialDesignOutlinedPasswordFieldPasswordBox}"

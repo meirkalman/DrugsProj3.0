@@ -321,8 +321,8 @@ namespace DAL
                             where item.Id == id
                                select item).ToList();
 
-                if (user.Count != 1)
-                    throw new Exception("מרשם לא במערכת");
+                if (user.Count == 0)
+                    throw new Exception("שם משתמש שגוי");
                 return user.First();
             }
         }

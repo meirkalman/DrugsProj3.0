@@ -34,7 +34,6 @@
                 <materialDesign:PackIcon Kind="CardAccountDetails" Height="24" Width="25" Margin="240,182,0,0"  />
                 <materialDesign:PackIcon Kind="Phone" Height="26" Width="30" Margin="240,240,0,0"  />
                 <materialDesign:PackIcon Kind="Account" Height="24" Width="30" Margin="240,117,0,0" RenderTransformOrigin="0.476,0.5"/>
-                <Button Content="חזור" Command="{Binding Command}" CommandParameter="Return" HorizontalAlignment="Left" Margin="244,360,0,0" VerticalAlignment="Top" Width="76" />
             </Grid>
         </GroupBox>
         <GroupBox
@@ -50,7 +49,7 @@
                 <ComboBox  ItemsSource="{Binding PatientIds}" SelectedItem="{Binding PatientSelected}" HorizontalAlignment="Center"   Height="40" Margin="58,58,64,235" Width="232"/>
                 <Button Content="הסר" Command="{Binding Command}" CommandParameter="DeletePatient" HorizontalAlignment="Left" Margin="137,136,0,0" VerticalAlignment="Top" Width="76"/>
                 <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" FontSize="22" Text="שם המטופל" VerticalAlignment="Top" Height="37" Width="126"/>
-                <Button Content="חזור" Command="{Binding Command}" CommandParameter="Return" HorizontalAlignment="Left" Margin="25,283,0,0" VerticalAlignment="Top" Width="75" />
+                <Button Content="חזור" Command="{Binding Command}" CommandParameter="Return" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="25,283,0,0"  Width="75" />
 
             </Grid>
         </GroupBox>
