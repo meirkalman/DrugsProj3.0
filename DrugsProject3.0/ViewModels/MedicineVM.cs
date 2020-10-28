@@ -153,7 +153,7 @@ namespace DrugsProject3._0.ViewModels
                 MedicineV = MedicineM.GetMedicine(MedicineSelected);
                 MedicineM.DeleteMedicine(MedicineV);
                 MedicineIds.Remove(MedicineV.Id);
-
+                (App.Current as App).navigation.MainWindows.comments.Text = "התרופה הוסרה בהצלחה";
             }
             catch (Exception e)
             {

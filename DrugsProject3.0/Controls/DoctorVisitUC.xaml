@@ -25,17 +25,17 @@
   IsEditable="True"/>
 
         <Button Command="{Binding AddCommand}" CommandParameter ="AddRecipe"
-    Style="{StaticResource MaterialDesignRaisedAccentButton}"
+    Style="{StaticResource MaterialDesignRaisedAccentButton}" Background="#FF607D8B"
     ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="321,362,90,89" Height="Auto" >
             הוסף מרשם
         </Button>
-        <Button  Command="{Binding AddCommand}" CommandParameter ="DeleteRecipe"
+        <Button Background="#FF607D8B" Command="{Binding AddCommand}" CommandParameter ="DeleteRecipe"
     Style="{StaticResource MaterialDesignRaisedAccentButton}"
     ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="171,362,242,89" Height="Auto" >
             הסר מרשם
         </Button>
         <Button Command="{Binding AddCommand}" CommandParameter ="DoctorUC"
-    Style="{StaticResource MaterialDesignRaisedAccentButton}"
+    Style="{StaticResource MaterialDesignRaisedAccentButton}" Background="#FF607D8B"
     ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="447,441,10,10" Content="סיום" Height="Auto" />
 
 
@@ -44,7 +44,7 @@
   Style="{StaticResource MaterialDesignMultiFloatingActionAccentPopupBox}"
   PlacementMode="BottomAndAlignCentres"
   ToggleCheckedContentCommandParameter="wowsers"
-  Grid.Column="1" Margin="69,338,0,89" Height="Auto" >
+  Grid.Column="1" Background="#FF607D8B" Margin="69,338,0,89" Height="Auto" >
             <materialDesign:PopupBox.ToggleCheckedContent>
                 <materialDesign:PackIcon
       Kind="Pencil"
