@@ -36,13 +36,6 @@ namespace DrugsProject3._0
             DataContext = VM;
         }
 
-        public void ShowControl(UserControl uc,string t)
-        {
-            title.Text = t;
-            InternalGrid.Children.Clear();
-            InternalGrid.Children.Add(uc);
-        }
-
         private void TreeViewItem_Executed(object sender, ExecutedRoutedEventArgs e)
         {
 
@@ -62,8 +55,8 @@ namespace DrugsProject3._0
             //Bl.AddMedicine(new BE.Medicine("8124", "phenelzine", "phenelzine", "טבע", "30", "gfjd"));
             //Bl.AddMedicine(new BE.Medicine("199487", "moclobemide", "moclobemide", "טבע", "900", "ddd"));
             //Bl.AddMedicine(new BE.Medicine("37418", "sumatriptan", "sumatriptan", "טבע", "87", "llll"));
-            Bl.print(new BE.Recipe("1234", "999999999", "222222222", "8124", 30, 2, "כאב בטן", DateTime.Now.AddDays(-3)));
-            Bl.createPDF(new BE.Recipe("1234", "999999999", "222222222", "8124", 30, 2, "כאב בטן", DateTime.Now.AddDays(-3)));
+            //Bl.print(new BE.Recipe("1234", "999999999", "222222222", "8124", 30, 2, "כאב בטן", DateTime.Now.AddDays(-3)));
+            //Bl.createPDF(new BE.Recipe("1234", "999999999", "222222222", "8124", 30, 2, "כאב בטן", DateTime.Now.AddDays(-3)));
             //string drugName = "rizatriptan";
             //List<string> result = Bl.interactionDrugs(drugName);
             //if (result != null)
@@ -75,9 +68,9 @@ namespace DrugsProject3._0
 
         private void Button1(object sender, RoutedEventArgs e)
         {
-            Bl.AddRecipe(new BE.Recipe("1234", "999999999", "222222222", "8124", 30, 2, "כאב בטן", DateTime.Now.AddDays(-500)));
-            Bl.AddRecipe(new BE.Recipe("1235", "888888888", "222222222", "199487", 40, 3, "כאב", DateTime.Now.AddDays(-2000)));
-            Bl.AddRecipe(new BE.Recipe("1236", "777777777", "222222222", "37418", 40, 3, "שלשול", DateTime.Now.AddDays(-1000)));
+            Bl.AddRecipe(new BE.Recipe("1234", "phenelzine", "999999999", "222222222", "8124", 30, 2, "כאב בטן", DateTime.Now.AddDays(-500)));
+            Bl.AddRecipe(new BE.Recipe("1235", "moclobemide", "888888888", "222222222", "199487", 40, 3, "כאב", DateTime.Now.AddDays(-2000)));
+            Bl.AddRecipe(new BE.Recipe("1236", "sumatriptan", "777777777", "222222222", "37418", 40, 3, "שלשול", DateTime.Now.AddDays(-1000)));
             Bl.AddUser(new BE.User("1", "מאיר", "קלמן", "11111111", BE.User.UserType.ADMIN, "1"));
             Bl.AddUser(new BE.User("2", "יצחקי", "רביץ", "22222222", BE.User.UserType.DOCTOR, "2"));
             Bl.AddUser(new BE.User("333333333", "זאבי", "קמינסקי", "77", BE.User.UserType.DOCTOR, "33333333"));

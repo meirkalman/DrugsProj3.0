@@ -45,11 +45,11 @@ namespace DrugsProject3._0.Models
             }
         }
 
-        public List<string> GetAllMedicineId()
+        public List<string> GetAllMedicinesNames()
         {
             try
             {
-                return Bl.GetAllMedicineId();
+                return Bl.GetAllMedicinesNames();
             }
             catch (Exception ex)
             {

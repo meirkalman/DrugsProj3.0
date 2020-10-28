@@ -474,7 +474,21 @@ namespace BL
             }
 
         }
+        public List<string> GetMedicinesNamesFromRecipe(List<Recipe> prescriptionsGiven)
+        {
+            try
+            {
+                List<string> res = new List<string>();
+                res = (from item in prescriptionsGiven
+                       select item.MedicineName).ToList();
+                return res;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
+        }
         public List<string> GetAllMedicinesNames()
         {
             try
@@ -485,7 +499,6 @@ namespace BL
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
 

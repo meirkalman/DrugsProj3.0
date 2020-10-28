@@ -28,22 +28,26 @@ namespace DrugsProject3._0.Commands
         }
 
         public void Execute(object parameter)
-        {    
+        {
             if (parameter.ToString() == "AddRecipe")
             {
                 List<string> res = CurrentVM.CheckInteractionDrugs();
-                if (res == null|| res.Count == 0)
+                if (res == null || res.Count == 0)
                 {
                     CurrentVM.AddRecipe();
                 }
                 else
                 {
                     CurrentVM.Massage(res);
-                }  
+                }
             }
+            if (parameter.ToString() == "DeleteRecipe")
+            {
+                CurrentVM.DeleteRecipe();
+            }
+
             if (parameter.ToString() == "DoctorUC")
             {
-
                 (App.Current as App).navigation.ShowControls("DoctorUC");
             }
 

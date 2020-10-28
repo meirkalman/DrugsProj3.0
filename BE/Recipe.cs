@@ -11,6 +11,7 @@ namespace BE
     {
        
         public String RecipeId { get; set; }
+        public string MedicineName { get; set; }
         public String PatientId { get; set; }
         public String DoctorId { get; set; }
         public string MedicineId { get; set; }
@@ -22,6 +23,7 @@ namespace BE
         public override string ToString()
         {
             return "recipe number: " + RecipeId +
+                "medicine name: " + MedicineName +
                     "\n patient ID: " + PatientId +
                     "\n " +
                     " need to take medicine number " + MedicineId +
@@ -32,9 +34,10 @@ namespace BE
         {
 
         }
-        public Recipe(string recipeId, string patientId, string doctorId, string medicineId, int periodOfUse, int quantityPerDay, string description, DateTime date)
+        public Recipe(string recipeId, string medicineName, string patientId, string doctorId, string medicineId, int periodOfUse, int quantityPerDay, string description, DateTime date)
         {
             RecipeId = recipeId;
+            MedicineName = medicineName;
             PatientId = patientId;
             DoctorId = doctorId;
             MedicineId = medicineId;

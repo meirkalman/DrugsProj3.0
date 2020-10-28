@@ -107,6 +107,30 @@ namespace DrugsProject3._0.Models
                 throw ex;
             }
         }
+
+        public List<string> GetMedicinesNamesFromRecipe(List<Recipe> prescriptionsGiven)
+        {
+            try
+            {
+                return Bl.GetMedicinesNamesFromRecipe(prescriptionsGiven);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void DeleteRecipe(Recipe recipe)
+        {
+            try
+            {
+                 Bl.DeleteRecipe(recipe);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
 //public void AddMedicineToDoctorVisit(List<Medicine> medicines)

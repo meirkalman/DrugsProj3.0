@@ -30,7 +30,7 @@ namespace DrugsProject3._0.ViewModels
         public User User { get; set; }
         public ObservableCollection<string> MedicinesNames { get; set; }
         public ObservableCollection<string> MedicationsAdded { get; set; }
-        public List<Recipe> PrescriptionsGivenRecipes { get; set; }
+        public List<Recipe> PrescriptionsGiven { get; set; }
         public List<string> PrescriptionsGivenNames { get; set; }
         public ObservableCollection<Recipe> Recipes { get; set; }
         public ObservableCollection<string> Type { get; set; }
@@ -48,7 +48,7 @@ namespace DrugsProject3._0.ViewModels
                 PatientName = Patient.Fname + " " + Patient.Lname;
                 Recipes = new ObservableCollection<Recipe>(AddDoctorVisitM.getPatientHistory(Patient.PatientId));
                 Type = new ObservableCollection<string>(Enum.GetNames(typeof(ShowData)));
-                MedicationsAdded = new ObservableCollection<string>(PrescriptionsGivenNames);    
+                MedicationsAdded = new ObservableCollection<string>();    
             }
             catch (Exception e)
             {
@@ -119,10 +119,11 @@ namespace DrugsProject3._0.ViewModels
                 MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
                 RecipeId = AddDoctorVisitM.AddRecipeId();
                 //string DoctorId = "888"; /*User.Id;*/ 
-                Recipe recipe = new Recipe(RecipeId, Patient.PatientId, User.Id, MedicineId, PeriodOfUse, QuantityPerDay, Description, DateTime.Now);
+                Recipe recipe = new Recipe(RecipeId, MedicineSelected, Patient.PatientId, User.Id, MedicineId, PeriodOfUse, QuantityPerDay, Description, DateTime.Now);
                 AddDoctorVisitM.AddRecipe(recipe);
-                PrescriptionsGivenRecipes.Add(recipe);
-                PrescriptionsGivenNames.Add()
+                PrescriptionsGiven.Add(recipe);
+                MedicationsAdded.Add(recipe.MedicineName);
+              //  PrescriptionsGivenNames.Add(recipe.MedicineName);
             }
             catch (Exception e)
             {
@@ -157,52 +158,70 @@ namespace DrugsProject3._0.ViewModels
             }
             return null;
         }
+        public void DeleteRecipe()
+        {
+            try
+            {
+                if (PrescriptionsGiven.Count() == 0)
+                {
+                    throw new ArgumentException("אין מרשם למחיקה");
+                }
+                Recipe recipe = PrescriptionsGiven.First();
+                AddDoctorVisitM.DeleteRecipe(recipe);
+                PrescriptionsGiven.Remove(recipe);
+                MedicationsAdded.Remove(recipe.MedicineName);
+            }
+            catch (Exception e)
+            {
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
+        }
         public void Massage(List<string> res)
         {
             (App.Current as App).navigation.MainWindows.comments.Text = "יש התנגשות עם תרופה מספר " + res[0];
         }
         public void Print()
         {
-            try
-            {
-                if (Description == null || QuantityPerDay == 0 || PeriodOfUse == 0)
-                {
-                    throw new ArgumentException("אתה צריך למלא את כל השדות");
-                }
-                MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
-                RecipeId = AddDoctorVisitM.AddRecipeId();
-                string PatientId = Patient.PatientId;
-                string DoctorId = "888"; /*User.Id;*/
-                Date = DateTime.Now;
-                Recipe = new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date);
-                AddDoctorVisitM.Print(Recipe);
-            }
-            catch (Exception e)
-            {
-                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
-            }
+            //try
+            //{
+            //    if (Description == null || QuantityPerDay == 0 || PeriodOfUse == 0)
+            //    {
+            //        throw new ArgumentException("אתה צריך למלא את כל השדות");
+            //    }
+            //    MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
+            //    RecipeId = AddDoctorVisitM.AddRecipeId();
+            //    string PatientId = Patient.PatientId;
+            //    string DoctorId = "888"; /*User.Id;*/
+            //    Date = DateTime.Now;
+            //    Recipe = new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date);
+            //    AddDoctorVisitM.Print(Recipe);
+            //}
+            //catch (Exception e)
+            //{
+            //    (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            //}
         }
        
         public void creatPDF()
         {
-            try
-            {
-                if (  Description == null|| QuantityPerDay==0|| PeriodOfUse==0)
-                {
-                    throw new ArgumentException("אתה צריך למלא את כל השדות");
-                }
-                MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
-                RecipeId = AddDoctorVisitM.AddRecipeId();///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                string PatientId = Patient.PatientId;
-                string DoctorId = "888"; /*User.Id;*/
-                Date = DateTime.Now;
-                Recipe = new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date);
-                AddDoctorVisitM.creatPDF(Recipe);
-            }
-            catch (Exception e)
-            {
-                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
-            }
+            //try
+            //{
+            //    if (  Description == null|| QuantityPerDay==0|| PeriodOfUse==0)
+            //    {
+            //        throw new ArgumentException("אתה צריך למלא את כל השדות");
+            //    }
+            //    MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
+            //    RecipeId = AddDoctorVisitM.AddRecipeId();///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //    string PatientId = Patient.PatientId;
+            //    string DoctorId = "888"; /*User.Id;*/
+            //    Date = DateTime.Now;
+            //    Recipe = new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date);
+            //    AddDoctorVisitM.creatPDF(Recipe);
+            //}
+            //catch (Exception e)
+            //{
+            //    (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            //}
         }
 
         public enum ShowData { כל_המידע,מידע_עדכני }

@@ -11,6 +11,7 @@ namespace DrugsProject3._0.Navigation
     public class NavigationClass
     {
         string title;
+        
         public MainWindow MainWindows { get; set; }
         public void ShowControls(string UserControl)
         {
@@ -44,6 +45,7 @@ namespace DrugsProject3._0.Navigation
                 case "AdministratorUC":
                     uc = new AdministratorUC();
                     title = "אדמיניסטרטור";
+                    
                     break;
                 case "PatientUC":
                     uc = new PatientUC();
@@ -63,7 +65,17 @@ namespace DrugsProject3._0.Navigation
                     break;
             }
              (App.Current as App).navigation.MainWindows.comments.Text = "";
-            MainWindows.ShowControl(uc, title);
+            ShowControl(uc, title);
+        }
+
+
+        public void ShowControl(UserControl uc, string t)
+        {
+            string userName = (App.Current as App).controlManage.User.Fname + " " + (App.Current as App).controlManage.User.Lname;
+            MainWindows.UserName.Text = userName;
+            MainWindows.title.Text = t;
+            MainWindows.InternalGrid.Children.Clear();
+            MainWindows.InternalGrid.Children.Add(uc);
         }
     }
 }

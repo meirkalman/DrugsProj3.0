@@ -23,7 +23,7 @@ namespace DrugsProject3._0.Controls
     {
         public LoginUC()
         {
-            LoginVM VM = new LoginVM();
+            LoginVM VM = new LoginVM((App.Current as App).controlManage);
             DataContext = VM;
             InitializeComponent();
         }
