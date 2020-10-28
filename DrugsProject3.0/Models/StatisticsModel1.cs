@@ -16,10 +16,10 @@ namespace DrugsProject3._0.Models
             Bl = new BlObject();
         }
 
-        public Dictionary<DateTime, int> drugStatistics(string drugID, DateTime start, DateTime finish)
-        {
-            return Bl.drugStatistics(drugID, start, finish);
-        }
+        //public Dictionary<DateTime, int> drugStatistics(string drugID, DateTime start, DateTime finish)
+        //{
+        //    return Bl.drugStatistics(drugID, start, finish);
+        //}
 
         public List<Recipe> GetAllRecipes()
         {
@@ -45,22 +45,22 @@ namespace DrugsProject3._0.Models
             }
         }
 
-        public List<string> GetAllMedicineId()
+        public List<string> GetAllMedicinesNames()
         {
             try
             {
-                return Bl.GetAllMedicineId();
+                return Bl.GetAllMedicinesNames();
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        public List<Recipe> getPatientHistoryByDrug(string patientId, DateTime first, DateTime second, string drugID)
+        public List<Recipe> getPatientHistoryByDrug( DateTime first, DateTime second, string patientId = null, string drugID = null)
         {
             try
             {
-                return Bl.getPatientHistoryByDrug(patientId, first, second,drugID);
+                return Bl.getPatientHistoryByDrug(first, second, patientId, drugID);
             }
             catch (Exception ex)
             {

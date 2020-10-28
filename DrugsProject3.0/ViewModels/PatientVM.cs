@@ -32,10 +32,11 @@ namespace DrugsProject3._0.ViewModels
             {
                 if (!new VerifyInput().IsValidName(value))
                 {
-                    (App.Current as App).navigation.MainWindows.comments.Text = "שם פרטי לא תקין";
+                    (App.Current as App).navigation.MainWindows.comments.Text = "שם פרטי צריך להכיל רק תווים בעברית";
                 }
                 else
                 {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "";
                     fname = null;
                     fname = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Fname"));
@@ -51,10 +52,11 @@ namespace DrugsProject3._0.ViewModels
             {
                 if (!new VerifyInput().IsValidName(value))
                 {
-                    (App.Current as App).navigation.MainWindows.comments.Text = "שם משפחה לא תקין";
+                    (App.Current as App).navigation.MainWindows.comments.Text = "שם משפחה צריך להכיל רק תווים בעברית";
                 }
                 else
                 {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "";
                     lname = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lname"));
                 }
@@ -72,6 +74,7 @@ namespace DrugsProject3._0.ViewModels
                 }
                 else
                 {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "";
                     id = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Id"));
                 }
@@ -101,6 +104,7 @@ namespace DrugsProject3._0.ViewModels
                 }
                 else
                 {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "";
                     phoneNum = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PhoneNum"));
                 }
@@ -157,6 +161,7 @@ namespace DrugsProject3._0.ViewModels
                 PatientV = PatientM.GetPatient(PatientSelected);
                 PatientM.DeletePatient(PatientV);
                 PatientIds.Remove(PatientV.PatientId);
+                (App.Current as App).navigation.MainWindows.comments.Text = " המטופל הוסר בהצלחה מהמערכת";
             }
             catch (Exception e)
             {

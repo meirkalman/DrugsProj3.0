@@ -16,7 +16,7 @@ namespace BL
 
         void print(Recipe recipe);
 
-        List<Recipe> getPatientHistoryByDrug(string patientId, DateTime first, DateTime second, string drugID);
+        List<Recipe> getPatientHistoryByDrug(DateTime first, DateTime second, string patientId = null, string drugID = null);
         List<Recipe> getPatientHistory(string patientId, bool now = false);
         // int getPrescriptionID();
         void AddPatient(Patient patient);
@@ -62,7 +62,7 @@ namespace BL
         Patient GetPatient(string id);
         List<string> GetAllPatientsId();
         List<string> GetAllMedicineId();
-
+        List<string> GetMedicinesNamesFromRecipe(List<Recipe> prescriptionsGiven);
         List<string> GetAllMedicinesNames();
         Medicine GetMedicine(string id);
         string GetMedicineId(string medicineName);

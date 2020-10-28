@@ -1,6 +1,7 @@
 ﻿using BE;
 using DrugsProject3._0.Commands;
 using DrugsProject3._0.Models;
+using DrugsProject3._0.Tools;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,8 +19,8 @@ namespace DrugsProject3._0.ViewModels
         
             public LoginCommand Command { get; set; }
 
-            public LoginModel HomePageM { get; set; }
-
+            public LoginModel LoginM { get; set; }
+            public IControlManage IControlManage { get; set; }
             private string id;
             public string Id
             {
@@ -33,9 +34,10 @@ namespace DrugsProject3._0.ViewModels
 
         public string Password { get; set; }
 
-        public LoginVM()
+        public LoginVM(IControlManage controlManage)
         {
-            HomePageM = new LoginModel();
+            IControlManage = controlManage;
+            LoginM = new LoginModel();
             Command = new LoginCommand(this);
         }
 
@@ -44,7 +46,7 @@ namespace DrugsProject3._0.ViewModels
             try
             {
                
-                if (Id == null || password == null)
+                if (Id == null || password == "")
                 {
                     throw new ArgumentException("אתה צריך למלא את כל השדות");
                 }
@@ -52,14 +54,20 @@ namespace DrugsProject3._0.ViewModels
                 {
                     Password = password;
 
-                    User = HomePageM.GetUser(Id);
-                    if (Password == User.Password && User.Type.ToString() == "ADMIN")
+                    User = LoginM.GetUser(Id);
+                    if (Password == User.Password && User.Type.ToString() == "מנהל")
                     {
+                        IControlManage.User = User;
                         (App.Current as App).navigation.ShowControls("AdministratorUC");
                     }
-                    else if (Password == User.Password && User.Type.ToString() == "DOCTOR")
+                    else if (Password == User.Password && User.Type.ToString() == "רופא")
                     {
+                        IControlManage.User = User;
                         (App.Current as App).navigation.ShowControls("DoctorUC");
+                    }
+                    else
+                    {
+                        throw new ArgumentException("סיסמה לא נכונה");
                     }
                 }
             }

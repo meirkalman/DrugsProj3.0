@@ -29,58 +29,7 @@ namespace BL
             IDalService = new DalService();
             CI = new CheckInteraction();
         }
-        public void createPDF(Recipe recipe)
-        {
-            try
-            {
-                PdfDocument pdf = new PdfDocument();
-                pdf.Info.Title = "Prescription";
-                XPdfFontOptions options = new XPdfFontOptions(PdfFontEncoding.Unicode, PdfFontEmbedding.Always);
-                PdfPage pdfPage = pdf.AddPage();
-                XGraphics graph = XGraphics.FromPdfPage(pdfPage);
-                XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
-                Medicine medicine = GetMedicine(recipe.MedicineId);
-                Patient patient = GetPatient(recipe.PatientId);
-                string texts = recipe.ToString();
-                
-
-                    PdfPage page = pdf.AddPage();
-
-                    XGraphics gfx = XGraphics.FromPdfPage(page);
-
-                    XTextFormatter tf = new XTextFormatter(gfx);
-
-                    tf.Alignment = XParagraphAlignment.Left;
-
-                    tf.DrawString(texts, font, XBrushes.Black,
-                    new XRect(100, 100, page.Width - 200, 600), XStringFormats.TopLeft);
-
-                    string pdfFilename = recipe.RecipeId + ".pdf";
-                    pdf.Save(pdfFilename);
-                    Process.Start(pdfFilename);
-               
-            }
-            catch (Exception)
-            {
-
-                throw new Exception("pdf cannot be create");
-            }
-
-
-        }
-
-
-
-        public List<string> getDrugsNames()
-        {
-            return CI.getDrugsNames();
-        }
-
-
-        public List<string> interactionDrugs(string drugName)
-        {
-            return CI.interactionDrugs(drugName);
-        }
+     
         #region add
         public void AddMedicine(Medicine medicine)
         {
@@ -373,7 +322,6 @@ namespace BL
         }
         #endregion get 
 
-
         #region statistics
 
         public Dictionary<DateTime, int> drugStatistics(string drugID, DateTime start, DateTime finish)
@@ -399,24 +347,150 @@ namespace BL
 
 
         }
+        public List<Recipe> getPatientHistoryByDrug(DateTime first, DateTime second, string patientId = null, string drugID = null)
+        {
+            try
+            {
+                List<Recipe> result = new List<Recipe>();
+                if (patientId != null && drugID != null)
+                {
+                    result = (from item in getPatientHistory(patientId)
+                              where drugID == item.MedicineId && item.Date.Day <= second.Day && item.Date.AddDays(item.PeriodOfUse) > first
+                              select item).ToList();
+                }
+                if (patientId != null && drugID == null)
+                {
+                    result = (from item in getPatientHistory(patientId)
+                              where item.Date <= second && item.Date.AddDays(item.PeriodOfUse) > first
+                              select item).ToList();
+                }
+                if (patientId == null && drugID != null)
+                {
+                    result = (from item in IDalService.GetAllRecipes()
+                              where drugID == item.MedicineId && item.Date <= second && item.Date.AddDays(item.PeriodOfUse) > first
+                              select item).ToList();
+                }
+                if (patientId == null && drugID == null)
+                {
+                    result = (from item in IDalService.GetAllRecipes()
+                              where item.Date <= second && item.Date.AddDays(item.PeriodOfUse) > first
+                              select item).ToList();
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+        }
+        public List<Recipe> getPatientHistory(string patientId, bool now = false)
+        {
+            try
+            {
+                var patientPrescriptions = (from p in GetAllRecipes()
+                                            where p.PatientId == patientId
+                                            select p).ToList();
 
-        //public List<Recipe> drugStatistics(string drugID, DateTime start, DateTime finish)
-        //{
-        //    List<Recipe> result = new List<Recipe>();
-        //    var prescriptionsOnTheAppropriateDate = (from item in IDalService.GetAllRecipes()
-        //                                             where (drugID == item.MedicineId && start >= item.Date && finish <= item.Date)
-        //                                             group item by item.Date).ToList();
-        //    var prescriptions = prescriptionsOnTheAppropriateDate.OrderBy(g => g.Key);
-        //    foreach (var g in prescriptions)
-        //    {
-        //        result.Add(g.Key, g.Count());
-        //    }
-        //    return result;
+                if (now)
+                {
+                    var drugsRightOfToday = (from p in patientPrescriptions
+                                             where p.Date.AddDays(p.PeriodOfUse) > DateTime.Now
+                                             select p).ToList();
+                    return drugsRightOfToday;
 
-        //}
+                }
+                else
+                {
+                    return patientPrescriptions.ToList();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("לא נמצא חולה במערכת");
+            }
+        }
+
+      
         #endregion
 
+        #region PDF
+        public void createPDF(Recipe recipe)
+        {
+            try
+            {
+                PdfDocument pdf = new PdfDocument();
+                pdf.Info.Title = "Prescription";
+                XPdfFontOptions options = new XPdfFontOptions(PdfFontEncoding.Unicode, PdfFontEmbedding.Always);
+                PdfPage pdfPage = pdf.AddPage();
+                XGraphics graph = XGraphics.FromPdfPage(pdfPage);
+                XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
+                Medicine medicine = GetMedicine(recipe.MedicineId);
+                Patient patient = GetPatient(recipe.PatientId);
+                string texts = recipe.ToString();
+
+
+                PdfPage page = pdf.AddPage();
+
+                XGraphics gfx = XGraphics.FromPdfPage(page);
+
+                XTextFormatter tf = new XTextFormatter(gfx);
+
+                tf.Alignment = XParagraphAlignment.Left;
+
+                tf.DrawString(texts, font, XBrushes.Black,
+                new XRect(100, 100, page.Width - 200, 600), XStringFormats.TopLeft);
+
+                string pdfFilename = recipe.RecipeId + ".pdf";
+                pdf.Save(pdfFilename);
+                Process.Start(pdfFilename);
+
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("pdf cannot be create");
+            }
+
+
+        }
+        public void print(Recipe recipe)
+        {
+
+            createPDF(recipe);
+            ProcessStartInfo info = new ProcessStartInfo();
+            info.Verb = "print";
+            info.FileName = recipe.RecipeId + ".pdf";
+            info.CreateNoWindow = true;
+            info.WindowStyle = ProcessWindowStyle.Hidden;
+
+            Process p = new Process();
+            p.StartInfo = info;
+            p.Start();
+
+            p.WaitForInputIdle();
+            System.Threading.Thread.Sleep(3000);
+            if (false == p.CloseMainWindow())
+                p.Kill();
+
+        }
+        #endregion PDF  
+
+        #region interaction
+        public List<string> getDrugsNames()
+        {
+            return CI.getDrugsNames();
+        }
+
+        public List<string> interactionDrugs(string drugName)
+        {
+            return CI.interactionDrugs(drugName);
+        }
+        #endregion  interaction
+
+        #region other
         public string getPrescriptionID()
         {
             int result;
@@ -474,7 +548,21 @@ namespace BL
             }
 
         }
+        public List<string> GetMedicinesNamesFromRecipe(List<Recipe> prescriptionsGiven)
+        {
+            try
+            {
+                List<string> res = new List<string>();
+                res = (from item in prescriptionsGiven
+                       select item.MedicineName).ToList();
+                return res;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
+        }
         public List<string> GetAllMedicinesNames()
         {
             try
@@ -485,7 +573,6 @@ namespace BL
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
 
@@ -513,42 +600,7 @@ namespace BL
             }
 
         }
-        public List<Recipe> getPatientHistoryByDrug(string patientId, DateTime first, DateTime second, string drugID)
-        {
-            List<Recipe> result = new List<Recipe>();
-            result = (from item in getPatientHistory(patientId)
-                      where drugID == item.MedicineId && item.Date < second && item.Date.AddDays(item.PeriodOfUse) > first
-                      select item).ToList();
-            return result;
-        }
-        public List<Recipe> getPatientHistory(string patientId, bool now = false)
-        {
-            try
-            {
-                var patientPrescriptions = from p in GetAllRecipes()
-                                           where p.PatientId == patientId
-                                           select p;
 
-                if (now)
-                {
-                    var drugsRightOfToday = (from p in patientPrescriptions
-                                             where p.Date.AddDays(p.PeriodOfUse) > DateTime.Now
-                                             select p).ToList();
-                    return drugsRightOfToday;
-
-                }
-                else
-                {
-                    return patientPrescriptions.ToList();
-                }
-
-            }
-            catch (Exception)
-            {
-
-                throw new Exception("לא נמצא חולה במערכת");
-            }
-        }
 
         public int ResolveRxcuiFromName(string name)
         {
@@ -581,35 +633,32 @@ namespace BL
 
 
         }
-        public void print(Recipe recipe)
-        {
 
-            createPDF(recipe);
-            ProcessStartInfo info = new ProcessStartInfo();
-            info.Verb = "print";
-            info.FileName = recipe.RecipeId + ".pdf";
-            info.CreateNoWindow = true;
-            info.WindowStyle = ProcessWindowStyle.Hidden;
 
-            Process p = new Process();
-            p.StartInfo = info;
-            p.Start();
+        #endregion other
 
-            p.WaitForInputIdle();
-            System.Threading.Thread.Sleep(3000);
-            if (false == p.CloseMainWindow())
-                 p.Kill();
-            
-        }
 
-        
+
     }
 }
 
 
 
 
+//public List<Recipe> drugStatistics(string drugID, DateTime start, DateTime finish)
+//{
+//    List<Recipe> result = new List<Recipe>();
+//    var prescriptionsOnTheAppropriateDate = (from item in IDalService.GetAllRecipes()
+//                                             where (drugID == item.MedicineId && start >= item.Date && finish <= item.Date)
+//                                             group item by item.Date).ToList();
+//    var prescriptions = prescriptionsOnTheAppropriateDate.OrderBy(g => g.Key);
+//    foreach (var g in prescriptions)
+//    {
+//        result.Add(g.Key, g.Count());
+//    }
+//    return result;
 
+//}
 
 
 

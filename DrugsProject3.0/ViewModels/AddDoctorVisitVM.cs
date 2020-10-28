@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace DrugsProject3._0.ViewModels
 {
@@ -22,74 +23,42 @@ namespace DrugsProject3._0.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         public AddDoctorVisitModel AddDoctorVisitM { get; set; }
         public AddDoctorVisitCommand AddCommand { get; set; }
-        public IControlManage IControlManage { get; set; }/////////////////////////////////////////////
+        public IControlManage IControlManage { get; set; }
 
         public Recipe Recipe { get; set; }
         public Patient Patient { get; set; }
         public User User { get; set; }
         public ObservableCollection<string> MedicinesNames { get; set; }
         public ObservableCollection<string> MedicationsAdded { get; set; }
-        public List<string> PrescriptionsGiven { get; set; }
+        public List<Recipe> PrescriptionsGiven { get; set; }
+        public List<string> PrescriptionsGivenNames { get; set; }
         public ObservableCollection<Recipe> Recipes { get; set; }
-
-        public AddDoctorVisitVM(IControlManage controlManage)/////////////////////////////////////////////
+        public ObservableCollection<string> Type { get; set; }
+        public AddDoctorVisitVM(IControlManage controlManage)
         {
             try
             {
-                IControlManage = controlManage;/////////////////////////////////////////////
+                IControlManage = controlManage;
                 AddDoctorVisitM = new AddDoctorVisitModel();
                 AddCommand = new AddDoctorVisitCommand(this);
                 MedicinesNames = new ObservableCollection<string>(AddDoctorVisitM.GetAllMedicinesNames());
                 Patient = IControlManage.Patient;
                 User = IControlManage.User;
+                DoctorName = User.Fname + " " + User.Lname;
                 PatientName = Patient.Fname + " " + Patient.Lname;
-                Recipes = new ObservableCollection<Recipe>(getPatientHistory());
-                MedicationsAdded = new ObservableCollection<string>(PrescriptionsGiven);    
-            }
-            catch (Exception e)
-            {
-
-                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
-            }
-
-        }
-
-        internal void Print()
-        {
-            try
-            {
-                if (Description == null || QuantityPerDay == 0 || PeriodOfUse == 0)
-                {
-                    throw new ArgumentException("אתה צריך למלא את כל השדות");
-                }
-                MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
-                RecipeId = AddDoctorVisitM.AddRecipeId();///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                string PatientId = Patient.PatientId;
-                string DoctorId = "888"; /*User.Id;*/
-                Date = DateTime.Now;
-                Recipe = new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date);
-                AddDoctorVisitM.Print(Recipe);
+                Recipes = new ObservableCollection<Recipe>(AddDoctorVisitM.getPatientHistory(Patient.PatientId));
+                Type = new ObservableCollection<string>(Enum.GetNames(typeof(ShowData)));
+                MedicationsAdded = new ObservableCollection<string>();    
             }
             catch (Exception e)
             {
                 (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
             }
-        }
-
-        public void Massage(List<string> res)
-        {
-            (App.Current as App).navigation.MainWindows.comments.Text = "יש התנגשות עם תרופה מספר " +res[0];/////////////////////////////////////////////
         }
 
         public string RecipeId { get; set; }
         public string MedicineId { get; set; }
-        private string doctorName;
-        public string DoctorName
-        {
-            get { return doctorName; }
-            set { doctorName = User.Fname + User.Lname; }
-        }
-
+        public string DoctorName { get; set; }
         public string PatientName { get; set; }
 
         public string MedicineSelected { get; set; }
@@ -128,15 +97,48 @@ namespace DrugsProject3._0.ViewModels
         }
 
         public DateTime Date { get; set; }
+       
+        private ShowData typeSelected;
+        public ShowData TypeSelected
+        {
+            get { return typeSelected; }
+            set
+            {
+                typeSelected = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TypeSelected"));
+            }
+        }
+        public void AddRecipe()
+        {
+            try
+            {
+                if (Description == null || QuantityPerDay == 0 || PeriodOfUse == 0)
+                {
+                    throw new ArgumentException("אתה צריך למלא את כל השדות");
+                }
+                MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
+                RecipeId = AddDoctorVisitM.AddRecipeId();
+                //string DoctorId = "888"; /*User.Id;*/ 
+                Recipe recipe = new Recipe(RecipeId, MedicineSelected, Patient.PatientId, User.Id, MedicineId, PeriodOfUse, QuantityPerDay, Description, DateTime.Now);
+                AddDoctorVisitM.AddRecipe(recipe);
+                PrescriptionsGiven.Add(recipe);
+                MedicationsAdded.Add(recipe.MedicineName);
+              //  PrescriptionsGivenNames.Add(recipe.MedicineName);
+            }
+            catch (Exception e)
+            {
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
+        }
         public List<string> CheckInteractionDrugs()
         {
             try
             {
                 List<string> interactionDrugsList = AddDoctorVisitM.interactionDrugs(MedicineSelected);
                 List<string> DrugsList = (from item in AddDoctorVisitM.getPatientHistory(Patient.PatientId, true)
-                           select item.MedicineId).ToList();
+                                          select item.MedicineId).ToList();
 
-              //  List<string> DrugsList = AddDoctorVisitM.getPatientHistory(Patient.PatientId, true);
+                //  List<string> DrugsList = AddDoctorVisitM.getPatientHistory(Patient.PatientId, true);
                 List<string> res = new List<string>();
                 foreach (string item in DrugsList)
                 {
@@ -152,54 +154,57 @@ namespace DrugsProject3._0.ViewModels
             }
             catch (Exception e)
             {
-
                 (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
             }
             return null;
-
         }
-        public void AddRecipe()
+        public void DeleteRecipe()
         {
             try
             {
-                if (   Description == null||QuantityPerDay == 0 || PeriodOfUse == 0)
+                if (PrescriptionsGiven.Count() == 0)
                 {
-                    throw new ArgumentException("אתה צריך למלא את כל השדות");
+                    throw new ArgumentException("אין מרשם למחיקה");
                 }
-                MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
-                RecipeId = AddDoctorVisitM.AddRecipeId();///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                string PatientId = Patient.PatientId;
-                string DoctorId = "888"; /*User.Id;*/
-                Date = DateTime.Now;
-                Recipe recipe = new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date);
-                AddDoctorVisitM.AddRecipe(recipe);
-                PrescriptionsGiven.Add(recipe.MedicineId);
-                MedicationsAdded.Add(recipe.MedicineId);
-                
+                Recipe recipe = PrescriptionsGiven.First();
+                AddDoctorVisitM.DeleteRecipe(recipe);
+                PrescriptionsGiven.Remove(recipe);
+                MedicationsAdded.Remove(recipe.MedicineName);
             }
             catch (Exception e)
             {
                 (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
             }
         }
-        public string Selected { get; set; }
-
-
+        public void Massage(List<string> res)
+        {
+            (App.Current as App).navigation.MainWindows.comments.Text = "יש התנגשות עם תרופה מספר " + res[0];
+        }
+        public void Print()
+        {
+            try
+            {
+                if (Description == null || QuantityPerDay == 0 || PeriodOfUse == 0)
+                {
+                    throw new ArgumentException("אתה צריך למלא את כל השדות");
+                }
+               // AddDoctorVisitM.Print(PrescriptionsGiven);
+            }
+            catch (Exception e)
+            {
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
+        }
+       
         public void creatPDF()
         {
             try
             {
-                if (  Description == null|| QuantityPerDay==0|| PeriodOfUse==0)
+                if (Description == null || QuantityPerDay == 0 || PeriodOfUse == 0)
                 {
                     throw new ArgumentException("אתה צריך למלא את כל השדות");
                 }
-                MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
-                RecipeId = AddDoctorVisitM.AddRecipeId();///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                string PatientId = Patient.PatientId;
-                string DoctorId = "888"; /*User.Id;*/
-                Date = DateTime.Now;
-                Recipe = new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date);
-                AddDoctorVisitM.creatPDF(Recipe);
+               // AddDoctorVisitM.creatPDF(PrescriptionsGiven);
             }
             catch (Exception e)
             {
@@ -207,24 +212,35 @@ namespace DrugsProject3._0.ViewModels
             }
         }
 
-        
-
-        public List<Recipe> getPatientHistory()
+        public enum ShowData { כל_המידע,מידע_עדכני }
+        public void getPatientHistory()
         {
             try
             {
-                if (Selected == "מידע עדכני")
+                if (TypeSelected == ShowData.מידע_עדכני)
                 {
-                    return AddDoctorVisitM.getPatientHistory(Patient.PatientId, true);
+                    Recipes.Clear();
+                    foreach (Recipe item in AddDoctorVisitM.getPatientHistory(Patient.PatientId, true))
+                    {
+                        Recipes.Add(item);
+                    }
                 }
-                return AddDoctorVisitM.getPatientHistory(Patient.PatientId);
+                if (TypeSelected == ShowData.כל_המידע)
+                {
+                    Recipes.Clear();
+                    foreach (Recipe item in AddDoctorVisitM.getPatientHistory(Patient.PatientId))
+                    {
+                        Recipes.Add(item);
+                    }
+                }  
             }
             catch (Exception e)
             {
                 (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
             }
-            return null;
         }
     }
     
 }
+
+  

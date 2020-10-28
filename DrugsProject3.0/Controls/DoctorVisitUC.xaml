@@ -8,11 +8,11 @@
              mc:Ignorable="d" Height="483" Width="866">
     <Grid  FlowDirection="LeftToRight">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="323*"/>
-            <ColumnDefinition Width="543*"/>
+            <ColumnDefinition Width="169*"/>
+            <ColumnDefinition Width="264*"/>
         </Grid.ColumnDefinitions>
-        <materialDesign:PackIcon Kind="Plus" HorizontalAlignment="Center" Height="36" Width="40"  Grid.Column="1" Margin="464.8,16,37.6,0" />
-        <materialDesign:PackIcon Kind="AccountClock"  HorizontalAlignment="Center" Height="36" Width="40" Margin="243,16,40,0"  />
+        <materialDesign:PackIcon Kind="Plus" HorizontalAlignment="Center" Height="36" Width="40"  Grid.Column="1" Margin="459,16,29,0" />
+        <materialDesign:PackIcon Kind="AccountClock"  HorizontalAlignment="Center" Height="36" Width="40" Margin="251,16,47,0"  />
 
         <ComboBox
             ItemsSource="{Binding MedicinesNames}" 
@@ -20,31 +20,31 @@
             FlowDirection="RightToLeft"
   materialDesign:HintAssist.Hint="שם התרופה"
   materialDesign:HintAssist.HintOpacity=".26"
-  Grid.Column="1" Margin="221,187,94,270" Height="26"
+  Grid.Column="1" Margin="255,187,60,270" Height="26"
   
   IsEditable="True"/>
 
         <Button Command="{Binding AddCommand}" CommandParameter ="AddRecipe"
-    Style="{StaticResource MaterialDesignRaisedAccentButton}"
-    ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="309,362,122,89" Height="Auto" >
-            הוסף תרופה
+    Style="{StaticResource MaterialDesignRaisedAccentButton}" Background="#FF607D8B"
+    ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="321,362,90,89" Height="Auto" >
+            הוסף מרשם
         </Button>
-        <Button  Command="{Binding AddCommand}" CommandParameter ="AddRecipe"
+        <Button Background="#FF607D8B" Command="{Binding AddCommand}" CommandParameter ="DeleteRecipe"
     Style="{StaticResource MaterialDesignRaisedAccentButton}"
-    ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="153,362,276,89" Height="Auto" >
-            הסר תרופה
+    ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="171,362,242,89" Height="Auto" >
+            הסר מרשם
         </Button>
         <Button Command="{Binding AddCommand}" CommandParameter ="DoctorUC"
-    Style="{StaticResource MaterialDesignRaisedAccentButton}"
+    Style="{StaticResource MaterialDesignRaisedAccentButton}" Background="#FF607D8B"
     ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="447,441,10,10" Content="סיום" Height="Auto" />
 
 
-        <ListBox x:Name="MedicineListBox" ItemsSource="{Binding MedicationsAdded}" Grid.Column="1"  HorizontalAlignment="Left" FlowDirection="RightToLeft" IsEnabled="False" Height="113" Margin="24,218,0,0"   VerticalAlignment="Top" Width="188" Background="Transparent" BorderThickness="2" BorderBrush="Black"/>
+        <ListBox x:Name="MedicineListBox" ItemsSource="{Binding MedicationsAdded}" Grid.Column="1"  HorizontalAlignment="Left" FlowDirection="RightToLeft" IsEnabled="False" Height="113" Margin="38,218,0,0"   VerticalAlignment="Top" Width="188" Background="Transparent" BorderThickness="2" BorderBrush="Black"/>
         <materialDesign:PopupBox
   Style="{StaticResource MaterialDesignMultiFloatingActionAccentPopupBox}"
   PlacementMode="BottomAndAlignCentres"
   ToggleCheckedContentCommandParameter="wowsers"
-  ToolTip="PopupBox, Style MaterialDesignMultiFloatingActionAccentPopupBox" Grid.Column="1" Margin="49,338,0,89" Height="Auto" >
+  Grid.Column="1" Background="#FF607D8B" Margin="69,338,0,89" Height="Auto" >
             <materialDesign:PopupBox.ToggleCheckedContent>
                 <materialDesign:PackIcon
       Kind="Pencil"
@@ -65,13 +65,13 @@
                 </Button>
             </StackPanel>
         </materialDesign:PopupBox>
-        <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  HorizontalAlignment="Left" Text="{Binding Description}" FlowDirection="RightToLeft" Height="69" Margin="19,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="444" Grid.Column="1">
+        <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  HorizontalAlignment="Left" Text="{Binding Description}" FlowDirection="RightToLeft" Height="69" Margin="33,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="444" Grid.Column="1">
             <TextBox.Background>
                 <ImageBrush/>
             </TextBox.Background>
         </TextBox>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" FlowDirection="RightToLeft" Height="28" Margin="473,79,0,0" TextWrapping="Wrap" Text="הערות:" VerticalAlignment="Top" Width="49"/>
-        <Grid Grid.Column="1" HorizontalAlignment="Left" Height="65" Margin="212,218,0,0" VerticalAlignment="Top" Width="277">
+        <Grid Grid.Column="1" HorizontalAlignment="Left" Height="65" Margin="242,218,0,0" VerticalAlignment="Top" Width="277">
             <TextBlock HorizontalAlignment="Left"  IsEnabled="False" Height="27" Margin="115,32,0,0" TextWrapping="Wrap" Text="מספר ימים לנטילת התרופה" VerticalAlignment="Top" Width="158"/>
             <Slider  Value="{Binding PeriodOfUse}"
     Minimum="0"
@@ -80,7 +80,7 @@
     ToolTip="MaterialDesignDiscreteSlider"
     Margin="2,0,161,5" />
         </Grid>
-        <Grid Grid.Column="1" HorizontalAlignment="Left" Height="55" Margin="212,281,0,0" VerticalAlignment="Top" Width="277">
+        <Grid Grid.Column="1" HorizontalAlignment="Left" Height="55" Margin="240,281,0,0" VerticalAlignment="Top" Width="277">
             <TextBlock HorizontalAlignment="Left" IsEnabled="False" FlowDirection="RightToLeft" Height="28" Margin="110,29,0,-2" TextWrapping="Wrap" Text="מספר פעמים ביום" VerticalAlignment="Top" Width="100"/>
             <Slider
     Minimum="0"
@@ -91,30 +91,27 @@
         </Grid>
         <TextBlock Grid.Column="1"  FlowDirection="RightToLeft" FontSize="20" Background="LightGray" HorizontalAlignment="Left" Margin="338,21,0,0" TextWrapping="Wrap" Text="הוספת מרשם" VerticalAlignment="Top" Height="31" Width="127"/>
         <TextBlock  FlowDirection="RightToLeft" FontSize="20" Background="LightGray" TextWrapping="Wrap" Text="היסטוריה רפואית" Margin="82,21,85,431"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" FontSize="14" Margin="68,193,0,0" TextWrapping="Wrap" Text="רשימת תרופות שנוספו" VerticalAlignment="Top" Height="25" Width="144"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="191,21,0,0" FontSize="18" TextWrapping="Wrap" Text="שם הפציינט" VerticalAlignment="Top" Height="31" Width="100"/>
-        <TextBox Grid.Column="1"  Text ="{Binding PatientName, Mode=OneWay}" IsEnabled="False"  HorizontalAlignment="Left" FontSize="16" Margin="19,16,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="36" Width="167"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" FontSize="14" Margin="82,193,0,0" TextWrapping="Wrap" Text="רשימת תרופות שנוספו" VerticalAlignment="Top" Height="25" Width="144"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="205,21,0,0" FontSize="18" TextWrapping="Wrap" Text="שם הפציינט" VerticalAlignment="Top" Height="31" Width="100"/>
+        <TextBox Grid.Column="1"  Text ="{Binding PatientName, Mode=OneWay}" IsEnabled="False"  HorizontalAlignment="Left" FontSize="16" Margin="29,16,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="36" Width="167"/>
         <DataGrid x:Name="DataGrid"  HorizontalAlignment="Center" ItemsSource="{Binding Recipes}" CanUserAddRows="False" CanUserDeleteRows="False"  IsReadOnly="True" 
-           FlowDirection="RightToLeft" EnableRowVirtualization="True" AutoGenerateColumns="False" HorizontalContentAlignment="Center" Margin="10,84,10,55" Width="303">
+           FlowDirection="RightToLeft" EnableRowVirtualization="True" AutoGenerateColumns="False" HorizontalContentAlignment="Center" Margin="17,103,17,55" Width="304">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="מספר מרשם" Binding="{Binding RecipeId }"/>
-                <DataGridTextColumn Header="מספר רופא" Binding="{Binding DoctorId}"/>
+                <DataGridTextColumn Header="שם תרופה" Binding="{Binding MedicineName }"/>
                 <DataGridTextColumn Header="מספר תרופה" Binding="{Binding MedicineId }"/>
+                <DataGridTextColumn Header="מספר פציינט" Binding="{Binding PatientId}"/>
+                <DataGridTextColumn Header="מספר רופא" Binding="{Binding DoctorId}"/>
                 <DataGridTextColumn Header="מספר ימי שימוש" Binding="{Binding PeriodOfUse }"/>
                 <DataGridTextColumn Header="מספר פעמים ליום" Binding="{Binding QuantityPerDay }"/>
                 <DataGridTextColumn Header="תיאור" Binding="{Binding Description }"/>
-                <DataGridTextColumn Header="מספר פציינט" Binding="{Binding PatientId}"/>
+                <DataGridTextColumn Header="תאריך" Binding="{Binding Date }"/>
             </DataGrid.Columns>
         </DataGrid>
-        <ComboBox x:Name="comboBox"  SelectedItem="{Binding Selected}" 
-            HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Width="54">
-            <ComboBoxItem> 
-                כל המידע
-            </ComboBoxItem>
-            <ComboBoxItem>
-                מידע עדכני
-            </ComboBoxItem>
+        <ComboBox x:Name="comboBox" ItemsSource="{Binding Type}"   SelectedItem="{Binding TypeSelected}" 
+            HorizontalAlignment="Left" Margin="17,72,0,0" VerticalAlignment="Top" Width="80" Height="26">
         </ComboBox>
+        <Button x:Name="button" Command="{Binding AddCommand}" CommandParameter ="Show" Content="הצג" HorizontalAlignment="Left" Margin="106,70,0,0" VerticalAlignment="Top" Width="64"   RenderTransformOrigin="0.481,0.545" Height="28"/>
 
     </Grid>
 </UserControl>

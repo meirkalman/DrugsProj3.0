@@ -15,14 +15,14 @@ namespace DrugsProject3._0.Models
         {
             Bl = new BlObject();
         }
-        public void creatPDF(Recipe r)
+        public void creatPDF(List<Recipe> r)
         {
-            Bl.createPDF(r);
+            //Bl.createPDF(r);
         }
 
-        public void Print(Recipe r)
+        public void Print(List<Recipe> r)
         {
-            Bl.print(r);
+            //Bl.print(r);
         }
         public Medicine GetMedicine(string id)
         {
@@ -101,6 +101,30 @@ namespace DrugsProject3._0.Models
             try
             {
                 return Bl.getPatientHistory(patientId, flag);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<string> GetMedicinesNamesFromRecipe(List<Recipe> prescriptionsGiven)
+        {
+            try
+            {
+                return Bl.GetMedicinesNamesFromRecipe(prescriptionsGiven);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void DeleteRecipe(Recipe recipe)
+        {
+            try
+            {
+                 Bl.DeleteRecipe(recipe);
             }
             catch (Exception ex)
             {

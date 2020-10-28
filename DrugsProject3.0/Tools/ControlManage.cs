@@ -17,12 +17,6 @@ namespace DrugsProject3._0.Tools
         public ControlManage()
         {
 
-        }
-        //public ControlManage(Patient patient, User user)
-        //{
-        //    Patient = patient;
-        //    User = user;
-        //}
-
+        }  
     }
 }

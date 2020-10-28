@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace DrugsProject3._0.Navigation
@@ -11,6 +12,7 @@ namespace DrugsProject3._0.Navigation
     public class NavigationClass
     {
         string title;
+        
         public MainWindow MainWindows { get; set; }
         public void ShowControls(string UserControl)
         {
@@ -44,6 +46,7 @@ namespace DrugsProject3._0.Navigation
                 case "AdministratorUC":
                     uc = new AdministratorUC();
                     title = "אדמיניסטרטור";
+                    
                     break;
                 case "PatientUC":
                     uc = new PatientUC();
@@ -55,7 +58,7 @@ namespace DrugsProject3._0.Navigation
                     break;
                 case "MedicineUC":
                     uc = new MedicineUC();
-                    title = "הוספת משתמש חדש";
+                    title = "ניהול תרופות";
                     break;
                 case "StatisticsUC":
                     uc = new StatisticsUC();
@@ -63,7 +66,24 @@ namespace DrugsProject3._0.Navigation
                     break;
             }
              (App.Current as App).navigation.MainWindows.comments.Text = "";
-            MainWindows.ShowControl(uc, title);
+            ShowControl(uc, title);
+        }
+
+
+        public void ShowControl(UserControl uc, string t)
+        {
+            if (t != "ברוך הבא")
+            {
+                string userName = (App.Current as App).controlManage.User.Fname + " " + (App.Current as App).controlManage.User.Lname;
+                MainWindows.UserName.Text = userName;
+            }
+            else
+            {
+                MainWindows.UserName.Text = "";
+            }
+            MainWindows.title.Text = t;
+            MainWindows.InternalGrid.Children.Clear();
+            MainWindows.InternalGrid.Children.Add(uc);
         }
     }
 }
