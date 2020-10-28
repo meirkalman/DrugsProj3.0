@@ -15,14 +15,14 @@ namespace DrugsProject3._0.Models
         {
             Bl = new BlObject();
         }
-        public void creatPDF(Recipe r)
+        public void creatPDF(List<Recipe> r)
         {
-            Bl.createPDF(r);
+            //Bl.createPDF(r);
         }
 
-        public void Print(Recipe r)
+        public void Print(List<Recipe> r)
         {
-            Bl.print(r);
+            //Bl.print(r);
         }
         public Medicine GetMedicine(string id)
         {

@@ -182,46 +182,34 @@ namespace DrugsProject3._0.ViewModels
         }
         public void Print()
         {
-            //try
-            //{
-            //    if (Description == null || QuantityPerDay == 0 || PeriodOfUse == 0)
-            //    {
-            //        throw new ArgumentException("אתה צריך למלא את כל השדות");
-            //    }
-            //    MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
-            //    RecipeId = AddDoctorVisitM.AddRecipeId();
-            //    string PatientId = Patient.PatientId;
-            //    string DoctorId = "888"; /*User.Id;*/
-            //    Date = DateTime.Now;
-            //    Recipe = new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date);
-            //    AddDoctorVisitM.Print(Recipe);
-            //}
-            //catch (Exception e)
-            //{
-            //    (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
-            //}
+            try
+            {
+                if (Description == null || QuantityPerDay == 0 || PeriodOfUse == 0)
+                {
+                    throw new ArgumentException("אתה צריך למלא את כל השדות");
+                }
+               // AddDoctorVisitM.Print(PrescriptionsGiven);
+            }
+            catch (Exception e)
+            {
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
         }
        
         public void creatPDF()
         {
-            //try
-            //{
-            //    if (  Description == null|| QuantityPerDay==0|| PeriodOfUse==0)
-            //    {
-            //        throw new ArgumentException("אתה צריך למלא את כל השדות");
-            //    }
-            //    MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
-            //    RecipeId = AddDoctorVisitM.AddRecipeId();///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //    string PatientId = Patient.PatientId;
-            //    string DoctorId = "888"; /*User.Id;*/
-            //    Date = DateTime.Now;
-            //    Recipe = new Recipe(RecipeId, PatientId, DoctorId, MedicineId, PeriodOfUse, QuantityPerDay, Description, Date);
-            //    AddDoctorVisitM.creatPDF(Recipe);
-            //}
-            //catch (Exception e)
-            //{
-            //    (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
-            //}
+            try
+            {
+                if (Description == null || QuantityPerDay == 0 || PeriodOfUse == 0)
+                {
+                    throw new ArgumentException("אתה צריך למלא את כל השדות");
+                }
+               // AddDoctorVisitM.creatPDF(PrescriptionsGiven);
+            }
+            catch (Exception e)
+            {
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
         }
 
         public enum ShowData { כל_המידע,מידע_עדכני }
