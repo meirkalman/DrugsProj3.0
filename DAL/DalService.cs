@@ -144,7 +144,6 @@ namespace DAL
             }
         }
         #endregion add & update to db
-
         #region delete
         public void DeletePatient(Patient patient)
         {

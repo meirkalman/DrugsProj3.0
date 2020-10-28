@@ -67,5 +67,10 @@ namespace DrugsProject3._0.Models
                 throw ex;
             }
         }
+
+        public string GetMedicineId(string medicineSelected)
+        {
+            return Bl.GetMedicineId(medicineSelected);
+        }
     }
 }

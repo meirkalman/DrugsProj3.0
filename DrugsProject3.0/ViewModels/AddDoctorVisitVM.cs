@@ -48,7 +48,8 @@ namespace DrugsProject3._0.ViewModels
                 PatientName = Patient.Fname + " " + Patient.Lname;
                 Recipes = new ObservableCollection<Recipe>(AddDoctorVisitM.getPatientHistory(Patient.PatientId));
                 Type = new ObservableCollection<string>(Enum.GetNames(typeof(ShowData)));
-                MedicationsAdded = new ObservableCollection<string>();    
+                MedicationsAdded = new ObservableCollection<string>();
+                PrescriptionsGiven = new List<Recipe>();
             }
             catch (Exception e)
             {
@@ -121,6 +122,7 @@ namespace DrugsProject3._0.ViewModels
                 //string DoctorId = "888"; /*User.Id;*/ 
                 Recipe recipe = new Recipe(RecipeId, MedicineSelected, Patient.PatientId, User.Id, MedicineId, PeriodOfUse, QuantityPerDay, Description, DateTime.Now);
                 AddDoctorVisitM.AddRecipe(recipe);
+                (App.Current as App).navigation.MainWindows.comments.Text = "תרופה נוספה בהצלחה";
                 PrescriptionsGiven.Add(recipe);
                 MedicationsAdded.Add(recipe.MedicineName);
               //  PrescriptionsGivenNames.Add(recipe.MedicineName);
@@ -168,6 +170,7 @@ namespace DrugsProject3._0.ViewModels
                 }
                 Recipe recipe = PrescriptionsGiven.First();
                 AddDoctorVisitM.DeleteRecipe(recipe);
+                (App.Current as App).navigation.MainWindows.comments.Text = "תרופה הוסרה בהצלחה";
                 PrescriptionsGiven.Remove(recipe);
                 MedicationsAdded.Remove(recipe.MedicineName);
             }

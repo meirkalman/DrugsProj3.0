@@ -34,7 +34,7 @@
                 <Button Background="#FF607D8B" Content="פתיחת ביקור" Command="{Binding Command}" CommandParameter ="OpenDoctorVisit"  Width="120"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Margin="106,173,111,92"   />
             </Grid>
         </GroupBox>
-        <Button Content="חזור" Background="#FF607D8B" Style="{StaticResource MaterialDesignRaisedAccentButton}" HorizontalAlignment="Left" Margin="104,407,0,0" VerticalAlignment="Top" Width="74"/>
+        <Button Content="חזור" Command="{Binding Command}" CommandParameter ="Return" Background="#FF607D8B" Style="{StaticResource MaterialDesignRaisedAccentButton}" HorizontalAlignment="Left" Margin="104,407,0,0" VerticalAlignment="Top" Width="74"/>
 
 
     </Grid>
