@@ -522,6 +522,7 @@ namespace BL
                           where drugID == item.MedicineId && item.Date <= second && item.Date.AddDays(item.PeriodOfUse) > first
                           select item).ToList();
                 return result;
+            }
             catch (Exception ex)
             {
 

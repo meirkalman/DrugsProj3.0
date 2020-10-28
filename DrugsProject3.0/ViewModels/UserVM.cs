@@ -109,7 +109,7 @@ namespace DrugsProject3._0.ViewModels
             {
                 if (!new VerifyInput().IsValidPassword(value))
                 {
-                    (App.Current as App).navigation.MainWindows.comments.Text = "סיסמה צריכה להיות 8 ספרות";
+                    (App.Current as App).navigation.MainWindows.comments.Text = "הסיסמה צריכה לכלול 8 תווים ";
                 }
                 else
                 {
@@ -186,6 +186,7 @@ namespace DrugsProject3._0.ViewModels
                 User = AddUserM.GetUser(UserSelected);
                 AddUserM.DeleteUser(User);
                 UserIds.Remove(User.Id);
+                (App.Current as App).navigation.MainWindows.comments.Text = "משתמש הוסר בהצלחה";
             }
             catch (Exception e)
             {
