@@ -56,11 +56,11 @@ namespace DrugsProject3._0.Models
                 throw ex;
             }
         }
-        public List<Recipe> getPatientHistoryByDrug(string patientId, DateTime first, DateTime second, string drugID)
+        public List<Recipe> getPatientHistoryByDrug( DateTime first, DateTime second, string patientId = null, string drugID = null)
         {
             try
             {
-                return Bl.getPatientHistoryByDrug(patientId, first, second,drugID);
+                return Bl.getPatientHistoryByDrug(first, second, patientId, drugID);
             }
             catch (Exception ex)
             {
