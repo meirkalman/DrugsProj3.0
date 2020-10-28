@@ -39,7 +39,7 @@
     ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="447,441,10,10" Content="סיום" Height="Auto" />
 
 
-        <ListBox x:Name="MedicineListBox" ItemsSource="{Binding MedicationsAdded}" Grid.Column="1"  HorizontalAlignment="Left" FlowDirection="RightToLeft" IsEnabled="False" Height="113" Margin="38,218,0,0"   VerticalAlignment="Top" Width="188" Background="Transparent" BorderThickness="2" BorderBrush="Black"/>
+        <ListBox x:Name="MedicineListBox" Background="Transparent" ItemsSource="{Binding MedicationsAdded}" FontSize="20"  Grid.Column="1"  HorizontalAlignment="Left" FlowDirection="RightToLeft" IsEnabled="True" Height="113" Margin="38,218,0,0"   VerticalAlignment="Top" Width="188"  BorderThickness="2" BorderBrush="Black" FontWeight="Bold"/>
         <materialDesign:PopupBox
   Style="{StaticResource MaterialDesignMultiFloatingActionAccentPopupBox}"
   PlacementMode="BottomAndAlignCentres"
