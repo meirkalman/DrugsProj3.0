@@ -17,7 +17,7 @@ namespace BE
         public UserType Type { get; set; }
         public string Password { get; set; }
 
-        public enum UserType { DOCTOR, ADMIN }
+        public enum UserType { רופא, מנהל }
 
         public User()
         {

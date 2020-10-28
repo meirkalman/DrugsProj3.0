@@ -55,12 +55,12 @@ namespace DrugsProject3._0.ViewModels
                     Password = password;
 
                     User = LoginM.GetUser(Id);
-                    if (Password == User.Password && User.Type.ToString() == "ADMIN")
+                    if (Password == User.Password && User.Type.ToString() == "מנהל")
                     {
                         IControlManage.User = User;
                         (App.Current as App).navigation.ShowControls("AdministratorUC");
                     }
-                    else if (Password == User.Password && User.Type.ToString() == "DOCTOR")
+                    else if (Password == User.Password && User.Type.ToString() == "רופא")
                     {
                         IControlManage.User = User;
                         (App.Current as App).navigation.ShowControls("DoctorUC");

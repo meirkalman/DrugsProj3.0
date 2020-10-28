@@ -145,6 +145,7 @@ namespace DAL
         }
         #endregion add & update to db
 
+        #region delete
         public void DeletePatient(Patient patient)
         {
             using (var db = new DBContext())
@@ -169,7 +170,7 @@ namespace DAL
                 }
                 db.Medicines.Remove(current);
                 db.SaveChanges();
-                
+
             }
         }
         public void DeleteRecipe(Recipe recipe)
@@ -183,7 +184,7 @@ namespace DAL
                 }
                 db.Recipes.Remove(current);
                 db.SaveChanges();
-                
+
             }
         }
 
@@ -198,10 +199,12 @@ namespace DAL
                 }
                 db.Users.Remove(current);
                 db.SaveChanges();
-                
+
             }
         }
+        #endregion delete
 
+        #region get all 
         public List<Patient> GetAllPatients(Func<Patient, bool> predicate = null)
         {
             List<Patient> PatientList = new List<Patient>();
@@ -214,7 +217,7 @@ namespace DAL
                     PatientList = db.Patients.Where(predicate).ToList();
                 }
             }
-            if(PatientList.Count == 0)
+            if (PatientList.Count == 0)
                 throw new Exception("אין חולים במערכת ");
             return PatientList;
         }
@@ -269,7 +272,9 @@ namespace DAL
                 throw new Exception("אין משתמשים במערכת ");
             return UserList;
         }
+        #endregion get all
 
+        #region get 
         public Patient GetPatient(string id)
         {
             using (var db = new DBContext())
@@ -291,7 +296,7 @@ namespace DAL
             {
                 var medicine = (from item in db.Medicines
                                 where item.Id == id
-                               select item).ToList();
+                                select item).ToList();
 
                 if (medicine.Count != 1)
                     throw new Exception("תרופה לא במערכת");
@@ -304,8 +309,8 @@ namespace DAL
             using (var db = new DBContext())
             {
                 var recipe = (from item in db.Recipes
-                               where item.RecipeId == recipeId
-                               select item).ToList();
+                              where item.RecipeId == recipeId
+                              select item).ToList();
 
                 if (recipe.Count != 1)
                     throw new Exception("מרשם לא במערכת");
@@ -319,13 +324,16 @@ namespace DAL
             {
                 var user = (from item in db.Users
                             where item.Id == id
-                               select item).ToList();
+                            select item).ToList();
 
                 if (user.Count == 0)
                     throw new Exception("שם משתמש שגוי");
                 return user.First();
             }
         }
+       
+       
+        #endregion get
     }
 }
 
