@@ -44,7 +44,7 @@
   Style="{StaticResource MaterialDesignMultiFloatingActionAccentPopupBox}"
   PlacementMode="BottomAndAlignCentres"
   ToggleCheckedContentCommandParameter="wowsers"
-  ToolTip="PopupBox, Style MaterialDesignMultiFloatingActionAccentPopupBox" Grid.Column="1" Margin="69,338,0,89" Height="Auto" >
+  Grid.Column="1" Margin="69,338,0,89" Height="Auto" >
             <materialDesign:PopupBox.ToggleCheckedContent>
                 <materialDesign:PackIcon
       Kind="Pencil"
