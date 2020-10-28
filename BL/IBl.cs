@@ -62,7 +62,7 @@ namespace BL
         Patient GetPatient(string id);
         List<string> GetAllPatientsId();
         List<string> GetAllMedicineId();
-
+        List<string> GetMedicinesNamesFromRecipe(List<Recipe> prescriptionsGiven);
         List<string> GetAllMedicinesNames();
         Medicine GetMedicine(string id);
         string GetMedicineId(string medicineName);
