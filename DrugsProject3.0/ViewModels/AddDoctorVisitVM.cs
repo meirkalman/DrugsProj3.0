@@ -179,7 +179,8 @@ namespace DrugsProject3._0.ViewModels
         }
         public void Massage(List<string> res)
         {
-            (App.Current as App).navigation.MainWindows.comments.Text = "יש התנגשות עם " + MedicineSelected;
+            Medicine med = AddDoctorVisitM.GetMedicine(res[0]);
+            (App.Current as App).navigation.MainWindows.comments.Text = "יש התנגשות עם " + med.CommercialName;
         }
         public void Print()
         {
