@@ -250,8 +250,8 @@ namespace DAL
                     RecipeList = db.Recipes.Where(predicate).ToList();
                 }
             }
-            if (RecipeList.Count == 0)
-                throw new Exception("אין מרשמים במערכת ");
+            //if (RecipeList.Count == 0)
+            //    throw new Exception("אין מרשמים במערכת ");
             return RecipeList;
         }
 
