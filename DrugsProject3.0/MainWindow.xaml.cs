@@ -32,6 +32,7 @@ namespace DrugsProject3._0
             Bl = new BlObject();
             InitializeComponent();
             (App.Current as App).navigation.MainWindows = this;
+            (App.Current as App).navigation.ShowControls("LoginUC");
             MainVM VM = new MainVM();
             DataContext = VM;
         }
