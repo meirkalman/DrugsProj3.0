@@ -70,7 +70,7 @@
                 <ImageBrush/>
             </TextBox.Background>
         </TextBox>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" FlowDirection="RightToLeft" Height="28" Margin="473,79,0,0" TextWrapping="Wrap" Text="הערות:" VerticalAlignment="Top" Width="49"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" FlowDirection="RightToLeft" Height="28" Margin="473,79,0,0" TextWrapping="Wrap" Text="תיאור:" VerticalAlignment="Top" Width="49"/>
         <Grid Grid.Column="1" HorizontalAlignment="Left" Height="65" Margin="242,218,0,0" VerticalAlignment="Top" Width="277">
             <TextBlock HorizontalAlignment="Left"  IsEnabled="False" Height="27" Margin="115,32,0,0" TextWrapping="Wrap" Text="מספר ימים לנטילת התרופה" VerticalAlignment="Top" Width="158"/>
             <Slider  Value="{Binding PeriodOfUse}"
@@ -92,7 +92,7 @@
         <TextBlock Grid.Column="1"  FlowDirection="RightToLeft" FontSize="20" Background="LightGray" HorizontalAlignment="Left" Margin="338,21,0,0" TextWrapping="Wrap" Text="הוספת מרשם" VerticalAlignment="Top" Height="31" Width="127"/>
         <TextBlock  FlowDirection="RightToLeft" FontSize="20" Background="LightGray" TextWrapping="Wrap" Text="היסטוריה רפואית" Margin="82,21,85,431"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" FontSize="14" Margin="82,193,0,0" TextWrapping="Wrap" Text="רשימת תרופות שנוספו" VerticalAlignment="Top" Height="25" Width="144"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="205,21,0,0" FontSize="18" TextWrapping="Wrap" Text="שם הפציינט" VerticalAlignment="Top" Height="31" Width="100"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="205,21,0,0" FontSize="18" TextWrapping="Wrap" Text="שם המטופל" VerticalAlignment="Top" Height="31" Width="100"/>
         <TextBox Grid.Column="1"  Text ="{Binding PatientName, Mode=OneWay}" IsEnabled="False"  HorizontalAlignment="Left" FontSize="16" Margin="29,16,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="36" Width="167"/>
         <DataGrid x:Name="DataGrid"  HorizontalAlignment="Center" ItemsSource="{Binding Recipes}" CanUserAddRows="False" CanUserDeleteRows="False"  IsReadOnly="True" 
            FlowDirection="RightToLeft" EnableRowVirtualization="True" AutoGenerateColumns="False" HorizontalContentAlignment="Center" Margin="17,103,17,55" Width="304">

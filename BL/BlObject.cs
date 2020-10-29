@@ -355,25 +355,25 @@ namespace BL
                 if (patientId != null && drugID != null)
                 {
                     result = (from item in getPatientHistory(patientId)
-                              where drugID == item.MedicineId && item.Date.Day <= second.Day && item.Date.AddDays(item.PeriodOfUse) > first
+                              where drugID == item.MedicineId && item.Date <= second.AddDays(1) && item.Date.AddDays(item.PeriodOfUse) > first
                               select item).ToList();
                 }
                 if (patientId != null && drugID == null)
                 {
                     result = (from item in getPatientHistory(patientId)
-                              where item.Date <= second && item.Date.AddDays(item.PeriodOfUse) > first
+                              where item.Date <= second.AddDays(1) && item.Date.AddDays(item.PeriodOfUse) > first
                               select item).ToList();
                 }
                 if (patientId == null && drugID != null)
                 {
                     result = (from item in IDalService.GetAllRecipes()
-                              where drugID == item.MedicineId && item.Date <= second && item.Date.AddDays(item.PeriodOfUse) > first
+                              where drugID == item.MedicineId && item.Date <= second.AddDays(1) && item.Date.AddDays(item.PeriodOfUse) > first
                               select item).ToList();
                 }
                 if (patientId == null && drugID == null)
                 {
                     result = (from item in IDalService.GetAllRecipes()
-                              where item.Date <= second && item.Date.AddDays(item.PeriodOfUse) > first
+                              where item.Date <= second.AddDays(1) && item.Date.AddDays(item.PeriodOfUse) > first
                               select item).ToList();
                 }
                 return result;
@@ -391,29 +391,24 @@ namespace BL
                 var patientPrescriptions = (from p in GetAllRecipes()
                                             where p.PatientId == patientId
                                             select p).ToList();
-
                 if (now)
                 {
                     var drugsRightOfToday = (from p in patientPrescriptions
-                                             where p.Date.AddDays(p.PeriodOfUse) > DateTime.Now
+                                             where p.Date.AddDays(p.PeriodOfUse) >= DateTime.Now
                                              select p).ToList();
                     return drugsRightOfToday;
-
                 }
                 else
                 {
                     return patientPrescriptions.ToList();
                 }
-
             }
             catch (Exception)
             {
-
                 throw new Exception("לא נמצא חולה במערכת");
             }
         }
 
-      
         #endregion
 
         #region PDF

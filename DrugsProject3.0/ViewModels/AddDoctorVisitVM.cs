@@ -119,13 +119,11 @@ namespace DrugsProject3._0.ViewModels
                 }
                 MedicineId = AddDoctorVisitM.GetMedicineId(MedicineSelected);
                 RecipeId = AddDoctorVisitM.AddRecipeId();
-                //string DoctorId = "888"; /*User.Id;*/ 
                 Recipe recipe = new Recipe(RecipeId, MedicineSelected, Patient.PatientId, User.Id, MedicineId, PeriodOfUse, QuantityPerDay, Description, DateTime.Now);
                 AddDoctorVisitM.AddRecipe(recipe);
                 (App.Current as App).navigation.MainWindows.comments.Text = "תרופה נוספה בהצלחה";
                 PrescriptionsGiven.Add(recipe);
-                MedicationsAdded.Add(recipe.MedicineName);
-              //  PrescriptionsGivenNames.Add(recipe.MedicineName);
+                MedicationsAdded.Add(recipe.MedicineName);         
             }
             catch (Exception e)
             {
