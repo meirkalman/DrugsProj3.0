@@ -64,6 +64,10 @@ namespace DrugsProject3._0.Navigation
                     uc = new StatisticsUC();
                     title = "היסטורית צריכת תרופות";
                     break;
+                case "ChartUC":
+                    uc = new ChartUC();
+                    title = "גרף נתונים";
+                    break;
             }
              (App.Current as App).navigation.MainWindows.comments.Text = "";
             ShowControl(uc, title);

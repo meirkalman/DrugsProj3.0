@@ -6,11 +6,16 @@
              xmlns:local="clr-namespace:DrugsProject3._0.Controls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
 xmlns:DV="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"  
-xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
+xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"            
+                         xmlns:DVB="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+            xmlns:chart="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"
              mc:Ignorable="d" 
+            
+
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        
-
+        <chart:SfChart>
+            
+        </chart:SfChart>
     </Grid>
 </UserControl>
