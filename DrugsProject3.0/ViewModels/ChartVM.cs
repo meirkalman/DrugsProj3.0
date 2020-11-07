@@ -14,6 +14,7 @@ namespace DrugsProject3._0.ViewModels
     public class ChartVM : INotifyPropertyChanged
     {
 
+
         public event PropertyChangedEventHandler PropertyChanged;
 
 
