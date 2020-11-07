@@ -17,8 +17,7 @@ namespace DAL
             List<string> result = new List<string>();
             drugsNums.Load("mainxml.xml");
             //string result = string.Empty;
-            try
-            {
+           
                 int drugNum = NumberFromName(drugName);
                 string interactionJsonString = HttpRequest(GenerateURL(drugNum));
                 Root interactionObj = Newtonsoft.Json.JsonConvert.DeserializeObject<Root>(interactionJsonString);
@@ -41,11 +40,8 @@ namespace DAL
                         }
                     }
                 }
-            }
-            catch
-            {
-                Console.WriteLine("Error");
-            }
+           
+           
 
             return result;
         }
