@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.DataVisualization.Charting;
+//using System.Windows.Controls.DataVisualization.Charting;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -25,8 +25,9 @@ namespace DrugsProject3._0.Controls
         //key =  MzQ2NjAwQDMxMzgyZTMzMmUzME45UGJPaW5QQkUvL0htbCszMjlNdGNyNjJncUpTVnM5MWQ3K2s0SFFjSmM9
         public ChartUC()
         {
-            //ChartVM VM = new ChartVM((App.Current as App).controlManage);
-          //  DataContext = VM;
+
+            ChartVM VM = new ChartVM();
+            DataContext = VM;
             InitializeComponent();
         }
     }
