@@ -56,7 +56,8 @@ namespace DrugsProject3._0.ViewModels
                 Recipes = new ObservableCollection<Recipe>(StatisticsM.GetAllRecipes());
                 Patients = new ObservableCollection<string>(StatisticsM.GetAllPatientsId());
                 Medicines = new ObservableCollection<string>(StatisticsM.GetAllMedicinesNames());
-            }
+                 
+    }
             catch (Exception e)
             {
                 (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();

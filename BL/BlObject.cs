@@ -481,7 +481,7 @@ namespace BL
 
         public List<string> interactionDrugs(string drugName)
         {
-            return CI.interactionDrugs(drugName);
+            return CI.interactionDrugs(this.GetMedicineId(drugName));
         }
         #endregion  interaction
 

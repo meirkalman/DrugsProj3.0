@@ -12,14 +12,14 @@ namespace DAL
     public class CheckInteraction
     {
         static XmlDocument drugsNums = new XmlDocument();
-        public List<string> interactionDrugs(string drugName)
+        public List<string> interactionDrugs(string drugId)
         {
             List<string> result = new List<string>();
             drugsNums.Load("mainxml.xml");
             //string result = string.Empty;
            
-                int drugNum = NumberFromName(drugName);
-                string interactionJsonString = HttpRequest(GenerateURL(drugNum));
+               // int drugNum = NumberFromName(drugName);
+                string interactionJsonString = HttpRequest(GenerateURL(int.Parse(drugId)));
                 Root interactionObj = Newtonsoft.Json.JsonConvert.DeserializeObject<Root>(interactionJsonString);
                 if (interactionObj.interactionTypeGroup != null)
                 {
@@ -31,7 +31,7 @@ namespace DAL
                             {
                                 foreach (var item3 in item2.interactionConcept)
                                 {
-                                    if (item3.sourceConceptItem.name != drugName)
+                                    if (item3.sourceConceptItem.name != drugId)
                                     {
                                         result.Add(NumberFromName(item3.sourceConceptItem.name).ToString());
                                     }
