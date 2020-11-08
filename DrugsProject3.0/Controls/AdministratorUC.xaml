@@ -29,12 +29,12 @@
                 <Button  Command="{Binding Command}"  CommandParameter="UserInformationUC"
                     HorizontalAlignment="Center"
   Content="{materialDesign:PackIcon InformationOutline}"
-  ToolTip="Icon" Margin="109,326,10,10"  />
+  ToolTip="מידע על משתמשים" Margin="109,326,10,10"  />
                 <Button Command="{Binding Command}" CommandParameter="AddUser"
                     
                     HorizontalAlignment="Center"
   Content="{materialDesign:PackIcon AccountPlus}"
-  ToolTip="Icon" Margin="10,326,109,10" />
+  ToolTip="הוספה/הסרה של משתמשים" Margin="10,326,109,10" />
             </Grid>
         </GroupBox>
         <GroupBox
@@ -48,11 +48,11 @@
                 <Button  Command="{Binding Command}" CommandParameter="PatientInformationUC"
                     HorizontalAlignment="Center"
   Content="{materialDesign:PackIcon InformationOutline}"
-  ToolTip="Icon" Margin="109,326,10,10"  />
+  ToolTip="מידע על מטופלים" Margin="109,326,10,10"  />
                 <Button Command="{Binding Command}" CommandParameter="PatientUC"
                     HorizontalAlignment="Center"
   Content="{materialDesign:PackIcon AccountPlus}"
-  ToolTip="Icon" Margin="10,326,109,10" />
+  ToolTip="הוספה/הסרה של מטופלים" Margin="10,326,109,10" />
             </Grid>
         </GroupBox>
         <GroupBox
@@ -66,11 +66,11 @@
                 <Button  Command="{Binding Command}" CommandParameter="MedicinInformationUC"
                     HorizontalAlignment="Center"
   Content="{materialDesign:PackIcon InformationOutline}"
-  ToolTip="Icon" Margin="109,326,10,10"  />
+  ToolTip="מידע על תרופות" Margin="109,326,10,10"  />
                 <Button Command="{Binding Command}" CommandParameter="AddMedicine"
                     HorizontalAlignment="Center"
   Content="{materialDesign:PackIcon PlusThick}"
-  ToolTip="Icon" Margin="10,326,109,10" />
+  ToolTip="הוספה/הסרה של תרופה" Margin="10,326,109,10" />
             </Grid>
         </GroupBox>
         <GroupBox
@@ -84,11 +84,11 @@
                 <Button Command="{Binding Command}" CommandParameter="Chart"
                     HorizontalAlignment="Center"
   Content="{materialDesign:PackIcon Finance}"
-  ToolTip="Icon" Margin="10,326,109,10" />
+  ToolTip="גרף היסטורית צריכת תרופות" Margin="10,326,109,10" />
                 <Button  Command="{Binding Command}" CommandParameter="Statistics"
                     HorizontalAlignment="Center"
   Content="{materialDesign:PackIcon InformationOutline}"
-  ToolTip="Icon" Margin="109,326,10,10" />
+  ToolTip="טבלה היסטורית צריכת תרופות" Margin="109,326,10,10" />
             </Grid>
             
         </GroupBox>

@@ -15,7 +15,9 @@
                 <DataGridTextColumn Header="שם משפחה" Binding="{Binding Lname}"/>
                 <DataGridTextColumn Header="מספר טלפון" Binding="{Binding PhoneNumber }"/>
                 <DataGridTextColumn Header="סוג משתמש" Binding="{Binding DateOfBirth }"/>
+                
             </DataGrid.Columns>
+            
         </DataGrid>
         <Grid HorizontalAlignment="Left" Height="124" Margin="0,10,0,0" VerticalAlignment="Top" Width="790">
             <Button Content="חזור" Command="{Binding Command}" CommandParameter="Return" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="74" Height="33"/>

@@ -21,6 +21,7 @@ namespace DrugsProject3._0.ViewModels
 
         public MedicineModel MedicineM { get; set; }
 
+        public string ImageUri { get; set; }
 
         private string commercialName;
         public string CommercialName
@@ -96,7 +97,7 @@ namespace DrugsProject3._0.ViewModels
             }
         }
         
-        public string ImageUri { get; set; }
+       
         
         public ObservableCollection<string> MedicineIds { get; set; }
 
@@ -168,8 +169,6 @@ namespace DrugsProject3._0.ViewModels
             {
                 ImageUri = openFileDialog.FileName;
             }
-           
-           
         }
 
     }

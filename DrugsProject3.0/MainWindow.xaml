@@ -7,15 +7,17 @@
         xmlns:Controls="clr-namespace:DrugsProject3._0.Controls"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="DrugsProject3._0.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="604.038" Width="980">
-    <Viewbox>
-        <Grid  Name="MainWindowGrid"  FlowDirection="RightToLeft" >
+        Title="MainWindow" Height="637.038" Width="980">
+    <Viewbox Margin="0,0,0,-2">
+
+        <Grid  Name="MainWindowGrid"  FlowDirection="RightToLeft" Height="602" >
             <Grid.RowDefinitions>
-                <RowDefinition/>
+                <RowDefinition Height="53*"/>
+                <RowDefinition Height="550*"/>
             </Grid.RowDefinitions>
             <materialDesign:ColorZone
   Mode="PrimaryLight"
-  Padding="16">
+  Padding="16" Margin="0,-1,0,0" Grid.RowSpan="2">
                 <StackPanel
     Orientation="Horizontal">
 
@@ -28,16 +30,16 @@
                     </TextBlock>
                 </StackPanel>
             </materialDesign:ColorZone>
-            <Grid Name="InternalGrid" HorizontalAlignment="Left" Height="505" Margin="0,69,0,0" VerticalAlignment="Top" Width="972">
+            <Grid Name="InternalGrid" HorizontalAlignment="Left" Height="505" Margin="0,2.5,0,0" VerticalAlignment="Top" Width="972" Grid.Row="1">
                 <Grid.Background>
                     <ImageBrush ImageSource="/DrugsProject3.0;component/Images/medical-background.jpg" Stretch="UniformToFill" Opacity="0.7" />
                 </Grid.Background>
 
                 <Button x:Name="button" HorizontalAlignment="Left" Margin="863,54,0,0" VerticalAlignment="Top" Width="75" Click="Button1"/>
             </Grid>
-            <Button x:Name="LogOut" Command="{Binding MainCommand}" Visibility="Visible" CommandParameter ="LogOut"  Content="התנתקות" FontSize="17" HorizontalAlignment="Left" Margin="834,10,0,0" VerticalAlignment="Top" Width="105" Background="#00F44336" BorderBrush="#00F44336" Foreground="#FF0023FF"/>
-            <TextBlock x:Name="comments" Foreground="Red"  FontSize="17"  HorizontalAlignment="Left" Margin="306,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="38" Width="331"/>
-            <TextBlock x:Name="UserName" HorizontalAlignment="Left" FontSize="18"  Margin="713,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="24" Width="130"/>
+            <Button  Style="{StaticResource MaterialDesignRaisedLightButton}" x:Name="LogOut" Command="{Binding MainCommand}" Visibility="Visible" CommandParameter ="LogOut"  Content="התנתקות" FontSize="17" HorizontalAlignment="Left" Margin="841,8,0,0" VerticalAlignment="Top" Width="123"  Height="39" FontWeight="Bold" Background="#00B0BEC5" />
+            <TextBlock x:Name="comments"  Foreground="Red"  FontSize="17"  HorizontalAlignment="Left" Margin="4,507.5,0,-2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="44" Width="968" Background="#FFECECFF" TextAlignment="Center" Grid.Row="1"/>
+            <TextBlock x:Name="UserName" HorizontalAlignment="Left" FontSize="18"  Margin="720,17,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="24" Width="130" TextDecorations="{x:Null}"/>
 
 
         </Grid>
