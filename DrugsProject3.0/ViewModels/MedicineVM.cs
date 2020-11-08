@@ -22,6 +22,9 @@ namespace DrugsProject3._0.ViewModels
         public MedicineModel MedicineM { get; set; }
 
         public string ImageUri { get; set; }
+       
+        
+      
 
         private string commercialName;
         public string CommercialName
@@ -104,7 +107,6 @@ namespace DrugsProject3._0.ViewModels
         public string MedicineSelected { get; set; }
         public MedicineVM()
         {
-
             MedicineM = new MedicineModel();
             Command = new MedicineCommand(this);
             try
