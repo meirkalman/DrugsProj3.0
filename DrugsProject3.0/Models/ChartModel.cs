@@ -16,16 +16,45 @@ namespace DrugsProject3._0.Models
             Bl = new BlObject();
         }
 
-        public List<Recipe> GetStatistic()
+        public Dictionary<string,int> GetStatistic(string drugID, DateTime start, DateTime finish)
         {
             try
             {
-                return Bl.GetAllRecipes();
+                return Bl.drugStatistics(drugID, start, finish);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+        public List<string> GetAllMedicinesNames()
+        {
+            try
+            {
+                return Bl.GetAllMedicinesNames();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Recipe> getPatientHistoryByDrug(DateTime first, DateTime second, string patientId = null, string drugID = null)
+        {
+            try
+            {
+                return Bl.getPatientHistoryByDrug(first, second, patientId, drugID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string GetMedicineId(string medicineSelected)
+        {
+            return Bl.GetMedicineId(medicineSelected);
         }
     }
 }

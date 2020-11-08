@@ -28,8 +28,14 @@ namespace DrugsProject3._0.Commands
 
         public void Execute(object parameter)
         {
-         
-
+            if (parameter.ToString() == "Show")
+            {
+                CurrentVM.getMedicineStatisticByDrug();
+            }
+            if (parameter.ToString() == "Return")
+            {
+                (App.Current as App).navigation.ShowControls("AdministratorUC");
+            }
         }
     }
 }
