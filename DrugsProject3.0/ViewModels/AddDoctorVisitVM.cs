@@ -190,7 +190,7 @@ namespace DrugsProject3._0.ViewModels
                 {
                     throw new ArgumentException("אתה צריך למלא את כל השדות");
                 }
-               // AddDoctorVisitM.Print(PrescriptionsGiven);
+                AddDoctorVisitM.Print(PrescriptionsGiven);
             }
             catch (Exception e)
             {

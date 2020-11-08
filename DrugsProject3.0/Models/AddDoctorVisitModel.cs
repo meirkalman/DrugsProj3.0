@@ -22,7 +22,7 @@ namespace DrugsProject3._0.Models
 
         public void Print(List<Recipe> r)
         {
-            //Bl.print(r);
+            Bl.print(r);
         }
         public Medicine GetMedicine(string id)
         {

@@ -1,5 +1,9 @@
 ﻿using BE;
+using com.sun.xml.@internal.bind.v2.model.nav;
 using DAL;
+using MigraDoc.DocumentObjectModel;
+using MigraDoc.DocumentObjectModel.Shapes;
+using MigraDoc.DocumentObjectModel.Tables;
 using PdfSharp.Drawing;
 using PdfSharp.Drawing.Layout;
 using PdfSharp.Pdf;
@@ -12,10 +16,16 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Xml.XPath;
+using Document = MigraDoc.DocumentObjectModel.Document;
+using Image = MigraDoc.DocumentObjectModel.Shapes.Image;
+using Style = MigraDoc.DocumentObjectModel.Style;
+using VerticalAlignment = MigraDoc.DocumentObjectModel.Tables.VerticalAlignment;
 
 namespace BL
 {
@@ -29,7 +39,7 @@ namespace BL
             IDalService = new DalService();
             CI = new CheckInteraction();
         }
-     
+
         #region add
         public void AddMedicine(Medicine medicine)
         {
@@ -412,52 +422,574 @@ namespace BL
         #endregion
 
         #region PDF
-        public void createPDF(Recipe recipe)
+
+
+        public Document CreateDocument(List<Recipe> r)
+
         {
-            try
-            {
-                PdfDocument pdf = new PdfDocument();
-                pdf.Info.Title = "Prescription";
-                XPdfFontOptions options = new XPdfFontOptions(PdfFontEncoding.Unicode, PdfFontEmbedding.Always);
-                PdfPage pdfPage = pdf.AddPage();
-                XGraphics graph = XGraphics.FromPdfPage(pdfPage);
-                XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
-                Medicine medicine = GetMedicine(recipe.MedicineId);
-                Patient patient = GetPatient(recipe.PatientId);
-                string texts = recipe.ToString();
+
+            // Create a new MigraDoc document
+
+            Document document = new Document();
+
+            document.Info.Title = "A sample invoice";
+
+            document.Info.Subject = "Demonstrates how to create an invoice.";
+
+            document.Info.Author = "Stefan Lange";
 
 
-                PdfPage page = pdf.AddPage();
 
-                XGraphics gfx = XGraphics.FromPdfPage(page);
+            // Get the predefined style Normal.
 
-                XTextFormatter tf = new XTextFormatter(gfx);
+            Style style = document.Styles["Normal"];
 
-                tf.Alignment = XParagraphAlignment.Left;
+            // Because all styles are derived from Normal, the next line changes the
 
-                tf.DrawString(texts, font, XBrushes.Black,
-                new XRect(100, 100, page.Width - 200, 600), XStringFormats.TopLeft);
+            // font of the whole document. Or, more exactly, it changes the font of
 
-                string pdfFilename = recipe.RecipeId + ".pdf";
-                pdf.Save(pdfFilename);
-                Process.Start(pdfFilename);
+            // all styles and paragraphs that do not redefine the font.
 
-            }
-            catch (Exception)
-            {
+            style.Font.Name = "Verdana";
 
-                throw new Exception("pdf cannot be create");
-            }
 
+
+            style = document.Styles[StyleNames.Header];
+
+            style.ParagraphFormat.AddTabStop("16cm", TabAlignment.Right);
+
+
+
+            style = document.Styles[StyleNames.Footer];
+
+            style.ParagraphFormat.AddTabStop("8cm", TabAlignment.Center);
+
+
+
+            // Create a new style called Table based on style Normal
+
+            style = document.Styles.AddStyle("Table", "Normal");
+
+            style.Font.Name = "Verdana";
+
+            style.Font.Name = "Times New Roman";
+
+            style.Font.Size = 9;
+
+
+
+            // Create a new style called Reference based on style Normal
+            //XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
+            style = document.Styles.AddStyle("Reference", "Normal");
+
+            style.ParagraphFormat.SpaceBefore = "5mm";
+
+            style.ParagraphFormat.SpaceAfter = "5mm";
+
+            style.ParagraphFormat.TabStops.AddTabStop("16cm", TabAlignment.Right);
+
+
+
+
+            // Each MigraDoc document needs at least one section.
+
+            Section section = document.AddSection();
+
+
+
+
+            // Put a logo in the header
+
+            Image image = section.Headers.Primary.AddImage("../../PowerBooks.png");
+
+            image.Height = "2.5cm";
+
+            image.LockAspectRatio = true;
+
+            image.RelativeVertical = RelativeVertical.Line;
+
+            image.RelativeHorizontal = RelativeHorizontal.Margin;
+
+            image.Top = ShapePosition.Top;
+
+            image.Left = ShapePosition.Right;
+
+            image.WrapFormat.Style = WrapStyle.Through;
+
+
+
+
+            // Create footer
+
+            Paragraph paragraph = section.Footers.Primary.AddParagraph();
+
+            paragraph.AddText("PowerBooks Inc · Sample Street 42 · 56789 Cologne · Germany");
+
+            paragraph.Format.Font.Size = 9;
+
+            paragraph.Format.Alignment = ParagraphAlignment.Center;
+
+
+
+
+            // Create the text frame for the address
+
+            var addressFrame = section.AddTextFrame();
+
+            addressFrame.Height = "3.0cm";
+
+            addressFrame.Width = "7.0cm";
+
+            addressFrame.Left = ShapePosition.Left;
+
+            addressFrame.RelativeHorizontal = RelativeHorizontal.Margin;
+
+            addressFrame.Top = "5.0cm";
+
+            addressFrame.RelativeVertical = RelativeVertical.Page;
+
+
+
+
+            // Put sender in address frame
+
+            paragraph = addressFrame.AddParagraph("PowerBooks Inc · Sample Street 42 · 56789 Cologne");
+
+            paragraph.Format.Font.Name = "Times New Roman";
+
+            paragraph.Format.Font.Size = 7;
+
+            paragraph.Format.SpaceAfter = 3;
+
+
+
+
+            // Add the print date field
+
+            paragraph = section.AddParagraph();
+
+            paragraph.Format.SpaceBefore = "8cm";
+
+            paragraph.Style = "Reference";
+
+            paragraph.AddFormattedText("INVOICE", TextFormat.Bold);
+
+            paragraph.AddTab();
+
+            paragraph.AddText("Cologne, ");
+
+            paragraph.AddDateField("dd.MM.yyyy");
+
+
+
+
+            // Create the item table
+
+            Table table = section.AddTable();
+
+            table.Style = "Table";
+
+            //table.Borders.Color = TableBorder;
+
+            table.Borders.Width = 0.25;
+
+            table.Borders.Left.Width = 0.5;
+
+            table.Borders.Right.Width = 0.5;
+
+            table.Rows.LeftIndent = 0;
+
+
+
+
+            // Before you can add a row, you must define the columns
+
+            Column column = table.AddColumn("1cm");
+
+            column.Format.Alignment = ParagraphAlignment.Center;
+
+
+
+
+            column = table.AddColumn("2.5cm");
+
+            column.Format.Alignment = ParagraphAlignment.Right;
+
+
+
+
+            column = table.AddColumn("3cm");
+
+            column.Format.Alignment = ParagraphAlignment.Right;
+
+
+
+
+            column = table.AddColumn("3.5cm");
+
+            column.Format.Alignment = ParagraphAlignment.Right;
+
+
+
+
+            column = table.AddColumn("2cm");
+
+            column.Format.Alignment = ParagraphAlignment.Center;
+
+
+
+            column = table.AddColumn("4cm");
+
+            column.Format.Alignment = ParagraphAlignment.Right;
+
+
+
+
+            // Create the header of the table
+
+            Row row = table.AddRow();
+
+            row.HeadingFormat = true;
+
+            row.Format.Alignment = ParagraphAlignment.Center;
+
+            row.Format.Font.Bold = true;
+
+            //row.Shading.Color = TableBlue;
+
+            row.Cells[0].AddParagraph("Item");
+
+            row.Cells[0].Format.Font.Bold = false;
+
+            row.Cells[0].Format.Alignment = ParagraphAlignment.Left;
+
+            row.Cells[0].VerticalAlignment = VerticalAlignment.Bottom;
+
+            row.Cells[0].MergeDown = 1;
+
+            row.Cells[1].AddParagraph("Title and Author");
+
+            row.Cells[1].Format.Alignment = ParagraphAlignment.Left;
+
+            row.Cells[1].MergeRight = 3;
+
+            row.Cells[5].AddParagraph("Extended Price");
+
+            row.Cells[5].Format.Alignment = ParagraphAlignment.Left;
+
+            row.Cells[5].VerticalAlignment = VerticalAlignment.Bottom;
+
+            row.Cells[5].MergeDown = 1;
+
+
+
+
+            row = table.AddRow();
+
+            row.HeadingFormat = true;
+
+            row.Format.Alignment = ParagraphAlignment.Center;
+
+            row.Format.Font.Bold = true;
+
+            //row.Shading.Color = TableBlue;
+
+            row.Cells[1].AddParagraph("Quantity");
+
+            row.Cells[1].Format.Alignment = ParagraphAlignment.Left;
+
+            row.Cells[2].AddParagraph("Unit Price");
+
+            row.Cells[2].Format.Alignment = ParagraphAlignment.Left;
+
+            row.Cells[3].AddParagraph("Discount (%)");
+
+            row.Cells[3].Format.Alignment = ParagraphAlignment.Left;
+
+            row.Cells[4].AddParagraph("Taxable");
+
+            row.Cells[4].Format.Alignment = ParagraphAlignment.Left;
+
+
+
+
+            table.SetEdge(0, 0, 6, 2, Edge.Box, BorderStyle.Single, 0.75);
+
+
+
+            // Fill address in address text frame
+
+            //XPathNavigator item = SelectItem("/invoice/to");
+
+            Paragraph p = addressFrame.AddParagraph();
+
+            //paragraph.AddText(GetValue(item, "name/singleName"));
+
+            p.AddLineBreak();
+
+            //paragraph.AddText(GetValue(item, "address/line1"));
+
+            p.AddLineBreak();
+
+            //paragraph.AddText(GetValue(item, "address/postalCode") + " " + GetValue(item, "address/city"));
+
+
+
+
+            // Iterate the invoice items
+
+            //double totalExtendedPrice = 0;
+
+            // XPathNodeIterator iter = Navigator.Select("/invoice/items/*");
+
+            //while (iter.MoveNext())
+
+            //{
+
+            //    item = iter.Current;
+
+            //    //double quantity = GetValueAsDouble(item, "quantity");
+
+            //    //double price = GetValueAsDouble(item, "price");
+
+            //    //double discount = GetValueAsDouble(item, "discount");
+
+
+
+
+            //    // Each item fills two rows
+
+            //    Row row1 = table.AddRow();
+
+            //    Row row2 = table.AddRow();
+
+            //    row1.TopPadding = 1.5;
+
+            //    //row1.Cells[0].Shading.Color = TableGray;
+
+            //    row1.Cells[0].VerticalAlignment = VerticalAlignment.Center;
+
+            //    row1.Cells[0].MergeDown = 1;
+
+            //    row1.Cells[1].Format.Alignment = ParagraphAlignment.Left;
+
+            //    row1.Cells[1].MergeRight = 3;
+
+            //    //row1.Cells[5].Shading.Color = TableGray;
+
+            //    row1.Cells[5].MergeDown = 1;
+
+
+
+
+            //    //row1.Cells[0].AddParagraph(GetValue(item, "itemNumber"));
+
+            //    p = row1.Cells[1].AddParagraph();
+
+            //    //paragraph.AddFormattedText(GetValue(item, "title"), TextFormat.Bold);
+
+            //    p.AddFormattedText(" by ", TextFormat.Italic);
+
+            //    //paragraph.AddText(GetValue(item, "author"));
+
+            //    //row2.Cells[1].AddParagraph(GetValue(item, "quantity"));
+
+            //    //row2.Cells[2].AddParagraph(price.ToString("0.00") + " €");
+
+            //    //row2.Cells[3].AddParagraph(discount.ToString("0.0"));
+
+            //    row2.Cells[4].AddParagraph();
+
+            //    row2.Cells[5].AddParagraph(price.ToString("0.00"));
+
+            //    //double extendedPrice = quantity * price;
+
+            //    extendedPrice = extendedPrice * (100 - discount) / 100;
+
+            //    row1.Cells[5].AddParagraph(extendedPrice.ToString("0.00") + " €");
+
+            //    row1.Cells[5].VerticalAlignment = VerticalAlignment.Bottom;
+
+            //    totalExtendedPrice += extendedPrice;
+
+
+
+
+            //    table.SetEdge(0, table.Rows.Count - 2, 6, 2, Edge.Box, BorderStyle.Single, 0.75);
+
+            //}
+
+
+
+
+            //// Add an invisible row as a space line to the table
+
+            //Row row = table.AddRow();
+
+            //row.Borders.Visible = false;
+
+
+
+
+            //// Add the total price row
+
+            //row = table.AddRow();
+
+            //row.Cells[0].Borders.Visible = false;
+
+            //row.Cells[0].AddParagraph("Total Price");
+
+            //row.Cells[0].Format.Font.Bold = true;
+
+            //row.Cells[0].Format.Alignment = ParagraphAlignment.Right;
+
+            //row.Cells[0].MergeRight = 4;
+
+            //row.Cells[5].AddParagraph(totalExtendedPrice.ToString("0.00") + " €");
+
+
+
+
+            //// Add the VAT row
+
+            //row = table.AddRow();
+
+            //row.Cells[0].Borders.Visible = false;
+
+            //row.Cells[0].AddParagraph("VAT (19%)");
+
+            //row.Cells[0].Format.Font.Bold = true;
+
+            //row.Cells[0].Format.Alignment = ParagraphAlignment.Right;
+
+            //row.Cells[0].MergeRight = 4;
+
+            //row.Cells[5].AddParagraph((0.19 * totalExtendedPrice).ToString("0.00") + " €");
+
+
+
+
+            //// Add the additional fee row
+
+            //row = table.AddRow();
+
+            //row.Cells[0].Borders.Visible = false;
+
+            //row.Cells[0].AddParagraph("Shipping and Handling");
+
+            //row.Cells[5].AddParagraph(0.ToString("0.00") + " €");
+
+            //row.Cells[0].Format.Font.Bold = true;
+
+            //row.Cells[0].Format.Alignment = ParagraphAlignment.Right;
+
+            //row.Cells[0].MergeRight = 4;
+
+
+
+
+            //// Add the total due row
+
+            //row = table.AddRow();
+
+            //row.Cells[0].AddParagraph("Total Due");
+
+            //row.Cells[0].Borders.Visible = false;
+
+            //row.Cells[0].Format.Font.Bold = true;
+
+            //row.Cells[0].Format.Alignment = ParagraphAlignment.Right;
+
+            //row.Cells[0].MergeRight = 4;
+
+            //totalExtendedPrice += 0.19 * totalExtendedPrice;
+
+            //row.Cells[5].AddParagraph(totalExtendedPrice.ToString("0.00") + " €");
+
+
+
+
+            //// Set the borders of the specified cell range
+
+            //table.SetEdge(5, table.Rows.Count - 4, 1, 4, Edge.Box, BorderStyle.Single, 0.75);
+
+
+
+
+            //// Add the notes paragraph
+
+            //p = document.LastSection.AddParagraph();
+
+            //p.Format.SpaceBefore = "1cm";
+
+            //p.Format.Borders.Width = 0.75;
+
+            //p.Format.Borders.Distance = 3;
+
+            ////p.Format.Borders.Color = TableBorder;
+
+            ////p.Format.Shading.Color = TableGray;
+
+            ////item = SelectItem("/invoice");
+
+            ////paragraph.AddText(GetValue(item, "notes"));
+
+
+            string pdfFilename = "AAAAAAAAAAAAAAAA" + ".pdf";
+            document.Save(pdfFilename);
+            Process.Start(pdfFilename);
+            return document;
 
         }
-        public void print(Recipe recipe)
+
+
+
+        //public void createPDF(Recipe recipe)
+        //{
+        //    try
+        //    {
+        //        PdfDocument pdf = new PdfDocument();
+        //        pdf.Info.Title = "Prescription";
+        //        XPdfFontOptions options = new XPdfFontOptions(PdfFontEncoding.Unicode, PdfFontEmbedding.Always);
+        //        PdfPage pdfPage = pdf.AddPage();
+        //        XGraphics graph = XGraphics.FromPdfPage(pdfPage);
+        //        XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
+        //        Medicine medicine = GetMedicine(recipe.MedicineId);
+        //        Patient patient = GetPatient(recipe.PatientId);
+        //        string texts = recipe.ToString();
+
+
+        //        PdfPage page = pdf.AddPage();
+
+        //        XGraphics gfx = XGraphics.FromPdfPage(page);
+
+        //        XTextFormatter tf = new XTextFormatter(gfx);
+
+        //        tf.Alignment = XParagraphAlignment.Left;
+
+        //        tf.DrawString(texts, font, XBrushes.Black,
+        //        new XRect(100, 100, page.Width - 200, 600), XStringFormats.TopLeft);
+
+        //        string pdfFilename = recipe.RecipeId + ".pdf";
+        //        pdf.Save(pdfFilename);
+        //        Process.Start(pdfFilename);
+
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw new Exception("pdf cannot be create");
+        //    }
+
+
+       // }
+        public void print(List<Recipe> r)
         {
 
-            createPDF(recipe);
+            CreateDocument(r);
             ProcessStartInfo info = new ProcessStartInfo();
             info.Verb = "print";
-            info.FileName = recipe.RecipeId + ".pdf";
+            //info.FileName = recipe.RecipeId + ".pdf";
             info.CreateNoWindow = true;
             info.WindowStyle = ProcessWindowStyle.Hidden;
 

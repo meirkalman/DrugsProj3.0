@@ -1,6 +1,7 @@
 ﻿using BE;
 using System;
 using System.Collections.Generic;
+using Document = MigraDoc.DocumentObjectModel.Document;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +13,9 @@ namespace BL
         int ResolveRxcuiFromName(string name);
         string getPrescriptionID();
 
-        void createPDF(Recipe recipe);
+        //void createPDF(List<Recipe> r);
 
-        void print(Recipe recipe);
+        void print(List<Recipe> r);
 
         List<Recipe> getPatientHistoryByDrug(DateTime first, DateTime second, string patientId = null, string drugID = null);
         List<Recipe> getPatientHistory(string patientId, bool now = false);
@@ -75,7 +76,9 @@ namespace BL
         List<string> interactionDrugs(string drugName);
         Dictionary<DateTime, int> drugStatistics(string drugID, DateTime start, DateTime finish);
 
-         //List<string> GetMedicineNamesOfPatient(string patientId);
+        //List<string> GetMedicineNamesOfPatient(string patientId);
+
+        Document CreateDocument(List<Recipe> r);
     }
 }
 
