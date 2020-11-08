@@ -83,7 +83,7 @@
         </GroupBox>
         <Button Command="{Binding AddCommand}" CommandParameter ="DoctorUC"
     Style="{StaticResource MaterialDesignRaisedAccentButton}" Background="#FF607D8B"
-    ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="447,443,10,8" Content="סיום" Height="Auto" />
+    ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="447,417,10,34" Content="סיום" Height="Auto" />
 
         <Grid Grid.Column="1" HorizontalAlignment="Left" Height="55" Margin="240,229,0,0" VerticalAlignment="Top" Width="277">
             <TextBlock HorizontalAlignment="Left" IsEnabled="False" FlowDirection="RightToLeft" Height="28" Margin="110,29,0,-2" TextWrapping="Wrap" Text="מספר פעמים ביום" VerticalAlignment="Top" Width="100"/>

@@ -74,7 +74,7 @@ namespace BL
         User GetUser(string id);
 
         List<string> interactionDrugs(string drugName);
-        Dictionary<DateTime, int> drugStatistics(string drugID, DateTime start, DateTime finish);
+        Dictionary<string, int> drugStatistics(string drugID, DateTime start, DateTime finish);
 
         //List<string> GetMedicineNamesOfPatient(string patientId);
 
