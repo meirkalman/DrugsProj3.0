@@ -78,11 +78,13 @@ namespace DrugsProject3._0.Navigation
         {
             if (t != "ברוך הבא")
             {
+                MainWindows.LogOut.Visibility = Visibility.Visible;
                 string userName = (App.Current as App).controlManage.User.Fname + " " + (App.Current as App).controlManage.User.Lname;
                 MainWindows.UserName.Text = userName;
             }
             else
             {
+                MainWindows.LogOut.Visibility = Visibility.Hidden;
                 MainWindows.UserName.Text = "";
             }
             MainWindows.title.Text = t;
