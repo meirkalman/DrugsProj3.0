@@ -324,14 +324,14 @@ namespace BL
 
         #region statistics
 
-        public Dictionary<DateTime, int> drugStatistics(string drugID, DateTime start, DateTime finish)
+        public Dictionary<string, int> drugStatistics(string drugID, DateTime start, DateTime finish)
         {
             try
             {
-                Dictionary<DateTime, int> result = new Dictionary<DateTime, int>();
+                Dictionary<string, int> result = new Dictionary<string, int>();
                 var prescriptionsOnTheAppropriateDate = (from item in IDalService.GetAllRecipes()
-                                                         where (drugID == item.MedicineId && start >= item.Date && finish <= item.Date)
-                                                         group item by item.Date).ToList();
+                                                         where (drugID == item.MedicineId && start <= item.Date && finish >= item.Date)
+                                                         group item by item.Date.Month.ToString()).ToList();
                 var prescriptions = prescriptionsOnTheAppropriateDate.OrderBy(g => g.Key);
                 foreach (var g in prescriptions)
                 {
