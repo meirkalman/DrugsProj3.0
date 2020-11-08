@@ -15,7 +15,15 @@
                 <DataGridTextColumn Header="שם גנרי" Binding="{Binding GenericName}"/>
                 <DataGridTextColumn Header="יצרן" Binding="{Binding Producer }"/>
                 <DataGridTextColumn Header="מחיר" Binding="{Binding Price }"/>
-                <DataGridTextColumn Header="תמונה" Binding="{Binding ImageUri }"/>
+                
+                <DataGridTemplateColumn Header="תמונה" Width="SizeToCells" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <Image Source="{Binding ImageUri}"  Width="100" Height="100" Stretch="Fill" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+               
             </DataGrid.Columns>
         </DataGrid>
         <Grid HorizontalAlignment="Left" Height="124" Margin="0,10,0,0" VerticalAlignment="Top" Width="790">
