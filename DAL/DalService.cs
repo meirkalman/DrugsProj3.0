@@ -85,6 +85,7 @@ namespace DAL
                 current.Fname = patient.Fname;
                 current.PhoneNumber = patient.PhoneNumber;
                 current.DateOfBirth = patient.DateOfBirth;
+                current.MailAddress = patient.MailAddress;
                 db.SaveChanges();
             }  
         }
@@ -140,6 +141,7 @@ namespace DAL
                 current.Fname = user.Fname;
                 current.PhoneNumber = user.PhoneNumber;
                 current.Type = user.Type;
+                current.MailAddress = user.MailAddress;
                 db.SaveChanges();
             }
         }

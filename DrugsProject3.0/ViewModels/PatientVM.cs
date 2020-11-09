@@ -110,6 +110,17 @@ namespace DrugsProject3._0.ViewModels
                 }
             }
         }
+
+        private string mailAddress;
+        public string MailAddress
+        {
+            get { return mailAddress; }
+            set
+            {
+                mailAddress = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MailAddress"));
+            }
+        }
         public ObservableCollection<string> PatientIds { get; set; }
 
         public string PatientSelected { get; set; }
@@ -123,11 +134,8 @@ namespace DrugsProject3._0.ViewModels
             }
             catch (Exception e)
             {
-
                 (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
             }
-
-
         }
 
         public void AddPatient()
@@ -140,20 +148,19 @@ namespace DrugsProject3._0.ViewModels
                 }
                 else
                 {
-                    PatientV = new Patient(Id, Fname, Lname, PhoneNum, DateOfBirth);
+                    PatientV = new Patient(Id, Fname, Lname, PhoneNum, DateOfBirth,MailAddress);
                     PatientM.AddPatient(PatientV);
+                    PatientM.SendMail(PatientV);
                     PatientIds.Add(PatientV.PatientId);
                     (App.Current as App).navigation.MainWindows.comments.Text = "המטופל נוסף בהצלחה";
-                  
                 }
             }
             catch (Exception e)
             {
-
                 (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
             }
-            
         }
+
         public void DeletePatient()
         {
             try
