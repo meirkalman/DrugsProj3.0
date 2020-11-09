@@ -63,10 +63,10 @@ namespace DrugsProject3._0.ViewModels
             try
             {
                 IControlManage.Patient = DoctorM.GetPatient(patientSelected);
+                (App.Current as App).navigation.ShowControls("DoctorVisitUC");
             }
             catch (Exception e)
             {
-
                 (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
             }
             
