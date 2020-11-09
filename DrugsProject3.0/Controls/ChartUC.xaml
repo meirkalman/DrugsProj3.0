@@ -31,7 +31,7 @@ xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;asse
             <DatePicker HorizontalAlignment="Left" SelectedDate="{Binding DateStart, Mode=TwoWay}" Margin="266,80,0,0" VerticalAlignment="Top" Width="101"/>
             <DatePicker HorizontalAlignment="Left" SelectedDate="{Binding DateFinish, Mode=TwoWay}" Margin="491,77,0,0" VerticalAlignment="Top" Width="99"/>
         </Grid>
-        <chart:SfChart Margin="0,85,105,0" FlowDirection="LeftToRight">
+        <chart:SfChart Margin="0,85,105,0" FlowDirection="LeftToRight" Header="נתוני צריכת תרופות">
             <chart:SfChart.PrimaryAxis>
                 <chart:CategoryAxis/>
             </chart:SfChart.PrimaryAxis>
@@ -39,7 +39,9 @@ xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;asse
                 <chart:NumericalAxis/>
             </chart:SfChart.SecondaryAxis>
             <chart:ColumnSeries ItemsSource="{Binding KeyValues}" XBindingPath="Key" YBindingPath="Value" Margin="0,-36,-67,0">
-                
+                <chart:ColumnSeries.AdornmentsInfo>
+                    <chart:ChartAdornmentInfo ShowLabel="True"/>
+                </chart:ColumnSeries.AdornmentsInfo>
             </chart:ColumnSeries>
         </chart:SfChart>
     </Grid>

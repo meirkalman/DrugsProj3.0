@@ -352,7 +352,7 @@ namespace BL
                 {
                     var prescriptionsOnTheAppropriateDate = (from item in IDalService.GetAllRecipes()
                                                              where (drugID == item.MedicineId && start <= item.Date && finish >= item.Date)
-                                                             group item by item.Date.Month.ToString()).ToList();
+                                                             group item by item.Date.ToString("MMMM")).ToList();
                     var prescriptions = prescriptionsOnTheAppropriateDate.OrderBy(g => g.Key);
                     foreach (var g in prescriptions)
                     {
@@ -363,7 +363,7 @@ namespace BL
                 {
                     var prescriptionsOnTheAppropriateDate = (from item in IDalService.GetAllRecipes()
                                                              where (start <= item.Date && finish >= item.Date)
-                                                             group item by item.Date.Month.ToString()).ToList();
+                                                             group item by item.Date.ToString("MMMM")).ToList();
                     var prescriptions = prescriptionsOnTheAppropriateDate.OrderBy(g => g.Key);
                     foreach (var g in prescriptions)
                     {
