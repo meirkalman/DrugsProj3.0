@@ -30,6 +30,11 @@ namespace DrugsProject3._0.Controls
             DataContext = VM;
             InitializeComponent();
         }
-      
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //ImaggaService imaggaService = new ImaggaService();
+            //imaggaService.Show();
+        }
     }
 }
