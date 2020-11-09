@@ -60,7 +60,7 @@ namespace CareManagment.Tools
             return Regex.IsMatch(name, @"^[a-zA-Z0-9_]+$");
         }
 
-        private bool IsMail(string address)
+        public bool IsValidMail(string address)
         {
             EmailAddressAttribute e = new EmailAddressAttribute();
             if (e.IsValid(address))

@@ -128,8 +128,16 @@ namespace DrugsProject3._0.ViewModels
             get { return mailAddress; }
             set
             {
-               mailAddress = value;
-               PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MailAddress"));
+                if (!new VerifyInput().IsValidMail(value))
+                {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "כתובת אימייל לא תקינה";
+                }
+                else
+                {
+                    (App.Current as App).navigation.MainWindows.comments.Text = "";
+                    mailAddress = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MailAddress"));
+                }
             }
         }
 

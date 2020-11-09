@@ -24,13 +24,14 @@
                 Style="{StaticResource MaterialDesignRaisedAccentButton}"
                ToolTip="Resource name: MaterialDesignRaisedAccentButton"
               materialDesign:RippleAssist.Feedback="#DD000000" Content="הוסף" Margin="10,364,214,10" />
-                <DatePicker  materialDesign:HintAssist.Hint="תאריך לידה"  SelectedDate="{Binding DateOfBirth, Mode=TwoWay}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Height="44" Margin="103,296,104,66" />
-                <TextBox materialDesign:HintAssist.Hint="אימייל" FlowDirection="RightToLeft" Text="{Binding MailAddress}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Width="126" Margin="103,246,103,121"  />
-                <TextBox materialDesign:HintAssist.Hint="מספר טלפון" FlowDirection="RightToLeft" Text="{Binding PhoneNum}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Width="126" Margin="104,190,102,177"  />
 
-                <TextBox materialDesign:HintAssist.Hint="תעודת זהות" FlowDirection="RightToLeft" Text="{Binding Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Width="124" Margin="104,132,104,234"  />
-                <TextBox materialDesign:HintAssist.Hint="שם משפחה" ToolTip="השם צריך להיות בעברית" FlowDirection="RightToLeft" Text="{Binding Fname}"  Height="40"  TextWrapping="Wrap"  VerticalAlignment="Top" Margin="103,24,106,0" />
+                <TextBox materialDesign:HintAssist.Hint="שם משפחה" ToolTip="השם צריך להיות בעברית" FlowDirection="RightToLeft" Text="{Binding Fname}"  Height="40"  TextWrapping="Wrap"  VerticalAlignment="Top" Margin="103,26,106,0" />
                 <TextBox materialDesign:HintAssist.Hint="שם פרטי" ToolTip="השם צריך להיות בעברית" FlowDirection="RightToLeft" Text="{Binding Lname}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"   Width="122" Margin="103,78,107,289"  />
+                <TextBox materialDesign:HintAssist.Hint="תעודת זהות" FlowDirection="RightToLeft" Text="{Binding Id}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Width="124" Margin="104,132,104,234"  />
+                <TextBox materialDesign:HintAssist.Hint="מספר טלפון" FlowDirection="RightToLeft" Text="{Binding PhoneNum}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Width="126" Margin="104,190,102,177"  />
+                <TextBox materialDesign:HintAssist.Hint="אימייל" FlowDirection="RightToLeft" Text="{Binding MailAddress}" Height="39" HorizontalAlignment="Center" TextWrapping="Wrap"  Width="126" Margin="103,246,103,121"  />
+                <DatePicker  materialDesign:HintAssist.Hint="תאריך לידה"  SelectedDate="{Binding DateOfBirth, Mode=TwoWay}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Height="44" Margin="103,296,104,66" />
+
                 <materialDesign:PackIcon Kind="Account" Height="24" Width="30" Margin="230,40,0,0" RenderTransformOrigin="0.476,0.5"/>
                 <materialDesign:PackIcon Kind="CardAccountDetails" Height="24" Width="25" Margin="233,148,0,0"  />
                 <materialDesign:PackIcon Kind="Phone" Height="26" Width="30" Margin="231,203,0,0"  />

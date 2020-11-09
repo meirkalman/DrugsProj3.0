@@ -15,8 +15,9 @@
   HorizontalAlignment="Center"
   materialDesign:ColorZoneAssist.Mode="Accent" Margin="385,0,88,30">
             <Grid HorizontalAlignment="Center" Height="373"  VerticalAlignment="Top" Width="304" Margin="0,0,0,-5">
-                <TextBox Height="34" Text="{Binding Producer}" FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,96,44,0"/>
                 <TextBox Height="34" Text="{Binding CommercialName}"  FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,37,44,0"/>
+                <TextBox Height="34" Text="{Binding Producer}" FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,96,44,0"/>
+
                 <TextBox Height="36" Text="{Binding GenericName}" FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="140,147,44,0"/>
                 <TextBox Height="36" Text="{Binding Price}"  FontSize="19" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Margin="138,207,46,0"/>
                 <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="54,43,0,0" TextWrapping="Wrap" Text="שם מסחרי" VerticalAlignment="Top" Height="28" Width="86"/>

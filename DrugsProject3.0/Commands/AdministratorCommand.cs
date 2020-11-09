@@ -29,6 +29,9 @@ namespace DrugsProject3._0.Commands
 
         public void Execute(object parameter)
         {
+            try
+            {
+
             if (parameter.ToString() == "MedicinInformationUC")
             {
                 (App.Current as App).navigation.ShowControls("MedicinInformationUC");
@@ -62,6 +65,12 @@ namespace DrugsProject3._0.Commands
                 (App.Current as App).navigation.ShowControls("ChartUC");
             }
 
+            }
+            catch (Exception e)
+            {
+
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
         }
     
     }

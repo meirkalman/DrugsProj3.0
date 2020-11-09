@@ -14,17 +14,8 @@
   Margin="383,10,10,16"
   materialDesign:ColorZoneAssist.Mode="Accent">
             <Grid>
-                <TextBlock Margin="41,10,230,0" TextWrapping="Wrap" FontSize="20" Text="תעודת זהות" VerticalAlignment="Top" Height="34"/>
-
-                <TextBlock Margin="66,52,231,0" TextWrapping="Wrap" FontSize="20" Text="שם פרטי" VerticalAlignment="Top" Height="34" RenderTransformOrigin="0.738,0.529"/>
-                <TextBox HorizontalAlignment="Left" Text="{Binding Id}" Height="34" Margin="152,6,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159"/>
+                <TextBox HorizontalAlignment="Left" Text="{Binding Id}" Height="34" Margin="152,7,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159"/>
                 <TextBox HorizontalAlignment="Left" ToolTip="השם צריך להיות בעברית" Text="{Binding Fname}" Height="34" Margin="152,46,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159"/>
-                <TextBlock HorizontalAlignment="Left" Margin="40,98,0,0" FontSize="20" TextWrapping="Wrap" Text="שם משפחה" VerticalAlignment="Top" Height="34" Width="112"/>
-                <TextBlock HorizontalAlignment="Left" Margin="35,147,0,0" FontSize="20" TextWrapping="Wrap" Text="מספר טלפון" VerticalAlignment="Top" Height="30" Width="112"/>
-
-                <TextBlock HorizontalAlignment="Left" Margin="82,195,0,0" FontSize="20" TextWrapping="Wrap" Text="סיסמה" VerticalAlignment="Top" Height="30" Width="70"/>
-                <TextBlock HorizontalAlignment="Left" Margin="35,288,0,0" FontSize="20" TextWrapping="Wrap" Text="סוג משתמש" VerticalAlignment="Top" Height="32" Width="112"/>
-                <TextBlock HorizontalAlignment="Left" Margin="88,244,0,0" FontSize="20" TextWrapping="Wrap" Text="אימייל" VerticalAlignment="Top" Height="32" Width="60"/>
                 <TextBox ToolTip="השם צריך להיות בעברית" HorizontalAlignment="Left" Text="{Binding Lname}" Height="34" Margin="152,92,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159"/>
                 <TextBox HorizontalAlignment="Left" Text="{Binding PhoneNum}"   Height="34" Margin="152,141,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159"/>
                 <TextBox materialDesign:HintAssist.Hint="סיסמה בעלת 8 תווים" ToolTip="הסיסמה צריכה להיות בעלת 8 תווים" HorizontalAlignment="Left"  Text="{Binding Password}" Height="34" Margin="152,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159"/>
@@ -32,6 +23,16 @@
                 <ComboBox HorizontalAlignment="Left"  ItemsSource="{Binding Type}" SelectedItem="{Binding TypeSelected}"  Margin="152,288,0,0" VerticalAlignment="Top" Width="159" Height="32">
 
                 </ComboBox>
+                <TextBlock Margin="41,10,230,0" TextWrapping="Wrap" FontSize="20" Text="תעודת זהות" VerticalAlignment="Top" Height="34"/>
+
+                <TextBlock Margin="66,52,231,0" TextWrapping="Wrap" FontSize="20" Text="שם פרטי" VerticalAlignment="Top" Height="34" RenderTransformOrigin="0.738,0.529"/>
+                <TextBlock HorizontalAlignment="Left" Margin="40,98,0,0" FontSize="20" TextWrapping="Wrap" Text="שם משפחה" VerticalAlignment="Top" Height="34" Width="112"/>
+                <TextBlock HorizontalAlignment="Left" Margin="35,147,0,0" FontSize="20" TextWrapping="Wrap" Text="מספר טלפון" VerticalAlignment="Top" Height="30" Width="112"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="82,195,0,0" FontSize="20" TextWrapping="Wrap" Text="סיסמה" VerticalAlignment="Top" Height="30" Width="70"/>
+                <TextBlock HorizontalAlignment="Left" Margin="35,288,0,0" FontSize="20" TextWrapping="Wrap" Text="סוג משתמש" VerticalAlignment="Top" Height="32" Width="112"/>
+                <TextBlock HorizontalAlignment="Left" Margin="88,244,0,0" FontSize="20" TextWrapping="Wrap" Text="אימייל" VerticalAlignment="Top" Height="32" Width="60"/>
+
                 <Button Content="הוסף" Command="{Binding Command}" CommandParameter="AddUser" HorizontalAlignment="Left" Margin="152,337,0,0" VerticalAlignment="Top" Width="76"/>
 
             </Grid>
