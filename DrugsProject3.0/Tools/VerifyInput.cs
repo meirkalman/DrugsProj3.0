@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
@@ -57,6 +58,15 @@ namespace CareManagment.Tools
         public bool IsMedicineName(string name)
         {
             return Regex.IsMatch(name, @"^[a-zA-Z0-9_]+$");
+        }
+
+        private bool IsMail(string address)
+        {
+            EmailAddressAttribute e = new EmailAddressAttribute();
+            if (e.IsValid(address))
+                return true;
+            else
+                return false;
         }
     }
 }

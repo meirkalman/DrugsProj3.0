@@ -22,10 +22,10 @@ namespace DrugsProject3._0.Controls
     /// </summary>
     public partial class ChartUC : UserControl
     {
-        //key =  MzQ2NjAwQDMxMzgyZTMzMmUzME45UGJPaW5QQkUvL0htbCszMjlNdGNyNjJncUpTVnM5MWQ3K2s0SFFjSmM9
+        
         public ChartUC()
         {
-
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzQ2NjAwQDMxMzgyZTMzMmUzME45UGJPaW5QQkUvL0htbCszMjlNdGNyNjJncUpTVnM5MWQ3K2s0SFFjSmM9");
             ChartVM VM = new ChartVM();
             DataContext = VM;
             InitializeComponent();

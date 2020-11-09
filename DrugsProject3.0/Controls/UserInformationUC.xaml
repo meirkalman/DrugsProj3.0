@@ -17,6 +17,7 @@
                 <DataGridTextColumn Header="שם משפחה" Binding="{Binding Lname}"/>
                 <DataGridTextColumn Header="מספר טלפון" Binding="{Binding PhoneNumber }"/>
                 <DataGridTextColumn Header="סוג משתמש" Binding="{Binding Type }"/>
+                <DataGridTextColumn Header="אימייל" Binding="{Binding MailAddress }"/>
                 <DataGridTextColumn Header="סיסמה" Binding="{Binding Password }"/>
             </DataGrid.Columns>
         </DataGrid>
