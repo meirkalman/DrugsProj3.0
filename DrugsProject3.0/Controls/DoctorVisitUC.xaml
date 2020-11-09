@@ -33,7 +33,7 @@
     Margin="2,0,161,5" />
                 </Grid>
                 <TextBlock HorizontalAlignment="Left" Margin="222,0,0,0" FontSize="18" TextWrapping="Wrap" Text=":שם המטופל" VerticalAlignment="Top" Height="31" Width="106"/>
-                <TextBlock FlowDirection="LeftToRight" Text ="{Binding PatientName, Mode=OneWay}" HorizontalAlignment="Left" Margin="64,0,0,0" FontSize="18" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="158"/>
+                <TextBlock FlowDirection="RightToLeft" Text ="{Binding PatientName, Mode=OneWay}" HorizontalAlignment="Left" Margin="64,0,0,0" FontSize="18" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="158"/>
                 <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  HorizontalAlignment="Left" Text="{Binding Description}" FlowDirection="RightToLeft" Height="69" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="444">
                     <TextBox.Background>
                         <ImageBrush/>

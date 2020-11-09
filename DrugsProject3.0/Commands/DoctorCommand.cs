@@ -34,7 +34,6 @@ namespace DrugsProject3._0.Commands
             if (parameter.ToString() == "OpenDoctorVisit")
             {
                 CurrentVM.CManage();
-                (App.Current as App).navigation.ShowControls("DoctorVisitUC");
             }
             if (parameter.ToString() == "Return")
             {
