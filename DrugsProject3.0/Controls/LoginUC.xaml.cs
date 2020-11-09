@@ -100,8 +100,8 @@ namespace DrugsProject3._0.Controls
             //Bl.AddRecipe(new BE.Recipe("3123533", "moclobemide", "888888888", "222222222", "199487", 40, 3, "כאב", DateTime.Now.AddDays(-111)));
             //Bl.AddRecipe(new BE.Recipe("3123644", "sumatriptan", "777777777", "222222222", "37418", 40, 3, "שלשול", DateTime.Now.AddDays(-1000)));
 
-            //Bl.AddUser(new BE.User("1", "מאיר", "קלמן", "11111111", BE.User.UserType.מנהל, "1"));
-            //Bl.AddUser(new BE.User("2", "יצחקי", "רביץ", "22222222", BE.User.UserType.רופא, "2"));
+            Bl.AddUser(new BE.User("1", "מאיר", "קלמן", "11111111", BE.User.UserType.מנהל,"dd", "1"));
+            Bl.AddUser(new BE.User("2", "יצחקי", "רביץ", "22222222", BE.User.UserType.רופא, "dd", "2"));
             //Bl.AddUser(new BE.User("333333333", "זאבי", "קמינסקי", "77", BE.User.UserType.רופא, "33333333"));
             //Bl.AddPatient(new BE.Patient("999999999", "משה", "כהן", "0527631366", DateTime.Now.AddDays(-100)));
             //Bl.AddPatient(new BE.Patient("888888888", "יוסף", "ברקוביץ", "0527631366", DateTime.Now.AddDays(-200)));

@@ -2,6 +2,7 @@
 using CareManagment.Tools;
 using DrugsProject3._0.Commands;
 using DrugsProject3._0.Models;
+using DrugsProject3._0.Tools;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,6 +10,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using static BE.User;
@@ -119,6 +121,18 @@ namespace DrugsProject3._0.ViewModels
                 }
             }
         }
+
+        private string mailAddress;
+        public string MailAddress
+        {
+            get { return mailAddress; }
+            set
+            {
+               mailAddress = value;
+               PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MailAddress"));
+            }
+        }
+
         public ObservableCollection<string> Type { get; set; }
 
         private String typeSelected;
@@ -155,28 +169,24 @@ namespace DrugsProject3._0.ViewModels
         {
             try
             {
-
                 UserType userType = (UserType)Enum.Parse(typeof(UserType), TypeSelected);
                 if (Id == null || Fname == null || Lname == null || PhoneNum == null || Password == null)
                 {
                     throw new ArgumentException("אתה צריך למלא את כל השדות");
                 }
                 else
-                {
-
-                    User = new User(Id, Fname, Lname, PhoneNum, userType, Password);
+                {    
+                    User = new User(Id, Fname, Lname, PhoneNum, userType, MailAddress, Password);
                     AddUserM.AddUser(User);
+                    AddUserM.SendMail(User);
                     UserIds.Add(User.Id);
                     (App.Current as App).navigation.MainWindows.comments.Text = "משתמש נוסף בהצלחה";
-                   
                 }
             }
             catch (Exception e)
             {
-
                 (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
             }
-
         }
 
         public void DeleteUser()
@@ -195,9 +205,10 @@ namespace DrugsProject3._0.ViewModels
             }
         }
 
+       
     }
-
 }
+
 
 
 

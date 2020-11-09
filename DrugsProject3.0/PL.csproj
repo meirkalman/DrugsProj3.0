@@ -188,6 +188,7 @@
     <Compile Include="Models\StatisticsModel1.cs" />
     <Compile Include="Tools\ControlManage.cs" />
     <Compile Include="Tools\IControlManage.cs" />
+    <Compile Include="Tools\Mail.cs" />
     <Compile Include="Tools\Navigation.cs" />
     <Compile Include="Tools\VerifyInput.cs" />
     <Compile Include="ViewModels\AddDoctorVisitVM.cs" />

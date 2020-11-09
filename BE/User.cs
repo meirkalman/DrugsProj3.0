@@ -15,6 +15,7 @@ namespace BE
         public string Lname { get; set; }
         public string PhoneNumber { get; set; }
         public UserType Type { get; set; }
+        public string MailAddress { get; set; }
         public string Password { get; set; }
 
         public enum UserType { רופא, מנהל }
@@ -33,13 +34,14 @@ namespace BE
             Password = user.Password;
         }
 
-        public User(string id, string fname, string lname, string phoneNumber, UserType type, string password)
+        public User(string id, string fname, string lname, string phoneNumber, UserType type, string mailAddress, string password)
         {
             Id = id;
             Fname = fname;
             Lname = lname;
             PhoneNumber = phoneNumber;
             Type = type;
+            MailAddress = mailAddress;
             Password = password;
         }
     }

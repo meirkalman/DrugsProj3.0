@@ -15,14 +15,15 @@ namespace BE
         public string Lname { get; set; }
         public string PhoneNumber { get; set; }
         public DateTime DateOfBirth { get; set; }
-
-        public Patient(string id, string fname, string lname, string phoneNumber,  DateTime dateOfBirth)
+        public string MailAddress { get; set; }
+        public Patient(string id, string fname, string lname, string phoneNumber,  DateTime dateOfBirth, string mailAddress)
         {
             PatientId = id;
             Fname = fname;
             Lname = lname;
             PhoneNumber = phoneNumber;
             DateOfBirth = dateOfBirth;
+            MailAddress = mailAddress;
         }
        
         public Patient()
