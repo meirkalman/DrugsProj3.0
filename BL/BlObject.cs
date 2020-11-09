@@ -7,8 +7,8 @@ using MigraDoc.DocumentObjectModel.Tables;
 using PdfSharp.Drawing;
 using PdfSharp.Drawing.Layout;
 using PdfSharp.Pdf;
-//using PdfSharp.Drawing;
-//using PdfSharp.Pdf;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -23,9 +23,11 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Xml.XPath;
 using Document = MigraDoc.DocumentObjectModel.Document;
+
 using Image = MigraDoc.DocumentObjectModel.Shapes.Image;
 using Style = MigraDoc.DocumentObjectModel.Style;
 using VerticalAlignment = MigraDoc.DocumentObjectModel.Tables.VerticalAlignment;
+using System.Windows.Xps.Packaging;
 
 namespace BL
 {
@@ -38,6 +40,13 @@ namespace BL
         {
             IDalService = new DalService();
             CI = new CheckInteraction();
+        }
+
+        private string Reverse(string s)
+        {
+            char[] charArray = s.ToCharArray();
+            Array.Reverse(charArray);
+            return new string(charArray);
         }
 
         #region add
@@ -425,221 +434,110 @@ namespace BL
 
 
         public Document CreateDocument(List<Recipe> r)
-
         {
-
             // Create a new MigraDoc document
-
             Document document = new Document();
-
             document.Info.Title = "A sample invoice";
-
             document.Info.Subject = "Demonstrates how to create an invoice.";
-
             document.Info.Author = "Stefan Lange";
 
-
-
             // Get the predefined style Normal.
-
             Style style = document.Styles["Normal"];
-
-            // Because all styles are derived from Normal, the next line changes the
-
-            // font of the whole document. Or, more exactly, it changes the font of
-
-            // all styles and paragraphs that do not redefine the font.
-
             style.Font.Name = "Verdana";
-
-
-
             style = document.Styles[StyleNames.Header];
-
             style.ParagraphFormat.AddTabStop("16cm", TabAlignment.Right);
-
-
-
             style = document.Styles[StyleNames.Footer];
-
             style.ParagraphFormat.AddTabStop("8cm", TabAlignment.Center);
-
-
-
-            // Create a new style called Table based on style Normal
-
             style = document.Styles.AddStyle("Table", "Normal");
-
             style.Font.Name = "Verdana";
-
             style.Font.Name = "Times New Roman";
-
             style.Font.Size = 9;
-
-
-
-            // Create a new style called Reference based on style Normal
-            //XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
             style = document.Styles.AddStyle("Reference", "Normal");
-
             style.ParagraphFormat.SpaceBefore = "5mm";
-
             style.ParagraphFormat.SpaceAfter = "5mm";
-
             style.ParagraphFormat.TabStops.AddTabStop("16cm", TabAlignment.Right);
 
 
-
-
             // Each MigraDoc document needs at least one section.
-
             Section section = document.AddSection();
 
-
-
-
             // Put a logo in the header
-
-            Image image = section.Headers.Primary.AddImage("../../PowerBooks.png");
-
+            Image image = section.Headers.Primary.AddImage("../../Images/bikurofelogo.png");
             image.Height = "2.5cm";
-
             image.LockAspectRatio = true;
-
             image.RelativeVertical = RelativeVertical.Line;
-
             image.RelativeHorizontal = RelativeHorizontal.Margin;
-
             image.Top = ShapePosition.Top;
-
             image.Left = ShapePosition.Right;
-
             image.WrapFormat.Style = WrapStyle.Through;
 
 
 
 
             // Create footer
-
-            Paragraph paragraph = section.Footers.Primary.AddParagraph();
-
-            paragraph.AddText("PowerBooks Inc · Sample Street 42 · 56789 Cologne · Germany");
-
-            paragraph.Format.Font.Size = 9;
-
-            paragraph.Format.Alignment = ParagraphAlignment.Center;
-
-
-
-
             // Create the text frame for the address
 
+            var aFrame = section.AddTextFrame();
+            aFrame.Height = "50.0cm";
+            aFrame.Width = "20.0cm";
+            aFrame.Left = ShapePosition.Left;
+            aFrame.RelativeHorizontal = RelativeHorizontal.Margin;
+            aFrame.Top = "5.0cm";
+            aFrame.RelativeVertical = RelativeVertical.Page;
+            Paragraph paragraph = section.Footers.Primary.AddParagraph();
+            paragraph = aFrame.AddParagraph(Reverse("ביקור רופא מרשמים")); 
+            paragraph.Format.Font.Size = 10;
+            paragraph.Format.Alignment = ParagraphAlignment.Center;
+
+            // Create the text frame for the address
             var addressFrame = section.AddTextFrame();
-
             addressFrame.Height = "3.0cm";
-
             addressFrame.Width = "7.0cm";
-
             addressFrame.Left = ShapePosition.Left;
-
             addressFrame.RelativeHorizontal = RelativeHorizontal.Margin;
-
             addressFrame.Top = "5.0cm";
-
             addressFrame.RelativeVertical = RelativeVertical.Page;
 
-
-
-
             // Put sender in address frame
-
-            paragraph = addressFrame.AddParagraph("PowerBooks Inc · Sample Street 42 · 56789 Cologne");
-
+            paragraph = addressFrame.AddParagraph(Reverse("ביקור רופא מרשמים"));
             paragraph.Format.Font.Name = "Times New Roman";
-
             paragraph.Format.Font.Size = 7;
-
             paragraph.Format.SpaceAfter = 3;
 
 
-
-
             // Add the print date field
-
             paragraph = section.AddParagraph();
-
             paragraph.Format.SpaceBefore = "8cm";
-
             paragraph.Style = "Reference";
-
-            paragraph.AddFormattedText("INVOICE", TextFormat.Bold);
-
+            paragraph.AddFormattedText("אא", TextFormat.Bold);
             paragraph.AddTab();
-
             paragraph.AddText("Cologne, ");
-
             paragraph.AddDateField("dd.MM.yyyy");
-
-
 
 
             // Create the item table
 
             Table table = section.AddTable();
-
             table.Style = "Table";
-
             //table.Borders.Color = TableBorder;
-
             table.Borders.Width = 0.25;
-
             table.Borders.Left.Width = 0.5;
-
             table.Borders.Right.Width = 0.5;
-
             table.Rows.LeftIndent = 0;
 
 
-
-
             // Before you can add a row, you must define the columns
-
             Column column = table.AddColumn("1cm");
-
             column.Format.Alignment = ParagraphAlignment.Center;
-
-
-
-
             column = table.AddColumn("2.5cm");
-
             column.Format.Alignment = ParagraphAlignment.Right;
-
-
-
-
             column = table.AddColumn("3cm");
-
             column.Format.Alignment = ParagraphAlignment.Right;
-
-
-
-
             column = table.AddColumn("3.5cm");
-
             column.Format.Alignment = ParagraphAlignment.Right;
-
-
-
-
             column = table.AddColumn("2cm");
-
             column.Format.Alignment = ParagraphAlignment.Center;
-
-
-
             column = table.AddColumn("4cm");
-
             column.Format.Alignment = ParagraphAlignment.Right;
 
 
@@ -648,51 +546,27 @@ namespace BL
             // Create the header of the table
 
             Row row = table.AddRow();
-
             row.HeadingFormat = true;
-
             row.Format.Alignment = ParagraphAlignment.Center;
-
             row.Format.Font.Bold = true;
-
-            //row.Shading.Color = TableBlue;
-
-            row.Cells[0].AddParagraph("Item");
-
+            row.Cells[0].AddParagraph("תרופה");
             row.Cells[0].Format.Font.Bold = false;
-
             row.Cells[0].Format.Alignment = ParagraphAlignment.Left;
-
             row.Cells[0].VerticalAlignment = VerticalAlignment.Bottom;
-
             row.Cells[0].MergeDown = 1;
-
-            row.Cells[1].AddParagraph("Title and Author");
-
+            row.Cells[1].AddParagraph("רופא");
             row.Cells[1].Format.Alignment = ParagraphAlignment.Left;
-
             row.Cells[1].MergeRight = 3;
-
-            row.Cells[5].AddParagraph("Extended Price");
-
+            row.Cells[5].AddParagraph("מספר");
             row.Cells[5].Format.Alignment = ParagraphAlignment.Left;
-
             row.Cells[5].VerticalAlignment = VerticalAlignment.Bottom;
-
             row.Cells[5].MergeDown = 1;
-
-
-
-
             row = table.AddRow();
-
             row.HeadingFormat = true;
-
             row.Format.Alignment = ParagraphAlignment.Center;
-
             row.Format.Font.Bold = true;
 
-            //row.Shading.Color = TableBlue;
+            
 
             row.Cells[1].AddParagraph("Quantity");
 
@@ -934,9 +808,14 @@ namespace BL
 
             ////paragraph.AddText(GetValue(item, "notes"));
 
-
+            
             string pdfFilename = "AAAAAAAAAAAAAAAA" + ".pdf";
-            document.Save(pdfFilename);
+            var pdf = new MigraDoc.Rendering.PdfDocumentRenderer(true, PdfSharp.Pdf.PdfFontEmbedding.None);
+            pdf.Document = document;
+            pdf.RenderDocument();
+            pdf.Save(pdfFilename);
+
+            //fileOpener.ShellExecute(filename);
             Process.Start(pdfFilename);
             return document;
 
