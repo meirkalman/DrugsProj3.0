@@ -343,28 +343,39 @@ namespace BL
 
         #region statistics
 
-        public Dictionary<string, int> drugStatistics(string drugID, DateTime start, DateTime finish)
+        public Dictionary<string, int> drugStatistics( DateTime start, DateTime finish, string drugID = null)
         {
             try
             {
                 Dictionary<string, int> result = new Dictionary<string, int>();
-                var prescriptionsOnTheAppropriateDate = (from item in IDalService.GetAllRecipes()
-                                                         where (drugID == item.MedicineId && start <= item.Date && finish >= item.Date)
-                                                         group item by item.Date.Month.ToString()).ToList();
-                var prescriptions = prescriptionsOnTheAppropriateDate.OrderBy(g => g.Key);
-                foreach (var g in prescriptions)
+                if (drugID != null)
                 {
-                    result.Add(g.Key, g.Count());
+                    var prescriptionsOnTheAppropriateDate = (from item in IDalService.GetAllRecipes()
+                                                             where (drugID == item.MedicineId && start <= item.Date && finish >= item.Date)
+                                                             group item by item.Date.Month.ToString()).ToList();
+                    var prescriptions = prescriptionsOnTheAppropriateDate.OrderBy(g => g.Key);
+                    foreach (var g in prescriptions)
+                    {
+                        result.Add(g.Key, g.Count());
+                    }
+                }
+                if (drugID == null)
+                {
+                    var prescriptionsOnTheAppropriateDate = (from item in IDalService.GetAllRecipes()
+                                                             where (start <= item.Date && finish >= item.Date)
+                                                             group item by item.Date.Month.ToString()).ToList();
+                    var prescriptions = prescriptionsOnTheAppropriateDate.OrderBy(g => g.Key);
+                    foreach (var g in prescriptions)
+                    {
+                        result.Add(g.Key, g.Count());
+                    }
                 }
                 return result;
             }
             catch (Exception e)
             {
-
                 throw e;
             }
-
-
         }
         public List<Recipe> getPatientHistoryByDrug(DateTime first, DateTime second, string patientId = null, string drugID = null)
         {

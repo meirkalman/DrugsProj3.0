@@ -16,11 +16,11 @@ namespace DrugsProject3._0.Models
             Bl = new BlObject();
         }
 
-        public Dictionary<string,int> GetStatistic(string drugID, DateTime start, DateTime finish)
+        public Dictionary<string,int> GetStatistic(DateTime start, DateTime finish, string drugID = null)
         {
             try
             {
-                return Bl.drugStatistics(drugID, start, finish);
+                return Bl.drugStatistics( start, finish, drugID);
             }
             catch (Exception ex)
             {
