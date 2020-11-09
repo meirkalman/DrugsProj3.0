@@ -34,28 +34,7 @@ namespace DrugsProject3._0.ViewModels
         public List<string> PrescriptionsGivenNames { get; set; }
         public ObservableCollection<Recipe> Recipes { get; set; }
         public ObservableCollection<string> Type { get; set; }
-        public AddDoctorVisitVM(IControlManage controlManage)
-        {
-            try
-            {
-                IControlManage = controlManage;
-                AddDoctorVisitM = new AddDoctorVisitModel();
-                AddCommand = new AddDoctorVisitCommand(this);
-                MedicinesNames = new ObservableCollection<string>(AddDoctorVisitM.GetAllMedicinesNames());
-                Patient = IControlManage.Patient;
-                User = IControlManage.User;
-                DoctorName = User.Fname + " " + User.Lname;
-                PatientName = Patient.Fname + " " + Patient.Lname;
-                Recipes = new ObservableCollection<Recipe>(AddDoctorVisitM.getPatientHistory(Patient.PatientId));
-                Type = new ObservableCollection<string>(Enum.GetNames(typeof(ShowData)));
-                MedicationsAdded = new ObservableCollection<string>();
-                PrescriptionsGiven = new List<Recipe>();
-            }
-            catch (Exception e)
-            {
-                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
-            }
-        }
+       
 
         public string RecipeId { get; set; }
         public string MedicineId { get; set; }
@@ -107,6 +86,29 @@ namespace DrugsProject3._0.ViewModels
             {
                 typeSelected = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TypeSelected"));
+            }
+        }
+
+        public AddDoctorVisitVM(IControlManage controlManage)
+        {
+            try
+            {
+                IControlManage = controlManage;
+                AddDoctorVisitM = new AddDoctorVisitModel();
+                AddCommand = new AddDoctorVisitCommand(this);
+                MedicinesNames = new ObservableCollection<string>(AddDoctorVisitM.GetAllMedicinesNames());
+                Patient = IControlManage.Patient;
+                User = IControlManage.User;
+                DoctorName = User.Fname + " " + User.Lname;
+                PatientName = Patient.Fname + " " + Patient.Lname;
+                Recipes = new ObservableCollection<Recipe>(AddDoctorVisitM.getPatientHistory(Patient.PatientId));
+                Type = new ObservableCollection<string>(Enum.GetNames(typeof(ShowData)));
+                MedicationsAdded = new ObservableCollection<string>();
+                PrescriptionsGiven = new List<Recipe>();
+            }
+            catch (Exception e)
+            {
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
             }
         }
         public void AddRecipe()
@@ -177,6 +179,20 @@ namespace DrugsProject3._0.ViewModels
                 (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
             }
         }
+        public void FinishVisit()
+        {
+            AddDoctorVisitM.SendMail(Patient, User);
+            try
+            {
+                AddDoctorVisitM.SendMail(Patient, User);
+                (App.Current as App).navigation.ShowControls("DoctorUC");
+            }
+            catch (Exception e)
+            {
+                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+            }
+        }
+            
         public void Massage(List<string> res)
         {
             Medicine med = AddDoctorVisitM.GetMedicine(res[0]);

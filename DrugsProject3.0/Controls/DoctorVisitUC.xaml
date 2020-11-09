@@ -81,7 +81,7 @@
 
             </Grid>
         </GroupBox>
-        <Button Command="{Binding AddCommand}" CommandParameter ="DoctorUC"
+        <Button Command="{Binding AddCommand}" CommandParameter ="FinishVisit"
     Style="{StaticResource MaterialDesignRaisedAccentButton}" Background="#FF607D8B"
     ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="447,417,10,34" Content="סיום" Height="Auto" />
 

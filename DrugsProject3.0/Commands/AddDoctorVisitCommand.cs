@@ -46,9 +46,9 @@ namespace DrugsProject3._0.Commands
                 CurrentVM.DeleteRecipe();
             }
 
-            if (parameter.ToString() == "DoctorUC")
+            if (parameter.ToString() == "FinishVisit")
             {
-                (App.Current as App).navigation.ShowControls("DoctorUC");
+                CurrentVM.FinishVisit();
             }
 
             if (parameter.ToString() == "Show")

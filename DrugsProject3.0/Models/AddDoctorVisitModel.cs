@@ -1,9 +1,11 @@
 ﻿using BE;
 using BL;
+using DrugsProject3._0.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DrugsProject3._0.Models
@@ -125,6 +127,23 @@ namespace DrugsProject3._0.Models
             try
             {
                  Bl.DeleteRecipe(recipe);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void SendMail(Patient patient,User user)
+        {
+            try
+            {
+                Mail mail = new Mail();
+                string mailTo = patient.MailAddress;
+                string mailSubject = "סיום ביקור";
+                string mailBody = "היי " + patient.Fname + "," + "\n\n" + "ביקורך אצל דר   ." + user.Fname + " " + user.Lname + "הסתיים בהצלחה" + "\n\n" + "מקווים שקיבלת את הטיפול הטוב ביותר , צוות ההנהלה.";
+                Thread thread = new Thread(() => mail.SendMail(mailTo, mailSubject, mailBody));
+                thread.Start();
             }
             catch (Exception ex)
             {
