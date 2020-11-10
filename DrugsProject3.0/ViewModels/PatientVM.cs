@@ -150,7 +150,7 @@ namespace DrugsProject3._0.ViewModels
         {
             try
             {
-                if (Id == null || Fname == null || Lname == null || PhoneNum == null)
+                if (Id == null || Fname == null || Lname == null || PhoneNum == null || MailAddress == null)
                 {
                     throw new ArgumentException("אתה צריך למלא את כל השדות");
                 }

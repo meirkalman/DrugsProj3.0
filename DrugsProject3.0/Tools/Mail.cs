@@ -16,17 +16,26 @@ namespace DrugsProject3._0.Tools
 
         public void SendMail(string mailTo, string mailSubject, string mailBody)
         {
-            MailMessage mailMessage = new MailMessage();
-            mailMessage.Subject = mailSubject;
-            mailMessage.From = new MailAddress(MailAddress);
-            mailMessage.Body = mailBody;
-            mailMessage.To.Add(mailTo);
-            SmtpClient smtp = new SmtpClient("smtp.Gmail.com");
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential(MailAddress, MailPassword);
-            smtp.EnableSsl = true;
-            smtp.Port = 587;
-            smtp.Send(mailMessage);
+            try
+            {
+                MailMessage mailMessage = new MailMessage();
+                mailMessage.Subject = mailSubject;
+                mailMessage.From = new MailAddress(MailAddress);
+                mailMessage.Body = mailBody;
+                mailMessage.To.Add(mailTo);
+                SmtpClient smtp = new SmtpClient("smtp.Gmail.com");
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential(MailAddress, MailPassword);
+                smtp.EnableSsl = true;
+                smtp.Port = 587;
+                smtp.Send(mailMessage);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            
         }
     }
 }

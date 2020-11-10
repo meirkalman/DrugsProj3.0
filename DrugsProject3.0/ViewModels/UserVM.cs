@@ -178,7 +178,7 @@ namespace DrugsProject3._0.ViewModels
             try
             {
                 UserType userType = (UserType)Enum.Parse(typeof(UserType), TypeSelected);
-                if (Id == null || Fname == null || Lname == null || PhoneNum == null || Password == null)
+                if (Id == null || Fname == null || Lname == null || PhoneNum == null || Password == null || MailAddress == null)
                 {
                     throw new ArgumentException("אתה צריך למלא את כל השדות");
                 }
