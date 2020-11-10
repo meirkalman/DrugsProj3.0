@@ -33,8 +33,8 @@ namespace DrugsProject3._0.Controls
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //ImaggaService imaggaService = new ImaggaService();
-            //imaggaService.Show();
+            ImaggaService imaggaService = new ImaggaService();
+            imaggaService.Show();
         }
     }
 }
