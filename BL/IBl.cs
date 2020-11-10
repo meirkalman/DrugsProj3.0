@@ -78,7 +78,7 @@ namespace BL
 
         //List<string> GetMedicineNamesOfPatient(string patientId);
 
-        Document CreateDocument(List<Recipe> r);
+        void CreateDocument(List<Recipe> r);
     }
 }
 
