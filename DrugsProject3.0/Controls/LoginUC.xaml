@@ -19,15 +19,15 @@
             <TextBlock
             VerticalAlignment="Center"
               FlowDirection="RightToLeft"
-    Style="{StaticResource MaterialDesignHeadline6TextBlock}" HorizontalAlignment="Center" Margin="375,34,384,420" Height="39"><Run Text="התחברות"/></TextBlock>
+    Style="{StaticResource MaterialDesignHeadline6TextBlock}" HorizontalAlignment="Center" Margin="390,58,387,396" Height="39"><Run Text="התחברות"/></TextBlock>
             <PasswordBox x:Name="PasswordBoxLogin"
                  FlowDirection="RightToLeft"
     Style="{StaticResource MaterialDesignOutlinedPasswordFieldPasswordBox}"
     VerticalAlignment="Top" 
     
     materialDesign:HintAssist.Hint="סיסמה" Margin="137,220,127,0" Height="54"  Width="236" />
-            <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Text ="{Binding Id}"  FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="מספר זהות" HorizontalAlignment="Center" Height="54" Margin="138,119,126,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="236"/>
-            <Button Content="התחבר" Command="{Binding Command}" CommandParameter="{Binding ElementName=PasswordBoxLogin}" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="146" Height="52" Margin="170,316,184,0" />
+            <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Text ="{Binding Id}"  FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="מספר זהות" HorizontalAlignment="Center" Height="54" Margin="318,131,307,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="236"/>
+            <Button Content="התחבר" Command="{Binding Command}" CommandParameter="{Binding ElementName=PasswordBoxLogin}" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="146" Height="52" Margin="362,314,353,0" />
             <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="91,107,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Background="#00607D8B" BorderBrush="#00607D8B"/>
 
         </Grid>
