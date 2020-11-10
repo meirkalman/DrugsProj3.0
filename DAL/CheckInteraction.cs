@@ -31,7 +31,7 @@ namespace DAL
                             {
                                 foreach (var item3 in item2.interactionConcept)
                                 {
-                                    if (item3.sourceConceptItem.name != drugId)
+                                    if (item3.minConceptItem.rxcui != drugId)
                                     {
                                         result.Add(NumberFromName(item3.sourceConceptItem.name).ToString());
                                     }
@@ -41,8 +41,6 @@ namespace DAL
                     }
                 }
            
-           
-
             return result;
         }
         public int ResolveRxcuiFromName(string name)

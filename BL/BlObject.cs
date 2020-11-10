@@ -626,51 +626,9 @@ namespace BL
                 Process.Start(pdfFilename);
                 
             }
-
-
-
         }
 
 
-        //public void createPDF(Recipe recipe)
-        //{
-        //    try
-        //    {
-        //        PdfDocument pdf = new PdfDocument();
-        //        pdf.Info.Title = "Prescription";
-        //        XPdfFontOptions options = new XPdfFontOptions(PdfFontEncoding.Unicode, PdfFontEmbedding.Always);
-        //        PdfPage pdfPage = pdf.AddPage();
-        //        XGraphics graph = XGraphics.FromPdfPage(pdfPage);
-        //        XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
-        //        Medicine medicine = GetMedicine(recipe.MedicineId);
-        //        Patient patient = GetPatient(recipe.PatientId);
-        //        string texts = recipe.ToString();
-
-
-        //        PdfPage page = pdf.AddPage();
-
-        //        XGraphics gfx = XGraphics.FromPdfPage(page);
-
-        //        XTextFormatter tf = new XTextFormatter(gfx);
-
-        //        tf.Alignment = XParagraphAlignment.Left;
-
-        //        tf.DrawString(texts, font, XBrushes.Black,
-        //        new XRect(100, 100, page.Width - 200, 600), XStringFormats.TopLeft);
-
-        //        string pdfFilename = recipe.RecipeId + ".pdf";
-        //        pdf.Save(pdfFilename);
-        //        Process.Start(pdfFilename);
-
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw new Exception("pdf cannot be create");
-        //    }
-
-
-        // }
         public void print(List<Recipe> r)
         {
 
