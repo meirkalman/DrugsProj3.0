@@ -79,7 +79,7 @@ namespace DAL
         
 
 
-        public static string HttpRequest(String url)
+        public string HttpRequest(String url)
         {
 
             string html = string.Empty;
@@ -95,7 +95,7 @@ namespace DAL
             return html;
         }
 
-        public static string GenerateURL(int drugNum)
+        public string GenerateURL(int drugNum)
         {
             string first = @"https://rxnav.nlm.nih.gov/REST/interaction/interaction.json?rxcui=";
             string second = @"&sources=ONCHigh";

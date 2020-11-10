@@ -134,15 +134,16 @@ namespace DrugsProject3._0.Models
             }
         }
 
-        public void SendMail(Patient patient,User user)
+        public void SendMail(Patient patient,User user, List<Recipe> r = null)
         {
             try
             {
                 Mail mail = new Mail();
                 string mailTo = patient.MailAddress;
                 string mailSubject = "סיום ביקור";
-                string mailBody = "היי " + patient.Fname + "," + "\n\n" + "ביקורך אצל דר   ." + user.Fname + " " + user.Lname + "הסתיים בהצלחה" + "\n\n" + "מקווים שקיבלת את הטיפול הטוב ביותר , צוות ההנהלה.";
-                Thread thread = new Thread(() => mail.SendMail(mailTo, mailSubject, mailBody));
+                string mailBody = "היי " + patient.Fname + "," + "\n\n" + "ביקורך אצל דר   ." + user.Fname + " " + user.Lname + " הסתיים בהצלחה " + "\n\n" + "מקווים שקיבלת את הטיפול הטוב ביותר , צוות ההנהלה.";
+               
+                Thread thread = new Thread(() => mail.SendMail(mailTo, mailSubject, mailBody, r));
                 thread.Start();
             }
             catch (Exception ex)

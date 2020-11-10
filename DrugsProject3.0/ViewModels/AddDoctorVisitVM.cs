@@ -181,10 +181,10 @@ namespace DrugsProject3._0.ViewModels
         }
         public void FinishVisit()
         {
-            AddDoctorVisitM.SendMail(Patient, User);
+            
             try
             {
-                AddDoctorVisitM.SendMail(Patient, User);
+                AddDoctorVisitM.SendMail(Patient, User, PrescriptionsGiven);
                 (App.Current as App).navigation.ShowControls("DoctorUC");
             }
             catch (Exception e)

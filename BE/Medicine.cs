@@ -40,13 +40,3 @@ namespace BE
 
 
 
-//public Medicine(Medicine medicine)
-//{
-//    this.Id = medicine.Id;
-//    this.CommercialName = medicine.CommercialName;
-//    this.GenericName = medicine.GenericName;
-//    this.Producer = medicine.Producer;
-//    this.PeriodOfUse = medicine.PeriodOfUse;
-//    this.ActiveIngredients = medicine.ActiveIngredients;
-//    this.ImageUri = medicine.ImageUri;
-//}

@@ -136,6 +136,10 @@ namespace DrugsProject3._0.ViewModels
                 {
 
                     string Id = MedicineM.ResolveRxcuiFromName(CommercialName).ToString();
+                    if (Id == "0")
+                    {
+                        throw new ArgumentException("תרופה לא קיימת ");
+                    }
                     MedicineM.AddMedicine(new Medicine(Id, CommercialName, GenericName, Producer, Price, ImageUri));
                     MedicineIds.Add(Id);
                     (App.Current as App).navigation.MainWindows.comments.Text = "התרופה נוספה בהצלחה";
