@@ -451,6 +451,7 @@ namespace BL
                 Patient pa = GetPatient(r[i].PatientId);
                 User u = GetUser(r[i].DoctorId);
                 Medicine m = GetMedicine(r[i].MedicineId);
+
                 // Create a new MigraDoc document
                 Document document = new Document();
                 document.Info.Title = "Prescription";
@@ -487,22 +488,8 @@ namespace BL
                 image.WrapFormat.Style = WrapStyle.Through;
 
 
-
-
-                // Create footer
-                // Create the text frame for the address
-
-                //var aFrame = section.AddTextFrame();
-                //aFrame.Height = "50.0cm";
-                //aFrame.Width = "20.0cm";
-                //aFrame.Left = ShapePosition.Left;
-                //aFrame.RelativeHorizontal = RelativeHorizontal.Margin;
-                //aFrame.Top = "5.0cm";
-                //aFrame.RelativeVertical = RelativeVertical.Page;
                 Paragraph paragraph = section.Footers.Primary.AddParagraph();
-                //paragraph = aFrame.AddParagraph(Reverse("ביקור רופא מרשמים"));
-                //paragraph.Format.Font.Size = 10;
-                //paragraph.Format.Alignment = ParagraphAlignment.Center;
+                
 
                 // Create the text frame for the address
                 var addressFrame = section.AddTextFrame();
@@ -558,9 +545,6 @@ namespace BL
                 column.Format.Alignment = ParagraphAlignment.Right;
                 column = table.AddColumn("2cm");
                 column.Format.Alignment = ParagraphAlignment.Right;
-
-
-
 
                 // Create the header of the table
 
@@ -632,176 +616,6 @@ namespace BL
                 row1.Cells[1].AddParagraph(r[i].QuantityPerDay.ToString());
 
 
-
-
-
-                //foreach (var item in r)
-                //{
-
-
-
-
-
-                //    Row row2 = table.AddRow();
-
-
-
-
-
-
-
-
-
-
-                //    //paragraph.AddFormattedText(GetValue(item, "title"), TextFormat.Bold);
-
-                //    //p.AddFormattedText(" by ", TextFormat.Italic);
-
-                //    //paragraph.AddText(GetValue(item, "author"));
-
-                //    //row2.Cells[1].AddParagraph(GetValue(item, "quantity"));
-
-                //    //row2.Cells[2].AddParagraph(price.ToString("0.00") + " €");
-
-                //    //row2.Cells[3].AddParagraph(discount.ToString("0.0"));
-
-                //    //row2.Cells[4].AddParagraph();
-
-                //    //row2.Cells[5].AddParagraph(price.ToString("0.00"));
-
-                //    //double extendedPrice = quantity * price;
-
-
-
-                //    //row1.Cells[5].AddParagraph(extendedPrice.ToString("0.00") + " €");
-
-                //    //row1.Cells[5].VerticalAlignment = VerticalAlignment.Bottom;
-
-                //    //totalExtendedPrice += extendedPrice;
-
-
-
-
-                //    table.SetEdge(0, table.Rows.Count - 2, 6, 2, Edge.Box, BorderStyle.Single, 0.75);
-
-                //    //}
-
-
-
-
-                //    //// Add an invisible row as a space line to the table
-
-                //    //Row row = table.AddRow();
-
-                //    //row.Borders.Visible = false;
-
-
-
-
-                //    //// Add the total price row
-
-                //    //row = table.AddRow();
-
-                //    //row.Cells[0].Borders.Visible = false;
-
-                //    //row.Cells[0].AddParagraph("Total Price");
-
-                //    //row.Cells[0].Format.Font.Bold = true;
-
-                //    //row.Cells[0].Format.Alignment = ParagraphAlignment.Right;
-
-                //    //row.Cells[0].MergeRight = 4;
-
-                //    //row.Cells[5].AddParagraph(totalExtendedPrice.ToString("0.00") + " €");
-
-
-
-
-                //    //// Add the VAT row
-
-                //    //row = table.AddRow();
-
-                //    //row.Cells[0].Borders.Visible = false;
-
-                //    //row.Cells[0].AddParagraph("VAT (19%)");
-
-                //    //row.Cells[0].Format.Font.Bold = true;
-
-                //    //row.Cells[0].Format.Alignment = ParagraphAlignment.Right;
-
-                //    //row.Cells[0].MergeRight = 4;
-
-                //    //row.Cells[5].AddParagraph((0.19 * totalExtendedPrice).ToString("0.00") + " €");
-
-
-
-
-                //    //// Add the additional fee row
-
-                //    //row = table.AddRow();
-
-                //    //row.Cells[0].Borders.Visible = false;
-
-                //    //row.Cells[0].AddParagraph("Shipping and Handling");
-
-                //    //row.Cells[5].AddParagraph(0.ToString("0.00") + " €");
-
-                //    //row.Cells[0].Format.Font.Bold = true;
-
-                //    //row.Cells[0].Format.Alignment = ParagraphAlignment.Right;
-
-                //    //row.Cells[0].MergeRight = 4;
-
-
-
-
-                //    //// Add the total due row
-
-                //    //row = table.AddRow();
-
-                //    //row.Cells[0].AddParagraph("Total Due");
-
-                //    //row.Cells[0].Borders.Visible = false;
-
-                //    //row.Cells[0].Format.Font.Bold = true;
-
-                //    //row.Cells[0].Format.Alignment = ParagraphAlignment.Right;
-
-                //    //row.Cells[0].MergeRight = 4;
-
-                //    //totalExtendedPrice += 0.19 * totalExtendedPrice;
-
-                //    //row.Cells[5].AddParagraph(totalExtendedPrice.ToString("0.00") + " €");
-
-
-
-
-                //    //// Set the borders of the specified cell range
-
-                //    //table.SetEdge(5, table.Rows.Count - 4, 1, 4, Edge.Box, BorderStyle.Single, 0.75);
-
-
-
-
-                //    //// Add the notes paragraph
-
-                //    //p = document.LastSection.AddParagraph();
-
-                //    //p.Format.SpaceBefore = "1cm";
-
-                //    //p.Format.Borders.Width = 0.75;
-
-                //    //p.Format.Borders.Distance = 3;
-
-                //    ////p.Format.Borders.Color = TableBorder;
-
-                //    ////p.Format.Shading.Color = TableGray;
-
-                //    ////item = SelectItem("/invoice");
-
-                //    ////paragraph.AddText(GetValue(item, "notes"));
-
-                //}
                 string pdfFilename = r[i].RecipeId + ".pdf";
                 var pdf = new MigraDoc.Rendering.PdfDocumentRenderer(true, PdfSharp.Pdf.PdfFontEmbedding.None);
                 pdf.Document = document;
@@ -861,20 +675,24 @@ namespace BL
         {
 
             CreateDocument(r);
-            ProcessStartInfo info = new ProcessStartInfo();
-            info.Verb = "print";
-            //info.FileName = recipe.RecipeId + ".pdf";
-            info.CreateNoWindow = true;
-            info.WindowStyle = ProcessWindowStyle.Hidden;
+            for (int i = 0; i < r.Count; i++)
+            {
+                ProcessStartInfo info = new ProcessStartInfo();
+                info.Verb = "print";
+                info.FileName = r[i].RecipeId + ".pdf";
+                info.CreateNoWindow = true;
+                info.WindowStyle = ProcessWindowStyle.Hidden;
 
-            Process p = new Process();
-            p.StartInfo = info;
-            p.Start();
+                Process p = new Process();
+                p.StartInfo = info;
+                p.Start();
 
-            p.WaitForInputIdle();
-            System.Threading.Thread.Sleep(3000);
-            if (false == p.CloseMainWindow())
-                p.Kill();
+                p.WaitForInputIdle();
+                System.Threading.Thread.Sleep(3000);
+                if (false == p.CloseMainWindow())
+                    p.Kill();
+            }
+            
 
         }
         #endregion PDF  
