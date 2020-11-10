@@ -214,7 +214,7 @@ namespace DrugsProject3._0.ViewModels
             }
         }
        
-        public void creatPDF()
+        public void createPDF()
         {
             try
             {
@@ -222,7 +222,7 @@ namespace DrugsProject3._0.ViewModels
                 {
                     throw new ArgumentException("אתה צריך למלא את כל השדות");
                 }
-               // AddDoctorVisitM.creatPDF(PrescriptionsGiven);
+                AddDoctorVisitM.createPDF(PrescriptionsGiven);
             }
             catch (Exception e)
             {
