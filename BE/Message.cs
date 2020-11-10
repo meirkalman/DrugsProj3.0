@@ -11,7 +11,7 @@ namespace BE
         public string message { get; set; }
         public Message()
         {
-            
-        } 
+
+        }
     }
 }
