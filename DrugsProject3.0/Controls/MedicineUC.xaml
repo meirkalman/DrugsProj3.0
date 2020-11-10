@@ -44,7 +44,7 @@
                 </ComboBox>
                 <Button Content="הסר"  Command="{Binding Command}" CommandParameter="DeleteMedicine" HorizontalAlignment="Left" Margin="118,195,0,0" VerticalAlignment="Top" Width="76"/>
                 <TextBlock HorizontalAlignment="Left" Margin="92,59,0,0" TextWrapping="Wrap" FontSize="22" Text="מספר תרופה" VerticalAlignment="Top" Height="37" Width="151"/>
-                <Button Content="חזור"  Command="{Binding Command}" CommandParameter="Return" HorizontalAlignment="Left" Margin="10,0,0,18" VerticalAlignment="Bottom" Width="75" />
+                <Button Content="חזור"  Command="{Binding Command}" CommandParameter="Return" HorizontalAlignment="Left" Margin="10,0,0,36" VerticalAlignment="Bottom" Width="75" />
             </Grid>
         </GroupBox>
 

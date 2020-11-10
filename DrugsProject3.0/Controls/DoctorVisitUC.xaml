@@ -29,7 +29,7 @@
     Minimum="0"
     Maximum="30" 
     Style="{StaticResource MaterialDesignDiscreteSlider}"
-    ToolTip="MaterialDesignDiscreteSlider"
+    
     Margin="2,0,161,5" />
                 </Grid>
                 <TextBlock HorizontalAlignment="Left" Margin="222,0,0,0" FontSize="18" TextWrapping="Wrap" Text=":שם המטופל" VerticalAlignment="Top" Height="31" Width="106"/>
@@ -53,10 +53,10 @@
                 <ListBox x:Name="MedicineListBox" Background="Transparent" ItemsSource="{Binding MedicationsAdded}" FontSize="20"  HorizontalAlignment="Left" FlowDirection="RightToLeft" IsEnabled="True" Height="112" Margin="29,188,0,0"   VerticalAlignment="Top" Width="188"  BorderThickness="2" BorderBrush="Black" FontWeight="Bold"/>
                 <Button Command="{Binding AddCommand}" CommandParameter ="AddRecipe"
     Style="{StaticResource MaterialDesignRaisedAccentButton}" Background="#FF607D8B"
-    ToolTip="Resource name: MaterialDesignRaisedAccentButton" Margin="308,326,75,45" Height="Auto" Content="הוסף מרשם" />
+    Margin="308,326,75,45" Height="Auto" Content="הוסף מרשם" />
                 <Button Background="#FF607D8B" Command="{Binding AddCommand}" CommandParameter ="DeleteRecipe"
     Style="{StaticResource MaterialDesignRaisedAccentButton}"
-    ToolTip="Resource name: MaterialDesignRaisedAccentButton" Margin="143,326,242,45" Height="Auto" Content="הסר מרשם" />
+     Margin="143,326,242,45" Height="Auto" Content="הסר מרשם" />
                 <materialDesign:PopupBox
   Style="{StaticResource MaterialDesignMultiFloatingActionAccentPopupBox}"
   PlacementMode="BottomAndAlignCentres"
@@ -83,7 +83,7 @@
         </GroupBox>
         <Button Command="{Binding AddCommand}" CommandParameter ="FinishVisit"
     Style="{StaticResource MaterialDesignRaisedAccentButton}" Background="#FF607D8B"
-    ToolTip="Resource name: MaterialDesignRaisedAccentButton" Grid.Column="1" Margin="447,417,10,34" Content="סיום" Height="Auto" />
+     Grid.Column="1" Margin="447,417,10,34" Content="סיום" Height="Auto" />
 
         <Grid Grid.Column="1" HorizontalAlignment="Left" Height="55" Margin="240,229,0,0" VerticalAlignment="Top" Width="277">
             <TextBlock HorizontalAlignment="Left" IsEnabled="False" FlowDirection="RightToLeft" Height="28" Margin="110,29,0,-2" TextWrapping="Wrap" Text="מספר פעמים ביום" VerticalAlignment="Top" Width="100"/>
@@ -91,7 +91,7 @@
     Minimum="0"
     Maximum="10"
     Style="{StaticResource MaterialDesignDiscreteSlider}"
-    ToolTip="MaterialDesignDiscreteSlider"
+   
      Value="{Binding QuantityPerDay}" Margin="0,-5,163,0" />
         </Grid>
           <GroupBox
