@@ -210,7 +210,7 @@ namespace DrugsProject3._0.ViewModels
             }
             catch (Exception e)
             {
-                (App.Current as App).navigation.MainWindows.comments.Text = e.Message.ToString();
+                (App.Current as App).navigation.MainWindows.comments.Text = "מדפסת לא נמצאה";
             }
         }
        
