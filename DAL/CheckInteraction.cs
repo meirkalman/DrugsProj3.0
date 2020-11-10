@@ -16,9 +16,7 @@ namespace DAL
         {
             List<string> result = new List<string>();
             drugsNums.Load("mainxml.xml");
-            //string result = string.Empty;
-           
-               // int drugNum = NumberFromName(drugName);
+            
                 string interactionJsonString = HttpRequest(GenerateURL(int.Parse(drugId)));
                 Root interactionObj = Newtonsoft.Json.JsonConvert.DeserializeObject<Root>(interactionJsonString);
                 if (interactionObj.interactionTypeGroup != null)
