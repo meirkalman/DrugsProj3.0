@@ -58,7 +58,7 @@ namespace DrugsProject3._0.Commands
 
             if (parameter.ToString() == "PDF")
             {
-                CurrentVM.creatPDF();
+                CurrentVM.createPDF();
             }
             if (parameter.ToString() == "Print")
             {

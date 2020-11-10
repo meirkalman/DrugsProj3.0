@@ -17,9 +17,9 @@ namespace DrugsProject3._0.Models
         {
             Bl = new BlObject();
         }
-        public void creatPDF(List<Recipe> r)
+        public void createPDF(List<Recipe> r)
         {
-            //Bl.createPDF(r);
+            Bl.CreateDocument(r);
         }
 
         public void Print(List<Recipe> r)
