@@ -22,12 +22,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Xml.XPath;
+
 using Document = MigraDoc.DocumentObjectModel.Document;
 
 using Image = MigraDoc.DocumentObjectModel.Shapes.Image;
 using Style = MigraDoc.DocumentObjectModel.Style;
 using VerticalAlignment = MigraDoc.DocumentObjectModel.Tables.VerticalAlignment;
 using System.Windows.Xps.Packaging;
+using PdfSharp.Pdf.Annotations;
+using System.Reflection;
+using MigraDoc.Rendering;
+using PdfSharp.Pdf.IO;
 
 namespace BL
 {
@@ -489,7 +494,7 @@ namespace BL
 
 
                 Paragraph paragraph = section.Footers.Primary.AddParagraph();
-                
+
 
                 // Create the text frame for the address
                 var addressFrame = section.AddTextFrame();
@@ -584,9 +589,6 @@ namespace BL
 
                 row.Cells[7].Format.Alignment = ParagraphAlignment.Right;
 
-
-
-
                 table.SetEdge(0, 0, 6, 2, Edge.Box, BorderStyle.Single, 0.75);
 
                 Paragraph p = addressFrame.AddParagraph();
@@ -595,39 +597,27 @@ namespace BL
 
                 p.AddLineBreak();
 
-
-
-
                 // Each item fills two rows
 
                 Row row1 = table.AddRow();
                 row1.TopPadding = 1.5;
-
                 row1.Cells[7].AddParagraph(Reverse(pa.Fname + " " + pa.Lname));
                 row1.Cells[6].AddParagraph(pa.PatientId);
-
                 row1.Cells[5].AddParagraph(Reverse(u.Fname + " " + u.Lname));
-
                 row1.Cells[4].AddParagraph(m.Id);
-
                 row1.Cells[3].AddParagraph(m.CommercialName);
-
                 row1.Cells[2].AddParagraph(r[i].PeriodOfUse.ToString());
                 row1.Cells[1].AddParagraph(r[i].QuantityPerDay.ToString());
 
-
                 string pdfFilename = r[i].RecipeId + ".pdf";
-                var pdf = new MigraDoc.Rendering.PdfDocumentRenderer(true, PdfSharp.Pdf.PdfFontEmbedding.None);
+                var pdf = new PdfDocumentRenderer(true, PdfSharp.Pdf.PdfFontEmbedding.None);
                 pdf.Document = document;
                 pdf.RenderDocument();
                 pdf.Save(pdfFilename);
-
-                //fileOpener.ShellExecute(filename);
                 Process.Start(pdfFilename);
-                
+
             }
         }
-
 
         public void print(List<Recipe> r)
         {
@@ -650,7 +640,6 @@ namespace BL
                 if (false == p.CloseMainWindow())
                     p.Kill();
             }
-            
 
         }
         #endregion PDF  
@@ -814,28 +803,9 @@ namespace BL
 
         #endregion other
 
-
-
     }
+
 }
-
-
-
-
-//public List<Recipe> drugStatistics(string drugID, DateTime start, DateTime finish)
-//{
-//    List<Recipe> result = new List<Recipe>();
-//    var prescriptionsOnTheAppropriateDate = (from item in IDalService.GetAllRecipes()
-//                                             where (drugID == item.MedicineId && start >= item.Date && finish <= item.Date)
-//                                             group item by item.Date).ToList();
-//    var prescriptions = prescriptionsOnTheAppropriateDate.OrderBy(g => g.Key);
-//    foreach (var g in prescriptions)
-//    {
-//        result.Add(g.Key, g.Count());
-//    }
-//    return result;
-
-//}
 
 
 
